@@ -3,7 +3,7 @@
 let
   user = config.steveos.user.username;
   dataDir = "/home/${user}/docker/jellyfin";
-  mediaDir = "/home/${user}/video";
+  mediaDir = "/home/${user}/videos";
   gpuType = config.steveos.hardware.gpu or "intel";
 
   # Détection automatique du GPU selon le matériel de la machine
