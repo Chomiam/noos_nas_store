@@ -4,6 +4,25 @@ let
   user = config.steveos.user.username;
   dataDir = "/home/${user}/docker/jellyfin";
   mediaDir = "/home/${user}/video";
+  gpuType = config.steveos.hardware.gpu or "intel";
+
+  # Détection automatique du GPU selon le matériel de la machine
+  isNvidia = gpuType == "nvidia" || gpuType == "nvidia-legacy";
+  hasDri = builtins.pathExists "/dev/dri" || gpuType == "intel" || gpuType == "amd";
+
+  gpuOptions =
+    if isNvidia then
+      [ "--gpus=all" ]
+    else if hasDri then
+      [ "--device=/dev/dri:/dev/dri" ]
+    else
+      [ ];
+
+  gpuEnv =
+    if isNvidia then {
+      NVIDIA_VISIBLE_DEVICES = "all";
+      NVIDIA_DRIVER_CAPABILITIES = "all";
+    } else { };
 in
 {
   systemd.tmpfiles.rules = [
@@ -40,10 +59,8 @@ in
       PGID = "100";
       TZ = config.steveos.timeZone or "Europe/Paris";
       UMASK = "002";
-    };
-    extraOptions = [
-      "--device=/dev/dri:/dev/dri"
-    ];
+    } // gpuEnv;
+    extraOptions = gpuOptions;
   };
 
   networking.firewall.allowedTCPPorts = [ 8096 8920 ];
