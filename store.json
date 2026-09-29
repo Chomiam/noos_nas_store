@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-09-29T19:20:00Z",
+  "updated_at": "2026-09-29T20:05:00Z",
   "repository": "https://github.com/Chomiam/steveos_nas_store",
   "categories": [
     "Tous",
@@ -35,6 +35,47 @@
         }
       ],
       "nix_file": "arcane.nix"
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "version": "latest",
+      "category": "Multimédia",
+      "tagline": "Système multimédia libre pour streamer vos films, séries et animés",
+      "description": "Serveur multimédia open-source puissant sans abonnement ni pistage. Organisez et streamez vos bibliothèques (Films, Séries, Animés) sur tous vos écrans avec transcodage matériel.",
+      "website": "https://jellyfin.org/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/jellyfin/icon.svg",
+      "default_port": 8096,
+      "recommended": true,
+      "media_support": true,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/jellyfin/config",
+          "container": "/config",
+          "description": "Configuration Jellyfin et base de données"
+        },
+        {
+          "host": "/home/{USER}/docker/jellyfin/cache",
+          "container": "/cache",
+          "description": "Cache de transcodage et métadonnées"
+        },
+        {
+          "host": "{MEDIA_DIR}/movies",
+          "container": "/data/movies",
+          "description": "Dossier des films"
+        },
+        {
+          "host": "{MEDIA_DIR}/tv_shows",
+          "container": "/data/tv_shows",
+          "description": "Dossier des séries TV"
+        },
+        {
+          "host": "{MEDIA_DIR}/anims",
+          "container": "/data/anims",
+          "description": "Dossier des animés et animations"
+        }
+      ],
+      "nix_file": "jellyfin.nix"
     },
     {
       "id": "immich",
