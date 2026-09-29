@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "updated_at": "2026-09-29T19:00:00Z",
+  "updated_at": "2026-09-29T19:20:00Z",
   "repository": "https://github.com/Chomiam/steveos_nas_store",
   "categories": [
     "Tous",
@@ -146,51 +146,6 @@
         }
       ],
       "nix_file": "uptime-kuma.nix"
-    },
-    {
-      "id": "homepage",
-      "name": "Homepage",
-      "version": "latest",
-      "category": "Administration",
-      "tagline": "Tableau de bord moderne et personnalisable pour homelab",
-      "description": "Page d'accueil élégante pour votre NAS regroupant tous vos services, liens rapides, métriques système et widgets d'état.",
-      "website": "https://gethomepage.dev/",
-      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/homepage/icon.svg",
-      "default_port": 3000,
-      "recommended": false,
-      "volumes": [
-        {
-          "host": "/home/{USER}/docker/homepage/config",
-          "container": "/app/config",
-          "description": "Configuration YAML des services et widgets"
-        }
-      ],
-      "nix_file": "homepage.nix"
-    },
-    {
-      "id": "filebrowser",
-      "name": "FileBrowser",
-      "version": "latest",
-      "category": "Outils",
-      "tagline": "Explorateur de fichiers Web simple et rapide",
-      "description": "Interface web légère et réactive pour naviguer dans vos répertoires, téléverser, télécharger et gérer vos fichiers depuis n'importe quel navigateur.",
-      "website": "https://filebrowser.org/",
-      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/filebrowser/icon.svg",
-      "default_port": 8082,
-      "recommended": false,
-      "volumes": [
-        {
-          "host": "/home/{USER}/docker/filebrowser/data",
-          "container": "/srv",
-          "description": "Répertoire exploré"
-        },
-        {
-          "host": "/home/{USER}/docker/filebrowser/config",
-          "container": "/config",
-          "description": "Base de données et préférences"
-        }
-      ],
-      "nix_file": "filebrowser.nix"
     }
   ]
 }
