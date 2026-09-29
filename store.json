@@ -1,0 +1,196 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-09-29T19:00:00Z",
+  "repository": "https://github.com/Chomiam/steveos_nas_store",
+  "categories": [
+    "Tous",
+    "Administration",
+    "Multimédia",
+    "Téléchargement",
+    "Sécurité",
+    "Monitoring",
+    "Outils"
+  ],
+  "apps": [
+    {
+      "id": "arcane",
+      "name": "Arcane",
+      "version": "latest",
+      "category": "Administration",
+      "tagline": "Gestionnaire moderne et léger de conteneurs Docker",
+      "description": "Arcane propose une interface utilisateur épurée et moderne pour superviser, déployer et administrer facilement vos conteneurs Docker et stacks Compose.",
+      "website": "https://getarcane.app/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/arcane/icon.svg",
+      "default_port": 3552,
+      "recommended": true,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/arcane/data",
+          "container": "/app/data",
+          "description": "Base de données et configuration interne"
+        },
+        {
+          "host": "/var/run/docker.sock",
+          "container": "/var/run/docker.sock",
+          "description": "Socket de contrôle du démon Docker"
+        }
+      ],
+      "nix_file": "arcane.nix"
+    },
+    {
+      "id": "immich",
+      "name": "Immich",
+      "version": "v1.120.0",
+      "category": "Multimédia",
+      "tagline": "Solution d'hébergement de photos et vidéos type Google Photos",
+      "description": "Sauvegarde automatique, détection des visages par IA, géolocalisation, albums partagés et lecture haute définition de vos photos et vidéos familiales.",
+      "website": "https://immich.app/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/immich/icon.svg",
+      "default_port": 2283,
+      "recommended": true,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/immich/upload",
+          "container": "/usr/src/app/upload",
+          "description": "Répertoire de stockage des photos et vidéos"
+        },
+        {
+          "host": "/home/{USER}/docker/immich/profile",
+          "container": "/usr/src/app/profile",
+          "description": "Profils utilisateurs et miniatures"
+        }
+      ],
+      "nix_file": "immich.nix"
+    },
+    {
+      "id": "jellyseerr",
+      "name": "Jellyseerr",
+      "version": "latest",
+      "category": "Multimédia",
+      "tagline": "Gestionnaire de demandes de films et séries pour Jellyfin",
+      "description": "Permet aux utilisateurs de votre NAS de demander de nouveaux contenus vidéo avec découverte interactive, bandes-annonces et synchronisation Jellyfin.",
+      "website": "https://github.com/Fallenbagel/jellyseerr",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/jellyseerr/icon.svg",
+      "default_port": 5055,
+      "recommended": true,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/jellyseerr/config",
+          "container": "/app/config",
+          "description": "Configuration et base de données"
+        }
+      ],
+      "nix_file": "jellyseerr.nix"
+    },
+    {
+      "id": "qbittorrent",
+      "name": "qBittorrent",
+      "version": "latest",
+      "category": "Téléchargement",
+      "tagline": "Client BitTorrent rapide avec interface web complète",
+      "description": "Client BitTorrent open-source robuste doté d'une interface Web complète pour gérer vos téléchargements à distance avec gestion de la bande passante.",
+      "website": "https://www.qbittorrent.org/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/qbittorrent/icon.svg",
+      "default_port": 8085,
+      "recommended": false,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/qbittorrent/config",
+          "container": "/config",
+          "description": "Fichiers de configuration et torrents actifs"
+        },
+        {
+          "host": "/home/{USER}/docker/qbittorrent/downloads",
+          "container": "/downloads",
+          "description": "Dossier des fichiers téléchargés"
+        }
+      ],
+      "nix_file": "qbittorrent.nix"
+    },
+    {
+      "id": "vaultwarden",
+      "name": "Vaultwarden",
+      "version": "latest",
+      "category": "Sécurité",
+      "tagline": "Serveur Bitwarden léger et ultra-rapide en Rust",
+      "description": "Coffre-fort de mots de passe auto-hébergé, compatible à 100% avec toutes les extensions navigateurs et applications mobiles officielles de Bitwarden.",
+      "website": "https://github.com/dani-garcia/vaultwarden",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/vaultwarden/icon.svg",
+      "default_port": 8222,
+      "recommended": true,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/vaultwarden/data",
+          "container": "/data",
+          "description": "Coffre-fort chiffré et base SQLite"
+        }
+      ],
+      "nix_file": "vaultwarden.nix"
+    },
+    {
+      "id": "uptime-kuma",
+      "name": "Uptime Kuma",
+      "version": "latest",
+      "category": "Monitoring",
+      "tagline": "Surveillance de disponibilité de vos services et sites web",
+      "description": "Tableau de bord auto-hébergé surveillant le temps de disponibilité (HTTP, Ping, Port TCP, DNS) avec alertes instantanées (Telegram, Discord, Email).",
+      "website": "https://uptime.kuma.pet/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/uptime-kuma/icon.svg",
+      "default_port": 3001,
+      "recommended": false,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/uptime-kuma/data",
+          "container": "/app/data",
+          "description": "Statistiques et historiques de monitoring"
+        }
+      ],
+      "nix_file": "uptime-kuma.nix"
+    },
+    {
+      "id": "homepage",
+      "name": "Homepage",
+      "version": "latest",
+      "category": "Administration",
+      "tagline": "Tableau de bord moderne et personnalisable pour homelab",
+      "description": "Page d'accueil élégante pour votre NAS regroupant tous vos services, liens rapides, métriques système et widgets d'état.",
+      "website": "https://gethomepage.dev/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/homepage/icon.svg",
+      "default_port": 3000,
+      "recommended": false,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/homepage/config",
+          "container": "/app/config",
+          "description": "Configuration YAML des services et widgets"
+        }
+      ],
+      "nix_file": "homepage.nix"
+    },
+    {
+      "id": "filebrowser",
+      "name": "FileBrowser",
+      "version": "latest",
+      "category": "Outils",
+      "tagline": "Explorateur de fichiers Web simple et rapide",
+      "description": "Interface web légère et réactive pour naviguer dans vos répertoires, téléverser, télécharger et gérer vos fichiers depuis n'importe quel navigateur.",
+      "website": "https://filebrowser.org/",
+      "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/filebrowser/icon.svg",
+      "default_port": 8082,
+      "recommended": false,
+      "volumes": [
+        {
+          "host": "/home/{USER}/docker/filebrowser/data",
+          "container": "/srv",
+          "description": "Répertoire exploré"
+        },
+        {
+          "host": "/home/{USER}/docker/filebrowser/config",
+          "container": "/config",
+          "description": "Base de données et préférences"
+        }
+      ],
+      "nix_file": "filebrowser.nix"
+    }
+  ]
+}

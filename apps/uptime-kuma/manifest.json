@@ -1,0 +1,20 @@
+{
+  "id": "uptime-kuma",
+  "name": "Uptime Kuma",
+  "version": "latest",
+  "category": "Monitoring",
+  "tagline": "Surveillance de disponibilité de vos services et sites web",
+  "description": "Tableau de bord auto-hébergé surveillant le temps de disponibilité (HTTP, Ping, Port TCP, DNS) avec alertes instantanées (Telegram, Discord, Email).",
+  "website": "https://uptime.kuma.pet/",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/uptime-kuma/icon.svg",
+  "default_port": 3001,
+  "recommended": false,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/uptime-kuma/data",
+      "container": "/app/data",
+      "description": "Statistiques et historiques de monitoring"
+    }
+  ],
+  "nix_file": "uptime-kuma.nix"
+}

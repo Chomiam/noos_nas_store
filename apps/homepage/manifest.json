@@ -1,0 +1,20 @@
+{
+  "id": "homepage",
+  "name": "Homepage",
+  "version": "latest",
+  "category": "Administration",
+  "tagline": "Tableau de bord moderne et personnalisable pour homelab",
+  "description": "Page d'accueil élégante pour votre NAS regroupant tous vos services, liens rapides, métriques système et widgets d'état.",
+  "website": "https://gethomepage.dev/",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/homepage/icon.svg",
+  "default_port": 3000,
+  "recommended": false,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/homepage/config",
+      "container": "/app/config",
+      "description": "Configuration YAML des services et widgets"
+    }
+  ],
+  "nix_file": "homepage.nix"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "filebrowser",
+  "name": "FileBrowser",
+  "version": "latest",
+  "category": "Outils",
+  "tagline": "Explorateur de fichiers Web simple et rapide",
+  "description": "Interface web légère et réactive pour naviguer dans vos répertoires, téléverser, télécharger et gérer vos fichiers depuis n'importe quel navigateur.",
+  "website": "https://filebrowser.org/",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/filebrowser/icon.svg",
+  "default_port": 8082,
+  "recommended": false,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/filebrowser/data",
+      "container": "/srv",
+      "description": "Répertoire exploré"
+    },
+    {
+      "host": "/home/{USER}/docker/filebrowser/config",
+      "container": "/config",
+      "description": "Base de données et préférences"
+    }
+  ],
+  "nix_file": "filebrowser.nix"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "vaultwarden",
+  "name": "Vaultwarden",
+  "version": "latest",
+  "category": "Sécurité",
+  "tagline": "Serveur Bitwarden léger et ultra-rapide en Rust",
+  "description": "Coffre-fort de mots de passe auto-hébergé, compatible à 100% avec toutes les extensions navigateurs et applications mobiles officielles de Bitwarden.",
+  "website": "https://github.com/dani-garcia/vaultwarden",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/vaultwarden/icon.svg",
+  "default_port": 8222,
+  "recommended": true,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/vaultwarden/data",
+      "container": "/data",
+      "description": "Coffre-fort chiffré et base SQLite"
+    }
+  ],
+  "nix_file": "vaultwarden.nix"
+}

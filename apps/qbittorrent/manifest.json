@@ -1,0 +1,25 @@
+{
+  "id": "qbittorrent",
+  "name": "qBittorrent",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Client BitTorrent rapide avec interface web complète",
+  "description": "Client BitTorrent open-source robuste doté d'une interface Web complète pour gérer vos téléchargements à distance avec gestion de la bande passante.",
+  "website": "https://www.qbittorrent.org/",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/qbittorrent/icon.svg",
+  "default_port": 8085,
+  "recommended": false,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/qbittorrent/config",
+      "container": "/config",
+      "description": "Fichiers de configuration et torrents actifs"
+    },
+    {
+      "host": "/home/{USER}/docker/qbittorrent/downloads",
+      "container": "/downloads",
+      "description": "Dossier des fichiers téléchargés"
+    }
+  ],
+  "nix_file": "qbittorrent.nix"
+}

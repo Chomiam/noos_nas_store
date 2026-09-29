@@ -1,0 +1,25 @@
+{
+  "id": "arcane",
+  "name": "Arcane",
+  "version": "latest",
+  "category": "Administration",
+  "tagline": "Gestionnaire moderne et léger de conteneurs Docker",
+  "description": "Arcane propose une interface utilisateur épurée et moderne pour superviser, déployer et administrer facilement vos conteneurs Docker et stacks Compose.",
+  "website": "https://getarcane.app/",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/arcane/icon.svg",
+  "default_port": 3552,
+  "recommended": true,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/arcane/data",
+      "container": "/app/data",
+      "description": "Base de données et configuration interne"
+    },
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Socket de contrôle du démon Docker"
+    }
+  ],
+  "nix_file": "arcane.nix"
+}

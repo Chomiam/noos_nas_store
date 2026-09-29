@@ -1,0 +1,20 @@
+{
+  "id": "jellyseerr",
+  "name": "Jellyseerr",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Gestionnaire de demandes de films et séries pour Jellyfin",
+  "description": "Permet aux utilisateurs de votre NAS de demander de nouveaux contenus vidéo avec découverte interactive, bandes-annonces et synchronisation Jellyfin.",
+  "website": "https://github.com/Fallenbagel/jellyseerr",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/jellyseerr/icon.svg",
+  "default_port": 5055,
+  "recommended": true,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/jellyseerr/config",
+      "container": "/app/config",
+      "description": "Configuration et base de données"
+    }
+  ],
+  "nix_file": "jellyseerr.nix"
+}

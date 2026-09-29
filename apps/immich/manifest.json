@@ -1,0 +1,25 @@
+{
+  "id": "immich",
+  "name": "Immich",
+  "version": "v1.120.0",
+  "category": "Multimédia",
+  "tagline": "Solution d'hébergement de photos et vidéos type Google Photos",
+  "description": "Sauvegarde automatique, détection des visages par IA, géolocalisation, albums partagés et lecture haute définition de vos photos et vidéos familiales.",
+  "website": "https://immich.app/",
+  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/immich/icon.svg",
+  "default_port": 2283,
+  "recommended": true,
+  "volumes": [
+    {
+      "host": "/home/{USER}/docker/immich/upload",
+      "container": "/usr/src/app/upload",
+      "description": "Répertoire de stockage des photos et vidéos"
+    },
+    {
+      "host": "/home/{USER}/docker/immich/profile",
+      "container": "/usr/src/app/profile",
+      "description": "Profils utilisateurs et miniatures"
+    }
+  ],
+  "nix_file": "immich.nix"
+}
