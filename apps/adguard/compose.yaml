@@ -1,24 +1,37 @@
+# =========================================================================
+# 🐳 STEvE_OS NAS Edition — Configuration Docker Compose
+# Application  : AdGuard Home (adguard)
+# Port WebUI   : 3000 (Initialisation) / 80 (Administration)
+# Port DNS     : 53 (TCP/UDP)
+# Données hôte : ./data/work et ./data/conf
+# =========================================================================
+
+version: "3.8"
+
 services:
   adguard:
     container_name: adguard
     image: adguard/adguardhome:latest
     restart: unless-stopped
     ports:
-    - 53:53/tcp
-    - 53:53/udp
-    - 67:67/udp
-    - 68:68/tcp
-    - 68:68/udp
-    - 80:80/tcp
-    - 443:443/tcp
-    - 853:853/tcp
-    - 3000:3000/tcp
+      # Serveur DNS principal (TCP et UDP indispensables)
+      - "53:53/tcp"
+      - "53:53/udp"
+      # Assistant d'installation Web initial
+      - "3000:3000/tcp"
+      # Interface Web d'administration finale
+      - "80:80/tcp"
+      # DNS over TLS (DoT chiffré)
+      - "853:853/tcp"
+      # Serveur DHCP (Optionnel)
+      - "67:67/udp"
+      - "68:68/tcp"
+      - "68:68/udp"
     volumes:
-    - ./data/Workdir:/opt/adguardhome/work
-    - ./data/Conf:/opt/adguardhome/conf
+      - ./data/work:/opt/adguardhome/work
+      - ./data/conf:/opt/adguardhome/conf
     environment:
-    - PUID=1000
-    - PGID=100
-    - TZ=Europe/Paris
-    - UMASK=002
-    - CONTEXT_PATH=adguard home
+      - TZ=Europe/Paris
+      - PUID=1000
+      - PGID=100
+      - UMASK=002
