@@ -7,7 +7,7 @@
   "description": "Markopolis is like the self hosted version of Obsidian Publish.",
   "website": "",
   "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/markopolis.png",
-  "default_port": 81080,
+  "default_port": 8108,
   "extra_ports": [],
   "recommended": false,
   "type": "compose",

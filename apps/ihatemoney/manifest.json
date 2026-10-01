@@ -7,7 +7,7 @@
   "description": "I hate money is a web application made to ease shared budget management. It keeps track of who bought what, when, and for whom; and helps to settle the bills.",
   "website": "",
   "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/ihatemoney.png",
-  "default_port": 82303,
+  "default_port": 8230,
   "extra_ports": [],
   "recommended": false,
   "type": "compose",
