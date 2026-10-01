@@ -1,0 +1,16 @@
+services:
+  stirling-pdf:
+    container_name: stirling-pdf
+    image: frooodle/s-pdf:0.18.1
+    restart: unless-stopped
+    ports:
+    - 5417:8080/tcp
+    volumes:
+    - ./data/StirlingPDF:/configs
+    - ./data/StirlingPDF/tessdata:/usr/share/tesseract-ocr/5/tessdata
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - DOCKER_ENABLE_SECURITY=

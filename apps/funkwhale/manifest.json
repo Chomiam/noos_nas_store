@@ -1,0 +1,29 @@
+{
+  "id": "funkwhale",
+  "name": "Funkwhale",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "A social platform to enjoy and share music",
+  "description": "A social platform to enjoy and share music.Funkwhale is a community-driven project that lets you listen and share music and audio within a decentralized, open network.",
+  "website": "",
+  "icon": "https://funkwhale.audio/img/with-text-500.4aff7861.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "kimai",
+  "name": "Kimai",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "[Kimai](https://kimai",
+  "description": "[Kimai](https://kimai.org/) is a professional grade time-tracking application, free and open-source. It handles use-cases of freelancers as well as companies with dozens or hundreds of users. Kimai was build to track your project times and ships with many advanced features, including but not limited to: JSON API, invoicing, data exports, multi-timer and punch-in punch-out mode, tagging, multi-user - multi-timezones - multi-language ([over 30 translations existing](https://hosted.weblate.org/projects/kimai/)!), authentication via SAML/LDAP/Database, two-factor authentication (2FA) with TOTP, customizable role and team permissions, responsive design, user/customer/project specific rates, advanced search & filtering, money and time budgets, advanced reporting, support for [plugins](https://www.kimai.org/store/) and so much more.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kimai-logo.png",
+  "default_port": 80,
+  "extra_ports": [
+    443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "APP_SECRET",
+      "label": "APP_SECRET",
+      "default": ""
+    },
+    {
+      "name": "DATABASE_URL",
+      "label": "DATABASE_URL",
+      "default": "mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version"
+    },
+    {
+      "name": "TRUSTED_HOSTS",
+      "label": "TRUSTED_HOSTS",
+      "default": "kimai.example.com"
+    },
+    {
+      "name": "TRUSTED_PROXIES",
+      "label": "TRUSTED_PROXIES",
+      "default": "127.0.0.1/32"
+    }
+  ]
+}

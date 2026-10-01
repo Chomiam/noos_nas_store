@@ -1,0 +1,49 @@
+{
+  "id": "mautic-container",
+  "name": "Mautic (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Open-source marketing automation platform",
+  "description": "Open-source marketing automation platform",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mautic.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/var_www_html",
+      "container": "/var/www/html",
+      "description": "Dossier /var/www/html"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MAUTIC_DB_HOST",
+      "label": "MySQL database host",
+      "default": ""
+    },
+    {
+      "name": "MAUTIC_DB_PASSWORD",
+      "label": "Database password",
+      "default": ""
+    }
+  ]
+}

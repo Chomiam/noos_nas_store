@@ -1,0 +1,44 @@
+{
+  "id": "rclone",
+  "name": "Rclone Config Backup",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Rclone is a command line program to sync files and directories to and from cloud providers (Dropbox, GDrive, Box, etc)",
+  "description": "Rclone is a command line program to sync files and directories to and from cloud providers (Dropbox, GDrive, Box, etc)",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/rclone.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/rclone",
+      "container": "/srv/rclone/config",
+      "description": "Dossier /srv/rclone/config"
+    },
+    {
+      "host": "./data/apps",
+      "container": "/mnt/data",
+      "description": "Dossier /mnt/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

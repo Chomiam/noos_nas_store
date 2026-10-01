@@ -1,0 +1,59 @@
+{
+  "id": "youtubedl-material",
+  "name": "YouTubeDL-Material",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "YoutubeDL-Material is a Material Design frontend for youtube-dl",
+  "description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/ytdlm.png",
+  "default_port": 17442,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/YTDLM",
+      "container": "/app/appdata",
+      "description": "Dossier /app/appdata"
+    },
+    {
+      "host": "./data/Video",
+      "container": "/app/video",
+      "description": "Dossier /app/video"
+    },
+    {
+      "host": "./data/Subscriptions",
+      "container": "/app/subscriptions",
+      "description": "Dossier /app/subscriptions"
+    },
+    {
+      "host": "./data/Users",
+      "container": "/app/users",
+      "description": "Dossier /app/users"
+    },
+    {
+      "host": "./data/Audio",
+      "container": "/app/audio",
+      "description": "Dossier /app/audio"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

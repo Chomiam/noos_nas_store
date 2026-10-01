@@ -1,0 +1,16 @@
+services:
+  eufy-security-ws:
+    container_name: eufy-security-ws
+    image: bropat/eufy-security-ws:latest
+    restart: unless-stopped
+    ports:
+    - 3993:3000/tcp
+    volumes:
+    - ./data/eufy-security-ws:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - USERNAME=InputUSER-email
+    - PASSWORD=InputPWD

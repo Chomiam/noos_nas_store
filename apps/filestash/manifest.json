@@ -1,0 +1,29 @@
+{
+  "id": "filestash",
+  "name": "Filestash",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A Dropbox-like file manager that let you manage your data anywhere it is located",
+  "description": "A Dropbox-like file manager that let you manage your data anywhere it is located.",
+  "website": "",
+  "icon": "https://downloads.filestash.app/brand/logo_white.svg",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "klipper-mainsail-moonraker",
+  "name": "Klipper[Testing], Mainsail, Moonraker",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Klipper is a 3d-Printer firmware",
+  "description": "Klipper is a 3d-Printer firmware. It combines the power of a general purpose computer with one or more micro-controllers. See the features document for more information on why you should use Klipper.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/drupal.png",
+  "default_port": 7125,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

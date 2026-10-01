@@ -1,0 +1,29 @@
+{
+  "id": "mongodb",
+  "name": "MongoDB Replica Set",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "3-node MongoDB 8 replica set (`rs0`), deployable locally with plain Docker Compose or to Miget as a compose stack",
+  "description": "3-node MongoDB 8 replica set (`rs0`), deployable locally with plain Docker Compose or to Miget as a compose stack.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/mongodb.png",
+  "default_port": 27017,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

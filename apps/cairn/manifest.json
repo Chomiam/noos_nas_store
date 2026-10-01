@@ -1,0 +1,39 @@
+{
+  "id": "cairn",
+  "name": "cairn",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "The directory page for the people you host services for: no account, multilingual, live status, one tiny container",
+  "description": "The directory page for the people you host services for: no account, multilingual, live status, one tiny container. Source: https://github.com/MorganKryze/cairn",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/MorganKryze/cairn/main/docs/assets/brand/cairn.svg",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

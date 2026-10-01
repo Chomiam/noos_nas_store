@@ -1,0 +1,15 @@
+services:
+  revealjs:
+    container_name: revealjs
+    image: cloudogu/reveal.js:latest
+    restart: always
+    ports:
+    - 6060:8080/tcp
+    volumes:
+    - ./data/revealjs/docs/slides:/reveal/docs/slides
+    - ./data/revealjs/scripts/test:/resources
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

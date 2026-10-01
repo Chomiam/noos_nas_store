@@ -1,0 +1,21 @@
+services:
+  valheim:
+    image: ghcr.io/lloesche/valheim-server:latest
+    cap_add:
+    - sys_nice
+    ports:
+    - 2456-2458:2456-2458/udp
+    environment:
+      SERVER_NAME: ${SERVER_NAME:-My Server}
+      WORLD_NAME: ${WORLD_NAME:-Dedicated}
+      SERVER_PASS: ${SERVER_PASS:-changeme123}
+      SERVER_PUBLIC: 'false'
+      TZ: ${TZ:-Etc/UTC}
+    volumes:
+    - ./data/valheim-config:/config
+    - ./data/valheim-data:/opt/valheim
+    restart: unless-stopped
+    stop_grace_period: 2m
+volumes:
+  valheim-config: null
+  valheim-data: null

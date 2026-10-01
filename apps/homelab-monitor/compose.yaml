@@ -1,0 +1,15 @@
+services:
+  homelab-monitor:
+    container_name: homelab-monitor
+    image: sikamikaniko123/homelab-monitor:latest
+    restart: unless-stopped
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - SAMPLE_INTERVAL=10
+    - RETENTION_DAYS=180

@@ -1,0 +1,39 @@
+{
+  "id": "tautulli",
+  "name": "Tautulli",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "[Tautulli](http://tautulli",
+  "description": "[Tautulli](http://tautulli.com) is a python based web application for monitoring, analytics and notifications for Plex Media Server.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/tautulli-icon.png",
+  "default_port": 8181,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

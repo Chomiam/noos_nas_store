@@ -1,0 +1,20 @@
+services:
+  funkwhale:
+    container_name: funkwhale
+    restart: unless-stopped
+    image: funkwhale/all-in-one:1.2.10
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - FUNKWHALE_HOSTNAME=your.funkwhale.example
+    - FUNKWHALE_PROTOCOL=https
+    - NGINX_MAX_BODY_SIZE=100M
+    - FUNKWHALE_API_IP=127.0.0.1
+    - FUNKWHALE_API_PORT=5500
+    - DJANGO_SECRET_KEY=$(openssl rand -hex 45)
+    - NESTED_PROXY=1
+    volumes:
+    - ./data/funkwhale/data:/data
+    - ./data/dir:/music:ro
+    ports:
+    - 5000:80

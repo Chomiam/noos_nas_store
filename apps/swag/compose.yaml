@@ -1,0 +1,30 @@
+services:
+  swag:
+    container_name: swag
+    image: linuxserver/swag:latest
+    restart: unless-stopped
+    ports:
+    - 443:443/tcp
+    - 80:80/tcp
+    - 443:443/udp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - URL=example.com
+    - VALIDATION=http
+    - SUBDOMAINS=www,
+    - CERTPROVIDER=
+    - CERT_PROFILE=
+    - DNSPLUGIN=cloudflare
+    - PROPAGATION=
+    - EMAIL=
+    - ONLY_SUBDOMAINS=false
+    - EXTRA_DOMAINS=
+    - STAGING=false
+    - DISABLE_F2B=
+    - SWAG_AUTORELOAD=
+    - SWAG_AUTORELOAD_WATCHLIST=

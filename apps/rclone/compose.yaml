@@ -1,0 +1,13 @@
+services:
+  rclone:
+    container_name: rclone
+    image: mediadepot/rclone:latest
+    restart: unless-stopped
+    volumes:
+    - ./data/apps/rclone:/srv/rclone/config
+    - ./data/apps:/mnt/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

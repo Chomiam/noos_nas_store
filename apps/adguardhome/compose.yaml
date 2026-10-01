@@ -1,0 +1,27 @@
+services:
+  adguardhome:
+    container_name: adguardhome
+    image: adguard/adguardhome:latest
+    restart: unless-stopped
+    ports:
+    - 53:53/tcp
+    - 53:53/udp
+    - 67:67/udp
+    - 80:80/tcp
+    - 443:443/tcp
+    - 443:443/udp
+    - 3001:3000/tcp
+    - 853:853/tcp
+    - 784:784/udp
+    - 853:853/udp
+    - 8853:8853/udp
+    - 5443:5443/tcp
+    - 5443:5443/udp
+    volumes:
+    - ./data/AdguardHome/config:/opt/adguardhome/conf
+    - ./data/AdguardHome/work:/opt/adguardhome/work
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,44 @@
+{
+  "id": "homer",
+  "name": "Homer",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A dead simple static Homepage for your server to keep your services on hand, from a simple yaml configuration file",
+  "description": "A dead simple static Homepage for your server to keep your services on hand, from a simple yaml configuration file.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/homer-dashboard.png",
+  "default_port": 8902,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Homer/assets",
+      "container": "/www/assets",
+      "description": "Dossier /www/assets"
+    },
+    {
+      "host": "./data/Homer",
+      "container": "/www/config.yml",
+      "description": "Dossier /www/config.yml"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

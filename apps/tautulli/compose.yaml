@@ -1,0 +1,14 @@
+services:
+  tautulli:
+    container_name: tautulli
+    image: linuxserver/tautulli:latest
+    restart: unless-stopped
+    ports:
+    - 8181:8181/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

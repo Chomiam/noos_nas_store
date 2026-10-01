@@ -1,0 +1,16 @@
+services:
+  couchpotato:
+    container_name: couchpotato
+    image: linuxserver/couchpotato:latest
+    restart: unless-stopped
+    ports:
+    - 5050:5050/tcp
+    volumes:
+    - ./data/Couchpotato:/config
+    - ./data/Downloads:/downloads
+    - ./data/Movies:/movies
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

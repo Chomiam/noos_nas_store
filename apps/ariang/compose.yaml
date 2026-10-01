@@ -1,0 +1,16 @@
+services:
+  ariang:
+    container_name: ariang
+    image: hurlenko/aria2-ariang:latest
+    restart: unless-stopped
+    ports:
+    - 8080:8080/tcp
+    volumes:
+    - ./data/AriaNG:/aria2/conf
+    - ./data/Downloads:/aria2/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - ARIA2RPCPORT=443

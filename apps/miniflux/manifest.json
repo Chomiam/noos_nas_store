@@ -1,0 +1,29 @@
+{
+  "id": "miniflux",
+  "name": "Miniflux",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Miniflux is a minimalist and opinionated feed reader",
+  "description": "Miniflux is a minimalist and opinionated feed reader.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/miniflux.png",
+  "default_port": 8645,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

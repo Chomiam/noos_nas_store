@@ -1,0 +1,49 @@
+{
+  "id": "chrony-ntp",
+  "name": "Chrony NTP",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "chrony is a versatile implementation of the Network Time Protocol (NTP)",
+  "description": "chrony is a versatile implementation of the Network Time Protocol (NTP). It can synchronise the system clock with NTP servers, reference clocks (e.g. GPS receiver), and manual input using wristwatch and keyboard. It can also operate as an NTPv4 (RFC 5905) server and peer to provide a time service to other computers in the network.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/chrony.png",
+  "default_port": 123,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "LOG_LEVEL",
+      "label": "LOG_LEVEL",
+      "default": "0"
+    },
+    {
+      "name": "NTP_SERVERS",
+      "label": "NTP_SERVERS",
+      "default": "time.cloudflare.com"
+    }
+  ]
+}

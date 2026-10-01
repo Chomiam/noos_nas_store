@@ -1,0 +1,22 @@
+services:
+  netdata:
+    container_name: netdata
+    image: netdata/netdata:latest
+    restart: unless-stopped
+    ports:
+    - 19999:19999/tcp
+    volumes:
+    - ./data/netdata/netdataconfig:/etc/netdata
+    - ./data/netdata/netdatalib:/var/lib/netdata
+    - ./data/passwd:/host/etc/passwd:ro
+    - ./data/group:/host/etc/group:ro
+    - ./data/proc:/host/proc:ro
+    - ./data/sys:/host/sys:ro
+    - ./data/os-release:/host/etc/os-release:ro
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - DOCKER_USR=1000
+    - DOCKER_GRP=1000

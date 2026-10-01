@@ -1,0 +1,29 @@
+{
+  "id": "metabase",
+  "name": "Metabase",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Metabase OSS - the BI tool non-analysts actually use: point-and-click questions, dashboards, and SQL when you want it",
+  "description": "Metabase OSS - the BI tool non-analysts actually use: point-and-click questions, dashboards, and SQL when you want it. One JVM container + a managed Postgres for the app database.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/metabase.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

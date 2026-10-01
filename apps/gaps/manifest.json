@@ -1,0 +1,39 @@
+{
+  "id": "gaps",
+  "name": "Gaps",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Gaps searches through your Plex Server or local folders for all movies, then queries for known movies in the same collec",
+  "description": "Gaps searches through your Plex Server or local folders for all movies, then queries for known movies in the same collection.",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/plex-icon.png",
+  "default_port": 8484,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

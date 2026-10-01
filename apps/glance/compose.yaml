@@ -1,0 +1,14 @@
+services:
+  glance:
+    container_name: glance
+    image: glanceapp/glance:latest
+    restart: unless-stopped
+    ports:
+    - 8080:8080/tcp
+    volumes:
+    - ./data/app_config:/app/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,49 @@
+{
+  "id": "maloja",
+  "name": "Maloja",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Simple self-hosted music scrobble database to create personal listening statistics",
+  "description": "Simple self-hosted music scrobble database to create personal listening statistics. No recommendations, no social network, no nonsense.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/maloja.png",
+  "default_port": 42010,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Maloja/Data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MALOJA_FORCE_PASSWORD",
+      "label": "MALOJA_FORCE_PASSWORD",
+      "default": "malojapassword"
+    },
+    {
+      "name": "MALOJA_DATA_DIRECTORY",
+      "label": "MALOJA_DATA_DIRECTORY",
+      "default": "/data"
+    }
+  ]
+}

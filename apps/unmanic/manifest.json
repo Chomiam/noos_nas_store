@@ -1,0 +1,49 @@
+{
+  "id": "unmanic",
+  "name": "Unmanic",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Unmanic is a simple tool for optimising your file library",
+  "description": "Unmanic is a simple tool for optimising your file library. You can use it to convert your files into a single, uniform format, manage file movements based on timestamps, or execute custom commands against a file based on its file size.",
+  "website": "",
+  "icon": "https://docs.unmanic.app/img/icon.png",
+  "default_port": 8888,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/unmanic/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/unmanic/library",
+      "container": "/library",
+      "description": "Dossier /library"
+    },
+    {
+      "host": "./data/unmanic/tmp",
+      "container": "/tmp/unmanic",
+      "description": "Dossier /tmp/unmanic"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

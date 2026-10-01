@@ -1,0 +1,53 @@
+{
+  "id": "syncthing",
+  "name": "Syncthing (container)",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Syncthing](https://syncthing",
+  "description": "[Syncthing](https://syncthing.net) replaces proprietary sync and cloud services with something open, trustworthy and decentralized. Your data is your data alone and you deserve to choose where it is stored, if it is shared with some third party and how it's transmitted over the Internet.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syncthing-banner.png",
+  "default_port": 8384,
+  "extra_ports": [
+    22000,
+    22000,
+    21027
+  ],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/data1",
+      "container": "/data1",
+      "description": "Dossier /data1"
+    },
+    {
+      "host": "./data/data2",
+      "container": "/data2",
+      "description": "Dossier /data2"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

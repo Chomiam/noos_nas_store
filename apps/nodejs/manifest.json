@@ -1,0 +1,39 @@
+{
+  "id": "nodejs",
+  "name": "NodeJS",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "JavaScript-based platform for server-side and networking applications",
+  "description": "JavaScript-based platform for server-side and networking applications",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/node.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

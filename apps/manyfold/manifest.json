@@ -1,0 +1,59 @@
+{
+  "id": "manyfold",
+  "name": "Manyfold",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Manyfold](https://github",
+  "description": "[Manyfold](https://github.com/manyfold3d/manyfold/) is an open source, self-hosted web application for managing a collection of 3D models, particularly focused on 3D printing.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/manyfold-logo.png",
+  "default_port": 3214,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/libraries",
+      "container": "/libraries",
+      "description": "Dossier /libraries"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DATABASE_URL",
+      "label": "DATABASE_URL",
+      "default": ""
+    },
+    {
+      "name": "REDIS_URL",
+      "label": "REDIS_URL",
+      "default": ""
+    },
+    {
+      "name": "SECRET_KEY_BASE",
+      "label": "SECRET_KEY_BASE",
+      "default": ""
+    }
+  ]
+}

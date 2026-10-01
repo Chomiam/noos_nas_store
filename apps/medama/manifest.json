@@ -1,0 +1,29 @@
+{
+  "id": "medama",
+  "name": "Medama",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Medama Analytics is an open-source project dedicated to providing self-hostable, cookie-free website analytics",
+  "description": "Medama Analytics is an open-source project dedicated to providing self-hostable, cookie-free website analytics.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/medama-io/medama/main/.github/images/banner-dark.svg",
+  "default_port": 8010,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

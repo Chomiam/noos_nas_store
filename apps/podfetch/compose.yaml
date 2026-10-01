@@ -1,0 +1,21 @@
+services:
+  podfetch:
+    container_name: podfetch
+    image: samuel19982/podfetch:latest
+    restart: unless-stopped
+    ports:
+    - 8000:8000/tcp
+    volumes:
+    - ./data/podcasts:/app/podcasts
+    - ./data/db:/app/db
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - DATABASE_URL=sqlite:///app/db/podcast.db
+    - POLLING_INTERVAL=300
+    - BASIC_AUTH=false
+    - USERNAME=
+    - PASSWORD=
+    - GPODDER_INTEGRATION_ENABLED=false

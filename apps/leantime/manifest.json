@@ -1,0 +1,29 @@
+{
+  "id": "leantime",
+  "name": "Leantime",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Leantime is an open source project management solution to make your ideas reality",
+  "description": "Leantime is an open source project management solution to make your ideas reality.",
+  "website": "",
+  "icon": "https://s3-us-west-2.amazonaws.com/leantime-website/wp-content/uploads/2022/07/24022056/logo-large.png",
+  "default_port": 4805,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

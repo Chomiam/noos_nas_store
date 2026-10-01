@@ -1,0 +1,29 @@
+{
+  "id": "open-mercato",
+  "name": "Open Mercato",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Open Mercato - the MIT \"AI-engineering foundation framework\": multi-tenant CRM/ERP/commerce modules on Next",
+  "description": "Open Mercato - the MIT \"AI-engineering foundation framework\": multi-tenant CRM/ERP/commerce modules on Next.js with RBAC, dynamic entities, and an agent-ready repo layout (specs + skills checked in). Start business apps at \"80% done\".",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/open-mercato.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

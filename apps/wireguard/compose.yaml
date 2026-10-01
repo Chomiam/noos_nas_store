@@ -1,0 +1,23 @@
+services:
+  wireguard:
+    container_name: wireguard
+    image: linuxserver/wireguard:latest
+    restart: unless-stopped
+    ports:
+    - 51820:51820/udp
+    volumes:
+    - ./data/config:/config
+    - ./data/modules:/lib/modules
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - SERVERURL=wireguard.domain.com
+    - SERVERPORT=51820
+    - PEERS=1
+    - PEERDNS=auto
+    - INTERNAL_SUBNET=10.13.13.0
+    - ALLOWEDIPS=0.0.0.0/0
+    - PERSISTENTKEEPALIVE_PEERS=
+    - LOG_CONFS=true

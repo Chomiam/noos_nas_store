@@ -1,0 +1,18 @@
+services:
+  duplicacy:
+    container_name: duplicacy
+    image: mediadepot/duplicacy:latest
+    restart: unless-stopped
+    ports:
+    - 3875/tcp
+    volumes:
+    - ./data/apps/duplicacy/config:/config
+    - ./data/apps/duplicacy/logs:/logs
+    - ./data/apps/duplicacy/cache:/cache
+    - ./data/apps/:/source/apps
+    - ./data/storage:/source/storage
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=America/Los_Angeles
+    - UMASK=002

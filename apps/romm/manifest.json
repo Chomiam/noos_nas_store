@@ -1,0 +1,29 @@
+{
+  "id": "romm",
+  "name": "RomM",
+  "version": "latest",
+  "category": "Jeux & Divertissement",
+  "tagline": "A beautiful, powerful, self-hosted rom manager",
+  "description": "A beautiful, powerful, self-hosted rom manager.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/rommapp/romm/release/.github/resources/romm_complete.png",
+  "default_port": 480,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "organizr-v2",
+  "name": "Organizr (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Organizr allows you to setup Tabs that will be loaded all in one webpage",
+  "description": "Organizr allows you to setup Tabs that will be loaded all in one webpage. You can then work on your server with ease.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/organizr-icon.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Organizr",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

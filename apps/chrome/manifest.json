@@ -1,0 +1,46 @@
+{
+  "id": "chrome",
+  "name": "Chrome",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Chrome](https://www",
+  "description": "[Chrome](https://www.google.com/chrome/) is the official web browser from Google, built to be fast, secure, and customizable.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chrome-logo.png",
+  "default_port": 3000,
+  "extra_ports": [
+    3001
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CHROME_CLI",
+      "label": "CHROME_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ]
+}

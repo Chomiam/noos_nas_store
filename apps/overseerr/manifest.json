@@ -1,0 +1,44 @@
+{
+  "id": "overseerr",
+  "name": "Overseerr (container)",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem",
+  "description": "Overseerr is a request management and media discovery tool built to work with your existing Plex ecosystem.",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/overseerr.png",
+  "default_port": 5055,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/overseerr",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

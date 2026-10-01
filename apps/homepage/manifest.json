@@ -1,0 +1,44 @@
+{
+  "id": "homepage",
+  "name": "Homepage (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard with integrations for m",
+  "description": "A modern (fully static, fast), secure (fully proxied), highly customizable application dashboard with integrations for more than 25 services and translations for over 15 languages. Easily configured via YAML files (or discovery via docker labels).",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/homepage.png",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/homepage",
+      "container": "/app/config",
+      "description": "Dossier /app/config"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

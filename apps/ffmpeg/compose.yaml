@@ -1,0 +1,14 @@
+services:
+  ffmpeg:
+    container_name: ffmpeg
+    image: linuxserver/ffmpeg:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

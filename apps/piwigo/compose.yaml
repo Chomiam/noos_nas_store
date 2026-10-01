@@ -1,0 +1,15 @@
+services:
+  piwigo:
+    container_name: piwigo
+    image: linuxserver/piwigo:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/gallery:/gallery
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

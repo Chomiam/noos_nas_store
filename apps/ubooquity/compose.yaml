@@ -1,0 +1,19 @@
+services:
+  ubooquity:
+    container_name: ubooquity
+    image: linuxserver/ubooquity:latest
+    restart: unless-stopped
+    ports:
+    - 2202:2202/tcp
+    - 2203:2203/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/books:/books
+    - ./data/comics:/comics
+    - ./data/files:/files
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - MAXMEM=

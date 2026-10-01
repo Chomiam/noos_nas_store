@@ -1,0 +1,39 @@
+{
+  "id": "statping",
+  "name": "Statping",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "An easy to use Status Page for your websites and applications",
+  "description": "An easy to use Status Page for your websites and applications. Statping will automatically fetch the application and render a beautiful status page with tons of features for you to build an even better status page.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/statping.png",
+  "default_port": 4040,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/statping",
+      "container": "/app",
+      "description": "Dossier /app"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

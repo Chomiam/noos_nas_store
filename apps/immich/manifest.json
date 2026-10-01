@@ -1,25 +1,29 @@
 {
   "id": "immich",
-  "name": "Immich",
-  "version": "v1.120.0",
+  "name": "Immich {shmolf}",
+  "version": "latest",
   "category": "Multimédia",
-  "tagline": "Solution d'hébergement de photos et vidéos type Google Photos",
-  "description": "Sauvegarde automatique, détection des visages par IA, géolocalisation, albums partagés et lecture haute définition de vos photos et vidéos familiales.",
-  "website": "https://immich.app/",
-  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/immich/icon.svg",
-  "default_port": 2283,
+  "tagline": "Self-hosted backup solution for photos and videos on mobile device",
+  "description": "Self-hosted backup solution for photos and videos on mobile device.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/shmolf/portainer-templates/main/assets/logos/immich-logo.svg",
+  "default_port": 8080,
+  "extra_ports": [],
   "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "/home/{USER}/docker/immich/upload",
-      "container": "/usr/src/app/upload",
-      "description": "Répertoire de stockage des photos et vidéos"
-    },
-    {
-      "host": "/home/{USER}/docker/immich/profile",
-      "container": "/usr/src/app/profile",
-      "description": "Profils utilisateurs et miniatures"
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
     }
   ],
-  "nix_file": "immich.nix"
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
 }

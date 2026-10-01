@@ -1,0 +1,39 @@
+{
+  "id": "dashmachine",
+  "name": "DashMachine",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Another application bookmark , with fun features",
+  "description": "Another application bookmark , with fun features.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/dashmachine_logo.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Dashmachine",
+      "container": "/dashmachine/dashmachine/user_data",
+      "description": "Dossier /dashmachine/dashmachine/user_data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

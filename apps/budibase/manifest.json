@@ -1,0 +1,29 @@
+{
+  "id": "budibase",
+  "name": "Budibase",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Budibase allows no-code users to build apps quickly, with more functionality available with a little bit of inline code",
+  "description": "Budibase allows no-code users to build apps quickly, with more functionality available with a little bit of inline code.",
+  "website": "",
+  "icon": "https://files.readme.io/593b386-budibase-logo-website.svg",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

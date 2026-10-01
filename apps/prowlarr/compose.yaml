@@ -1,0 +1,14 @@
+services:
+  prowlarr:
+    container_name: prowlarr
+    image: linuxserver/prowlarr:latest
+    restart: unless-stopped
+    ports:
+    - 9696:9696/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

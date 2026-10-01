@@ -1,0 +1,14 @@
+services:
+  snibox:
+    container_name: snibox
+    image: snowmean/snibox-sqlite:latest
+    restart: unless-stopped
+    ports:
+    - 3010:3000/tcp
+    volumes:
+    - ./data/Snibox:/app/db/database
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

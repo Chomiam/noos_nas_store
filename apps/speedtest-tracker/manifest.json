@@ -1,0 +1,99 @@
+{
+  "id": "speedtest-tracker",
+  "name": "Speedtest-tracker (container)",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Speedtest-tracker](https://github",
+  "description": "[Speedtest-tracker](https://github.com/alexjustesen/speedtest-tracker) is a self-hosted internet performance tracking application that runs speedtest checks against Ookla's Speedtest service.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/speedtest-tracker-logo.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "APP_KEY",
+      "label": "APP_KEY",
+      "default": ""
+    },
+    {
+      "name": "APP_URL",
+      "label": "APP_URL",
+      "default": ""
+    },
+    {
+      "name": "DB_CONNECTION",
+      "label": "DB_CONNECTION",
+      "default": "sqlite"
+    },
+    {
+      "name": "SPEEDTEST_SCHEDULE",
+      "label": "SPEEDTEST_SCHEDULE",
+      "default": ""
+    },
+    {
+      "name": "SPEEDTEST_SERVERS",
+      "label": "SPEEDTEST_SERVERS",
+      "default": ""
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "default": ""
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": ""
+    },
+    {
+      "name": "DB_DATABASE",
+      "label": "DB_DATABASE",
+      "default": ""
+    },
+    {
+      "name": "DB_USERNAME",
+      "label": "DB_USERNAME",
+      "default": ""
+    },
+    {
+      "name": "DB_PASSWORD",
+      "label": "DB_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "DISPLAY_TIMEZONE",
+      "label": "DISPLAY_TIMEZONE",
+      "default": "Etc/UTC"
+    },
+    {
+      "name": "PRUNE_RESULTS_OLDER_THAN",
+      "label": "PRUNE_RESULTS_OLDER_THAN",
+      "default": "0"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  cloudcmd:
+    container_name: cloudcmd
+    image: coderaiser/cloudcmd:latest
+    restart: unless-stopped
+    ports:
+    - 8000/tcp
+    volumes:
+    - ./data/apps:/media/host/opt/mediadepot
+    - ./data/storage:/media/host/media/storage
+    - ./data/temp:/media/host/media/temp
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

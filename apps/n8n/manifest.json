@@ -1,0 +1,49 @@
+{
+  "id": "n8n",
+  "name": "n8n (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "n8n allows you to build flexible workflows focused on deep data integration",
+  "description": "n8n allows you to build flexible workflows focused on deep data integration.",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/n8n.png",
+  "default_port": 5678,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/n8n",
+      "container": "/home/node/.n8n",
+      "description": "Dossier /home/node/.n8n"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "GENERIC_TIMEZONE",
+      "label": "GENERIC_TIMEZONE",
+      "default": "America/Los_Angeles"
+    }
+  ]
+}

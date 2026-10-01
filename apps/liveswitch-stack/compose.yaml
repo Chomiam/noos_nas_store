@@ -1,0 +1,43 @@
+version: '3'
+services:
+  gateway:
+    image: frozenmountain/liveswitch-gateway:latest
+    restart: always
+    ports:
+    - 8080:8080
+    - 9090:9090
+    - 8443:8443
+    - 10443:10443
+    environment:
+    - CONNECTIONSTRINGS:DEFAULT=postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres
+    - CONNECTIONSTRINGS:CACHE=redis://redis
+    networks:
+    - liveswitch
+  media:
+    image: frozenmountain/liveswitch-media-server:latest
+    restart: always
+    network_mode: host
+    ulimits:
+      nofile: 65535
+    environment:
+    - CONNECTIONSTRINGS:DEFAULT=postgres://postgres:${POSTGRES_PASSWORD}@127.0.0.1:5432/postgres
+    - CONNECTIONSTRINGS:CACHE=redis://127.0.0.1
+    - SERVICEBASEURL=http://127.0.0.1:8080
+  redis:
+    image: redis
+    restart: always
+    ports:
+    - 6379:6379
+    networks:
+    - liveswitch
+  postgres:
+    image: postgres
+    restart: always
+    networks:
+    - liveswitch
+    ports:
+    - 5432:5432
+    environment:
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+networks:
+  liveswitch: null

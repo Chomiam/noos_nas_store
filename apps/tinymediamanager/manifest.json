@@ -1,0 +1,31 @@
+{
+  "id": "tinymediamanager",
+  "name": "TinyMediaManager",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "TinyMediaManager is a media management tool written in Java/Swing",
+  "description": "TinyMediaManager is a media management tool written in Java/Swing. It is written to provide metadata for the Kodi Media Center (formerly known as XBMC), MediaPortal and Plex media server.",
+  "website": "",
+  "icon": "https://www.tinymediamanager.org/images/avatar.png",
+  "default_port": 5900,
+  "extra_ports": [
+    4000
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

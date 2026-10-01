@@ -1,0 +1,64 @@
+{
+  "id": "nut-server",
+  "name": "NUT Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The purpose of NUT Server is to monitor a UPS attached device",
+  "description": "The purpose of NUT Server is to monitor a UPS attached device",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/nut-server.png",
+  "default_port": 3493,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SERIAL",
+      "label": "SERIAL",
+      "default": "none"
+    },
+    {
+      "name": "NAME",
+      "label": "NAME",
+      "default": "none"
+    },
+    {
+      "name": "VENDOR ID",
+      "label": "VENDOR ID",
+      "default": "none"
+    },
+    {
+      "name": "API_PASSWORD",
+      "label": "API_PASSWORD",
+      "default": "none"
+    },
+    {
+      "name": "DESCRIPTION",
+      "label": "DESCRIPTION",
+      "default": "none"
+    }
+  ]
+}

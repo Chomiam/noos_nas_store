@@ -1,0 +1,49 @@
+{
+  "id": "ntfy",
+  "name": "ntfy (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Simple HTTP-based pub-sub notification service",
+  "description": "Simple HTTP-based pub-sub notification service. Send push notifications to your phone or desktop via PUT/POST. Source: https://github.com/binwiederhier/ntfy",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/664597",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/var_cache_ntfy",
+      "container": "/var/cache/ntfy",
+      "description": "Dossier /var/cache/ntfy"
+    },
+    {
+      "host": "./data/etc_ntfy",
+      "container": "/etc/ntfy",
+      "description": "Dossier /etc/ntfy"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "NTFY_BASE_URL",
+      "label": "Public base URL (e.g. https://ntfy.example.com) — needed for attachments and links",
+      "default": "http://localhost:8080"
+    }
+  ]
+}

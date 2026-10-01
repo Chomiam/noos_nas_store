@@ -1,0 +1,51 @@
+{
+  "id": "forgejo",
+  "name": "Forgejo (container)",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "A self-hosted lightweight software forge, providing Git hosting, code review, issue tracking, and CI/CD",
+  "description": "A self-hosted lightweight software forge, providing Git hosting, code review, issue tracking, and CI/CD. Source: https://codeberg.org/forgejo/forgejo",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/118922216",
+  "default_port": 3000,
+  "extra_ports": [
+    222
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "USER_UID",
+      "label": "USER_UID",
+      "default": "1000"
+    },
+    {
+      "name": "USER_GID",
+      "label": "USER_GID",
+      "default": "1000"
+    }
+  ]
+}

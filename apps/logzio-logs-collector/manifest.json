@@ -1,0 +1,54 @@
+{
+  "id": "logzio-logs-collector",
+  "name": "Logzio Logs Collector",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Docker container that uses Filebeat to collect logs from other Docker containers and forward those logs to your Logz",
+  "description": "Docker container that uses Filebeat to collect logs from other Docker containers and forward those logs to your Logz.io account.",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/logzio-icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    },
+    {
+      "host": "./data/containers",
+      "container": "/var/lib/docker/containers",
+      "description": "Dossier /var/lib/docker/containers"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "LOGZIO_TOKEN",
+      "label": "LOGZIO_TOKEN",
+      "default": "REPLACE-LOGZIO-TOKEN-HERE"
+    },
+    {
+      "name": "LOGZIO_URL",
+      "label": "LOGZIO_URL",
+      "default": "listener.logz.io:5015"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "openclaw",
+  "name": "OpenClaw",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "OpenClaw, an autonomous AI agent you run yourself: web dashboard, scheduled tasks, plugins, persistent workspace",
+  "description": "OpenClaw, an autonomous AI agent you run yourself: web dashboard, scheduled tasks, plugins, persistent workspace. This template uses the coollabsio all-in-one image (nginx + gateway, env-driven).",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/openclaw.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "reactive-resume",
+  "name": "Reactive-Resume",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A one-of-a-kind resume builder that's not out to get your data",
+  "description": "A one-of-a-kind resume builder that's not out to get your data. Completely secure, customizable, portable, open-source and free forever.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/reactiveresume.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/ReactiveResume",
+      "container": "/usr/src/app",
+      "description": "Dossier /usr/src/app"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

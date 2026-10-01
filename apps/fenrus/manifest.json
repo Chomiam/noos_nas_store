@@ -1,0 +1,29 @@
+{
+  "id": "fenrus",
+  "name": "Fenrus",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Fenrus is a Node application and requires NodeJS to run",
+  "description": "Fenrus is a Node application and requires NodeJS to run. Once NodeJS is installed you can run Fenrus",
+  "website": "",
+  "icon": "https://user-images.githubusercontent.com/958400/154829266-62206846-c6ef-4718-9910-2b83eb6aa41c.png",
+  "default_port": 3003,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

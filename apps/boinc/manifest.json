@@ -1,0 +1,46 @@
+{
+  "id": "boinc",
+  "name": "Boinc",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[BOINC](https://boinc",
+  "description": "[BOINC](https://boinc.berkeley.edu/) is a platform for high-throughput computing on a large scale (thousands or millions of computers). It can be used for volunteer computing (using consumer devices) or grid computing (using organizational resources). It supports virtualized, parallel, and GPU-based applications.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/BOINC/boinc/master/doc/logo/boinc_logo_black.jpg",
+  "default_port": 8080,
+  "extra_ports": [
+    8181
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PASSWORD",
+      "label": "PASSWORD",
+      "default": ""
+    }
+  ]
+}

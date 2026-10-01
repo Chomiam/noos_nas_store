@@ -1,0 +1,31 @@
+{
+  "id": "convex",
+  "name": "Convex",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Convex backend-as-a-service, self-hosted: reactive database + functions + scheduler, with the dashboard",
+  "description": "Convex backend-as-a-service, self-hosted: reactive database + functions + scheduler, with the dashboard. SQLite state on a volume; the open-source backend serves one deployment.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/convex.png",
+  "default_port": 3210,
+  "extra_ports": [
+    3211
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

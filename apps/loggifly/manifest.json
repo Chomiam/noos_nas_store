@@ -1,0 +1,29 @@
+{
+  "id": "loggifly",
+  "name": "Loggifly",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "A Lightweight Tool that monitors Docker Container Logs for predefined keywords or regex patterns and sends Notifications",
+  "description": "A Lightweight Tool that monitors Docker Container Logs for predefined keywords or regex patterns and sends Notifications.",
+  "website": "",
+  "icon": "https://github.com/clemcer/loggifly/raw/main/images/icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

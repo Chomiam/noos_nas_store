@@ -1,0 +1,14 @@
+services:
+  cloudbeaver:
+    container_name: cloudbeaver
+    image: dbeaver/cloudbeaver:latest
+    restart: unless-stopped
+    ports:
+    - 8978:8978/tcp
+    volumes:
+    - ./data/opt_cloudbeaver_workspace:/opt/cloudbeaver/workspace
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,54 @@
+{
+  "id": "datadog-agent-container",
+  "name": "Datadog agent (container)",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Collect events and metrics",
+  "description": "Collect events and metrics",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/datadog_agent.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    },
+    {
+      "host": "./data/cgroup",
+      "container": "/host/sys/fs/cgroup",
+      "description": "Dossier /host/sys/fs/cgroup"
+    },
+    {
+      "host": "./data/proc",
+      "container": "/host/proc",
+      "description": "Dossier /host/proc"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DD_API_KEY",
+      "label": "Datadog API key",
+      "default": ""
+    }
+  ]
+}

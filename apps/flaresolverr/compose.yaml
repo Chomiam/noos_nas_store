@@ -1,0 +1,17 @@
+services:
+  flaresolverr:
+    container_name: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    restart: unless-stopped
+    ports:
+    - 8191:8191/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=America/New_York
+    - UMASK=002
+    - LOG_LEVEL=info
+    - LOG_HTML=false
+    - CAPTCHA_SOLVER=none

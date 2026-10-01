@@ -1,0 +1,64 @@
+{
+  "id": "archivebox",
+  "name": "Archivebox",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "ArchiveBox is a powerful, self-hosted internet archiving solution to collect, save, and view sites you want to preserve ",
+  "description": "ArchiveBox is a powerful, self-hosted internet archiving solution to collect, save, and view sites you want to preserve offline.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/archivebox.png",
+  "default_port": 8002,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/archivebox",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "ALLOWED_HOSTS",
+      "label": "ALLOWED_HOSTS",
+      "default": "*"
+    },
+    {
+      "name": "MEDIA_MAX_SIZE",
+      "label": "MEDIA_MAX_SIZE",
+      "default": "750m"
+    },
+    {
+      "name": "PUBLIC_INDEX",
+      "label": "PUBLIC_INDEX",
+      "default": "true"
+    },
+    {
+      "name": "PUBLIC_SNAPSHOTS",
+      "label": "PUBLIC_SNAPSHOTS",
+      "default": "true"
+    },
+    {
+      "name": "PUBLIC_ADD_VIEW",
+      "label": "PUBLIC_ADD_VIEW",
+      "default": "false"
+    }
+  ]
+}

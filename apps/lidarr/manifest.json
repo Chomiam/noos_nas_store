@@ -1,0 +1,49 @@
+{
+  "id": "lidarr",
+  "name": "Lidarr",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "[Lidarr](https://github",
+  "description": "[Lidarr](https://github.com/lidarr/Lidarr) is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new tracks from your favorite artists and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.",
+  "website": "",
+  "icon": "https://github.com/lidarr/Lidarr/raw/develop/Logo/400.png",
+  "default_port": 8686,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/music",
+      "container": "/music",
+      "description": "Dossier /music"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

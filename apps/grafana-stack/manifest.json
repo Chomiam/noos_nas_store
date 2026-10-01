@@ -1,0 +1,29 @@
+{
+  "id": "grafana-stack",
+  "name": "Grafana Stack",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Grafana + Prometheus + Loki - dashboards, metrics, and logs for everything in your project, at a flat price instead of p",
+  "description": "Grafana + Prometheus + Loki - dashboards, metrics, and logs for everything in your project, at a flat price instead of per-host or per-GB-ingested SaaS pricing.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/grafana.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

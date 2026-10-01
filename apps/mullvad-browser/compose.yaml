@@ -1,0 +1,16 @@
+services:
+  mullvad-browser:
+    container_name: mullvad-browser
+    image: linuxserver/mullvad-browser:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    - 3001:3001/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - LOCAL_NET=192.168.0.0/16

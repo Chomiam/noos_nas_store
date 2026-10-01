@@ -1,0 +1,39 @@
+{
+  "id": "watchtower",
+  "name": "Watchtower",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker",
+  "description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/watchtower.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

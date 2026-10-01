@@ -1,0 +1,10 @@
+services:
+  opnform:
+    container_name: opnform
+    volumes:
+    - ./data/opnform:/persist
+    ports:
+    - 8380:80
+    image: jhumanj/opnform
+    restart: unless-stopped
+networks: {}

@@ -1,0 +1,39 @@
+{
+  "id": "redis-container",
+  "name": "Redis (container)",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Open-source in-memory data structure store",
+  "description": "Open-source in-memory data structure store",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/redis.png",
+  "default_port": 6379,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

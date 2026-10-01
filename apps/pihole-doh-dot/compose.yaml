@@ -1,0 +1,19 @@
+services:
+  pihole-doh-dot:
+    container_name: pihole-doh-dot
+    image: oijkn/pihole-doh-dot:latest
+    restart: unless-stopped
+    ports:
+    - 53:53/tcp
+    - 53:53/udp
+    - 67:67/udp
+    - 1010:80/tcp
+    - 4443:443/tcp
+    volumes:
+    - ./data/PiHole_DoH-DoT:/etc/pihole
+    - ./data/PiHole_DoH-DoT/DNS:/etc/dnsmasq.d
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

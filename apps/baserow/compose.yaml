@@ -1,0 +1,15 @@
+services:
+  baserow:
+    container_name: baserow
+    image: baserow/baserow:1.22.3
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/apps/baserow:/baserow/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - BASEROW_PUBLIC_URL=

@@ -1,0 +1,64 @@
+{
+  "id": "vscodium-web",
+  "name": "Vscodium-web",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Vscodium-web](https://vscodium",
+  "description": "[Vscodium-web](https://vscodium.com/) is a community-driven, freely-licensed binary distribution of the remote host web component of Microsoft's editor VS Code.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/vscodium-icon.png",
+  "default_port": 8000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CONNECTION_TOKEN",
+      "label": "CONNECTION_TOKEN",
+      "default": ""
+    },
+    {
+      "name": "CONNECTION_TOKEN_FILE",
+      "label": "CONNECTION_TOKEN_FILE",
+      "default": ""
+    },
+    {
+      "name": "SUDO_PASSWORD",
+      "label": "SUDO_PASSWORD",
+      "default": "password"
+    },
+    {
+      "name": "SUDO_PASSWORD_HASH",
+      "label": "SUDO_PASSWORD_HASH",
+      "default": ""
+    },
+    {
+      "name": "CODE_ARGS",
+      "label": "CODE_ARGS",
+      "default": ""
+    }
+  ]
+}

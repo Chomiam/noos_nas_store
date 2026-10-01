@@ -1,0 +1,29 @@
+{
+  "id": "fizzy",
+  "name": "Fizzy",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Fizzy - 37signals' free, open-source kanban: fast, focused boards for bugs, issues, ideas, and small projects",
+  "description": "Fizzy - 37signals' free, open-source kanban: fast, focused boards for bugs, issues, ideas, and small projects.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/fizzy.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

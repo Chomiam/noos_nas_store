@@ -1,0 +1,16 @@
+services:
+  heimdall:
+    container_name: heimdall
+    image: linuxserver/heimdall:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - ALLOW_INTERNAL_REQUESTS=false

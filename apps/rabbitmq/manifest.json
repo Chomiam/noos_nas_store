@@ -1,0 +1,33 @@
+{
+  "id": "rabbitmq",
+  "name": "RabbitMQ (stack)",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "3-node RabbitMQ 4",
+  "description": "3-node RabbitMQ 4.x cluster (quorum-queue ready), deployable locally with plain Docker Compose or to Miget as a compose stack.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/rabbitmq.png",
+  "default_port": 5000,
+  "extra_ports": [
+    5672,
+    4369,
+    25672
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

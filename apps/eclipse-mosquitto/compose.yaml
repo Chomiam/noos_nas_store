@@ -1,0 +1,17 @@
+services:
+  eclipse-mosquitto:
+    container_name: eclipse-mosquitto
+    image: eclipse-mosquitto:latest
+    restart: unless-stopped
+    ports:
+    - 1883:1883/tcp
+    - 9001:9001/tcp
+    volumes:
+    - ./data/eclipse-mosquitto/config:/mosquitto/config
+    - ./data/eclipse-mosquitto/data:/mosquitto/data
+    - ./data/eclipse-mosquitto/log:/mosquitto/log
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

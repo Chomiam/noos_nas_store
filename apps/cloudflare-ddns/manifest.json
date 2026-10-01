@@ -1,0 +1,54 @@
+{
+  "id": "cloudflare-ddns",
+  "name": "Cloudflare DDNS",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "A robust Cloudflare DDNS updater with a small footprint",
+  "description": "A robust Cloudflare DDNS updater with a small footprint. The program will detect your machine's public IP addresses and update DNS records using the Cloudflare API.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/cloudflare-ddns.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CLOUDFLARE_API_TOKEN",
+      "label": "CLOUDFLARE_API_TOKEN",
+      "default": ""
+    },
+    {
+      "name": "DOMAINS",
+      "label": "DOMAINS (Comma Separated List)",
+      "default": ""
+    },
+    {
+      "name": "PROXIED",
+      "label": "PROXIED",
+      "default": "true"
+    }
+  ]
+}

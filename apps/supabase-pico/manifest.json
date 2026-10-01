@@ -1,0 +1,29 @@
+{
+  "id": "supabase-pico",
+  "name": "Supabase Pico",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Supabase's API surface - Postgres, Auth (GoTrue) and REST (PostgREST) - in 512 MiB total",
+  "description": "Supabase's API surface - Postgres, Auth (GoTrue) and REST (PostgREST) - in 512 MiB total.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/supabase.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

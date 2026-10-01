@@ -1,0 +1,32 @@
+{
+  "id": "opc-router",
+  "name": "OPC Router",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "No-code middleware for industrial applications The OPC Router connects PLCs, PCS, SCADA, MES, SQL databases and servers,",
+  "description": "No-code middleware for industrial applications The OPC Router connects PLCs, PCS, SCADA, MES, SQL databases and servers, label printers, e-mail servers and erp-systems via OPC UA, MQTT, REST, CSV and many others without any programming effort",
+  "website": "",
+  "icon": "https://store-images.s-microsoft.com/image/apps.45485.5f358ea4-e35f-478a-ab92-e85946891f86.b38fbf34-c2b9-4714-9d8a-1232c004df99.4469177b-aba0-4422-ad40-218ff1d967fb",
+  "default_port": 49420,
+  "extra_ports": [
+    8080,
+    8081
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "id": "hedgedoc",
+  "name": "Hedgedoc",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[HedgeDoc](https://hedgedoc",
+  "description": "[HedgeDoc](https://hedgedoc.org/) gives you access to all your files wherever you are. HedgeDoc is a real-time, multi-platform collaborative markdown note editor. This means that you can write notes with other people on your desktop, tablet or even on the phone. You can sign-in via multiple auth providers like Facebook, Twitter, GitHub and many more on the homepage.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hedgedoc-banner.png",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "default": "<hostname or ip>"
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": "3306"
+    },
+    {
+      "name": "DB_USER",
+      "label": "DB_USER",
+      "default": "hedgedoc"
+    },
+    {
+      "name": "DB_PASS",
+      "label": "DB_PASS",
+      "default": "<secret password>"
+    },
+    {
+      "name": "DB_NAME",
+      "label": "DB_NAME",
+      "default": "hedgedoc"
+    },
+    {
+      "name": "CMD_DOMAIN",
+      "label": "CMD_DOMAIN",
+      "default": "localhost"
+    },
+    {
+      "name": "CMD_URL_ADDPORT",
+      "label": "CMD_URL_ADDPORT",
+      "default": "false"
+    },
+    {
+      "name": "CMD_PROTOCOL_USESSL",
+      "label": "CMD_PROTOCOL_USESSL",
+      "default": "false"
+    },
+    {
+      "name": "CMD_PORT",
+      "label": "CMD_PORT",
+      "default": "3000"
+    },
+    {
+      "name": "CMD_ALLOW_ORIGIN",
+      "label": "CMD_ALLOW_ORIGIN",
+      "default": "['localhost']"
+    },
+    {
+      "name": "CMD_DB_DIALECT",
+      "label": "CMD_DB_DIALECT",
+      "default": ""
+    }
+  ]
+}

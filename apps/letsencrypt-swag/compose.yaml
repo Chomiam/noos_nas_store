@@ -1,0 +1,22 @@
+services:
+  letsencrypt-swag:
+    container_name: letsencrypt-swag
+    image: linuxserver/swag:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    - 443/tcp
+    volumes:
+    - ./data/LetsEncrypt:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - EMAIL=-Xms256m -Xmx512m
+    - URL=-Xms256m -Xmx512m
+    - SUBDOMAINS=www,
+    - ONLY_SUBDOMAINS=false
+    - DHLEVEL=2048
+    - VALIDATION=http
+    - DNSPLUGIN=http

@@ -1,0 +1,16 @@
+services:
+  bazarr:
+    container_name: bazarr
+    image: linuxserver/bazarr:latest
+    restart: unless-stopped
+    ports:
+    - 6767:6767/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/movies:/movies
+    - ./data/tv:/tv
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

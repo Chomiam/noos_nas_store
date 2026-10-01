@@ -1,0 +1,29 @@
+{
+  "id": "softing-edgeconnector-aggregator",
+  "name": "Softing EdgeConnector Aggregator",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Offers a powerful OPC UA aggregation service which provides data via OPC UA, as well as MQTT",
+  "description": "Offers a powerful OPC UA aggregation service which provides data via OPC UA, as well as MQTT",
+  "website": "",
+  "icon": "https://www.gravatar.com/avatar/c7d3730588d3f501d6753aa22a731bc0?s=80&r=g&d=404",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

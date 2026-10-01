@@ -1,0 +1,44 @@
+{
+  "id": "fluxdown",
+  "name": "FluxDown",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Multi-protocol download manager with a web UI",
+  "description": "Multi-protocol download manager with a web UI. Handles HTTP/HTTPS, FTP, BitTorrent (DHT/magnet), eD2K/Kad, HLS and DASH, with dynamic file segmentation, token-bucket rate limiting and SQLite-backed resume. Exposes an aria2-compatible JSON-RPC API. GitHub: [zerx-lab/FluxDown](https://github.com/zerx-lab/FluxDown)",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/zerx-lab/FluxDown@main/assets/logo/fluxdown_logo.svg",
+  "default_port": 17800,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/root_Downloads",
+      "container": "/root/Downloads",
+      "description": "Dossier /root/Downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

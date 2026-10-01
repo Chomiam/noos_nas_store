@@ -1,0 +1,24 @@
+services:
+  openssh-server:
+    container_name: openssh-server
+    image: linuxserver/openssh-server:latest
+    restart: unless-stopped
+    ports:
+    - 2222:2222/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - PUBLIC_KEY=yourpublickey
+    - PUBLIC_KEY_FILE=/path/to/file
+    - PUBLIC_KEY_DIR=/path/to/directory/containing/_only_/pubkeys
+    - PUBLIC_KEY_URL=https://github.com/username.keys
+    - SUDO_ACCESS=false
+    - PASSWORD_ACCESS=false
+    - USER_PASSWORD=password
+    - USER_PASSWORD_FILE=/path/to/file
+    - USER_NAME=linuxserver.io
+    - LOG_STDOUT=

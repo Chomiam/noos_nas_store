@@ -1,0 +1,39 @@
+{
+  "id": "changedetection",
+  "name": "Change Detection",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Self-hosted website change detection monitoring",
+  "description": "Self-hosted website change detection monitoring.\n\nSource: https://github.com/dgtlmoon/changedetection.io",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/changedetection-custom.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/changedetection",
+      "container": "/datastore",
+      "description": "Dossier /datastore"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+services:
+  droppy:
+    container_name: droppy
+    image: silverwind/droppy:latest
+    restart: unless-stopped
+    ports:
+    - 8989/tcp
+    volumes:
+    - ./data/tvshows:/files/tvshows
+    - ./data/movies:/files/movies
+    - ./data/music:/files/music
+    - ./data/photos:/files/photos
+    - ./data/ebooks:/files/ebooks
+    - ./data/documents:/files/documents
+    - ./data/software:/files/software
+    - ./data/downloads:/files/downloads
+    - ./data/blackhole:/files/blackhole
+    - ./data/processing:/files/processing
+    - ./data/apps/droppy:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=America/Los_Angeles
+    - UMASK=002
+    - GID=15000
+    - UID=15000

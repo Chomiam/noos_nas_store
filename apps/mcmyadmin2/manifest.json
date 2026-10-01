@@ -1,0 +1,41 @@
+{
+  "id": "mcmyadmin2",
+  "name": "McMyAdmin 2",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "McMyAdmin 2 is the leading web control panel and administration console for Minecraft servers",
+  "description": "McMyAdmin 2 is the leading web control panel and administration console for Minecraft servers.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/mcmyadmin-icon.png",
+  "default_port": 8080,
+  "extra_ports": [
+    25565
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/minecraft",
+      "container": "/minecraft",
+      "description": "Dossier /minecraft"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

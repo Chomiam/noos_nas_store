@@ -1,0 +1,57 @@
+{
+  "id": "traefik",
+  "name": "Traefik (container)",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Cloud-Native Networking Stack That Just Works",
+  "description": "Cloud-Native Networking Stack That Just Works.\n\nSource: https://github.com/traefik/traefik",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/traefik.png",
+  "default_port": 80,
+  "extra_ports": [
+    443,
+    8080
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/traefik/traefik.yml",
+      "container": "/traefik.yml",
+      "description": "Dossier /traefik.yml"
+    },
+    {
+      "host": "./data/traefik/config.yml",
+      "container": "/config.yml",
+      "description": "Dossier /config.yml"
+    },
+    {
+      "host": "./data/traefik/acme.json",
+      "container": "/acme.json",
+      "description": "Dossier /acme.json"
+    },
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

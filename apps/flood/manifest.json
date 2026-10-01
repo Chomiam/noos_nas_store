@@ -1,0 +1,31 @@
+{
+  "id": "flood",
+  "name": "Flood",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support",
+  "description": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support.",
+  "website": "",
+  "icon": "https://hotio.dev/img/image-logos/flood.svg",
+  "default_port": 8282,
+  "extra_ports": [
+    3223
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

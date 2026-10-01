@@ -1,0 +1,19 @@
+services:
+  kimai:
+    container_name: kimai
+    image: linuxserver/kimai:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - APP_SECRET=
+    - DATABASE_URL=mysql://your_db_user:your_db_pass@your_db_host:3306/your_db_name?charset=your_db_charset&serverVersion=your_db_version
+    - TRUSTED_HOSTS=kimai.example.com
+    - TRUSTED_PROXIES=127.0.0.1/32

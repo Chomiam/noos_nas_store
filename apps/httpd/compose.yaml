@@ -1,0 +1,14 @@
+services:
+  httpd:
+    container_name: httpd
+    image: httpd:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/usr_local_apache2_htdocs:/usr/local/apache2/htdocs/
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,29 @@
+{
+  "id": "hauk",
+  "name": "Hauk",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Hauk is a fully open source, self-hosted location sharing service",
+  "description": "Hauk is a fully open source, self-hosted location sharing service. Install the backend code on a PHP-compatible web server, install the companion app on your phone, and you're good to go!",
+  "website": "",
+  "icon": "https://github.com/bilde2910/Hauk/raw/master/frontend/assets/logo.svg",
+  "default_port": 7735,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

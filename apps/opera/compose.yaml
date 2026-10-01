@@ -1,0 +1,16 @@
+services:
+  opera:
+    container_name: opera
+    image: linuxserver/opera:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    - 3001:3001/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - OPERA_CLI=https://www.linuxserver.io/

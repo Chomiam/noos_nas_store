@@ -1,0 +1,51 @@
+{
+  "id": "gitea",
+  "name": "Gitea",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review,",
+  "description": "Git with a cup of tea! Painless self-hosted all-in-one software development service, including Git hosting, code review, team collaboration, package registry and CI/CD.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/gitea.png",
+  "default_port": 3000,
+  "extra_ports": [
+    222
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Gitea",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/ /etc/timezone",
+      "container": "/etc/timezone:ro",
+      "description": "Dossier /etc/timezone:ro"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime:ro",
+      "description": "Dossier /etc/localtime:ro"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "terraria-server",
+  "name": "Terraria Server {shmolf}",
+  "version": "latest",
+  "category": "Jeux & Divertissement",
+  "tagline": "Docker container for a Terraria dedicated server",
+  "description": "Docker container for a Terraria dedicated server.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/shmolf/portainer-templates/main/assets/logos/terraria-server.png",
+  "default_port": 7777,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/StirlingPDF/tessdata",
+      "container": "/usr/share/tesseract-ocr/5/tessdata",
+      "description": "Dossier /usr/share/tesseract-ocr/5/tessdata"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "WORLD",
+      "label": "World name",
+      "default": "dockerworld"
+    }
+  ]
+}

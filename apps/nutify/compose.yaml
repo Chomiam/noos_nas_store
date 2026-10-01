@@ -1,0 +1,41 @@
+services:
+  nut:
+    image: dartsteven/nutify:amd64-0.1.0
+    container_name: Nutify-Server
+    privileged: true
+    cap_add:
+    - SYS_ADMIN
+    - SYS_RAWIO
+    - MKNOD
+    devices:
+    - /dev/bus/usb:/dev/bus/usb:rwm
+    device_cgroup_rules:
+    - c 189:* rwm
+    environment:
+    - SERVER_NAME=
+    - SERVER_PORT=5050
+    - SERVER_HOST=0.0.0.0
+    - TIMEZONE=
+    - ENCRYPTION_KEY=
+    - UPS_HOST=
+    - UPS_NAME=ups
+    - UPS_DRIVER=usbhid-ups
+    - UPS_PORT=auto
+    - UPS_REALPOWER_NOMINAL=1000
+    - UPS_USER=admin
+    - UPS_PASSWORD=hunter2
+    - UPSCMD_USER=admin
+    - UPSCMD_PASSWORD=hunter2
+    - LOG=false
+    - LOG_LEVEL=DEBUG
+    - LOG_WERKZEUG=false
+    - ENABLE_LOG_STARTUP=N
+    ports:
+    - 3493:3493
+    - 5050:5050
+    volumes:
+    - ./data/nutify/nut_data:/var/run/nut
+    - ./data/nutify/logs/logs:/app/nutify/logs
+    - ./data/nutify/instance:/app/nutify/instance
+    restart: always
+    user: root

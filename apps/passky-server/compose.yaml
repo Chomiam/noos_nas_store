@@ -1,0 +1,16 @@
+services:
+  passky-server:
+    container_name: passky-server
+    image: rabbitcompany/passky-server:latest
+    restart: unless-stopped
+    ports:
+    - 8080:80/tcp
+    volumes:
+    - ./data:/var/www/html/databases
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - ADMIN_USERNAME=admin
+    - ADMIN_PASSWORD=

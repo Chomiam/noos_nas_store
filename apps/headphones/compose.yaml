@@ -1,0 +1,16 @@
+services:
+  headphones:
+    container_name: headphones
+    image: linuxserver/headphones:latest
+    restart: unless-stopped
+    ports:
+    - 8181:8181/tcp
+    volumes:
+    - ./data/Headphones:/config
+    - ./data/Downloads:/Downloads
+    - ./data/Music:/music
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

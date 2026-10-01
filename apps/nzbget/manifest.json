@@ -1,0 +1,54 @@
+{
+  "id": "nzbget",
+  "name": "Nzbget",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "[Nzbget](http://nzbget",
+  "description": "[Nzbget](http://nzbget.com/) is a usenet downloader, written in C++ and designed with performance in mind to achieve maximum download speed by using very little system resources.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nzbget-banner.png",
+  "default_port": 6789,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "NZBGET_USER",
+      "label": "NZBGET_USER",
+      "default": "nzbget"
+    },
+    {
+      "name": "NZBGET_PASS",
+      "label": "NZBGET_PASS",
+      "default": "tegbzn6789"
+    }
+  ]
+}

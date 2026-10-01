@@ -1,0 +1,79 @@
+{
+  "id": "bookstack",
+  "name": "Bookstack (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Bookstack](https://codeberg",
+  "description": "[Bookstack](https://codeberg.org/bookstack/bookstack) is a free and open source Wiki designed for creating beautiful documentation. Featuring a simple, but powerful WYSIWYG editor it allows for teams to create detailed and useful documentation with ease. Powered by SQL and including a Markdown editor for those who prefer it, BookStack is geared towards making documentation more of a pleasure than a chore. For more information on BookStack visit their website and check it out: https://www.bookstackapp.com",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bookstack-logo.png",
+  "default_port": 6875,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "APP_URL",
+      "label": "APP_URL",
+      "default": ""
+    },
+    {
+      "name": "APP_KEY",
+      "label": "APP_KEY",
+      "default": ""
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "default": ""
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": "3306"
+    },
+    {
+      "name": "DB_USERNAME",
+      "label": "DB_USERNAME",
+      "default": ""
+    },
+    {
+      "name": "DB_PASSWORD",
+      "label": "DB_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "DB_DATABASE",
+      "label": "DB_DATABASE",
+      "default": ""
+    },
+    {
+      "name": "QUEUE_CONNECTION",
+      "label": "QUEUE_CONNECTION",
+      "default": ""
+    }
+  ]
+}

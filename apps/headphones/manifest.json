@@ -1,0 +1,49 @@
+{
+  "id": "headphones",
+  "name": "Headphones",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Headphones is an automated music downloader for NZB and Torrent, written in Python",
+  "description": "Headphones is an automated music downloader for NZB and Torrent, written in Python. It supports SABnzbd, NZBget, Transmission, µTorrent and Blackhole.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/headphones-icon.png",
+  "default_port": 8181,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Headphones",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/Downloads",
+      "description": "Dossier /Downloads"
+    },
+    {
+      "host": "./data/Music",
+      "container": "/music",
+      "description": "Dossier /music"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

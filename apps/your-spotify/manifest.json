@@ -1,0 +1,71 @@
+{
+  "id": "your-spotify",
+  "name": "Your_spotify (container)",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "[Your_spotify](https://github",
+  "description": "[Your_spotify](https://github.com/Yooooomi/your_spotify) is a self-hosted application that tracks what you listen and offers you a dashboard to explore statistics about it! It's composed of a web server which polls the Spotify API every now and then and a web application on which you can explore your statistics.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/your_spotify-logo.png",
+  "default_port": 80,
+  "extra_ports": [
+    443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "APP_URL",
+      "label": "APP_URL",
+      "default": "http://localhost"
+    },
+    {
+      "name": "SPOTIFY_PUBLIC",
+      "label": "SPOTIFY_PUBLIC",
+      "default": ""
+    },
+    {
+      "name": "SPOTIFY_SECRET",
+      "label": "SPOTIFY_SECRET",
+      "default": ""
+    },
+    {
+      "name": "SPOTIFY_API_DELAY_MS",
+      "label": "SPOTIFY_API_DELAY_MS",
+      "default": "2000"
+    },
+    {
+      "name": "CORS",
+      "label": "CORS",
+      "default": "http://localhost:80,https://localhost:443"
+    },
+    {
+      "name": "MONGO_ENDPOINT",
+      "label": "MONGO_ENDPOINT",
+      "default": "mongodb://mongo:27017/your_spotify"
+    }
+  ]
+}

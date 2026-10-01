@@ -1,0 +1,36 @@
+services:
+  netbox:
+    container_name: netbox
+    image: linuxserver/netbox:latest
+    restart: unless-stopped
+    ports:
+    - 8000:8000/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - SUPERUSER_EMAIL=
+    - SUPERUSER_PASSWORD=
+    - ALLOWED_HOST=
+    - DB_NAME=
+    - DB_USER=
+    - DB_PASSWORD=
+    - DB_HOST=
+    - DB_PORT=
+    - REDIS_HOST=
+    - REDIS_PORT=
+    - REDIS_USERNAME=
+    - REDIS_PASSWORD=
+    - REDIS_DB_TASK=
+    - REDIS_DB_CACHE=
+    - BASE_PATH=
+    - CSRF_TRUSTED_ORIGINS=
+    - REMOTE_AUTH_ENABLED=
+    - REMOTE_AUTH_BACKEND=
+    - REMOTE_AUTH_HEADER=
+    - REMOTE_AUTH_AUTO_CREATE_USER=
+    - REMOTE_AUTH_DEFAULT_GROUPS=
+    - REMOTE_AUTH_DEFAULT_PERMISSIONS=

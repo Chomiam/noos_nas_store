@@ -1,0 +1,29 @@
+{
+  "id": "petio",
+  "name": "Petio",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Petio is a third party companion app available to Plex server owners to allow their users to request, review and discove",
+  "description": "Petio is a third party companion app available to Plex server owners to allow their users to request, review and discover content.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/petio-icon.png",
+  "default_port": 7777,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

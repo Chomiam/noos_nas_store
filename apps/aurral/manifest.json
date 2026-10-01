@@ -1,0 +1,29 @@
+{
+  "id": "aurral",
+  "name": "Aurral",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Streamlined Artist Request Manager for Lidarr",
+  "description": "Streamlined Artist Request Manager for Lidarr. Search for artists using the MusicBrainz database and seamlessly add them to your Lidarr music library. Features personalized recommendations, genre analysis, and one-click requests.",
+  "website": "",
+  "icon": "https://github.com/lklynet/aurral/raw/main/frontend/public/arralogo.svg",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

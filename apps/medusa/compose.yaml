@@ -1,0 +1,16 @@
+services:
+  medusa:
+    container_name: medusa
+    image: linuxserver/medusa:latest
+    restart: unless-stopped
+    ports:
+    - 8081:8081/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    - ./data/tv:/tv
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

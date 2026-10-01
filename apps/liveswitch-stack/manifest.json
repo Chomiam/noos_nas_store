@@ -1,0 +1,33 @@
+{
+  "id": "liveswitch-stack",
+  "name": "LiveSwitch (stack)",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "A basic LiveSwitch compose with gateway, caching, database and media server",
+  "description": "A basic LiveSwitch compose with gateway, caching, database and media server",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/liveswitch.png",
+  "default_port": 8080,
+  "extra_ports": [
+    9090,
+    8443,
+    10443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

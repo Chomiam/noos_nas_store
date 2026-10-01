@@ -1,0 +1,54 @@
+{
+  "id": "booksonic",
+  "name": "Booksonic",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Booksonic is a server and an app for streaming your audiobooks to any pc or android phone",
+  "description": "Booksonic is a server and an app for streaming your audiobooks to any pc or android phone. Most of the functionality is also availiable on other platforms that have apps for subsonic.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/booksonic.png",
+  "default_port": 4040,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Books",
+      "container": "/books",
+      "description": "Dossier /books"
+    },
+    {
+      "host": "./data/Podcasts",
+      "container": "/podcast",
+      "description": "Dossier /podcast"
+    },
+    {
+      "host": "./data/Booksonic",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CONTEXT_PATH",
+      "label": "CONTEXT_PATH",
+      "default": "booksonic"
+    }
+  ]
+}

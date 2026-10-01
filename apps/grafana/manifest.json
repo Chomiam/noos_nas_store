@@ -1,0 +1,29 @@
+{
+  "id": "grafana",
+  "name": "Grafana",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Grafana is the open source analytics & monitoring solution for every database",
+  "description": "Grafana is the open source analytics & monitoring solution for every database.",
+  "website": "",
+  "icon": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Grafana_logo.png?20170804201233",
+  "default_port": 3023,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

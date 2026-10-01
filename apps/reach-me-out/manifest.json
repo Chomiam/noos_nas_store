@@ -1,0 +1,39 @@
+{
+  "id": "reach-me-out",
+  "name": "Reach Me Out",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Static, config-driven link-in-bio page",
+  "description": "Static, config-driven link-in-bio page. Profile card, tappable links, vCard download, QR share — all driven from a single YAML file baked at build time. Source: https://github.com/kartikeychoudhary/Reach-me-out",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/kartikeychoudhary/Reach-me-out/main/public/logo.svg",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config.yaml",
+      "container": "/usr/share/nginx/html/config.yaml",
+      "description": "Dossier /usr/share/nginx/html/config.yaml"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

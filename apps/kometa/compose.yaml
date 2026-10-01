@@ -1,0 +1,19 @@
+services:
+  kometa:
+    container_name: kometa
+    image: linuxserver/kometa:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - KOMETA_CONFIG=/config/config.yml
+    - KOMETA_TIMES=03:00
+    - KOMETA_RUN=False
+    - KOMETA_TESTS=False
+    - KOMETA_NO_MISSING=False

@@ -1,0 +1,46 @@
+{
+  "id": "pyload-ng",
+  "name": "Pyload-ng",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "[pyLoad](https://pyload",
+  "description": "[pyLoad](https://pyload.net/) is a Free and Open Source download manager written in Python and designed to be extremely lightweight, easily extensible and fully manageable via web.",
+  "website": "",
+  "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/pyload-logo.png",
+  "default_port": 8000,
+  "extra_ports": [
+    9666
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

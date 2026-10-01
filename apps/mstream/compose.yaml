@@ -1,0 +1,15 @@
+services:
+  mstream:
+    container_name: mstream
+    image: linuxserver/mstream:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/music:/music
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

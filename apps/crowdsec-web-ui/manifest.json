@@ -1,0 +1,29 @@
+{
+  "id": "crowdsec-web-ui",
+  "name": "Crowdsec WEB UI",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "A modern, responsive web interface for managing CrowdSec alerts and decisions",
+  "description": "A modern, responsive web interface for managing CrowdSec alerts and decisions. Built with React, Vite, Bun, and Tailwind CSS.",
+  "website": "",
+  "icon": "https://github.com/TheDuffman85/crowdsec-web-ui/raw/main/frontend/public/logo.svg",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "shaarli",
+  "name": "Shaarli",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The personal, minimalist, super fast, database-free, bookmarking service",
+  "description": "The personal, minimalist, super fast, database-free, bookmarking service.",
+  "website": "",
+  "icon": "https://github.com/shaarli/Shaarli/raw/master/doc/md/images/doc-logo.png",
+  "default_port": 7755,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+services:
+  muximux:
+    container_name: muximux
+    image: linuxserver/muximux:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/Muximux:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

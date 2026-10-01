@@ -1,0 +1,56 @@
+{
+  "id": "lldap",
+  "name": "LLDAP",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "This project is a lightweight authentication server that provides an opinionated, simplified LDAP interface for authenti",
+  "description": "This project is a lightweight authentication server that provides an opinionated, simplified LDAP interface for authentication.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/lldap.png",
+  "default_port": 3890,
+  "extra_ports": [
+    17170
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/lldap/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "LLDAP_JWT_SECRET",
+      "label": "LLDAP_JWT_SECRET",
+      "default": "somesecretjwt"
+    },
+    {
+      "name": "LLDAP_LDAP_USER_PASS",
+      "label": "LLDAP_LDAP_USER_PASS",
+      "default": "someadminpassword"
+    },
+    {
+      "name": "LLDAP_LDAP_BASE_DN",
+      "label": "LLDAP_LDAP_BASE_DN",
+      "default": "dc=example,dc=com"
+    }
+  ]
+}

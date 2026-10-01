@@ -1,0 +1,44 @@
+{
+  "id": "pydio",
+  "name": "Pydio",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Pydio (formerly AjaXplorer) is a mature open source software solution for file sharing and synchronization",
+  "description": "Pydio (formerly AjaXplorer) is a mature open source software solution for file sharing and synchronization. With intuitive user interfaces (web / mobile / desktop), Pydio provides enterprise-grade features to gain back control and privacy of your data: user directory connectors, legacy filesystems drivers, comprehensive admin interface, and much more.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/pydio-icon.png",
+  "default_port": 443,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Pydio",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

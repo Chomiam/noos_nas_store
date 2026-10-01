@@ -1,0 +1,12 @@
+services:
+  ubuntu:
+    container_name: ubuntu
+    image: ubuntu:latest
+    restart: unless-stopped
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

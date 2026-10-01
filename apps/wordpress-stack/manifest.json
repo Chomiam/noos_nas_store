@@ -1,0 +1,29 @@
+{
+  "id": "wordpress-stack",
+  "name": "WordPress (stack)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "WordPress setup with a MySQL database",
+  "description": "WordPress setup with a MySQL database",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wordpress.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

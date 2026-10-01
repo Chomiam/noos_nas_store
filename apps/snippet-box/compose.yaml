@@ -1,0 +1,14 @@
+services:
+  snippet-box:
+    container_name: snippet-box
+    image: pawelmalak/snippet-box:arm
+    restart: unless-stopped
+    ports:
+    - 5010:5000/tcp
+    volumes:
+    - ./data/Snippet-box:/app/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

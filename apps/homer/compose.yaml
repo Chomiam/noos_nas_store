@@ -1,0 +1,15 @@
+services:
+  homer:
+    container_name: homer
+    image: b4bz/homer:latest
+    restart: unless-stopped
+    ports:
+    - 8902:8080/tcp
+    volumes:
+    - ./data/Homer/assets:/www/assets
+    - ./data/Homer:/www/config.yml
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

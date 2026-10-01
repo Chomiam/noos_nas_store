@@ -1,0 +1,29 @@
+{
+  "id": "raspberrypi-docker-monitor",
+  "name": "Raspberry Pi Docker Monitor",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Monitor your Raspberry Pi and Dockers using Grafana developed by oijkn",
+  "description": "Monitor your Raspberry Pi and Dockers using Grafana developed by oijkn. Please download grafana configs from his git https://github.com/oijkn/Docker-Raspberry-PI-Monitoring",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/rpi_monitor.png",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "livekit",
+  "name": "LiveKit",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "LiveKit - the Apache-2",
+  "description": "LiveKit - the Apache-2.0 WebRTC server powering modern voice agents and video apps: rooms, tracks, selective forwarding, and the Agents framework ecosystem. Single Go binary.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/livekit.png",
+  "default_port": 5000,
+  "extra_ports": [
+    7881,
+    7882
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

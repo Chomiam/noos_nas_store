@@ -1,0 +1,16 @@
+services:
+  filebrowser-latest:
+    container_name: filebrowser-latest
+    image: filebrowser/filebrowser:latest
+    restart: unless-stopped
+    ports:
+    - 8082:80/tcp
+    volumes:
+    - ./data/Downloads:/srv
+    - ./data/filebrowser/filebrowser.db:/database/filebrowser.db
+    - ./data/filebrowser/settings.json:/config/settings.json
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

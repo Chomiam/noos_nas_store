@@ -1,0 +1,56 @@
+{
+  "id": "minio-container",
+  "name": "Minio (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A distributed object storage server built for cloud applications and devops",
+  "description": "A distributed object storage server built for cloud applications and devops",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/minio.png",
+  "default_port": 9000,
+  "extra_ports": [
+    9001
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/root_.minio",
+      "container": "/root/.minio",
+      "description": "Dossier /root/.minio"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MINIO_ROOT_USER",
+      "label": "Root user",
+      "default": ""
+    },
+    {
+      "name": "MINIO_ROOT_PASSWORD",
+      "label": "Root password",
+      "default": ""
+    }
+  ]
+}

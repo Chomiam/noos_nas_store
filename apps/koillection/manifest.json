@@ -1,0 +1,29 @@
+{
+  "id": "koillection",
+  "name": "Koillection",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Koillection is a self-hosted collection manager created to keep track of physical (mostly) collections of any kind like ",
+  "description": "Koillection is a self-hosted collection manager created to keep track of physical (mostly) collections of any kind like books, DVDs, stamps, games..",
+  "website": "",
+  "icon": "https://user-images.githubusercontent.com/20560781/80213166-0e560e00-8639-11ea-944e-4f79fdbcef55.png",
+  "default_port": 181,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

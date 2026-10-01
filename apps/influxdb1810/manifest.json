@@ -1,0 +1,44 @@
+{
+  "id": "influxdb1810",
+  "name": "Influxdb 1.8.10",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "InfluxDB is an open source time series database for recording metrics, events, and analytics",
+  "description": "InfluxDB is an open source time series database for recording metrics, events, and analytics.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/docker-library/docs/43d87118415bb75d7bb107683e79cd6d69186f67/influxdb/logo.png",
+  "default_port": 8086,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Influxdb/data",
+      "container": "/var/lib/influxdb",
+      "description": "Dossier /var/lib/influxdb"
+    },
+    {
+      "host": "./data/Influxdb/config",
+      "container": "/etc/influxdb",
+      "description": "Dossier /etc/influxdb"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

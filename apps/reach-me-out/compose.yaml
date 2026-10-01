@@ -1,0 +1,14 @@
+services:
+  reach-me-out:
+    container_name: reach-me-out
+    image: kartikey31choudhary/reach-me-out:latest
+    restart: unless-stopped
+    ports:
+    - 8080:80/tcp
+    volumes:
+    - ./data/config.yaml:/usr/share/nginx/html/config.yaml
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,54 @@
+{
+  "id": "twitch-points-miner",
+  "name": "Twitch Points Miner",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A simple script that will watch a stream for you and earn the channel points",
+  "description": "A simple script that will watch a stream for you and earn the channel points.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/twitchpointsminer.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/TwitchPointsMiner/run.py",
+      "container": "/usr/src/app/run.py",
+      "description": "Dossier /usr/src/app/run.py"
+    },
+    {
+      "host": "./data/cookies",
+      "container": "/usr/src/app/cookies",
+      "description": "Dossier /usr/src/app/cookies"
+    },
+    {
+      "host": "./data/logs",
+      "container": "/usr/src/app/logs",
+      "description": "Dossier /usr/src/app/logs"
+    },
+    {
+      "host": "./data/analytics",
+      "container": "/usr/src/app/analytics",
+      "description": "Dossier /usr/src/app/analytics"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

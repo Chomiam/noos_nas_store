@@ -1,0 +1,39 @@
+{
+  "id": "bitwardenrs",
+  "name": "Bitwarden RS",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for s",
+  "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/bitwarden.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Bitwarden-rs",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

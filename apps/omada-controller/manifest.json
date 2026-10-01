@@ -1,0 +1,47 @@
+{
+  "id": "omada-controller",
+  "name": "Omada EAP Controller",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "TP-Link Omada is a software-defined network solution",
+  "description": "TP-Link Omada is a software-defined network solution. The EAP Controller is used to manage multiple EAPs. Raspberry Pi 1 and Zero are not supported.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/omada.png",
+  "default_port": 8088,
+  "extra_ports": [
+    8043,
+    27001,
+    27002,
+    29810,
+    29811,
+    29812,
+    29813
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Omada",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

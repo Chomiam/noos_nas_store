@@ -1,0 +1,15 @@
+services:
+  budge:
+    container_name: budge
+    image: linuxserver/budge:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

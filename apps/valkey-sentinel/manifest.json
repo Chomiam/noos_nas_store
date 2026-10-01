@@ -1,0 +1,29 @@
+{
+  "id": "valkey-sentinel",
+  "name": "Valkey Sentinel",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "High availability for Valkey with automatic failover, using Valkey's built-in Sentinel (the same design as Redis Sentine",
+  "description": "High availability for Valkey with automatic failover, using Valkey's built-in Sentinel (the same design as Redis Sentinel). One master, two replicas, and three sentinels that watch the master and promote a replica if it fails.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/valkey.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

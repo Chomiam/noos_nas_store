@@ -1,0 +1,46 @@
+{
+  "id": "chromium",
+  "name": "Chromium",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Chromium](https://www",
+  "description": "[Chromium](https://www.chromium.org/chromium-projects/) is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/chromium-logo.png",
+  "default_port": 3000,
+  "extra_ports": [
+    3001
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CHROME_CLI",
+      "label": "CHROME_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ]
+}

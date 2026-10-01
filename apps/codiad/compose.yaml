@@ -1,0 +1,14 @@
+services:
+  codiad:
+    container_name: codiad
+    image: linuxserver/codiad:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/Codiad:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

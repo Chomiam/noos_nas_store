@@ -1,0 +1,14 @@
+services:
+  filestash:
+    container_name: filestash
+    hostname: filestash
+    image: machines/filestash:latest
+    restart: unless-stopped
+    expose:
+    - 8334
+    environment:
+    - APPLICATION_URL=MYHOSTIP
+    volumes:
+    - ./data/localtime:/etc/localtime:ro
+    - ./data/filestash/data:/app/data/state
+    - ./data/MYSMBMOUNT:/mnt/MYSMBMOUNT:shared

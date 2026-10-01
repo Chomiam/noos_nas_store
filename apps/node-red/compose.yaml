@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+    - TZ=${TZ}
+    ports:
+    - 1880:1880
+    networks:
+    - node-red-net
+    volumes:
+    - ./data/node-red-data:/data
+    restart: unless-stopped
+volumes:
+  node-red-data: null
+networks:
+  node-red-net: null

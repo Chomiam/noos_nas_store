@@ -1,0 +1,54 @@
+{
+  "id": "cloudflared-web",
+  "name": "Cloudflared-web",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "A docker image that packages both cloudflared cli and a simple Web UI to easily start or stop remotely-managed Cloudflar",
+  "description": "A docker image that packages both cloudflared cli and a simple Web UI to easily start or stop remotely-managed Cloudflare tunnel. Source: https://github.com/WisdomSky/Cloudflared-web",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/WisdomSky/Cloudflared-web/refs/heads/main/app/frontend/public/cloudflare.ico",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "WEBUI_PORT",
+      "label": "Web UI port",
+      "default": "14333"
+    },
+    {
+      "name": "BASIC_AUTH_USER",
+      "label": "Web UI username",
+      "default": "admin"
+    },
+    {
+      "name": "BASIC_AUTH_PASS",
+      "label": "Web UI password (set to protect the tunnel controls)",
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "id": "pihole-doh-dot",
+  "name": "Pi-Hole DoH/DoT",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole with both DoH",
+  "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole with both DoH (DNS over HTTPS) and DoT (DNS over TLS) clients.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/pihole_doh-dot.png",
+  "default_port": 53,
+  "extra_ports": [
+    67,
+    1010,
+    4443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/PiHole_DoH-DoT",
+      "container": "/etc/pihole",
+      "description": "Dossier /etc/pihole"
+    },
+    {
+      "host": "./data/PiHole_DoH-DoT/DNS",
+      "container": "/etc/dnsmasq.d",
+      "description": "Dossier /etc/dnsmasq.d"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

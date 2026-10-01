@@ -1,0 +1,68 @@
+services:
+  tooljet-plugins:
+    build:
+      context: ./
+      dockerfile: ./docker/plugins.Dockerfile.dev
+    image: tooljet-plugins:development
+    platform: linux/x86_64
+    volumes:
+    - ./data/tooljet/plugins:/app/plugins
+    command: npm run --prefix plugins start
+    restart: unless-stopped
+  tooljet-client:
+    build:
+      context: ./
+      dockerfile: ./docker/client.Dockerfile.dev
+    image: tooljet-client:development
+    platform: linux/x86_64
+    volumes:
+    - ./data/tooljet:/app/frontend:delegated
+    - ./data/tooljet/plugins:/app/plugins
+    - /portainer/Files/AppData/Config/tooljet/app/frontend/node_modules/
+    ports:
+    - 8082:8082
+    environment:
+    - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    - NODE_ENV=development
+    - SERVE_CLIENT=false
+    command: npm run --prefix frontend start
+    restart: unless-stopped
+  tooljet-server:
+    build:
+      context: ./
+      dockerfile: ./docker/server.Dockerfile.dev
+    image: tooljet-server:development
+    platform: linux/x86_64
+    depends_on:
+    - tooljet-postgres
+    volumes:
+    - ./data/tooljet/server:/app/server:delegated
+    - ./data/tooljet/server/plugins:/app/plugins
+    - /portainer/Files/AppData/Config/tooljet/server/app/server/node_modules/
+    - ./data/tooljet/server/.env:/app/.env
+    - ./data/tooljet/server/.env.test:/app/.env.test
+    ports:
+    - 3000:3000
+    environment:
+    - SERVE_CLIENT=false
+    - FORCE_COLOR=1
+    command: npm run --prefix server start:dev
+    restart: unless-stopped
+  tooljet-postgrest:
+    image: postgrest/postgrest:v10.1.1.20221215
+    ports:
+    - 7001:3000
+    env_file:
+    - /portainer/Files/AppData/Config/tooljet/server/.env
+    depends_on:
+    - tooljet-postgres
+    restart: unless-stopped
+  tooljet-postgres:
+    image: postgres:13
+    restart: always
+    ports:
+    - 5432:5432
+    volumes:
+    - ./data/tooljet/postgres:/data/postgres
+    environment:
+    - POSTGRES_PASSWORD=postgres

@@ -1,0 +1,39 @@
+{
+  "id": "floating-license-server",
+  "name": "Floating License Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "License Server for Softing edgeConnector products",
+  "description": "License Server for Softing edgeConnector products",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/softing.png",
+  "default_port": 6200,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/licsrv_licenses",
+      "container": "/licsrv/licenses",
+      "description": "Dossier /licsrv/licenses"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

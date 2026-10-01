@@ -1,0 +1,31 @@
+{
+  "id": "sftpgo",
+  "name": "SFTPGo",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "SFTPGo - the upload portal for Miget Buckets: create users whose storage IS an S3 bucket (custom endpoint, path-style, o",
+  "description": "SFTPGo - the upload portal for Miget Buckets: create users whose storage IS an S3 bucket (custom endpoint, path-style, optional key prefix per user), give outsiders share-upload links, and optionally front it all with SFTP or WebDAV.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/sftpgo.png",
+  "default_port": 5000,
+  "extra_ports": [
+    2022
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

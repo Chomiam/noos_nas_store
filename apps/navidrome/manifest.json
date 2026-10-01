@@ -1,0 +1,29 @@
+{
+  "id": "navidrome",
+  "name": "Navidrome",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Navidrome is an open source web-based music collection server and streamer",
+  "description": "Navidrome is an open source web-based music collection server and streamer. It gives you freedom to listen to your music collection from any browser or mobile device. It's like your personal Spotify!",
+  "website": "",
+  "icon": "https://github.com/navidrome/navidrome/raw/master/resources/logo-192x192.png",
+  "default_port": 4533,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

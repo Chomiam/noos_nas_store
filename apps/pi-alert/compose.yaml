@@ -1,0 +1,14 @@
+services:
+  pi-alert:
+    container_name: pi-alert
+    image: jokobsk/pi.alert:latest
+    restart: always
+    ports:
+    - 20211:20211/udp
+    volumes:
+    - ./data/pi.alert:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

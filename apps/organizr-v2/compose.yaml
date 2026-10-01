@@ -1,0 +1,14 @@
+services:
+  organizr-v2:
+    container_name: organizr-v2
+    image: organizr/organizr:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/Organizr:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

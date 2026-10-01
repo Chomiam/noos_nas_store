@@ -1,0 +1,44 @@
+{
+  "id": "hydra2",
+  "name": "hydra2",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "NZBHydra is a meta search for NZB indexers and the \"spiritual successor\" to NZBmegasearcH",
+  "description": "NZBHydra is a meta search for NZB indexers and the \"spiritual successor\" to NZBmegasearcH. It provides easy access to a number of raw and newznab based indexers.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/thesugarat/portainer_templates-1/master/Images/hydra-icon.png",
+  "default_port": 5076,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

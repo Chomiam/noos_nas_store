@@ -1,0 +1,31 @@
+{
+  "id": "linkstack",
+  "name": "Linkstack",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Self-hosted open-source Linktree alternative",
+  "description": "Self-hosted open-source Linktree alternative. LinkStack is a highly customizable link sharing platform with an intuitive, easy to use user interface.",
+  "website": "",
+  "icon": "https://linkstack.org/wp-content/uploads/2023/04/logo-animated.svg",
+  "default_port": 8188,
+  "extra_ports": [
+    8190
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

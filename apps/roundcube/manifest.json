@@ -1,0 +1,29 @@
+{
+  "id": "roundcube",
+  "name": "Roundcube",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Roundcube - the standard open-source webmail client: folders, search, contacts, filters, and a clean responsive skin",
+  "description": "Roundcube - the standard open-source webmail client: folders, search, contacts, filters, and a clean responsive skin.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/roundcube.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

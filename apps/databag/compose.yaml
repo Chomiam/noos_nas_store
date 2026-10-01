@@ -1,0 +1,13 @@
+services:
+  databag:
+    container_name: databag
+    image: balzack/databag:0.1.18
+    restart: unless-stopped
+    ports:
+    - 7000:7000
+    environment:
+    - ADMIN=${DATABAG_ADMIN_PASSWORD}
+    volumes:
+    - ./data/databag-data:/var/lib/databag
+volumes:
+  databag-data: null

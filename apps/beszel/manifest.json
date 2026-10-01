@@ -1,0 +1,29 @@
+{
+  "id": "beszel",
+  "name": "Beszel",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "A lightweight server resource monitoring hub with historical data, docker stats, and alerts",
+  "description": "A lightweight server resource monitoring hub with historical data, docker stats, and alerts.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/beszel.png",
+  "default_port": 8090,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

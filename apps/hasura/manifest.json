@@ -1,0 +1,29 @@
+{
+  "id": "hasura",
+  "name": "Hasura",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Hasura v2 CE - instant GraphQL over Postgres: track tables and get queries, mutations, and live subscriptions with row-l",
+  "description": "Hasura v2 CE - instant GraphQL over Postgres: track tables and get queries, mutations, and live subscriptions with row-level permissions, remote schemas, and event triggers. Stateless single container; everything lives in the database.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/hasura.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

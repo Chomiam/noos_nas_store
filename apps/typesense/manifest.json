@@ -1,0 +1,29 @@
+{
+  "id": "typesense",
+  "name": "Typesense",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Typesense - the typo-tolerant instant-search engine built for raw speed: a C++ binary with in-memory indexes, facets, fi",
+  "description": "Typesense - the typo-tolerant instant-search engine built for raw speed: a C++ binary with in-memory indexes, facets, filtering, vector + hybrid search, and an InstantSearch-compatible adapter.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/typesense.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

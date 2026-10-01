@@ -1,0 +1,14 @@
+services:
+  flame-dashboard:
+    container_name: flame-dashboard
+    image: pawelmalak/flame:latest
+    restart: unless-stopped
+    ports:
+    - 5005:5005/tcp
+    volumes:
+    - ./data/flame-dashboard:/app/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

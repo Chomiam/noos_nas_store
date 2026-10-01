@@ -1,0 +1,31 @@
+{
+  "id": "kasmworkspaces",
+  "name": "Kasm Workspaces",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "The Workspace Streaming Platform",
+  "description": "The Workspace Streaming Platform.Stream your workspace directly to your web browser on any device and from any location.",
+  "website": "",
+  "icon": "https://kasmweb.com/assets/images/logo.svg",
+  "default_port": 63000,
+  "extra_ports": [
+    7443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

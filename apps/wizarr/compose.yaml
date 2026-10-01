@@ -1,0 +1,16 @@
+services:
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr:latest
+    restart: unless-stopped
+    ports:
+    - 5690/tcp
+    volumes:
+    - ./data/apps/wizarr:/data/database
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - APP_URL=https://wizarr.domain.com

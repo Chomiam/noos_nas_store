@@ -1,0 +1,136 @@
+{
+  "id": "healthchecks",
+  "name": "Healthchecks",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Healthchecks](https://github",
+  "description": "[Healthchecks](https://github.com/healthchecks/healthchecks) is a watchdog for your cron jobs. It's a web server that listens for pings from your cron jobs, plus a web interface.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/healthchecks-logo.png",
+  "default_port": 8000,
+  "extra_ports": [
+    2525
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SECRET_KEY",
+      "label": "SECRET_KEY",
+      "default": ""
+    },
+    {
+      "name": "SITE_ROOT",
+      "label": "SITE_ROOT",
+      "default": ""
+    },
+    {
+      "name": "SITE_NAME",
+      "label": "SITE_NAME",
+      "default": ""
+    },
+    {
+      "name": "SUPERUSER_EMAIL",
+      "label": "SUPERUSER_EMAIL",
+      "default": ""
+    },
+    {
+      "name": "SUPERUSER_PASSWORD",
+      "label": "SUPERUSER_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "ALLOWED_HOSTS",
+      "label": "ALLOWED_HOSTS",
+      "default": ""
+    },
+    {
+      "name": "APPRISE_ENABLED",
+      "label": "APPRISE_ENABLED",
+      "default": "False"
+    },
+    {
+      "name": "CSRF_TRUSTED_ORIGINS",
+      "label": "CSRF_TRUSTED_ORIGINS",
+      "default": ""
+    },
+    {
+      "name": "DEBUG",
+      "label": "DEBUG",
+      "default": "True"
+    },
+    {
+      "name": "DEFAULT_FROM_EMAIL",
+      "label": "DEFAULT_FROM_EMAIL",
+      "default": ""
+    },
+    {
+      "name": "EMAIL_HOST",
+      "label": "EMAIL_HOST",
+      "default": ""
+    },
+    {
+      "name": "EMAIL_PORT",
+      "label": "EMAIL_PORT",
+      "default": ""
+    },
+    {
+      "name": "EMAIL_HOST_USER",
+      "label": "EMAIL_HOST_USER",
+      "default": ""
+    },
+    {
+      "name": "EMAIL_HOST_PASSWORD",
+      "label": "EMAIL_HOST_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "EMAIL_USE_TLS",
+      "label": "EMAIL_USE_TLS",
+      "default": ""
+    },
+    {
+      "name": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+      "label": "INTEGRATIONS_ALLOW_PRIVATE_IPS",
+      "default": ""
+    },
+    {
+      "name": "PING_EMAIL_DOMAIN",
+      "label": "PING_EMAIL_DOMAIN",
+      "default": ""
+    },
+    {
+      "name": "RP_ID",
+      "label": "RP_ID",
+      "default": ""
+    },
+    {
+      "name": "SITE_LOGO_URL",
+      "label": "SITE_LOGO_URL",
+      "default": ""
+    }
+  ]
+}

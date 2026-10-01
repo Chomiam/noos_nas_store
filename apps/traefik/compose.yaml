@@ -1,0 +1,19 @@
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+    - 8080:8080/tcp
+    volumes:
+    - ./data/traefik/traefik.yml:/traefik.yml
+    - ./data/traefik/config.yml:/config.yml
+    - ./data/traefik/acme.json:/acme.json
+    - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

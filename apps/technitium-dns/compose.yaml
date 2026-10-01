@@ -1,0 +1,18 @@
+services:
+  technitium-dns:
+    container_name: technitium-dns
+    image: technitium/dns-server:latest
+    restart: unless-stopped
+    ports:
+    - 5380:5380/tcp
+    - 53:53/tcp
+    - 53:53/udp
+    volumes:
+    - ./data/etc_dns:/etc/dns
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - DNS_SERVER_DOMAIN=dns-server
+    - DNS_SERVER_ADMIN_PASSWORD=

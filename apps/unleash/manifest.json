@@ -1,0 +1,29 @@
+{
+  "id": "unleash",
+  "name": "Unleash",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Unleash - the open-source feature flag and toggle platform: gradual rollouts, user/segment targeting, A/B testing, kill ",
+  "description": "Unleash - the open-source feature flag and toggle platform: gradual rollouts, user/segment targeting, A/B testing, kill switches, and SDKs for every language. Single stateless container on a managed Postgres (no Redis).",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/unleash.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  vlc:
+    container_name: vlc
+    image: linuxserver/vlc:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    - 3001:3001/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - VLC_CLI=--no-qt-minimal-view

@@ -1,0 +1,24 @@
+services:
+  transmission:
+    container_name: transmission
+    image: linuxserver/transmission:latest
+    restart: unless-stopped
+    ports:
+    - 9091:9091/tcp
+    - 51413:51413/tcp
+    - 51413:51413/udp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    - ./data/watch:/watch
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - TRANSMISSION_WEB_HOME=
+    - USER=
+    - PASS=
+    - WHITELIST=
+    - PEERPORT=
+    - HOST_WHITELIST=

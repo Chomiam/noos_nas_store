@@ -1,0 +1,41 @@
+{
+  "id": "kodi-headless",
+  "name": "Kodi Headless",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Headless installation of Kodi™ (formerly known as XBMC™), to enable library updates",
+  "description": "Headless installation of Kodi™ (formerly known as XBMC™), to enable library updates.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/kodi-icon.png",
+  "default_port": 8080,
+  "extra_ports": [
+    9777
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Kodi",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

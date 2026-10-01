@@ -1,0 +1,15 @@
+services:
+  overseerr:
+    container_name: overseerr
+    image: lscr.io/linuxserver/overseerr:latest
+    restart: unless-stopped
+    ports:
+    - 5055/tcp
+    volumes:
+    - ./data/apps/overseerr:/config
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=15000
+    - PGID=15000
+    - TZ=America/Los_Angeles
+    - UMASK=002

@@ -1,0 +1,61 @@
+{
+  "id": "ubooquity",
+  "name": "Ubooquity",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Ubooquity](https://vaemendis",
+  "description": "[Ubooquity](https://vaemendis.net/ubooquity/) is a free, lightweight and easy-to-use home server for your comics and ebooks. Use it to access your files from anywhere, with a tablet, an e-reader, a phone or a computer.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png",
+  "default_port": 2202,
+  "extra_ports": [
+    2203
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/books",
+      "container": "/books",
+      "description": "Dossier /books"
+    },
+    {
+      "host": "./data/comics",
+      "container": "/comics",
+      "description": "Dossier /comics"
+    },
+    {
+      "host": "./data/files",
+      "container": "/files",
+      "description": "Dossier /files"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MAXMEM",
+      "label": "MAXMEM",
+      "default": ""
+    }
+  ]
+}

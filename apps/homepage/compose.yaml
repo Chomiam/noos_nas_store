@@ -1,0 +1,15 @@
+services:
+  homepage:
+    container_name: homepage
+    image: ghcr.io/benphelps/homepage:latest
+    restart: unless-stopped
+    ports:
+    - 3000/tcp
+    volumes:
+    - ./data/apps/homepage:/app/config
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=15000
+    - PGID=15000
+    - TZ=America/Los_Angeles
+    - UMASK=002

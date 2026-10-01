@@ -1,0 +1,74 @@
+{
+  "id": "code-server",
+  "name": "Code-server (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Code-server](https://coder",
+  "description": "[Code-server](https://coder.com) is VS Code running on a remote server, accessible through the browser. - Code on your Chromebook, tablet, and laptop with a consistent dev environment. - If you have a Windows or Mac workstation, more easily develop for Linux. - Take advantage of large cloud servers to speed up tests, compilations, downloads, and more. - Preserve battery life when you're on the go. - All intensive computation runs on your server. - You're no longer running excess instances of Chrome.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/code-server-banner.png",
+  "default_port": 8443,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PASSWORD",
+      "label": "PASSWORD",
+      "default": "password"
+    },
+    {
+      "name": "HASHED_PASSWORD",
+      "label": "HASHED_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "SUDO_PASSWORD",
+      "label": "SUDO_PASSWORD",
+      "default": "password"
+    },
+    {
+      "name": "SUDO_PASSWORD_HASH",
+      "label": "SUDO_PASSWORD_HASH",
+      "default": ""
+    },
+    {
+      "name": "PROXY_DOMAIN",
+      "label": "PROXY_DOMAIN",
+      "default": "code-server.my.domain"
+    },
+    {
+      "name": "DEFAULT_WORKSPACE",
+      "label": "DEFAULT_WORKSPACE",
+      "default": "/config/workspace"
+    },
+    {
+      "name": "PWA_APPNAME",
+      "label": "PWA_APPNAME",
+      "default": "code-server"
+    }
+  ]
+}

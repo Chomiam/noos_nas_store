@@ -1,0 +1,15 @@
+services:
+  minecraft:
+    container_name: minecraft
+    image: itzg/minecraft-server:latest
+    restart: unless-stopped
+    ports:
+    - 25565:25565/tcp
+    volumes:
+    - ./data/Minecraft-data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - EULA=TRUE

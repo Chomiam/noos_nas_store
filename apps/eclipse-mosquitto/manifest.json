@@ -1,0 +1,51 @@
+{
+  "id": "eclipse-mosquitto",
+  "name": "Eclipse Mosquitto MQTT",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Eclipse Mosquitto is an open source message broker that implements the MQTT protocol versions 5",
+  "description": "Eclipse Mosquitto is an open source message broker that implements the MQTT protocol versions 5.0, 3.1.1 and 3.1. Mosquitto is lightweight and is suitable for use on all devices from low power single board computers to full servers.\r\nHave a look on https://mosquitto.org/man/mosquitto_passwd-1.html",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/eclipse-mosquitto.png",
+  "default_port": 1883,
+  "extra_ports": [
+    9001
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/eclipse-mosquitto/config",
+      "container": "/mosquitto/config",
+      "description": "Dossier /mosquitto/config"
+    },
+    {
+      "host": "./data/eclipse-mosquitto/data",
+      "container": "/mosquitto/data",
+      "description": "Dossier /mosquitto/data"
+    },
+    {
+      "host": "./data/eclipse-mosquitto/log",
+      "container": "/mosquitto/log",
+      "description": "Dossier /mosquitto/log"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

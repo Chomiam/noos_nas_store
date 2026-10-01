@@ -1,0 +1,151 @@
+name: superset
+x-superset:
+  image: apache/superset:6.1.0-dev
+  restart: unless-stopped
+x-superset-env: &id001
+  SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+  SUPERSET_CONFIG_PATH: /tmp/superset_config.py
+  SUPERSET_CONFIG_CONTENT: "import os\nSECRET_KEY = os.environ[\"SUPERSET_SECRET_KEY\"\
+    ]\nSQLALCHEMY_DATABASE_URI = (\n    f\"postgresql+psycopg2://{os.environ['DB_USER']}:{os.environ['DB_PASSWORD']}\"\
+    \n    f\"@{os.environ['DB_HOST']}:{os.environ['DB_PORT']}/{os.environ['DB_NAME']}\"\
+    \n)\n_REDIS = f\"redis://:{os.environ['REDIS_AUTH']}@{os.environ.get('REDIS_HOST',\
+    \ 'broker')}:6379\"\nclass CeleryConfig:\n    broker_url = _REDIS + \"/0\"\n \
+    \   result_backend = _REDIS + \"/1\"\n    imports = (\"superset.sql_lab\", \"\
+    superset.tasks.scheduler\")\n    worker_prefetch_multiplier = 1\n    task_acks_late\
+    \ = False\nCELERY_CONFIG = CeleryConfig\nCACHE_CONFIG = {\n    \"CACHE_TYPE\"\
+    : \"RedisCache\",\n    \"CACHE_DEFAULT_TIMEOUT\": 300,\n    \"CACHE_KEY_PREFIX\"\
+    : \"superset_\",\n    \"CACHE_REDIS_URL\": _REDIS + \"/2\",\n}\nDATA_CACHE_CONFIG\
+    \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_data_\"}\nFILTER_STATE_CACHE_CONFIG\
+    \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_filter_\"}\nEXPLORE_FORM_DATA_CACHE_CONFIG\
+    \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_explore_\"}\n"
+  DB_HOST: db
+  DB_PORT: '5432'
+  DB_NAME: superset
+  DB_USER: superset
+  DB_PASSWORD: superset-local-only
+  REDIS_HOST: broker
+  REDIS_AUTH: ${REDIS_AUTH}
+services:
+  app:
+    image: apache/superset:6.1.0-dev
+    restart: unless-stopped
+    command:
+    - sh
+    - -c
+    - printf '%s' "$SUPERSET_CONFIG_CONTENT" > /tmp/superset_config.py && exec /app/docker/docker-bootstrap.sh
+      app-gunicorn
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      SUPERSET_CONFIG_PATH: /tmp/superset_config.py
+      SUPERSET_CONFIG_CONTENT: "import os\nSECRET_KEY = os.environ[\"SUPERSET_SECRET_KEY\"\
+        ]\nSQLALCHEMY_DATABASE_URI = (\n    f\"postgresql+psycopg2://{os.environ['DB_USER']}:{os.environ['DB_PASSWORD']}\"\
+        \n    f\"@{os.environ['DB_HOST']}:{os.environ['DB_PORT']}/{os.environ['DB_NAME']}\"\
+        \n)\n_REDIS = f\"redis://:{os.environ['REDIS_AUTH']}@{os.environ.get('REDIS_HOST',\
+        \ 'broker')}:6379\"\nclass CeleryConfig:\n    broker_url = _REDIS + \"/0\"\
+        \n    result_backend = _REDIS + \"/1\"\n    imports = (\"superset.sql_lab\"\
+        , \"superset.tasks.scheduler\")\n    worker_prefetch_multiplier = 1\n    task_acks_late\
+        \ = False\nCELERY_CONFIG = CeleryConfig\nCACHE_CONFIG = {\n    \"CACHE_TYPE\"\
+        : \"RedisCache\",\n    \"CACHE_DEFAULT_TIMEOUT\": 300,\n    \"CACHE_KEY_PREFIX\"\
+        : \"superset_\",\n    \"CACHE_REDIS_URL\": _REDIS + \"/2\",\n}\nDATA_CACHE_CONFIG\
+        \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_data_\"}\nFILTER_STATE_CACHE_CONFIG\
+        \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_filter_\"}\nEXPLORE_FORM_DATA_CACHE_CONFIG\
+        \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_explore_\"}\n"
+      DB_HOST: db
+      DB_PORT: '5432'
+      DB_NAME: superset
+      DB_USER: superset
+      DB_PASSWORD: superset-local-only
+      REDIS_HOST: broker
+      REDIS_AUTH: ${REDIS_AUTH}
+      SUPERSET_PORT: '5000'
+    ports:
+    - 5000:5000
+    volumes:
+    - ./data/superset_home:/app/superset_home
+    depends_on:
+    - db
+    - broker
+  worker:
+    image: apache/superset:6.1.0-dev
+    restart: unless-stopped
+    command:
+    - sh
+    - -c
+    - printf '%s' "$SUPERSET_CONFIG_CONTENT" > /tmp/superset_config.py && exec /app/docker/docker-bootstrap.sh
+      worker
+    environment: *id001
+    volumes:
+    - ./data/superset_home:/app/superset_home
+    depends_on:
+    - db
+    - broker
+  beat:
+    image: apache/superset:6.1.0-dev
+    restart: unless-stopped
+    command:
+    - sh
+    - -c
+    - printf '%s' "$SUPERSET_CONFIG_CONTENT" > /tmp/superset_config.py && exec /app/docker/docker-bootstrap.sh
+      beat
+    environment: *id001
+    depends_on:
+    - db
+    - broker
+  init:
+    image: apache/superset:6.1.0-dev
+    restart: unless-stopped
+    command:
+    - sh
+    - -c
+    - printf '%s' "$SUPERSET_CONFIG_CONTENT" > /tmp/superset_config.py && /app/docker/docker-init.sh
+      && sleep infinity
+    environment:
+      SUPERSET_SECRET_KEY: ${SUPERSET_SECRET_KEY}
+      SUPERSET_CONFIG_PATH: /tmp/superset_config.py
+      SUPERSET_CONFIG_CONTENT: "import os\nSECRET_KEY = os.environ[\"SUPERSET_SECRET_KEY\"\
+        ]\nSQLALCHEMY_DATABASE_URI = (\n    f\"postgresql+psycopg2://{os.environ['DB_USER']}:{os.environ['DB_PASSWORD']}\"\
+        \n    f\"@{os.environ['DB_HOST']}:{os.environ['DB_PORT']}/{os.environ['DB_NAME']}\"\
+        \n)\n_REDIS = f\"redis://:{os.environ['REDIS_AUTH']}@{os.environ.get('REDIS_HOST',\
+        \ 'broker')}:6379\"\nclass CeleryConfig:\n    broker_url = _REDIS + \"/0\"\
+        \n    result_backend = _REDIS + \"/1\"\n    imports = (\"superset.sql_lab\"\
+        , \"superset.tasks.scheduler\")\n    worker_prefetch_multiplier = 1\n    task_acks_late\
+        \ = False\nCELERY_CONFIG = CeleryConfig\nCACHE_CONFIG = {\n    \"CACHE_TYPE\"\
+        : \"RedisCache\",\n    \"CACHE_DEFAULT_TIMEOUT\": 300,\n    \"CACHE_KEY_PREFIX\"\
+        : \"superset_\",\n    \"CACHE_REDIS_URL\": _REDIS + \"/2\",\n}\nDATA_CACHE_CONFIG\
+        \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_data_\"}\nFILTER_STATE_CACHE_CONFIG\
+        \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_filter_\"}\nEXPLORE_FORM_DATA_CACHE_CONFIG\
+        \ = {**CACHE_CONFIG, \"CACHE_KEY_PREFIX\": \"superset_explore_\"}\n"
+      DB_HOST: db
+      DB_PORT: '5432'
+      DB_NAME: superset
+      DB_USER: superset
+      DB_PASSWORD: superset-local-only
+      REDIS_HOST: broker
+      REDIS_AUTH: ${REDIS_AUTH}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      SUPERSET_LOAD_EXAMPLES: 'no'
+    depends_on:
+    - db
+  broker:
+    image: valkey/valkey:8
+    command:
+    - sh
+    - -c
+    - exec valkey-server --requirepass "$REDIS_AUTH" --maxmemory-policy noeviction
+    restart: unless-stopped
+    environment:
+      REDIS_AUTH: ${REDIS_AUTH}
+    ports:
+    - 6379:6379
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: superset
+      POSTGRES_PASSWORD: superset-local-only
+      POSTGRES_DB: superset
+    volumes:
+    - ./data/dbdata:/var/lib/postgresql/data
+volumes:
+  superset_home: null
+  dbdata: null

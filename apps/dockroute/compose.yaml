@@ -1,0 +1,21 @@
+services:
+  dockroute:
+    container_name: dockroute
+    image: ghcr.io/dockroute/dockroute:latest
+    restart: unless-stopped
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - DOCKROUTE_PROVIDER=log
+    - DOCKROUTE_OWNER_ID=default
+    - DOCKROUTE_POLICY=sync
+    - DOCKROUTE_DEFAULT_TARGET=
+    - DOCKROUTE_DOMAIN_FILTER=
+    - DOCKROUTE_RESYNC_SECONDS=60
+    - CLOUDFLARE_API_TOKEN=
+    - CLOUDFLARE_ACCOUNT_ID=
+    - CLOUDFLARE_TUNNEL_ID=

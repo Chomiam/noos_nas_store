@@ -1,0 +1,15 @@
+services:
+  babybuddy:
+    container_name: babybuddy
+    image: linuxserver/babybuddy:latest
+    restart: unless-stopped
+    ports:
+    - 8000:8000/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,https://babybuddy.domain.com

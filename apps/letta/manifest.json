@@ -1,0 +1,29 @@
+{
+  "id": "letta",
+  "name": "Letta",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Letta (the MemGPT lineage) - an agent server with memory as the core primitive: agents live server-side with self-editin",
+  "description": "Letta (the MemGPT lineage) - an agent server with memory as the core primitive: agents live server-side with self-editing persistent memory, and clients (SDKs, the hosted ADE at app.letta.com) connect to them over the REST API.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/letta.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

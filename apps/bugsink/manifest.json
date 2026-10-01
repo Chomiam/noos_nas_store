@@ -1,0 +1,29 @@
+{
+  "id": "bugsink",
+  "name": "Bugsink",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Bugsink, self-hosted error tracking compatible with the Sentry SDKs, in a single container",
+  "description": "Bugsink, self-hosted error tracking compatible with the Sentry SDKs, in a single container. The lightest way to own your error data: one app + one managed Postgres.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/bugsink.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

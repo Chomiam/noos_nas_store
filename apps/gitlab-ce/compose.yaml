@@ -1,0 +1,18 @@
+services:
+  gitlab-ce:
+    container_name: gitlab-ce
+    image: gitlab/gitlab-ce:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    - 443/tcp
+    - 22/tcp
+    volumes:
+    - ./data/etc_gitlab:/etc/gitlab
+    - ./data/var_log_gitlab:/var/log/gitlab
+    - ./data/var_opt_gitlab:/var/opt/gitlab
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

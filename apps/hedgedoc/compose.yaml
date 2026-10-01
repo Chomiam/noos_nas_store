@@ -1,0 +1,25 @@
+services:
+  hedgedoc:
+    container_name: hedgedoc
+    image: linuxserver/hedgedoc:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - DB_HOST=<hostname or ip>
+    - DB_PORT=3306
+    - DB_USER=hedgedoc
+    - DB_PASS=<secret password>
+    - DB_NAME=hedgedoc
+    - CMD_DOMAIN=localhost
+    - CMD_URL_ADDPORT=false
+    - CMD_PROTOCOL_USESSL=false
+    - CMD_PORT=3000
+    - CMD_ALLOW_ORIGIN=['localhost']
+    - CMD_DB_DIALECT=

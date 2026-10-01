@@ -1,0 +1,29 @@
+{
+  "id": "vikunja",
+  "name": "Vikunja",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The to-do app to organize your life",
+  "description": "The to-do app to organize your life.| Before use create custom template and Edit: VIKUNJA_SERVICE_FRONTENDURL , VIKUNJA_API_URL & VIKUNJA_SERVICE_JWTSECRET",
+  "website": "",
+  "icon": "https://vikunja.io/images/vikunja.png",
+  "default_port": 3456,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "luanti",
+  "name": "Luanti",
+  "version": "latest",
+  "category": "Jeux & Divertissement",
+  "tagline": "[Luanti](https://www",
+  "description": "[Luanti](https://www.luanti.org/) (formerly Minetest) is an open source voxel game-creation platform with easy modding and game creation",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/minetest-icon.png",
+  "default_port": 30000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/.minetest",
+      "container": "/config/.minetest",
+      "description": "Dossier /config/.minetest"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CLI_ARGS",
+      "label": "CLI_ARGS",
+      "default": "--gameid devtest"
+    }
+  ]
+}

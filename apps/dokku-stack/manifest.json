@@ -1,0 +1,29 @@
+{
+  "id": "dokku-stack",
+  "name": "Dokku (stack)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Dokku setup as a compose file",
+  "description": "Dokku setup as a compose file",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/dokku-stack.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

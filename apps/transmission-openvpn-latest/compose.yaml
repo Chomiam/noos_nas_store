@@ -1,0 +1,22 @@
+services:
+  transmission-openvpn-latest:
+    container_name: transmission-openvpn-latest
+    image: haugene/transmission-openvpn:latest
+    restart: unless-stopped
+    ports:
+    - 9091:9091/tcp
+    volumes:
+    - ./data/transmission-openvpn:/config
+    - ./data/Downloads:/data
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - OPENVPN_PROVIDER=MULLVAD
+    - OPENVPN_CONFIG=
+    - OPENVPN_USERNAME=
+    - OPENVPN_PASSWORD=
+    - LOCAL_NETWORK=192.168.0.0/24
+    - TRANSMISSION_WATCH_DIR_ENABLED=true

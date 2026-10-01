@@ -1,20 +1,39 @@
 {
   "id": "uptime-kuma",
-  "name": "Uptime Kuma",
+  "name": "Uptime Kuma (container)",
   "version": "latest",
-  "category": "Monitoring",
-  "tagline": "Surveillance de disponibilité de vos services et sites web",
-  "description": "Tableau de bord auto-hébergé surveillant le temps de disponibilité (HTTP, Ping, Port TCP, DNS) avec alertes instantanées (Telegram, Discord, Email).",
-  "website": "https://uptime.kuma.pet/",
-  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/uptime-kuma/icon.svg",
+  "category": "Outils & Utilitaires",
+  "tagline": "It is a self-hosted monitoring tool like 'Uptime Robot'",
+  "description": "It is a self-hosted monitoring tool like 'Uptime Robot'.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/uptime-kuma.png",
   "default_port": 3001,
-  "recommended": false,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "/home/{USER}/docker/uptime-kuma/data",
+      "host": "./data/uptime-kuma",
       "container": "/app/data",
-      "description": "Statistiques et historiques de monitoring"
+      "description": "Dossier /app/data"
     }
   ],
-  "nix_file": "uptime-kuma.nix"
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
 }

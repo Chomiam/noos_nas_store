@@ -1,0 +1,54 @@
+{
+  "id": "homelab-monitor",
+  "name": "HomeLab Monitor",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Self-hosted homelab dashboard, one container",
+  "description": "Self-hosted homelab dashboard, one container. Per-container GPU/VRAM attribution (which process holds the card, not just total load), Docker health/logs, systemd status, host vitals (CPU/RAM/disk/temps), multiple hosts over SSH. Alerts via Discord/ntfy/Telegram. Read-only MCP server on :9810. MIT. Source: https://github.com/SikamikanikoBG/homelab-monitor",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/SikamikanikoBG/homelab-monitor/main/docs/logo-400.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    },
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SAMPLE_INTERVAL",
+      "label": "SAMPLE_INTERVAL",
+      "default": "10"
+    },
+    {
+      "name": "RETENTION_DAYS",
+      "label": "RETENTION_DAYS",
+      "default": "180"
+    }
+  ]
+}

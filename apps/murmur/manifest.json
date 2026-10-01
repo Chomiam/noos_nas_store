@@ -1,0 +1,54 @@
+{
+  "id": "murmur",
+  "name": "Murmur",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Mumble is a voicechat program for gamers written on top of Qt and Opus",
+  "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/Mumble-logo.png",
+  "default_port": 64738,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/localtime:ro",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    },
+    {
+      "host": "./data/Murmur",
+      "container": "/opt/murmur/config",
+      "description": "Dossier /opt/murmur/config"
+    },
+    {
+      "host": "./data/data",
+      "container": "/opt/murmur/data",
+      "description": "Dossier /opt/murmur/data"
+    },
+    {
+      "host": "./data/log",
+      "container": "/opt/murmur/log",
+      "description": "Dossier /opt/murmur/log"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "protonmail-bridge",
+  "name": "ProtonMail Bridge",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "This is an unofficial Docker container of the ProtonMail Bridge",
+  "description": "This is an unofficial Docker container of the ProtonMail Bridge. Some of the scripts are based on Hendrik Meyer's work.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/protonmail-bridge.png",
+  "default_port": 143,
+  "extra_ports": [
+    25
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/root",
+      "description": "Dossier /root"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

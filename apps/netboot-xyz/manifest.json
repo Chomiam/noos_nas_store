@@ -1,0 +1,32 @@
+{
+  "id": "netboot-xyz",
+  "name": "Netboot.xyz (stack)",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "netboot",
+  "description": "netboot.xyz is a convenient place to boot into any type of operating system or utility disk without the need of having to go spend time retrieving the ISO just to run it",
+  "website": "",
+  "icon": "https://netboot.xyz/img/nbxyz-logo.svg",
+  "default_port": 3300,
+  "extra_ports": [
+    369,
+    38080
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

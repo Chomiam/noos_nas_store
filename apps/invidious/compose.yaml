@@ -1,0 +1,40 @@
+services:
+  invidious:
+    image: quay.io/invidious/invidious:latest
+    restart: unless-stopped
+    ports:
+    - 3333:3000
+    environment:
+      INVIDIOUS_CONFIG: "db:\n  dbname: invidious\n  user: oneusr\n  password: onepwd\n\
+        \  host: invidious-db\n  port: 5432\ncheck_tables: true\n# external_port:\n\
+        # domain:\n# https_only: false\n# statistics_enabled: false\nhmac_key: \"\
+        CHANGE_ME!!\"\n"
+    healthcheck:
+      test: wget -nv --tries=1 --spider http://127.0.0.1:3000/api/v1/trending || exit
+        1
+      interval: 30s
+      timeout: 5s
+      retries: 2
+    logging:
+      options:
+        max-size: 1G
+        max-file: '4'
+    depends_on:
+    - invidious-db
+  invidious-db:
+    image: docker.io/library/postgres:14
+    restart: unless-stopped
+    volumes:
+    - ./data/invidious/postgresdata:/var/lib/postgresql/data
+    - ./data/invidious/postgresdata/config/sql:/config/sql
+    - ./data/invidious/postgresdata/init-invidious-db.sh:/docker-entrypoint-initdb.d/init-invidious-db.sh
+    environment:
+      POSTGRES_DB: invidious
+      POSTGRES_USER: theuser
+      POSTGRES_PASSWORD: thepwd
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB
+volumes:
+  postgresdata: null

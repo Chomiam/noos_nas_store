@@ -1,0 +1,23 @@
+services:
+  librespeed:
+    container_name: librespeed
+    image: linuxserver/librespeed:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - PASSWORD=PASSWORD
+    - CUSTOM_RESULTS=false
+    - DB_TYPE=sqlite
+    - DB_NAME=DB_NAME
+    - DB_HOSTNAME=DB_HOSTNAME
+    - DB_USERNAME=DB_USERNAME
+    - DB_PASSWORD=DB_PASSWORD
+    - DB_PORT=DB_PORT
+    - IPINFO_APIKEY=ACCESS_TOKEN

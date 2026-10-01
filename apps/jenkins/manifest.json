@@ -1,0 +1,29 @@
+{
+  "id": "jenkins",
+  "name": "Jenkins (stack)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Jenkins LTS - the automation server: pipelines as code, 1,800+ plugins, and webhooks from every forge",
+  "description": "Jenkins LTS - the automation server: pipelines as code, 1,800+ plugins, and webhooks from every forge. Controller with the built-in node, which runs jobs in-controller - the honest shape for small teams on a PaaS.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/jenkins.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

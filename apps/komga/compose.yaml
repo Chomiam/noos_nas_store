@@ -1,0 +1,16 @@
+services:
+  komga:
+    container_name: komga
+    image: gotson/komga:latest
+    restart: unless-stopped
+    ports:
+    - 8995:8080/tcp
+    volumes:
+    - ./data/komga/config:/config
+    - ./data/komga/data:/data
+    - ./data/timezone:/etc/timezone
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

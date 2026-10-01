@@ -1,0 +1,24 @@
+services:
+  atrium:
+    container_name: atrium
+    image: vibralabs/atrium:latest
+    restart: unless-stopped
+    ports:
+    - 8080:8080/tcp
+    volumes:
+    - ./data/var_lib_postgresql_data:/var/lib/postgresql/data
+    - ./data/app_uploads:/app/uploads
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - BETTER_AUTH_SECRET=
+    - WEB_URL=http://localhost:8080
+    - API_URL=http://localhost:8080
+    - SECURE_COOKIES=true
+    - DATABASE_URL=
+    - STORAGE_PROVIDER=local
+    - MAX_FILE_SIZE_MB=50
+    - RESEND_API_KEY=
+    - EMAIL_FROM=

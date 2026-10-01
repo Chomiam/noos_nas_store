@@ -1,0 +1,16 @@
+services:
+  pyload-ng:
+    container_name: pyload-ng
+    image: linuxserver/pyload-ng:latest
+    restart: unless-stopped
+    ports:
+    - 8000:8000/tcp
+    - 9666:9666/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

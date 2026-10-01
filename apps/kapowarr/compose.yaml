@@ -1,0 +1,11 @@
+services:
+  kapowarr:
+    container_name: kapowarr
+    volumes:
+    - ./data/kapowarr-db:/app/db
+    - ./data/downloads:/app/temp_downloads
+    - ./data/kapowarr:/content
+    ports:
+    - 5656:5656
+    image: mrcas/kapowarr:latest
+    restart: unless-stopped

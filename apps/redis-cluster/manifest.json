@@ -1,0 +1,29 @@
+{
+  "id": "redis-cluster",
+  "name": "Redis Cluster (stack)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Redis Cluster - horizontally-scaled Redis where the keyspace is partitioned across multiple master shards, each with a r",
+  "description": "Redis Cluster - horizontally-scaled Redis where the keyspace is partitioned across multiple master shards, each with a replica. This template runs 6 nodes (3 masters + 3 replicas) and a one-shot init that forms the cluster.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/redis.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

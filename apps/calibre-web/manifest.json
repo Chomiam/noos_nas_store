@@ -1,0 +1,54 @@
+{
+  "id": "calibre-web",
+  "name": "Calibre-web",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Calibre-web](https://github",
+  "description": "[Calibre-web](https://github.com/janeczku/calibre-web) is a web app providing a clean interface for browsing, reading and downloading eBooks using an existing Calibre database. It is also possible to integrate google drive and edit metadata and your calibre library through the app itself. This software is a fork of library and licensed under the GPL v3 License.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-web-icon.png",
+  "default_port": 8083,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/books",
+      "container": "/books",
+      "description": "Dossier /books"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DOCKER_MODS",
+      "label": "DOCKER_MODS",
+      "default": "linuxserver/mods:universal-calibre"
+    },
+    {
+      "name": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+      "label": "OAUTHLIB_RELAX_TOKEN_SCOPE",
+      "default": "1"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "wikijs",
+  "name": "Wikijs",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Wikijs](https://github",
+  "description": "[Wikijs](https://github.com/Requarks/wiki) A modern, lightweight and powerful wiki app built on NodeJS.",
+  "website": "",
+  "icon": "https://static.requarks.io/logo/wikijs-full.svg",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DB_TYPE",
+      "label": "DB_TYPE",
+      "default": "sqlite"
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "default": ""
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": ""
+    },
+    {
+      "name": "DB_NAME",
+      "label": "DB_NAME",
+      "default": ""
+    },
+    {
+      "name": "DB_USER",
+      "label": "DB_USER",
+      "default": ""
+    },
+    {
+      "name": "DB_PASS",
+      "label": "DB_PASS",
+      "default": ""
+    }
+  ]
+}

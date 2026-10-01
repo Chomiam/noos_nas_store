@@ -1,0 +1,17 @@
+services:
+  sickrage:
+    container_name: sickrage
+    image: linuxserver/sickrage:latest
+    restart: unless-stopped
+    ports:
+    - 8081/tcp
+    volumes:
+    - ./data/apps/sickrage:/config
+    - ./data/tvshows:/downloads
+    - ./data/tvshows:/tv
+    - ./data/tvshows:/blackhole
+    environment:
+    - PUID=15000
+    - PGID=15000
+    - TZ=America/Los_Angeles
+    - UMASK=002

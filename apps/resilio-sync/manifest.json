@@ -1,0 +1,51 @@
+{
+  "id": "resilio-sync",
+  "name": "Resilio-sync",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Resilio-sync](https://www",
+  "description": "[Resilio-sync](https://www.resilio.com/individuals/) (formerly BitTorrent Sync) uses the BitTorrent protocol to sync files and folders between all of your devices. There are both free and paid versions, this container supports both. There is an official sync image but we created this one as it supports user mapping to simplify permissions for volumes.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/resilio-sync-logo.png",
+  "default_port": 8888,
+  "extra_ports": [
+    55555
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    },
+    {
+      "host": "./data/sync",
+      "container": "/sync",
+      "description": "Dossier /sync"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

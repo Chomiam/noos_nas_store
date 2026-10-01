@@ -1,0 +1,49 @@
+{
+  "id": "eufy-security-ws",
+  "name": "Eufy Security WS",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Eufy Security Web Socket",
+  "description": "Eufy Security Web Socket. Edit container and add username & password.",
+  "website": "",
+  "icon": "https://github.com/bropat/eufy-security-ws/raw/master/docs/_media/eufy-security-ws.png",
+  "default_port": 3993,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/eufy-security-ws",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "USERNAME",
+      "label": "USERNAME",
+      "default": "InputUSER-email"
+    },
+    {
+      "name": "PASSWORD",
+      "label": "PASSWORD",
+      "default": "InputPWD"
+    }
+  ]
+}

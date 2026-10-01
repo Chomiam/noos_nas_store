@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mariadb
+    command: --max-allowed-packet=64MB
+    restart: always
+    volumes:
+    - ./data/mariadb/matomo:/var/lib/mysql
+    environment:
+    - MYSQL_ROOT_PASSWORD=enterYOURpwd
+  app:
+    image: matomo
+    restart: always
+    volumes:
+    - ./data/matomo/config:/var/www/html/config
+    - ./data/matomo/logs:/var/www/html/logs
+    - ./data/matomo:/var/www/html
+    environment:
+    - MATOMO_DATABASE_HOST=db
+    ports:
+    - 8282:80
+volumes:
+  db: null
+  matomo: null

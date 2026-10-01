@@ -1,0 +1,17 @@
+services:
+  netbootxyz:
+    container_name: netbootxyz
+    image: linuxserver/netbootxyz:latest
+    restart: unless-stopped
+    ports:
+    - 3000/tcp
+    - 69/udp
+    volumes:
+    - ./data/apps/netbootxyz:/config
+    - ./data/netbootxyz:/assets
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=15000
+    - PGID=15000
+    - TZ=Europe/Paris
+    - UMASK=002

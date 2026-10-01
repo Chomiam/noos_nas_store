@@ -1,0 +1,18 @@
+services:
+  ldap-auth:
+    container_name: ldap-auth
+    image: linuxserver/ldap-auth:latest
+    restart: unless-stopped
+    ports:
+    - 8888:8888/tcp
+    - 9000:9000/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - FERNETKEY=
+    - CERTFILE=
+    - KEYFILE=

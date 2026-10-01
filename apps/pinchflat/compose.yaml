@@ -1,0 +1,12 @@
+version: '3'
+services:
+  pinchflat:
+    image: ghcr.io/kieraneglin/pinchflat:latest
+    environment:
+    - TZ=Europe/Athens
+    ports:
+    - 8945:8945
+    volumes:
+    - ./data/pinchflat:/config
+    - ./data/pinchflat/downloads:/downloads
+    restart: unless-stopped

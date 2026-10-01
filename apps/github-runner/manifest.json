@@ -1,0 +1,29 @@
+{
+  "id": "github-runner",
+  "name": "GitHub Actions Runner",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A self-hosted GitHub Actions runner: your workflows, your hardware, zero per-minute billing",
+  "description": "A self-hosted GitHub Actions runner: your workflows, your hardware, zero per-minute billing. Uses `myoung34/github-runner` (the de-facto env-driven runner image) with PAT-based auto-registration.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/github.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

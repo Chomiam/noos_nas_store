@@ -1,0 +1,69 @@
+{
+  "id": "airsonic",
+  "name": "Airsonic (container)",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Airsonic is a free, web-based media streamer, providing ubiqutious access to your music",
+  "description": "Airsonic is a free, web-based media streamer, providing ubiqutious access to your music. Use it to share your music with friends, or to listen to your own music while at work. You can stream to multiple players simultaneously, for instance to one player in your kitchen and another in your living room.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/airsonic-logo.png",
+  "default_port": 4040,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Music",
+      "container": "/music",
+      "description": "Dossier /music"
+    },
+    {
+      "host": "./data/Playlists",
+      "container": "/playlists",
+      "description": "Dossier /playlists"
+    },
+    {
+      "host": "./data/Podcasts",
+      "container": "/podcasts",
+      "description": "Dossier /podcasts"
+    },
+    {
+      "host": "./data/Media",
+      "container": "/media",
+      "description": "Dossier /media"
+    },
+    {
+      "host": "./data/Airsonic/",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CONTEXT_PATH",
+      "label": "CONTEXT_PATH",
+      "default": "airsonic"
+    },
+    {
+      "name": "JAVA_OPTS",
+      "label": "JAVA_OPTS",
+      "default": "-Xms256m -Xmx512m"
+    }
+  ]
+}

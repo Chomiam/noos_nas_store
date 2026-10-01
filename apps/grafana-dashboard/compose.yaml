@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    networks:
+    - monitoring
+    environment:
+    - GF_SECURITY_ADMIN_USER=${grafana_admin}
+    - GF_SECURITY_ADMIN_PASSWORD=${grafana_password}
+    - GF_INSTALL_PLUGINS=
+    ports:
+    - 3000:3000
+    volumes:
+    - ./data/grafana_data:/var/lib/grafana
+networks:
+  monitoring: null
+volumes:
+  grafana_data: null

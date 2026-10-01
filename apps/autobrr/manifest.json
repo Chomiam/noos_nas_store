@@ -1,0 +1,29 @@
+{
+  "id": "autobrr",
+  "name": "Autobrr",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Autobrr is the modern download automation tool for torrents",
+  "description": "Autobrr is the modern download automation tool for torrents.",
+  "website": "",
+  "icon": "https://autobrr.com/img/logo.png",
+  "default_port": 7474,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

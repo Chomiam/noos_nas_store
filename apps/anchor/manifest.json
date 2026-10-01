@@ -1,0 +1,29 @@
+{
+  "id": "anchor",
+  "name": "Anchor",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "An offline first, self hostable note taking application",
+  "description": "An offline first, self hostable note taking application",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/zhfahim/anchor/main/web/public/icons/anchor_icon.png",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

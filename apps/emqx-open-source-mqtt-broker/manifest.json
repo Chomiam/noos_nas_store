@@ -1,0 +1,34 @@
+{
+  "id": "emqx-open-source-mqtt-broker",
+  "name": "EMQX Open Source MQTT Broker",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Open-source MQTT broker for IoT, IIoT, and connected vehicles - Single Broker deployment",
+  "description": "Open-source MQTT broker for IoT, IIoT, and connected vehicles - Single Broker deployment",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/docker-library/docs/68aa4264fa058f323993fdaceacd63a8acbbeb48/emqx/logo.svg",
+  "default_port": 1883,
+  "extra_ports": [
+    8083,
+    8084,
+    8883,
+    18083
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

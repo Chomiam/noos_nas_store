@@ -1,0 +1,39 @@
+{
+  "id": "codiad",
+  "name": "Codiad",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Codiad is a web-based IDE framework with a small footprint and minimal requirements",
+  "description": "Codiad is a web-based IDE framework with a small footprint and minimal requirements.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/codiad-icon.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Codiad",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

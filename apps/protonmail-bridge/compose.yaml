@@ -1,0 +1,15 @@
+services:
+  protonmail-bridge:
+    container_name: protonmail-bridge
+    image: shenxn/protonmail-bridge:latest
+    restart: unless-stopped
+    ports:
+    - 143/tcp
+    - 25/tcp
+    volumes:
+    - ./data:/root
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,49 @@
+{
+  "id": "gazee",
+  "name": "Gazee",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A WebApp Comic Reader for your favorite digital comics",
+  "description": "A WebApp Comic Reader for your favorite digital comics. Reach and read your comic library from any web connected device with a modern web browser.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/gazee-logo.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Gazee",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/Comics",
+      "container": "/comics",
+      "description": "Dossier /comics"
+    },
+    {
+      "host": "./data",
+      "container": "/mylar",
+      "description": "Dossier /mylar"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

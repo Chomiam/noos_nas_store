@@ -1,0 +1,29 @@
+{
+  "id": "kapowarr",
+  "name": "Kapowarr",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software",
+  "description": "Kapowarr is a software to build and manage a comic book library, fitting in the *arr suite of software.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/kapowarr.png",
+  "default_port": 5656,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

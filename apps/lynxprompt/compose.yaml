@@ -1,0 +1,44 @@
+services:
+  lynxprompt:
+    image: drumsergio/lynxprompt:2.1.0
+    restart: unless-stopped
+    ports:
+    - 3000:3000
+    environment:
+    - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+    - APP_URL=${APP_URL:-http://localhost:3000}
+    - NEXTAUTH_URL=${APP_URL:-http://localhost:3000}
+    - SUPERADMIN_EMAIL=${SUPERADMIN_EMAIL:-}
+    - DB_PASSWORD=lynxprompt
+    - DB_APP_HOST=postgres
+    - DB_APP_USER=lynxprompt
+    - DB_APP_PASSWORD=lynxprompt
+    - DB_APP_NAME=lynxprompt
+    - DB_USERS_HOST=postgres
+    - DB_USERS_USER=lynxprompt
+    - DB_USERS_PASSWORD=lynxprompt
+    - DB_USERS_NAME=lynxprompt
+    - DB_BLOG_HOST=postgres
+    - DB_BLOG_USER=lynxprompt
+    - DB_BLOG_PASSWORD=lynxprompt
+    - DB_BLOG_NAME=lynxprompt
+    - DB_SUPPORT_HOST=postgres
+    - DB_SUPPORT_USER=lynxprompt
+    - DB_SUPPORT_PASSWORD=lynxprompt
+    - DB_SUPPORT_NAME=lynxprompt
+    - ENABLE_USER_REGISTRATION=true
+    - ENABLE_EMAIL_AUTH=true
+    - ENABLE_PASSKEYS=true
+    depends_on:
+    - postgres
+  postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+    - POSTGRES_DB=lynxprompt
+    - POSTGRES_USER=lynxprompt
+    - POSTGRES_PASSWORD=lynxprompt
+    volumes:
+    - ./data/postgres-data:/var/lib/postgresql/data
+volumes:
+  postgres-data: null

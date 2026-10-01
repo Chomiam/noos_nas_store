@@ -1,0 +1,14 @@
+services:
+  floating-license-server:
+    container_name: floating-license-server
+    image: softingindustrial/floating-license-server:latest
+    restart: unless-stopped
+    ports:
+    - 6200/tcp
+    volumes:
+    - ./data/licsrv_licenses:/licsrv/licenses
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

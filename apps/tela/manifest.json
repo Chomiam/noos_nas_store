@@ -1,0 +1,29 @@
+{
+  "id": "tela",
+  "name": "tela",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Self-hostable, markdown-native team wiki: Go + PostgreSQL backend, a React editor with live Yjs collaboration, full-text",
+  "description": "Self-hostable, markdown-native team wiki: Go + PostgreSQL backend, a React editor with live Yjs collaboration, full-text + optional semantic search, WebDAV sync, public/blog spaces, Slidev decks and PDF export. A built-in MCP server makes AI agents first-class editors, and Atlas can generate a cited wiki from your existing sources (git, Jira). After the stack is up, open the app on :8780 and complete /setup to create your admin account. GitHub: [zcag/tela](https://github.com/zcag/tela)",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/zcag/tela/main/docs/submission-assets/app-icon-512.png",
+  "default_port": 8780,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

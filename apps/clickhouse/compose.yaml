@@ -1,0 +1,93 @@
+name: clickhouse
+x-ch:
+  build: .
+  image: miget-clickhouse:local
+  restart: unless-stopped
+x-ch-env:
+  CLICKHOUSE_USER: app
+  CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+  CLICKHOUSE_DB: app
+  CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: '1'
+services:
+  ch-1:
+    build: .
+    image: miget-clickhouse:local
+    restart: unless-stopped
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - wget -q --spider http://127.0.0.1:8123/ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    environment:
+      CLICKHOUSE_USER: app
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      CLICKHOUSE_DB: app
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: '1'
+      KEEPER_ID: '1'
+      REPLICA_NAME: ch-1
+    ports:
+    - 8123:8123
+    - '9000'
+    - '9181'
+    - '9234'
+    volumes:
+    - ./data/chdata-1:/var/lib/clickhouse
+  ch-2:
+    build: .
+    image: miget-clickhouse:local
+    restart: unless-stopped
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - wget -q --spider http://127.0.0.1:8123/ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    environment:
+      CLICKHOUSE_USER: app
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      CLICKHOUSE_DB: app
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: '1'
+      KEEPER_ID: '2'
+      REPLICA_NAME: ch-2
+    ports:
+    - '8123'
+    - '9000'
+    - '9181'
+    - '9234'
+    volumes:
+    - ./data/chdata-2:/var/lib/clickhouse
+  ch-3:
+    build: .
+    image: miget-clickhouse:local
+    restart: unless-stopped
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - wget -q --spider http://127.0.0.1:8123/ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    environment:
+      CLICKHOUSE_USER: app
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD}
+      CLICKHOUSE_DB: app
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: '1'
+      KEEPER_ID: '3'
+      REPLICA_NAME: ch-3
+    ports:
+    - '8123'
+    - '9000'
+    - '9181'
+    - '9234'
+    volumes:
+    - ./data/chdata-3:/var/lib/clickhouse
+volumes:
+  chdata-1: null
+  chdata-2: null
+  chdata-3: null

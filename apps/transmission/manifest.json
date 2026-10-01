@@ -1,0 +1,82 @@
+{
+  "id": "transmission",
+  "name": "Transmission",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "[Transmission](https://www",
+  "description": "[Transmission](https://www.transmissionbt.com/) is designed for easy, powerful use. Transmission has the features you want from a BitTorrent client: encryption, a web interface, peer exchange, magnet links, DHT, µTP, UPnP and NAT-PMP port forwarding, webseed support, watch directories, tracker editing, global and per-torrent speed limits, and more.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+  "default_port": 9091,
+  "extra_ports": [
+    51413,
+    51413
+  ],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    },
+    {
+      "host": "./data/watch",
+      "container": "/watch",
+      "description": "Dossier /watch"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "TRANSMISSION_WEB_HOME",
+      "label": "TRANSMISSION_WEB_HOME",
+      "default": ""
+    },
+    {
+      "name": "USER",
+      "label": "USER",
+      "default": ""
+    },
+    {
+      "name": "PASS",
+      "label": "PASS",
+      "default": ""
+    },
+    {
+      "name": "WHITELIST",
+      "label": "WHITELIST",
+      "default": ""
+    },
+    {
+      "name": "PEERPORT",
+      "label": "PEERPORT",
+      "default": ""
+    },
+    {
+      "name": "HOST_WHITELIST",
+      "label": "HOST_WHITELIST",
+      "default": ""
+    }
+  ]
+}

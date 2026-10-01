@@ -1,0 +1,10 @@
+services:
+  medama:
+    image: ghcr.io/medama-io/medama:latest
+    ports:
+    - 8010:8080
+    volumes:
+    - ./data/medama:/app/data
+    restart: unless-stopped
+volumes:
+  medama-data: null

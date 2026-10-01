@@ -1,0 +1,39 @@
+{
+  "id": "huginn",
+  "name": "Huginn",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Create agents that monitor and act on your behalf",
+  "description": "Create agents that monitor and act on your behalf.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/huginn.png",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/huginn",
+      "container": "/var/lib/mysql",
+      "description": "Dossier /var/lib/mysql"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+services:
+  archivebox:
+    container_name: archivebox
+    image: archivebox/archivebox:latest
+    restart: unless-stopped
+    ports:
+    - 8002:8000/tcp
+    volumes:
+    - ./data/archivebox:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - ALLOWED_HOSTS=*
+    - MEDIA_MAX_SIZE=750m
+    - PUBLIC_INDEX=true
+    - PUBLIC_SNAPSHOTS=true
+    - PUBLIC_ADD_VIEW=false

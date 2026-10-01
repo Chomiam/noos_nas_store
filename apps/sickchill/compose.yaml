@@ -1,0 +1,16 @@
+services:
+  sickchill:
+    container_name: sickchill
+    image: linuxserver/sickchill:latest
+    restart: unless-stopped
+    ports:
+    - 8081:8081/tcp
+    volumes:
+    - ./data/SickChill:/config
+    - ./data/Downloads:/downloads
+    - ./data/TV:/tv
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

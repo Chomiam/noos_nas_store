@@ -1,0 +1,49 @@
+{
+  "id": "ariang",
+  "name": "AriaNG",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "AriaNg is a modern web frontend making aria2 easier to use",
+  "description": "AriaNg is a modern web frontend making aria2 easier to use. AriaNg is written in pure html & javascript, thus it does not need any compilers or runtime environment. You can just put AriaNg in your web server and open it in your browser. AriaNg uses responsive layout, and supports any desktop or mobile devices.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/ariang.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/AriaNG",
+      "container": "/aria2/conf",
+      "description": "Dossier /aria2/conf"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/aria2/data",
+      "description": "Dossier /aria2/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "ARIA2RPCPORT",
+      "label": "ARIA2RPCPORT",
+      "default": "443"
+    }
+  ]
+}

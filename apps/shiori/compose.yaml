@@ -1,0 +1,14 @@
+services:
+  shiori:
+    container_name: shiori
+    image: nicholaswilde/shiori:latest
+    restart: unless-stopped
+    ports:
+    - 7564:8080/tcp
+    volumes:
+    - ./data/Shiori:/srv/shiori
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

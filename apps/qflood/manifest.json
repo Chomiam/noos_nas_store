@@ -1,0 +1,51 @@
+{
+  "id": "qflood",
+  "name": "qFlood",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support",
+  "description": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support. See the official documentation for WireGuard VPN support at https://hotio.dev/containers/qflood/",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/jesec/flood/master/flood.svg",
+  "default_port": 3000,
+  "extra_ports": [
+    8080
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/qFlood",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/app/qBittorrent/downloads",
+      "description": "Dossier /app/qBittorrent/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "FLOOD_AUTH",
+      "label": "FLOOD_AUTH",
+      "default": "false"
+    }
+  ]
+}

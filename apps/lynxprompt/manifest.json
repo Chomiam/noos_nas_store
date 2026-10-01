@@ -1,0 +1,29 @@
+{
+  "id": "lynxprompt",
+  "name": "LynxPrompt",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Self-hostable AI config management platform for AGENTS",
+  "description": "Self-hostable AI config management platform for AGENTS.md, CLAUDE.md, Cursor rules, and 30+ AI assistant formats. Source: https://github.com/GeiserX/LynxPrompt",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/9169332",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

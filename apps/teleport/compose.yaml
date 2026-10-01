@@ -1,0 +1,135 @@
+services:
+  one:
+    image: teleport:latest
+    container_name: one
+    command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/one.yaml
+    mem_limit: 300m
+    memswap_limit: 0
+    ports:
+    - 3080:3080
+    - 3023:3023
+    - 3025:3025
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    volumes:
+    - ./data/one/data/one:/var/lib/teleport
+    - ./data/teleport/one:/root/go/src/github.com/gravitational/teleport
+    - ./data/certs:/mnt/shared/certs
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.1
+        aliases:
+        - one-lb
+    restart: unless-stopped
+  one-node:
+    image: teleport:latest
+    container_name: one-node
+    command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/one-node.yaml
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    mem_limit: 300m
+    volumes:
+    - ./data/one-node/data/one-node:/var/lib/teleport
+    - ./data/teleport/one-node:/root/go/src/github.com/gravitational/teleport
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.20
+    restart: unless-stopped
+  one-sshd:
+    image: teleport:latest
+    container_name: one-sshd
+    command: /usr/bin/start-sshd.sh
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    mem_limit: 300m
+    volumes:
+    - ./data/one-sshd/pam.d/ssh:/etc/pam.d/ssh
+    - ./data/teleport/one-sshd:/etc/ssh/sshd_config
+    - ./data/certs:/mnt/shared/certs
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.21
+    restart: unless-stopped
+  one-proxy:
+    image: teleport:latest
+    container_name: one-proxy
+    command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/one-proxy.yaml
+    mem_limit: 300m
+    ports:
+    - 4080:3080
+    - 4023:3023
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    volumes:
+    - ./data/one-proxy:/var/lib/teleport
+    - ./data/teleport/one-proxy:/root/go/src/github.com/gravitational/teleport
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.10
+        aliases:
+        - one-lb
+    restart: unless-stopped
+  two-auth:
+    mem_limit: 300m
+    image: teleport:latest
+    container_name: two-auth
+    command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/two-auth.yaml
+      --insecure
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    volumes:
+    - ./data/two/auth:/var/lib/teleport
+    - ./data/teleport/two:/root/go/src/github.com/gravitational/teleport
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.2
+    restart: unless-stopped
+  two-proxy:
+    mem_limit: 300m
+    image: teleport:latest
+    container_name: two-proxy
+    command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/two-proxy.yaml
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    ports:
+    - 5080:5080
+    - 5023:5023
+    volumes:
+    - ./data/two-proxy/data:/var/lib/teleport
+    - ./data/teleport/two-proxy:/root/go/src/github.com/gravitational/teleport
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.3
+    restart: unless-stopped
+  two-node:
+    mem_limit: 300m
+    image: teleport:latest
+    container_name: two-node
+    command: ${CONTAINERHOME}/build/teleport start -d -c ${CONTAINERHOME}/docker/two-node.yaml
+    environment:
+      DEBUG: 1
+      CONTAINERHOME: /root/go/src/github.com/gravitational/teleport
+    volumes:
+    - ./data/two-node/data:/var/lib/teleport
+    - ./data/teleport/two-node:/root/go/src/github.com/gravitational/teleport
+    networks:
+      teleport:
+        ipv4_address: 172.10.1.4
+    restart: unless-stopped
+networks:
+  teleport:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.10.1.0/16
+        ip_range: 172.10.1.0/24
+        gateway: 172.10.1.254
+volumes:
+  certs: null

@@ -1,0 +1,54 @@
+{
+  "id": "flaresolverr",
+  "name": "FlareSolverr",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection",
+  "description": "FlareSolverr is a proxy server to bypass Cloudflare and DDoS-GUARD protection.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/FlareSolverr/FlareSolverr/c48d342b9cfb65d7696b96e9867fcff0ae87a0e2/resources/flaresolverr_logo.svg",
+  "default_port": 8191,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "LOG_LEVEL",
+      "label": "LOG_LEVEL",
+      "default": "info"
+    },
+    {
+      "name": "LOG_HTML",
+      "label": "LOG_HTML",
+      "default": "false"
+    },
+    {
+      "name": "CAPTCHA_SOLVER",
+      "label": "CAPTCHA_SOLVER",
+      "default": "none"
+    }
+  ]
+}

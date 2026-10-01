@@ -1,0 +1,29 @@
+{
+  "id": "audiomuse-ai",
+  "name": "AudioMuse-AI",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Automatic playlist generation for self-hosted music servers",
+  "description": "Automatic playlist generation for self-hosted music servers. Analyses your library locally to group tracks by how they sound. Works with Navidrome, Jellyfin, LMS, Lyrion, Emby and Plex. GitHub: [NeptuneHub/AudioMuse-AI](https://github.com/NeptuneHub/AudioMuse-AI)",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/NeptuneHub/AudioMuse-AI/main/native-build/linux/packaging/icons/audiomuse-ai_128.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

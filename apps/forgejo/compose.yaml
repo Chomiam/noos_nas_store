@@ -1,0 +1,17 @@
+services:
+  forgejo:
+    container_name: forgejo
+    image: codeberg.org/forgejo/forgejo:15
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    - 222:22/tcp
+    volumes:
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - USER_UID=1000
+    - USER_GID=1000

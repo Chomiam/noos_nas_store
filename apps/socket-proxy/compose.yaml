@@ -1,0 +1,14 @@
+services:
+  socket-proxy:
+    container_name: socket-proxy
+    image: linuxserver/socket-proxy:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

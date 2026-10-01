@@ -1,0 +1,18 @@
+services:
+  lldap:
+    container_name: lldap
+    image: nitnelave/lldap:stable-debian
+    restart: unless-stopped
+    ports:
+    - 3890:3890/tcp
+    - 17170:17170/tcp
+    volumes:
+    - ./data/lldap/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - LLDAP_JWT_SECRET=somesecretjwt
+    - LLDAP_LDAP_USER_PASS=someadminpassword
+    - LLDAP_LDAP_BASE_DN=dc=example,dc=com

@@ -1,0 +1,16 @@
+services:
+  wireshark:
+    container_name: wireshark
+    image: linuxserver/wireshark:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 3000:3000/tcp
+    - 3001:3001/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

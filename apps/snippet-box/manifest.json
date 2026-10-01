@@ -1,0 +1,39 @@
+{
+  "id": "snippet-box",
+  "name": "Snippet-box (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Snippet Box is a simple self-hosted app for organizing your code snippets",
+  "description": "Snippet Box is a simple self-hosted app for organizing your code snippets.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/snibox.png",
+  "default_port": 5010,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Snippet-box",
+      "container": "/app/data",
+      "description": "Dossier /app/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

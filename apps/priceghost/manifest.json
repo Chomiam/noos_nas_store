@@ -1,0 +1,29 @@
+{
+  "id": "priceghost",
+  "name": "PriceGhost",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A self-hosted price tracking application that monitors product prices from any website",
+  "description": "A self-hosted price tracking application that monitors product prices from any website.Get notified when prices drop, hit your target price, or items come back in stock.",
+  "website": "",
+  "icon": "https://github.com/clucraft/PriceGhost/raw/main/assets/header.svg",
+  "default_port": 5432,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

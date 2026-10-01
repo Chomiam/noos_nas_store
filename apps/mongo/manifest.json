@@ -1,0 +1,39 @@
+{
+  "id": "mongo",
+  "name": "Mongo",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Open-source document-oriented database",
+  "description": "Open-source document-oriented database",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mongo.png",
+  "default_port": 27017,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data_db",
+      "container": "/data/db",
+      "description": "Dossier /data/db"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "id": "syncserver",
+  "name": "Mozilla Syncserver",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Run-Your-Own Firefox Sync Server",
+  "description": "Run-Your-Own Firefox Sync Server",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/firefox-logo.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/syncserver",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SYNCSERVER_PUBLIC_URL",
+      "label": "SYNCSERVER_PUBLIC_URL",
+      "default": "https://syncserver.depot.lan"
+    },
+    {
+      "name": "SYNCSERVER_SECRET_FILE",
+      "label": "SYNCSERVER_SECRET_FILE",
+      "default": "/data/secret_key"
+    },
+    {
+      "name": "SYNCSERVER_SQLURI",
+      "label": "SYNCSERVER_SQLURI",
+      "default": "sqlite:////data/syncserver.db"
+    },
+    {
+      "name": "SYNCSERVER_BATCH_UPLOAD_ENABLED",
+      "label": "SYNCSERVER_BATCH_UPLOAD_ENABLED",
+      "default": "true"
+    },
+    {
+      "name": "SYNCSERVER_FORCE_WSGI_ENVIRON",
+      "label": "SYNCSERVER_FORCE_WSGI_ENVIRON",
+      "default": "false"
+    },
+    {
+      "name": "PORT",
+      "label": "PORT",
+      "default": "5000"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "file-browser-container",
+  "name": "File browser (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A web file manager",
+  "description": "A web file manager",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/filebrowser.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/srv",
+      "container": "/srv",
+      "description": "Dossier /srv"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "fuuz-device-gateway",
+  "name": "Fuuz Device Gateway",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A secure gateway that connects on-premise devices, PLCs, and data sources to the Fuuz Cloud for seamless, real-time inte",
+  "description": "A secure gateway that connects on-premise devices, PLCs, and data sources to the Fuuz Cloud for seamless, real-time integration.",
+  "website": "",
+  "icon": "https://mfgx-public.s3.us-east-1.amazonaws.com/assets/Favicon_A_60x60.png",
+  "default_port": 5500,
+  "extra_ports": [
+    5501
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/root_.fuuzdevicegateway",
+      "container": "/root/.fuuzdevicegateway/",
+      "description": "Dossier /root/.fuuzdevicegateway/"
+    },
+    {
+      "host": "./data/fuuzdevicegateway_drivers",
+      "container": "/fuuzdevicegateway/drivers/",
+      "description": "Dossier /fuuzdevicegateway/drivers/"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "FUUZ_API_KEY",
+      "label": "API Key",
+      "default": ""
+    },
+    {
+      "name": "FUUZ_GATEWAY_AUTO_UPDATE",
+      "label": "Enable Auto Update",
+      "default": ""
+    },
+    {
+      "name": "FUUZ_GATEWAY_LOG_LEVEL",
+      "label": "Log Level",
+      "default": ""
+    },
+    {
+      "name": "FUUZ_GATEWAY_LOG_RETENTION_DAYS",
+      "label": "Log Retention Days",
+      "default": "30"
+    },
+    {
+      "name": "FUUZ_GATEWAY_PORT",
+      "label": "Gateway Port",
+      "default": "5500"
+    },
+    {
+      "name": "FUUZ_GATEWAY_LISTEN_ADDRESS",
+      "label": "Listen Address",
+      "default": "0.0.0.0"
+    }
+  ]
+}

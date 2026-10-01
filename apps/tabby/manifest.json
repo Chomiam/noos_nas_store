@@ -1,0 +1,29 @@
+{
+  "id": "tabby",
+  "name": "Tabby",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Tabby is an infinitely customizable cross-platform terminal app for local shells, serial, SSH and Telnet connections",
+  "description": "Tabby is an infinitely customizable cross-platform terminal app for local shells, serial, SSH and Telnet connections.",
+  "website": "",
+  "icon": "https://tabby.sh/32bf32ff6c87e8d18932.svg",
+  "default_port": 8010,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

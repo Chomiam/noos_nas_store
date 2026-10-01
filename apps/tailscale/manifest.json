@@ -1,0 +1,49 @@
+{
+  "id": "tailscale",
+  "name": "Tailscale (container)",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Connect your devices and users together in your own secure Zero config virtual private network",
+  "description": "Connect your devices and users together in your own secure Zero config virtual private network.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/tailscale-icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/tailscale",
+      "container": "/var/lib/tailscale",
+      "description": "Dossier /var/lib/tailscale"
+    },
+    {
+      "host": "/dev/net/tun",
+      "container": "/dev/net/tun",
+      "description": "Dossier /dev/net/tun"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "AUTH_KEY",
+      "label": "AUTH_KEY",
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+services:
+  clamav:
+    container_name: clamav
+    image: mkodockx/docker-clamav:alpine
+    restart: unless-stopped
+    ports:
+    - 3310:3310/tcp
+    volumes:
+    - ./data/timezone:/etc/timezone
+    - ./data/localtime:/etc/localtime
+    - ./data/clamav/config:/etc/clamav
+    - ./data/clamav/virus_definitions:/var/lib/clamav
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

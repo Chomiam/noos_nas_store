@@ -1,0 +1,19 @@
+services:
+  nut-server:
+    container_name: nut-server
+    image: instantlinux/nut-upsd:latest
+    restart: unless-stopped
+    ports:
+    - 3493:3493/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - SERIAL=none
+    - NAME=none
+    - VENDOR ID=none
+    - API_PASSWORD=none
+    - DESCRIPTION=none

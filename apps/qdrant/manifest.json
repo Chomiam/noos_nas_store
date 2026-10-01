@@ -1,0 +1,31 @@
+{
+  "id": "qdrant",
+  "name": "Qdrant",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Qdrant vector database, single container + volume, internal-only by default (no API key is configured; the project netwo",
+  "description": "Qdrant vector database, single container + volume, internal-only by default (no API key is configured; the project network is the boundary).",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/qdrant.png",
+  "default_port": 6333,
+  "extra_ports": [
+    6334
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

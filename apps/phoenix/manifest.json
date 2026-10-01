@@ -1,0 +1,31 @@
+{
+  "id": "phoenix",
+  "name": "Phoenix",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Phoenix - LLM tracing, evaluations, datasets, and a prompt playground in ONE container, OpenTelemetry-native",
+  "description": "Phoenix - LLM tracing, evaluations, datasets, and a prompt playground in ONE container, OpenTelemetry-native.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/phoenix.png",
+  "default_port": 5000,
+  "extra_ports": [
+    4317
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

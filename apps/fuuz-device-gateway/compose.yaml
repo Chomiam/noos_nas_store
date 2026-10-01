@@ -1,0 +1,22 @@
+services:
+  fuuz-device-gateway:
+    container_name: fuuz-device-gateway
+    image: public.ecr.aws/n9a9v7z5/mfgx-native-app-device-gateway-server:latest
+    restart: unless-stopped
+    ports:
+    - 5500:5500/tcp
+    - 5501:5501/tcp
+    volumes:
+    - ./data/root_.fuuzdevicegateway:/root/.fuuzdevicegateway/
+    - ./data/fuuzdevicegateway_drivers:/fuuzdevicegateway/drivers/
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - FUUZ_API_KEY=
+    - FUUZ_GATEWAY_AUTO_UPDATE=
+    - FUUZ_GATEWAY_LOG_LEVEL=
+    - FUUZ_GATEWAY_LOG_RETENTION_DAYS=30
+    - FUUZ_GATEWAY_PORT=5500
+    - FUUZ_GATEWAY_LISTEN_ADDRESS=0.0.0.0

@@ -1,0 +1,64 @@
+{
+  "id": "duckdns",
+  "name": "Duckdns",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "[Duckdns](https://duckdns",
+  "description": "[Duckdns](https://duckdns.org/) is a free service which will point a DNS (sub domains of duckdns.org) to an IP of your choice. The service is completely free, and doesn't require reactivation or forum posts to maintain its existence.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/duckdns.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SUBDOMAINS",
+      "label": "SUBDOMAINS",
+      "default": "subdomain1,subdomain2"
+    },
+    {
+      "name": "TOKEN",
+      "label": "TOKEN",
+      "default": "token"
+    },
+    {
+      "name": "UPDATE_IP",
+      "label": "UPDATE_IP",
+      "default": "ipv4"
+    },
+    {
+      "name": "LOG_FILE",
+      "label": "LOG_FILE",
+      "default": "false"
+    }
+  ]
+}

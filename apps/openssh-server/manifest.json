@@ -1,0 +1,89 @@
+{
+  "id": "openssh-server",
+  "name": "Openssh-server",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Openssh-server](https://www",
+  "description": "[Openssh-server](https://www.openssh.com/) is a sandboxed environment that allows ssh access without giving keys to the entire server. Giving ssh access via private key often means giving full access to the server. This container creates a limited and sandboxed environment that others can ssh into. The users only have access to the folders mapped and the processes running inside this container.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/openssh-server-logo.png",
+  "default_port": 2222,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PUBLIC_KEY",
+      "label": "PUBLIC_KEY",
+      "default": "yourpublickey"
+    },
+    {
+      "name": "PUBLIC_KEY_FILE",
+      "label": "PUBLIC_KEY_FILE",
+      "default": "/path/to/file"
+    },
+    {
+      "name": "PUBLIC_KEY_DIR",
+      "label": "PUBLIC_KEY_DIR",
+      "default": "/path/to/directory/containing/_only_/pubkeys"
+    },
+    {
+      "name": "PUBLIC_KEY_URL",
+      "label": "PUBLIC_KEY_URL",
+      "default": "https://github.com/username.keys"
+    },
+    {
+      "name": "SUDO_ACCESS",
+      "label": "SUDO_ACCESS",
+      "default": "false"
+    },
+    {
+      "name": "PASSWORD_ACCESS",
+      "label": "PASSWORD_ACCESS",
+      "default": "false"
+    },
+    {
+      "name": "USER_PASSWORD",
+      "label": "USER_PASSWORD",
+      "default": "password"
+    },
+    {
+      "name": "USER_PASSWORD_FILE",
+      "label": "USER_PASSWORD_FILE",
+      "default": "/path/to/file"
+    },
+    {
+      "name": "USER_NAME",
+      "label": "USER_NAME",
+      "default": "linuxserver.io"
+    },
+    {
+      "name": "LOG_STDOUT",
+      "label": "LOG_STDOUT",
+      "default": ""
+    }
+  ]
+}

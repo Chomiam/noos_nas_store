@@ -1,0 +1,49 @@
+{
+  "id": "filebrowser-latest",
+  "name": "FileBrowser latest",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Web File Browser which can be used as a middleware or standalone app",
+  "description": "Web File Browser which can be used as a middleware or standalone app.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/filebrowser.png",
+  "default_port": 8082,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Downloads",
+      "container": "/srv",
+      "description": "Dossier /srv"
+    },
+    {
+      "host": "./data/filebrowser/filebrowser.db",
+      "container": "/database/filebrowser.db",
+      "description": "Dossier /database/filebrowser.db"
+    },
+    {
+      "host": "./data/filebrowser/settings.json",
+      "container": "/config/settings.json",
+      "description": "Dossier /config/settings.json"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

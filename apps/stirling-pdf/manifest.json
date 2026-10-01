@@ -1,0 +1,49 @@
+{
+  "id": "stirling-pdf",
+  "name": "Stirling PDF {shmolf}",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Your locally hosted one-stop-shop for all your PDF needs",
+  "description": "Your locally hosted one-stop-shop for all your PDF needs.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/shmolf/portainer-templates/main/assets/logos/stirling-pdf.svg",
+  "default_port": 5417,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/StirlingPDF",
+      "container": "/configs",
+      "description": "Dossier /configs"
+    },
+    {
+      "host": "./data/StirlingPDF/tessdata",
+      "container": "/usr/share/tesseract-ocr/5/tessdata",
+      "description": "Dossier /usr/share/tesseract-ocr/5/tessdata"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DOCKER_ENABLE_SECURITY",
+      "label": "Enable Login",
+      "default": ""
+    }
+  ]
+}

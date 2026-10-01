@@ -1,0 +1,17 @@
+services:
+  elasticsearch:
+    container_name: elasticsearch
+    image: elasticsearch:9.5.3
+    restart: unless-stopped
+    ports:
+    - 9200/tcp
+    - 9300/tcp
+    volumes:
+    - ./data/usr_share_elasticsearch_data:/usr/share/elasticsearch/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - discovery.type=single-node
+    - xpack.security.enabled=false

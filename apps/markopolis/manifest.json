@@ -1,0 +1,29 @@
+{
+  "id": "markopolis",
+  "name": "Markopolis",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Markopolis is like the self hosted version of Obsidian Publish",
+  "description": "Markopolis is like the self hosted version of Obsidian Publish.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/markopolis.png",
+  "default_port": 81080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

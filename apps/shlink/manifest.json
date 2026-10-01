@@ -1,0 +1,29 @@
+{
+  "id": "shlink",
+  "name": "Shlink",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Shlink - a self-hosted URL shortener: short links on your own domain with a full REST API, QR codes, rich visit analytic",
+  "description": "Shlink - a self-hosted URL shortener: short links on your own domain with a full REST API, QR codes, rich visit analytics (with optional GeoIP), tags, device-based redirect rules, and link expiration.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/shlink.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

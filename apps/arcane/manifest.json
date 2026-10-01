@@ -2,24 +2,28 @@
   "id": "arcane",
   "name": "Arcane",
   "version": "latest",
-  "category": "Administration",
-  "tagline": "Gestionnaire moderne et léger de conteneurs Docker",
-  "description": "Arcane propose une interface utilisateur épurée et moderne pour superviser, déployer et administrer facilement vos conteneurs Docker et stacks Compose.",
-  "website": "https://getarcane.app/",
-  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/arcane/icon.svg",
+  "category": "Outils & Utilitaires",
+  "tagline": "A beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes",
+  "description": "A beautiful, intuitive interface for managing your Docker containers, images, networks, and volumes. No terminal required.",
+  "website": "",
+  "icon": "https://getarcane.app/_app/immutable/assets/logo-full.BlWsIU1M.svg",
   "default_port": 3552,
-  "recommended": true,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "/home/{USER}/docker/arcane/data",
-      "container": "/app/data",
-      "description": "Base de données et configuration interne"
-    },
-    {
-      "host": "/var/run/docker.sock",
-      "container": "/var/run/docker.sock",
-      "description": "Socket de contrôle du démon Docker"
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
     }
   ],
-  "nix_file": "arcane.nix"
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
 }

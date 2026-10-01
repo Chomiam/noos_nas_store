@@ -1,0 +1,24 @@
+services:
+  lychee:
+    container_name: lychee
+    image: linuxserver/lychee:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/pictures:/pictures
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - DB_CONNECTION=
+    - DB_HOST=
+    - DB_PORT=
+    - DB_USERNAME=
+    - DB_PASSWORD=
+    - DB_DATABASE=
+    - APP_NAME=Lychee
+    - APP_URL=
+    - TRUSTED_PROXIES=

@@ -1,0 +1,66 @@
+{
+  "id": "samba",
+  "name": "Samba",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Samba has provided secure, stable and fast file and print services for all clients using the SMB/CIFS protocol, such as ",
+  "description": "Samba has provided secure, stable and fast file and print services for all clients using the SMB/CIFS protocol, such as all versions of DOS and Windows, OS/2, Linux and many others.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/samba.png",
+  "default_port": 139,
+  "extra_ports": [
+    445
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Downloads",
+      "container": "/share",
+      "description": "Dossier /share"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "USERID",
+      "label": "USERID",
+      "default": "1000"
+    },
+    {
+      "name": "GROUPID",
+      "label": "GROUPID",
+      "default": "1000"
+    },
+    {
+      "name": "USER",
+      "label": "USER",
+      "default": "guest;guest"
+    },
+    {
+      "name": "PERMISSIONS",
+      "label": "PERMISSIONS",
+      "default": "true"
+    },
+    {
+      "name": "SHARE",
+      "label": "SHARE",
+      "default": "portainer;/share;yes;no;yes;guest"
+    }
+  ]
+}

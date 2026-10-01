@@ -1,0 +1,14 @@
+services:
+  redis-container:
+    container_name: redis-container
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+    - 6379/tcp
+    volumes:
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

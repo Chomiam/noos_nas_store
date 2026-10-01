@@ -1,0 +1,39 @@
+{
+  "id": "cockpit-cms",
+  "name": "Cockpit {shmolf}",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Cockpit is a headless CMS with an API-first approach that puts content first",
+  "description": "Cockpit is a headless CMS with an API-first approach that puts content first.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/shmolf/portainer-templates/main/assets/logos/cockpit.svg",
+  "default_port": 8088,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

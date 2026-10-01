@@ -1,0 +1,14 @@
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:latest
+    restart: unless-stopped
+    ports:
+    - 27017/tcp
+    volumes:
+    - ./data/data_db:/data/db
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

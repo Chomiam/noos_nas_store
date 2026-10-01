@@ -1,0 +1,19 @@
+services:
+  duckdns:
+    container_name: duckdns
+    image: linuxserver/duckdns:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - SUBDOMAINS=subdomain1,subdomain2
+    - TOKEN=token
+    - UPDATE_IP=ipv4
+    - LOG_FILE=false

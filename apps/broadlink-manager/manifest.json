@@ -1,0 +1,29 @@
+{
+  "id": "broadlink-manager",
+  "name": "Broadlink Manager",
+  "version": "latest",
+  "category": "Domotique & IoT",
+  "tagline": "BroadlinkManager is a Flask powerd, easy to use system that hepls you to work with Broadlink Devices",
+  "description": "BroadlinkManager is a Flask powerd, easy to use system that hepls you to work with Broadlink Devices.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/broadlink.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

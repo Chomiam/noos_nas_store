@@ -1,0 +1,22 @@
+services:
+  kasm:
+    container_name: kasm
+    image: linuxserver/kasm:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/opt:/opt
+    - ./data/profiles:/profiles
+    - /dev/input:/dev/input
+    - ./data/data:/run/udev/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - KASM_PORT=443
+    - DOCKER_HUB_USERNAME=USER
+    - DOCKER_HUB_PASSWORD=PASS
+    - DOCKER_MTU=1500

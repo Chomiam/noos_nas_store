@@ -1,0 +1,41 @@
+{
+  "id": "alpine-xfce4-novnc",
+  "name": "Alpine Xfce4 noVNC",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Alpine xfce4 novnc",
+  "description": "Alpine xfce4 novnc",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/novnc.png",
+  "default_port": 6080,
+  "extra_ports": [
+    56780
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/alpine-xfce4-novnc/home/alpine/downloads",
+      "container": "/home/alpine/downloads",
+      "description": "Dossier /home/alpine/downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+services:
+  kasm:
+    image: lscr.io/linuxserver/kasm:latest
+    container_name: kasm
+    privileged: true
+    environment:
+    - KASM_PORT=7443
+    - DOCKER_MTU=1500
+    volumes:
+    - ./data/kasmworkspaces/data:/opt
+    - ./data/kasmworkspaces/profiles:/profiles
+    - /dev/input:/dev/input
+    - ./data/data:/run/udev/data
+    ports:
+    - 63000:3000
+    - 7443:443
+    restart: unless-stopped

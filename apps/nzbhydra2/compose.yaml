@@ -1,0 +1,15 @@
+services:
+  nzbhydra2:
+    container_name: nzbhydra2
+    image: linuxserver/nzbhydra2:latest
+    restart: unless-stopped
+    ports:
+    - 5076:5076/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

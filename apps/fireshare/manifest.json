@@ -1,0 +1,29 @@
+{
+  "id": "fireshare",
+  "name": "Fireshare",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Fireshare: Share your game clips, videos, or other media via unique links",
+  "description": "Fireshare: Share your game clips, videos, or other media via unique links.",
+  "website": "",
+  "icon": "https://github.com/ShaneIsrael/fireshare/raw/main/app/client/src/assets/logo.png",
+  "default_port": 8888,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

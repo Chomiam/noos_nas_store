@@ -1,0 +1,16 @@
+services:
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: linuxserver/phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - PMA_ARBITRARY=1
+    - PMA_ABSOLUTE_URI=https://phpmyadmin.example.com

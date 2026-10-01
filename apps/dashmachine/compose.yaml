@@ -1,0 +1,14 @@
+services:
+  dashmachine:
+    container_name: dashmachine
+    image: rmountjoy/dashmachine:latest
+    restart: unless-stopped
+    ports:
+    - 5000:5000/tcp
+    volumes:
+    - ./data/Dashmachine:/dashmachine/dashmachine/user_data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,12 @@
+services:
+  changedetection:
+    container_name: changedetection
+    image: dgtlmoon/changedetection.io:latest
+    restart: always
+    volumes:
+    - ./data/changedetection:/datastore
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

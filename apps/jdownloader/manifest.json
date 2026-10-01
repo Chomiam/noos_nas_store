@@ -1,0 +1,59 @@
+{
+  "id": "jdownloader",
+  "name": "JDownloader",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "JDownloader docker image",
+  "description": "JDownloader docker image",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/jdownloader.png",
+  "default_port": 3129,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/JDownloader",
+      "container": "/opt/JDownloader/app/cfg",
+      "description": "Dossier /opt/JDownloader/app/cfg"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/opt/JDownloader/Downloads",
+      "description": "Dossier /opt/JDownloader/Downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MYJD_DEVICE_NAME",
+      "label": "MYJD_DEVICE_NAME",
+      "default": ""
+    },
+    {
+      "name": "MYJD_USER",
+      "label": "MYJD_USER",
+      "default": ""
+    },
+    {
+      "name": "MYJD_PASSWORD",
+      "label": "MYJD_PASSWORD",
+      "default": ""
+    }
+  ]
+}

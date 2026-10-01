@@ -1,0 +1,32 @@
+{
+  "id": "inductive-automation-ignition-gateway",
+  "name": "Inductive Automation - Ignition Gateway",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Ignition Gateway is the primary software service that drives everything in Ignition - Single Server Deployment",
+  "description": "Ignition Gateway is the primary software service that drives everything in Ignition - Single Server Deployment",
+  "website": "",
+  "icon": "https://pbs.twimg.com/profile_images/859108636504805376/QHpq7wuh_400x400.jpg",
+  "default_port": 8088,
+  "extra_ports": [
+    8043,
+    4446
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

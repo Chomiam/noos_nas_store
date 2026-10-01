@@ -1,0 +1,29 @@
+{
+  "id": "pingvin-share",
+  "name": "Pingvin",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Pingvin Share is self-hosted file sharing platform and an alternative for WeTransfer",
+  "description": "Pingvin Share is self-hosted file sharing platform and an alternative for WeTransfer.",
+  "website": "",
+  "icon": "https://user-images.githubusercontent.com/58886915/166198400-c2134044-1198-4647-a8b6-da9c4a204c68.svg",
+  "default_port": 3123,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

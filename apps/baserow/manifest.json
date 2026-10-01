@@ -1,0 +1,44 @@
+{
+  "id": "baserow",
+  "name": "Baserow (container)",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Open source no-code database and Airtable alternative",
+  "description": "Open source no-code database and Airtable alternative",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/baserow.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/baserow",
+      "container": "/baserow/data",
+      "description": "Dossier /baserow/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "BASEROW_PUBLIC_URL",
+      "label": "BASEROW_PUBLIC_URL",
+      "default": ""
+    }
+  ]
+}

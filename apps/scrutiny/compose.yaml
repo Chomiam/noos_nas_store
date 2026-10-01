@@ -1,0 +1,15 @@
+services:
+  scrutiny:
+    container_name: scrutiny
+    image: analogj/scrutiny:latest
+    restart: unless-stopped
+    ports:
+    - 8080/tcp
+    volumes:
+    - ./data/apps/scrutiny:/scrutiny/config/
+    - ./data/udev:/run/udev
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

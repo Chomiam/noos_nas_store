@@ -1,0 +1,29 @@
+{
+  "id": "monica",
+  "name": "Monica",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Monica is a great open source personal relationship management system to organize the interactions with your loved ones",
+  "description": "Monica is a great open source personal relationship management system to organize the interactions with your loved ones.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/docker-library/docs/b962028212dbd77c9531dbcf8d5a81db79d4a735/monica/logo.svg",
+  "default_port": 818,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

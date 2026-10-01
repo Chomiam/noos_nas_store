@@ -1,0 +1,71 @@
+volumes:
+  zerotier: null
+  postgres-data: null
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.31.255.0/29
+services:
+  postgres:
+    image: postgres:15.2-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ztnet
+    volumes:
+    - ./data/postgres-data:/var/lib/postgresql/data
+    networks:
+    - app-network
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U postgres -d ztnet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  zerotier:
+    image: zyclonite/zerotier:1.14.2
+    hostname: zerotier
+    restart: unless-stopped
+    volumes:
+    - ./data/zerotier:/var/lib/zerotier-one
+    cap_add:
+    - NET_ADMIN
+    - SYS_ADMIN
+    devices:
+    - /dev/net/tun:/dev/net/tun
+    networks:
+    - app-network
+    ports:
+    - 9993:9993/udp
+    environment:
+    - ZT_OVERRIDE_LOCAL_CONF=true
+    - ZT_ALLOW_MANAGEMENT_FROM=172.31.255.0/29
+  ztnet:
+    image: sinamics/ztnet:latest
+    working_dir: /app
+    volumes:
+    - ./data/zerotier:/var/lib/zerotier-one
+    restart: unless-stopped
+    ports:
+    - 3000:3000
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ztnet
+      NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:-changeme-generate-a-long-random-secret}
+      NEXTAUTH_URL_INTERNAL: http://ztnet:3000
+    networks:
+    - app-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      zerotier:
+        condition: service_started

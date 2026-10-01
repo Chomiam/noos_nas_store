@@ -1,0 +1,64 @@
+{
+  "id": "chevereto",
+  "name": "Chevereto",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hostin",
+  "description": "Chevereto is a powerful and fast image hosting script that allows you to create your very own full featured image hosting website in just minutes. Please note that this offers only the free Chevereto version.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/Chevereto.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/var_www_html_images",
+      "container": "/var/www/html/images",
+      "description": "Dossier /var/www/html/images"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CHEVERETO_DB_HOST",
+      "label": "CHEVERETO_DB_HOST",
+      "default": ""
+    },
+    {
+      "name": "CHEVERETO_DB_USERNAME",
+      "label": "CHEVERETO_DB_USERNAME",
+      "default": ""
+    },
+    {
+      "name": "CHEVERETO_DB_PASSWORD",
+      "label": "CHEVERETO_DB_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "CHEVERETO_DB_NAME",
+      "label": "CHEVERETO_DB_NAME",
+      "default": ""
+    },
+    {
+      "name": "CHEVERETO_DB_PREFIX",
+      "label": "CHEVERETO_DB_PREFIX",
+      "default": ""
+    }
+  ]
+}

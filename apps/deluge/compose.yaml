@@ -1,0 +1,19 @@
+services:
+  deluge:
+    container_name: deluge
+    image: linuxserver/deluge:latest
+    restart: unless-stopped
+    ports:
+    - 8112:8112/tcp
+    - 6881:6881/tcp
+    - 6881:6881/udp
+    - 58846:58846/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - DELUGE_LOGLEVEL=error

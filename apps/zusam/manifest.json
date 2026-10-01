@@ -1,0 +1,49 @@
+{
+  "id": "zusam",
+  "name": "Zus.am",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Zusam is a free and open-source way to self-host private forums for groups of friends",
+  "description": "Zusam is a free and open-source way to self-host private forums for groups of friends.",
+  "website": "",
+  "icon": "https://github.com/zusam/zusam/raw/master/app/src/assets/zusam_logo.png",
+  "default_port": 4180,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Zusam",
+      "container": "/zusam/data",
+      "description": "Dossier /zusam/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "INIT_USER",
+      "label": "INIT_USER",
+      "default": "email@domain.example"
+    },
+    {
+      "name": "INIT_PASSWORD",
+      "label": "INIT_PASSWORD",
+      "default": "initpass zusam"
+    }
+  ]
+}

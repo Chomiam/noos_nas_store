@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  checkcle:
+    image: operacle/checkcle:latest
+    container_name: checkcle
+    restart: unless-stopped
+    ports:
+    - 8090:8090
+    volumes:
+    - ./data/checkcle/pb_data:/mnt/pb_data
+    ulimits:
+      nofile:
+        soft: 4096
+        hard: 8192
+    networks:
+    - checkcle-network
+networks:
+  checkcle-network:
+    driver: bridge

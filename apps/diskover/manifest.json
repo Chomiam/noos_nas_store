@@ -1,0 +1,54 @@
+{
+  "id": "diskover",
+  "name": "Diskover (container)",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Diskover](https://github",
+  "description": "[Diskover](https://github.com/diskoverdata/diskover-community) is an open source file system indexer that uses Elasticsearch to index and manage data across heterogeneous storage systems.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/diskoverdata/diskover-community/master/diskover-web/public/images/diskover.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "ES_HOST",
+      "label": "ES_HOST",
+      "default": "elasticsearch"
+    },
+    {
+      "name": "ES_PORT",
+      "label": "ES_PORT",
+      "default": "9200"
+    }
+  ]
+}

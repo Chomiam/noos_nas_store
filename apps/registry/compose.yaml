@@ -1,0 +1,14 @@
+services:
+  registry:
+    container_name: registry
+    image: registry:latest
+    restart: unless-stopped
+    ports:
+    - 5000/tcp
+    volumes:
+    - ./data/var_lib_registry:/var/lib/registry
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

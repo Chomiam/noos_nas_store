@@ -1,0 +1,49 @@
+{
+  "id": "cantinarr",
+  "name": "Cantinarr",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Media requests and server management in one app",
+  "description": "Media requests and server management in one app. Household members browse and request movies, shows, books, and music, follow downloads, and get notified when content is ready. Administrators manage Radarr, Sonarr, Chaptarr, Lidarr, and download clients, review approvals, and investigate stuck downloads. AI is optional, and authorized MCP clients can use the same server. GitHub: [windoze95/cantinarr](https://github.com/windoze95/cantinarr)",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/windoze95/cantinarr/main/app/web/icons/Icon-512.png",
+  "default_port": 8585,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CANTINARR_PUSH_GATEWAY_URL",
+      "label": "CANTINARR_PUSH_GATEWAY_URL",
+      "default": "https://push.cantinarr.com"
+    },
+    {
+      "name": "CANTINARR_ARR_CALLBACK_URL",
+      "label": "CANTINARR_ARR_CALLBACK_URL",
+      "default": ""
+    }
+  ]
+}

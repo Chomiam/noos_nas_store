@@ -1,0 +1,57 @@
+{
+  "id": "adguard",
+  "name": "Adguard",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "AdGuard Home is a network-wide software for blocking ads & tracking",
+  "description": "AdGuard Home is a network-wide software for blocking ads & tracking. After you set it up, it’ll cover ALL your home devices, and you don’t need any client-side software for that. With the rise of Internet-Of-Things and connected devices, it becomes more and more important to be able to control your whole network.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/adguard.png",
+  "default_port": 53,
+  "extra_ports": [
+    67,
+    68,
+    68,
+    80,
+    443,
+    853,
+    3000
+  ],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Workdir",
+      "container": "/opt/adguardhome/work",
+      "description": "Dossier /opt/adguardhome/work"
+    },
+    {
+      "host": "./data/Conf",
+      "container": "/opt/adguardhome/conf",
+      "description": "Dossier /opt/adguardhome/conf"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "CONTEXT_PATH",
+      "label": "CONTEXT_PATH",
+      "default": "adguard home"
+    }
+  ]
+}

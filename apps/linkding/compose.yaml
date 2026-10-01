@@ -1,0 +1,17 @@
+services:
+  linkding:
+    container_name: linkding
+    image: sissbruecker/linkding:latest
+    restart: unless-stopped
+    ports:
+    - 9090:9090/tcp
+    volumes:
+    - ./data/etc_linkding_data:/etc/linkding/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - LD_SUPERUSER_NAME=admin
+    - LD_SUPERUSER_PASSWORD=changeme
+    - LD_SUPERUSER_EMAIL=

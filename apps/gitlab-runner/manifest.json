@@ -1,0 +1,29 @@
+{
+  "id": "gitlab-runner",
+  "name": "GitLab Runner",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A self-hosted GitLab Runner in shell mode: jobs run inside this container, your own compute, no CI-minute quota",
+  "description": "A self-hosted GitLab Runner in shell mode: jobs run inside this container, your own compute, no CI-minute quota. Registers itself on first boot and persists registration on a volume.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/gitlab.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

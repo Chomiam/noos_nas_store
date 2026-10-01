@@ -1,0 +1,22 @@
+services:
+  mealie:
+    container_name: mealie
+    image: hkotel/mealie:v0.4.3
+    restart: unless-stopped
+    ports:
+    - 9925:9000/tcp
+    volumes:
+    - ./data/mealie:/app/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/New_York
+    - UMASK=002
+    - WEB_CONCURRENCY=2
+    - MAX_WORKERS=8
+    - RECIPE_PUBLIC=true
+    - RECIPE_SHOW_NUTRITION=true
+    - RECIPE_SHOW_ASSETS=true
+    - RECIPE_LANDSCAPE_VIEW=true
+    - RECIPE_DISABLE_COMMENTS=false
+    - RECIPE_DISABLE_AMOUNT=false

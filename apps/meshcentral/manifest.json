@@ -1,0 +1,31 @@
+{
+  "id": "meshcentral",
+  "name": "Meshcentral",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "MeshCentral is a full computer management web site",
+  "description": "MeshCentral is a full computer management web site. With MeshCentral, you can run your own web server to remotely manage and control computers on a local network or anywhere on the internet.",
+  "website": "",
+  "icon": "https://repository-images.githubusercontent.com/101663032/a0f76700-4b4f-11eb-981e-ee7eea9fddf2",
+  "default_port": 8086,
+  "extra_ports": [
+    8087
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "hishtory-server",
+  "name": "Hishtory-server",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[hiSHtory](https://github",
+  "description": "[hiSHtory](https://github.com/ddworken/hishtory) is a better shell history. It stores your shell history in context (what directory you ran the command in, whether it succeeded or failed, how long it took, etc). This is all stored locally and end-to-end encrypted for syncing to to all your other computers.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hishtory-server-icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "HISHTORY_POSTGRES_DB",
+      "label": "HISHTORY_POSTGRES_DB",
+      "default": "postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable"
+    },
+    {
+      "name": "HISHTORY_SQLITE_DB",
+      "label": "HISHTORY_SQLITE_DB",
+      "default": "/config/hishtory.db"
+    }
+  ]
+}

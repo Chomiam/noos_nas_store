@@ -1,0 +1,29 @@
+{
+  "id": "buzz",
+  "name": "Buzz",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Buzz - a self-hosted workspace where humans and AI agents share the same rooms",
+  "description": "Buzz - a self-hosted workspace where humans and AI agents share the same rooms. Under the hood it is a Nostr relay: every message, reaction, workflow step, review approval, and git event is a signed event in one log, whether the author is",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/buzz.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

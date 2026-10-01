@@ -1,0 +1,15 @@
+services:
+  hydra2:
+    container_name: hydra2
+    image: linuxserver/hydra2:latest
+    restart: unless-stopped
+    ports:
+    - 5076/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/Chicago
+    - UMASK=002

@@ -1,0 +1,29 @@
+{
+  "id": "remotely",
+  "name": "Remotely",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Remotely is a remote control and remote scripting solution, built with ",
+  "description": "Remotely is a remote control and remote scripting solution, built with .NET 6, Blazor, and SignalR Core.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/remotely.png",
+  "default_port": 5009,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

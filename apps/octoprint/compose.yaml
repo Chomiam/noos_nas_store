@@ -1,0 +1,17 @@
+services:
+  octoprint:
+    container_name: octoprint
+    image: octoprint/octoprint:latest
+    restart: unless-stopped
+    ports:
+    - 8051:80/tcp
+    volumes:
+    - ./data/OctoPrint:/octoprint
+    - ./data/dev:/dev
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - 'NODE_ENV=development '
+    - ENABLE_MJPG_STREAMER=true

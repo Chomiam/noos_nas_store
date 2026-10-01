@@ -1,0 +1,93 @@
+{
+  "id": "unifi-network-application",
+  "name": "Unifi-network-application",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "The [Unifi-network-application](https://ui",
+  "description": "The [Unifi-network-application](https://ui.com/) software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/unifi-banner.png",
+  "default_port": 8443,
+  "extra_ports": [
+    3478,
+    10001,
+    8080,
+    1900,
+    8843,
+    8880,
+    6789,
+    5514
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MONGO_USER",
+      "label": "MONGO_USER",
+      "default": "unifi"
+    },
+    {
+      "name": "MONGO_PASS",
+      "label": "MONGO_PASS",
+      "default": ""
+    },
+    {
+      "name": "MONGO_HOST",
+      "label": "MONGO_HOST",
+      "default": "unifi-db"
+    },
+    {
+      "name": "MONGO_PORT",
+      "label": "MONGO_PORT",
+      "default": "27017"
+    },
+    {
+      "name": "MONGO_DBNAME",
+      "label": "MONGO_DBNAME",
+      "default": "unifi"
+    },
+    {
+      "name": "MONGO_AUTHSOURCE",
+      "label": "MONGO_AUTHSOURCE",
+      "default": "admin"
+    },
+    {
+      "name": "MEM_LIMIT",
+      "label": "MEM_LIMIT",
+      "default": "1024"
+    },
+    {
+      "name": "MEM_STARTUP",
+      "label": "MEM_STARTUP",
+      "default": "1024"
+    },
+    {
+      "name": "MONGO_TLS",
+      "label": "MONGO_TLS",
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+    - 3023:3000
+    restart: unless-stopped
+    volumes:
+    - ./data/grafana:/var/lib/grafana
+    user: '0'

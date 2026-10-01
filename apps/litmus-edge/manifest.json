@@ -1,0 +1,29 @@
+{
+  "id": "litmus-edge",
+  "name": "Litmus Edge",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Litmus Edge is an edge data platform that enables industrial AI at scale",
+  "description": "Litmus Edge is an edge data platform that enables industrial AI at scale. It connects, processes, and analyzes real-time OT data at the edge to power smart manufacturing.",
+  "website": "",
+  "icon": "https://www.gravatar.com/avatar/3c545a4e847eb960bfc9bf5bf877c979?s=120&r=g&d=404",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

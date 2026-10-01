@@ -1,0 +1,13 @@
+services:
+  daapd:
+    container_name: daapd
+    image: linuxserver/daapd:latest
+    restart: unless-stopped
+    volumes:
+    - ./data/Daapd:/config
+    - ./data/Music:/music
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

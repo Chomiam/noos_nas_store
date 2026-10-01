@@ -1,0 +1,29 @@
+{
+  "id": "tooljet",
+  "name": "Tooljet",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Tooljet is an Open-source low-code application development platform for building and deploying business applications",
+  "description": "Tooljet is an Open-source low-code application development platform for building and deploying business applications.",
+  "website": "",
+  "icon": "https://uploads-ssl.webflow.com/6266634263b9179f76b2236e/63aaa161e3b3be42ec50eb6f_Logomark.svg",
+  "default_port": 8082,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

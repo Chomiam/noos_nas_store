@@ -1,0 +1,14 @@
+services:
+  ngircd:
+    container_name: ngircd
+    image: linuxserver/ngircd:latest
+    restart: unless-stopped
+    ports:
+    - 6667:6667/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

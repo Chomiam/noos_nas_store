@@ -1,0 +1,84 @@
+{
+  "id": "librespeed",
+  "name": "Librespeed",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Librespeed](https://github",
+  "description": "[Librespeed](https://github.com/librespeed/speedtest) is a very lightweight Speedtest implemented in Javascript, using XMLHttpRequest and Web Workers. No Flash, No Java, No Websocket, No Bullshit.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/librespeed/speedtest/master/.logo/logo3.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PASSWORD",
+      "label": "PASSWORD",
+      "default": "PASSWORD"
+    },
+    {
+      "name": "CUSTOM_RESULTS",
+      "label": "CUSTOM_RESULTS",
+      "default": "false"
+    },
+    {
+      "name": "DB_TYPE",
+      "label": "DB_TYPE",
+      "default": "sqlite"
+    },
+    {
+      "name": "DB_NAME",
+      "label": "DB_NAME",
+      "default": "DB_NAME"
+    },
+    {
+      "name": "DB_HOSTNAME",
+      "label": "DB_HOSTNAME",
+      "default": "DB_HOSTNAME"
+    },
+    {
+      "name": "DB_USERNAME",
+      "label": "DB_USERNAME",
+      "default": "DB_USERNAME"
+    },
+    {
+      "name": "DB_PASSWORD",
+      "label": "DB_PASSWORD",
+      "default": "DB_PASSWORD"
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": "DB_PORT"
+    },
+    {
+      "name": "IPINFO_APIKEY",
+      "label": "IPINFO_APIKEY",
+      "default": "ACCESS_TOKEN"
+    }
+  ]
+}

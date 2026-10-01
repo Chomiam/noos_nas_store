@@ -1,0 +1,52 @@
+{
+  "id": "syslog-ng",
+  "name": "Syslog-ng",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[syslog-ng](https://www",
+  "description": "[syslog-ng](https://www.syslog-ng.com/products/open-source-log-management/) allows you to flexibly collect, parse, classify, rewrite and correlate logs from across your infrastructure and store or route them to log analysis tools.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/syslog-ng-logo.png",
+  "default_port": 514,
+  "extra_ports": [
+    601,
+    6514
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/log",
+      "container": "/var/log",
+      "description": "Dossier /var/log"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "LOG_TO_STDOUT",
+      "label": "LOG_TO_STDOUT",
+      "default": ""
+    }
+  ]
+}

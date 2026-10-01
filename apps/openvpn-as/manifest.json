@@ -1,0 +1,47 @@
+{
+  "id": "openvpn-as",
+  "name": "OpenVPN Access Server",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "OpenVPN Access Server is a full featured secure network tunneling VPN software solution that integrates OpenVPN server c",
+  "description": "OpenVPN Access Server is a full featured secure network tunneling VPN software solution that integrates OpenVPN server capabilities, enterprise management capabilities, simplified OpenVPN Connect UI, and OpenVPN Client software packages that accommodate Windows, MAC, Linux, Android, and iOS environments.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/openvpn-as-icon.png",
+  "default_port": 943,
+  "extra_ports": [
+    9443,
+    1194
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/OpenVPN-AS",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "INTERFACE",
+      "label": "INTERFACE",
+      "default": "eth0"
+    }
+  ]
+}

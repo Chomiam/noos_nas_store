@@ -1,0 +1,29 @@
+{
+  "id": "hasty-paste",
+  "name": "Hasty-Paste",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Hasty Paste is a fast and minimal paste bin, written in Python using Quart",
+  "description": "Hasty Paste is a fast and minimal paste bin, written in Python using Quart.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/hasty-paste.png",
+  "default_port": 98000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

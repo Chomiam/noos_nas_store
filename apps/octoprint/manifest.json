@@ -1,0 +1,54 @@
+{
+  "id": "octoprint",
+  "name": "OctoPrint",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "OctoPrint is an open source 3D printer controller application, which provides a web interface for the connected printers",
+  "description": "OctoPrint is an open source 3D printer controller application, which provides a web interface for the connected printers.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/octoprint.png",
+  "default_port": 8051,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/OctoPrint",
+      "container": "/octoprint",
+      "description": "Dossier /octoprint"
+    },
+    {
+      "host": "./data/dev",
+      "container": "/dev",
+      "description": "Dossier /dev"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "NODE_ENV",
+      "label": "NODE_ENV",
+      "default": "development "
+    },
+    {
+      "name": "ENABLE_MJPG_STREAMER",
+      "label": "ENABLE_MJPG_STREAMER",
+      "default": "true"
+    }
+  ]
+}

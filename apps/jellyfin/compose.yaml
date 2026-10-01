@@ -1,0 +1,20 @@
+services:
+  jellyfin:
+    container_name: jellyfin
+    image: linuxserver/jellyfin:latest
+    restart: unless-stopped
+    ports:
+    - 8096:8096/tcp
+    - 8920:8920/tcp
+    - 7359:7359/udp
+    - 1900:1900/udp
+    volumes:
+    - ./data/config:/config
+    - ./data/tvshows:/data/tvshows
+    - ./data/movies:/data/movies
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - JELLYFIN_PublishedServerUrl=http://192.168.0.5

@@ -1,0 +1,32 @@
+{
+  "id": "rport",
+  "name": "Rport",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "RPort is free remote access and remote management, now acquired by RealVNC",
+  "description": "RPort is free remote access and remote management, now acquired by RealVNC",
+  "website": "",
+  "icon": "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_634014ae8000cebecce8a571f9ea316f/cloudradar-gmbh-rport.png",
+  "default_port": 3000,
+  "extra_ports": [
+    4822,
+    10000
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

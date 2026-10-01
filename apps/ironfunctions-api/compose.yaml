@@ -1,0 +1,14 @@
+services:
+  ironfunctions-api:
+    container_name: ironfunctions-api
+    image: iron/functions:latest
+    restart: unless-stopped
+    ports:
+    - 8080/tcp
+    volumes:
+    - ./data/app_data:/app/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

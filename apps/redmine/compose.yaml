@@ -1,0 +1,14 @@
+services:
+  redmine:
+    container_name: redmine
+    image: redmine:latest
+    restart: unless-stopped
+    ports:
+    - 3000/tcp
+    volumes:
+    - ./data/usr_src_redmine_files:/usr/src/redmine/files
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

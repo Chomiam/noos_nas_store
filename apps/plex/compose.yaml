@@ -1,0 +1,18 @@
+services:
+  plex:
+    container_name: plex
+    image: linuxserver/plex:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/tv:/tv
+    - ./data/movies:/movies
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - VERSION=docker
+    - PLEX_CLAIM=

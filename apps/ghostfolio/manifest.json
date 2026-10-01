@@ -1,0 +1,29 @@
+{
+  "id": "ghostfolio",
+  "name": "Ghostfolio",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Ghostfolio is an open source wealth management software built with web technology",
+  "description": "Ghostfolio is an open source wealth management software built with web technology.",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/82473144?s=200",
+  "default_port": 3443,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

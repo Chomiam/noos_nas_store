@@ -1,0 +1,16 @@
+services:
+  zusam:
+    container_name: zusam
+    image: zusam/zusam:latest
+    restart: unless-stopped
+    ports:
+    - 4180:8080/tcp
+    volumes:
+    - ./data/Zusam:/zusam/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - INIT_USER=email@domain.example
+    - INIT_PASSWORD=initpass zusam

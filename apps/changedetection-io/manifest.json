@@ -1,0 +1,49 @@
+{
+  "id": "changedetection-io",
+  "name": "Changedetection.io (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Changedetection",
+  "description": "[Changedetection.io](https://github.com/dgtlmoon/changedetection.io) provides free, open-source web page monitoring, notification and change detection.",
+  "website": "",
+  "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/changedetection-icon.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "BASE_URL",
+      "label": "BASE_URL",
+      "default": ""
+    },
+    {
+      "name": "PLAYWRIGHT_DRIVER_URL",
+      "label": "PLAYWRIGHT_DRIVER_URL",
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+services:
+  tvheadend:
+    container_name: tvheadend
+    image: linuxserver/tvheadend:latest
+    restart: unless-stopped
+    ports:
+    - 9981:9981/tcp
+    - 9982:9982/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/recordings:/recordings
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - RUN_OPTS=

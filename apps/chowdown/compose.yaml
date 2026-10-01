@@ -1,0 +1,14 @@
+services:
+  chowdown:
+    container_name: chowdown
+    image: gregyankovoy/chowdown:latest
+    restart: unless-stopped
+    ports:
+    - 4000:4000/tcp
+    volumes:
+    - ./data/Chowdown:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

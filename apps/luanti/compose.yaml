@@ -1,0 +1,15 @@
+services:
+  luanti:
+    container_name: luanti
+    image: linuxserver/luanti:latest
+    restart: unless-stopped
+    ports:
+    - 30000:30000/udp
+    volumes:
+    - ./data/.minetest:/config/.minetest
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - CLI_ARGS=--gameid devtest

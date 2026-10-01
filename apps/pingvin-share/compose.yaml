@@ -1,0 +1,9 @@
+services:
+  pingvin-share:
+    image: stonith404/pingvin-share
+    restart: unless-stopped
+    ports:
+    - 3123:3000
+    volumes:
+    - ./data/pingvin:/opt/app/backend/data
+    - ./data/pingvin/images:/opt/app/frontend/public/img

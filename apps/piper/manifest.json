@@ -1,0 +1,74 @@
+{
+  "id": "piper",
+  "name": "Piper",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Piper](https://github",
+  "description": "[Piper](https://github.com/rhasspy/wyoming-piper) is a fast, local neural text to speech system that sounds great and is optimized for the Raspberry Pi 4. This container provides a Wyoming protocol server for Piper.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/piper-logo.png",
+  "default_port": 10200,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PIPER_VOICE",
+      "label": "PIPER_VOICE",
+      "default": "en_US-lessac-medium"
+    },
+    {
+      "name": "LOCAL_ONLY",
+      "label": "LOCAL_ONLY",
+      "default": ""
+    },
+    {
+      "name": "PIPER_LENGTH",
+      "label": "PIPER_LENGTH",
+      "default": "1.0"
+    },
+    {
+      "name": "PIPER_NOISE",
+      "label": "PIPER_NOISE",
+      "default": "0.667"
+    },
+    {
+      "name": "PIPER_NOISEW",
+      "label": "PIPER_NOISEW",
+      "default": "0.333"
+    },
+    {
+      "name": "PIPER_SPEAKER",
+      "label": "PIPER_SPEAKER",
+      "default": "0"
+    },
+    {
+      "name": "NO_STREAMING",
+      "label": "NO_STREAMING",
+      "default": ""
+    }
+  ]
+}

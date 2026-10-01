@@ -1,0 +1,16 @@
+services:
+  jfa-go:
+    container_name: jfa-go
+    image: hrfee/jfa-go:latest
+    restart: unless-stopped
+    ports:
+    - 8056:8056/tcp
+    volumes:
+    - ./data/Jelllyfin:/jf
+    - ./data/jfago:/data
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,44 @@
+{
+  "id": "homarr-secured",
+  "name": "Homarr-Secured",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one pl",
+  "description": "Homarr is a simple and lightweight homepage for your server, that helps you easily access all of your services in one place.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/homarr.png",
+  "default_port": 7575,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Homarr/configs",
+      "container": "/app/data/configs",
+      "description": "Dossier /app/data/configs"
+    },
+    {
+      "host": "./data/Homarr/icons",
+      "container": "/app/public/icons",
+      "description": "Dossier /app/public/icons"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

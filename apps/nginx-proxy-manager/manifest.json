@@ -1,0 +1,52 @@
+{
+  "id": "nginx-proxy-manager",
+  "name": "Nginx Proxy Manager (container)",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, wit",
+  "description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/proxy_mgr.png",
+  "default_port": 80,
+  "extra_ports": [
+    81,
+    443
+  ],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Nginx-Proxy/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/Nginx-Proxy/letsencrypt",
+      "container": "/etc/letsencrypt",
+      "description": "Dossier /etc/letsencrypt"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DB_SQLITE_FILE",
+      "label": "DB_SQLITE_FILE",
+      "default": "/data/database.sqlite"
+    }
+  ]
+}

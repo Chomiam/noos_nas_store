@@ -1,0 +1,52 @@
+{
+  "id": "calibre",
+  "name": "Calibre",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Calibre](https://calibre-ebook",
+  "description": "[Calibre](https://calibre-ebook.com/) is a powerful and easy to use e-book manager. Users say it's outstanding and a must-have. It'll allow you to do nearly everything and it takes things a step beyond normal e-book software. It's also completely free and open source and great for both casual users and computer experts.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/calibre-logo.png",
+  "default_port": 8080,
+  "extra_ports": [
+    8181,
+    8081
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PASSWORD",
+      "label": "PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "CLI_ARGS",
+      "label": "CLI_ARGS",
+      "default": ""
+    }
+  ]
+}

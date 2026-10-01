@@ -1,0 +1,29 @@
+{
+  "id": "penpot",
+  "name": "Penpot",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Penpot - the open-source design and prototyping platform (the Figma alternative): SVG-native, web-based, with real desig",
+  "description": "Penpot - the open-source design and prototyping platform (the Figma alternative): SVG-native, web-based, with real design-to-dev handoff. MPL-2.0. Frontend + backend + exporter on a managed Postgres and a noeviction Valkey.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/penpot.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

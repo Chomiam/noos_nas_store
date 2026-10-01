@@ -1,0 +1,68 @@
+name: Synchronisation & Normalisation des Templates Portainer
+
+on:
+  schedule:
+    # Exécution hebdomadaire chaque lundi à 4h00 UTC
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    name: Importer, Valider & Publier les Applications
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Récupération du dépôt
+        uses: actions/checkout@v4
+
+      - name: 🐍 Configuration de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 📦 Installation des dépendances
+        run: |
+          pip install --upgrade pip
+          pip install pyyaml requests
+
+      - name: ⚡ Exécution de l'ingesteur de templates
+        run: |
+          python3 scripts/import_portainer.py
+
+      - name: 🧪 Tests de validation & intégrité des fichiers Compose
+        run: |
+          echo "🔍 Vérification de store.json..."
+          python3 -c "import json; d = json.load(open('store.json')); assert d['total_apps'] > 100; print(f'✓ {d[\"total_apps\"]} applications validées dans store.json')"
+
+          echo "🔍 Validation syntaxique de chaque compose.yaml..."
+          python3 - << 'PYEOF'
+          import yaml
+          from pathlib import Path
+
+          apps_dir = Path("apps")
+          checked = 0
+          for c_file in apps_dir.glob("*/compose.yaml"):
+              with open(c_file, "r", encoding="utf-8") as f:
+                  data = yaml.safe_load(f)
+              assert isinstance(data, dict), f"YAML invalide dans {c_file}"
+              assert "services" in data, f"Pas de section 'services' dans {c_file}"
+              checked += 1
+
+          print(f"✓ {checked} fichiers compose.yaml testés et validés avec succès !")
+          PYEOF
+
+      - name: 🚀 Commit et Publication sur GitHub
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add store.json apps/
+          if git diff --staged --quiet; then
+            echo "ℹ️ Aucune modification détectée. Catalogue déjà à jour."
+          else
+            git commit -m "chore(store): synchronisation et normalisation automatique des templates Portainer ($(date +'%Y-%m-%d'))"
+            git push origin main
+          fi

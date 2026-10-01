@@ -1,0 +1,15 @@
+services:
+  pydio:
+    container_name: pydio
+    image: linuxserver/pydio:latest
+    restart: unless-stopped
+    ports:
+    - 443/tcp
+    volumes:
+    - ./data/Pydio:/config
+    - ./data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,19 @@
+services:
+  deluge-openvpn:
+    container_name: deluge-openvpn
+    image: sgtsquiggs/deluge-openvpn:latest
+    restart: unless-stopped
+    ports:
+    - 8112:8112/tcp
+    volumes:
+    - ./data/localtime:/etc/localtime
+    - ./data/Downloads:/downloads
+    - ./data/DelugeOpenVPN/config:/config
+    environment:
+    - PUID=1001
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - OPENVPN_PROVIDER=MULLVAD
+    - OPENVPN_USERNAME=
+    - OPENVPN_PASSWORD=

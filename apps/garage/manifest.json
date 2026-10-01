@@ -1,0 +1,31 @@
+{
+  "id": "garage",
+  "name": "Garage",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Garage - the S3-compatible object store the self-hosting community moved to after MinIO archived its open source in 2026",
+  "description": "Garage - the S3-compatible object store the self-hosting community moved to after MinIO archived its open source in 2026: a single static Rust binary, AGPL, actively released, designed for exactly this job.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/garage.png",
+  "default_port": 3900,
+  "extra_ports": [
+    3903
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

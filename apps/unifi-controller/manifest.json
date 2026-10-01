@@ -1,0 +1,47 @@
+{
+  "id": "unifi-controller",
+  "name": "UniFi Controller",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The Unifi-controller Controller software is a powerful, enterprise wireless software engine ideal for high-density clien",
+  "description": "The Unifi-controller Controller software is a powerful, enterprise wireless software engine ideal for high-density client deployments requiring low latency and high uptime performance.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/unifi-icon.png",
+  "default_port": 3478,
+  "extra_ports": [
+    10001,
+    8080,
+    8081,
+    8443,
+    8843,
+    8880,
+    6789
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Unifi",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

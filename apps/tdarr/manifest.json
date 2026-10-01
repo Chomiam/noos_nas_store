@@ -1,0 +1,33 @@
+{
+  "id": "tdarr",
+  "name": "Tdarr",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Tdarr is a popular conditional transcoding application for processing large (or small) media libraries",
+  "description": "Tdarr is a popular conditional transcoding application for processing large (or small) media libraries.",
+  "website": "",
+  "icon": "https://tdarr.io/static/media/logo3.02a3f4a3.png",
+  "default_port": 8265,
+  "extra_ports": [
+    8266,
+    8267,
+    8268
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

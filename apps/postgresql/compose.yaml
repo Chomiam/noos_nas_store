@@ -1,0 +1,16 @@
+services:
+  postgresql:
+    container_name: postgresql
+    image: postgres:latest
+    restart: unless-stopped
+    ports:
+    - 5432/tcp
+    volumes:
+    - ./data/var_lib_postgresql_data:/var/lib/postgresql/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - POSTGRES_USER=
+    - POSTGRES_PASSWORD=

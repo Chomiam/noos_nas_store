@@ -1,0 +1,18 @@
+services:
+  readarr:
+    container_name: readarr
+    image: ghcr.io/linuxserver/readarr:nightly
+    restart: unless-stopped
+    ports:
+    - 8787/tcp
+    volumes:
+    - ./data/apps/readarr:/config
+    - ./data/ebooks:/downloads
+    - ./data/ebooks:/books
+    - ./data/ebooks:/blackhole
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=15000
+    - PGID=15000
+    - TZ=America/Los_Angeles
+    - UMASK=002

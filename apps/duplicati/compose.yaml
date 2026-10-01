@@ -1,0 +1,19 @@
+services:
+  duplicati:
+    container_name: duplicati
+    image: linuxserver/duplicati:latest
+    restart: unless-stopped
+    ports:
+    - 8200:8200/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/backups:/backups
+    - ./data/source:/source
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - SETTINGS_ENCRYPTION_KEY=
+    - CLI_ARGS=
+    - DUPLICATI__WEBSERVICE_PASSWORD=

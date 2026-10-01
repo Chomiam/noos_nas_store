@@ -1,41 +1,58 @@
 {
   "id": "jellyfin",
-  "name": "Jellyfin",
+  "name": "Jellyfin (container)",
   "version": "latest",
   "category": "Multimédia",
-  "tagline": "Système multimédia libre pour streamer vos films, séries et animés",
-  "description": "Serveur multimédia open-source puissant sans abonnement ni pistage. Organisez et streamez vos bibliothèques (Films, Séries, Animés) sur tous vos écrans avec transcodage matériel.",
-  "website": "https://jellyfin.org/",
-  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/jellyfin/icon.svg",
+  "tagline": "[Jellyfin](https://github",
+  "description": "[Jellyfin](https://github.com/jellyfin/jellyfin) is a Free Software Media System that puts you in control of managing and streaming your media. It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps. Jellyfin is descended from Emby's 3.5.2 release and ported to the .NET Core framework to enable full cross-platform support. There are no strings attached, no premium licenses or features, and no hidden agendas: just a team who want to build something better and work together to achieve it.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jellyfin-logo.png",
   "default_port": 8096,
+  "extra_ports": [
+    8920,
+    7359,
+    1900
+  ],
   "recommended": true,
-  "media_support": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "/home/{USER}/docker/jellyfin/config",
+      "host": "./data/config",
       "container": "/config",
-      "description": "Configuration Jellyfin et base de données"
+      "description": "Dossier /config"
     },
     {
-      "host": "/home/{USER}/docker/jellyfin/cache",
-      "container": "/cache",
-      "description": "Cache de transcodage et métadonnées"
+      "host": "./data/tvshows",
+      "container": "/data/tvshows",
+      "description": "Dossier /data/tvshows"
     },
     {
-      "host": "{MEDIA_DIR}/movies",
+      "host": "./data/movies",
       "container": "/data/movies",
-      "description": "Dossier des films"
-    },
-    {
-      "host": "{MEDIA_DIR}/tv_shows",
-      "container": "/data/tv_shows",
-      "description": "Dossier des séries TV"
-    },
-    {
-      "host": "{MEDIA_DIR}/anims",
-      "container": "/data/anims",
-      "description": "Dossier des animés et animations"
+      "description": "Dossier /data/movies"
     }
   ],
-  "nix_file": "jellyfin.nix"
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "JELLYFIN_PublishedServerUrl",
+      "label": "JELLYFIN_PublishedServerUrl",
+      "default": "http://192.168.0.5"
+    }
+  ]
 }

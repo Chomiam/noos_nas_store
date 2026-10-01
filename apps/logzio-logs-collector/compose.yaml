@@ -1,0 +1,15 @@
+services:
+  logzio-logs-collector:
+    container_name: logzio-logs-collector
+    image: logzio/docker-collector-logs:latest
+    restart: unless-stopped
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./data/containers:/var/lib/docker/containers
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - LOGZIO_TOKEN=REPLACE-LOGZIO-TOKEN-HERE
+    - LOGZIO_URL=listener.logz.io:5015

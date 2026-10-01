@@ -1,0 +1,52 @@
+{
+  "id": "gitlab-ce",
+  "name": "GitLab CE",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Open-source end-to-end software development platform",
+  "description": "Open-source end-to-end software development platform",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/gitlab_ce.png",
+  "default_port": 80,
+  "extra_ports": [
+    443,
+    22
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/etc_gitlab",
+      "container": "/etc/gitlab",
+      "description": "Dossier /etc/gitlab"
+    },
+    {
+      "host": "./data/var_log_gitlab",
+      "container": "/var/log/gitlab",
+      "description": "Dossier /var/log/gitlab"
+    },
+    {
+      "host": "./data/var_opt_gitlab",
+      "container": "/var/opt/gitlab",
+      "description": "Dossier /var/opt/gitlab"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "mysql-container",
+  "name": "MySQL (container)",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "The most popular open-source database",
+  "description": "The most popular open-source database",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/mysql.png",
+  "default_port": 3306,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/var_lib_mysql",
+      "container": "/var/lib/mysql",
+      "description": "Dossier /var/lib/mysql"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MYSQL_ROOT_PASSWORD",
+      "label": "Root password",
+      "default": ""
+    }
+  ]
+}

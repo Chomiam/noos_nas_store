@@ -1,0 +1,18 @@
+services:
+  youtubedl-material:
+    container_name: youtubedl-material
+    image: tzahi12345/youtubedl-material:latest
+    restart: unless-stopped
+    ports:
+    - 17442:17442/tcp
+    volumes:
+    - ./data/YTDLM:/app/appdata
+    - ./data/Video:/app/video
+    - ./data/Subscriptions:/app/subscriptions
+    - ./data/Users:/app/users
+    - ./data/Audio:/app/audio
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,29 @@
+{
+  "id": "wg-easy",
+  "name": "Wireguard Server",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Fast VPN Server with easy to use User Interface",
+  "description": "Fast VPN Server with easy to use User Interface",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/wireguard.png",
+  "default_port": 51821,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

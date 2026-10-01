@@ -1,0 +1,134 @@
+{
+  "id": "fail2ban",
+  "name": "Fail2ban",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "[Fail2ban](http://www",
+  "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/log:ro",
+      "container": "/var/log:ro",
+      "description": "Dossier /var/log:ro"
+    },
+    {
+      "host": "./data/airsonic:ro",
+      "container": "/remotelogs/airsonic:ro",
+      "description": "Dossier /remotelogs/airsonic:ro"
+    },
+    {
+      "host": "./data/apache2:ro",
+      "container": "/remotelogs/apache2:ro",
+      "description": "Dossier /remotelogs/apache2:ro"
+    },
+    {
+      "host": "./data/authelia:ro",
+      "container": "/remotelogs/authelia:ro",
+      "description": "Dossier /remotelogs/authelia:ro"
+    },
+    {
+      "host": "./data/emby:ro",
+      "container": "/remotelogs/emby:ro",
+      "description": "Dossier /remotelogs/emby:ro"
+    },
+    {
+      "host": "./data/filebrowser:ro",
+      "container": "/remotelogs/filebrowser:ro",
+      "description": "Dossier /remotelogs/filebrowser:ro"
+    },
+    {
+      "host": "./data/homeassistant:ro",
+      "container": "/remotelogs/homeassistant:ro",
+      "description": "Dossier /remotelogs/homeassistant:ro"
+    },
+    {
+      "host": "./data/lighttpd:ro",
+      "container": "/remotelogs/lighttpd:ro",
+      "description": "Dossier /remotelogs/lighttpd:ro"
+    },
+    {
+      "host": "./data/nextcloud:ro",
+      "container": "/remotelogs/nextcloud:ro",
+      "description": "Dossier /remotelogs/nextcloud:ro"
+    },
+    {
+      "host": "./data/nginx:ro",
+      "container": "/remotelogs/nginx:ro",
+      "description": "Dossier /remotelogs/nginx:ro"
+    },
+    {
+      "host": "./data/nzbget:ro",
+      "container": "/remotelogs/nzbget:ro",
+      "description": "Dossier /remotelogs/nzbget:ro"
+    },
+    {
+      "host": "./data/overseerr:ro",
+      "container": "/remotelogs/overseerr:ro",
+      "description": "Dossier /remotelogs/overseerr:ro"
+    },
+    {
+      "host": "./data/prowlarr:ro",
+      "container": "/remotelogs/prowlarr:ro",
+      "description": "Dossier /remotelogs/prowlarr:ro"
+    },
+    {
+      "host": "./data/radarr:ro",
+      "container": "/remotelogs/radarr:ro",
+      "description": "Dossier /remotelogs/radarr:ro"
+    },
+    {
+      "host": "./data/sabnzbd:ro",
+      "container": "/remotelogs/sabnzbd:ro",
+      "description": "Dossier /remotelogs/sabnzbd:ro"
+    },
+    {
+      "host": "./data/sonarr:ro",
+      "container": "/remotelogs/sonarr:ro",
+      "description": "Dossier /remotelogs/sonarr:ro"
+    },
+    {
+      "host": "./data/unificontroller:ro",
+      "container": "/remotelogs/unificontroller:ro",
+      "description": "Dossier /remotelogs/unificontroller:ro"
+    },
+    {
+      "host": "./data/vaultwarden:ro",
+      "container": "/remotelogs/vaultwarden:ro",
+      "description": "Dossier /remotelogs/vaultwarden:ro"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "VERBOSITY",
+      "label": "VERBOSITY",
+      "default": "-vv"
+    }
+  ]
+}

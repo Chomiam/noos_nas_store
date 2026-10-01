@@ -1,0 +1,44 @@
+{
+  "id": "deemix",
+  "name": "DeeMix",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Deemix is a deezer downloader built from the ashes of Deezloader Remix",
+  "description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/deemix.png",
+  "default_port": 6595,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/DeeMix",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

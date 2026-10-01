@@ -1,0 +1,29 @@
+{
+  "id": "odoo",
+  "name": "Odoo (stack)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Odoo Community 18 - the open-source business suite: CRM, sales, inventory, accounting, projects, manufacturing, website,",
+  "description": "Odoo Community 18 - the open-source business suite: CRM, sales, inventory, accounting, projects, manufacturing, website, and ecommerce, with a vast app store. LGPL-3 Community edition on a managed Postgres.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/odoo.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "stump",
+  "name": "Stump",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "A free and open source comics, manga, and digital book server with OPDS support",
+  "description": "A free and open source comics, manga, and digital book server with OPDS support. Source: https://github.com/stumpapp/stump",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/114969632",
+  "default_port": 10801,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "STUMP_CONFIG_DIR",
+      "label": "STUMP_CONFIG_DIR",
+      "default": "/config"
+    }
+  ]
+}

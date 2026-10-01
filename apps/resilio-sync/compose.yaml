@@ -1,0 +1,17 @@
+services:
+  resilio-sync:
+    container_name: resilio-sync
+    image: linuxserver/resilio-sync:latest
+    restart: unless-stopped
+    ports:
+    - 8888:8888/tcp
+    - 55555:55555/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    - ./data/sync:/sync
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

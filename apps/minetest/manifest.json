@@ -1,0 +1,39 @@
+{
+  "id": "minetest",
+  "name": "Minetest",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Server version of minetest, a free, open source alternative to minecraft",
+  "description": "Server version of minetest, a free, open source alternative to minecraft.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/minetest-icon.png",
+  "default_port": 30000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config_.minetest",
+      "container": "/config/.minetest",
+      "description": "Dossier /config/.minetest"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

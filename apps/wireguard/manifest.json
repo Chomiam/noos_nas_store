@@ -1,0 +1,84 @@
+{
+  "id": "wireguard",
+  "name": "Wireguard",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "[WireGuard®](https://www",
+  "description": "[WireGuard®](https://www.wireguard.com/) is an extremely simple yet fast and modern VPN that utilizes state-of-the-art cryptography. It aims to be faster, simpler, leaner, and more useful than IPsec, while avoiding the massive headache. It intends to be considerably more performant than OpenVPN. WireGuard is designed as a general purpose VPN for running on embedded interfaces and super computers alike, fit for many different circumstances. Initially released for the Linux kernel, it is now cross-platform (Windows, macOS, BSD, iOS, Android) and widely deployable. It is currently under heavy development, but already it might be regarded as the most secure, easiest to use, and simplest VPN solution in the industry.",
+  "website": "",
+  "icon": "https://www.wireguard.com/img/wireguard.svg",
+  "default_port": 51820,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/modules",
+      "container": "/lib/modules",
+      "description": "Dossier /lib/modules"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SERVERURL",
+      "label": "SERVERURL",
+      "default": "wireguard.domain.com"
+    },
+    {
+      "name": "SERVERPORT",
+      "label": "SERVERPORT",
+      "default": "51820"
+    },
+    {
+      "name": "PEERS",
+      "label": "PEERS",
+      "default": "1"
+    },
+    {
+      "name": "PEERDNS",
+      "label": "PEERDNS",
+      "default": "auto"
+    },
+    {
+      "name": "INTERNAL_SUBNET",
+      "label": "INTERNAL_SUBNET",
+      "default": "10.13.13.0"
+    },
+    {
+      "name": "ALLOWEDIPS",
+      "label": "ALLOWEDIPS",
+      "default": "0.0.0.0/0"
+    },
+    {
+      "name": "PERSISTENTKEEPALIVE_PEERS",
+      "label": "PERSISTENTKEEPALIVE_PEERS",
+      "default": ""
+    },
+    {
+      "name": "LOG_CONFS",
+      "label": "LOG_CONFS",
+      "default": "true"
+    }
+  ]
+}

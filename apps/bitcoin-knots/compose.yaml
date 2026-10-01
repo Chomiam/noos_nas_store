@@ -1,0 +1,16 @@
+services:
+  bitcoin-knots:
+    container_name: bitcoin-knots
+    image: linuxserver/bitcoin-knots:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    - 3001:3001/tcp
+    - 8333:8333/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

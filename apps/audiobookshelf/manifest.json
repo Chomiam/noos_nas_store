@@ -1,0 +1,29 @@
+{
+  "id": "audiobookshelf",
+  "name": "Audiobookshelf",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Self hosted audiobook and podcast server",
+  "description": "Self hosted audiobook and podcast server",
+  "website": "",
+  "icon": "https://github.com/advplyr/audiobookshelf/raw/master/images/banner.svg",
+  "default_port": 13378,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "lunalytics",
+  "name": "Lunalytics",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Open source monitoring tool built with Node",
+  "description": "Open source monitoring tool built with Node.js & React",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/KSJaay/Lunalytics/main/public/LogoWithName.png",
+  "default_port": 2308,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

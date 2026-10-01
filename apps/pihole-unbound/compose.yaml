@@ -1,0 +1,22 @@
+services:
+  pihole-unbound:
+    container_name: pihole-unbound
+    image: cbcrowe/pihole-unbound:latest
+    restart: unless-stopped
+    ports:
+    - 53:53/tcp
+    - 53:53/udp
+    - 1010:80/tcp
+    - 4443:443/tcp
+    volumes:
+    - ./data/PiHole-Unbound:/etc/pihole
+    - ./data/PiHole-Unbound/DNS:/etc/dnsmasq.d
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe\London
+    - UMASK=002
+    - ServerIP=192.168.0.X
+    - DNSSEC=
+    - DNS1=127.0.0.1#5335
+    - DNS2=127.0.0.1#5335

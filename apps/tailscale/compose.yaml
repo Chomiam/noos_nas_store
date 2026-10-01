@@ -1,0 +1,14 @@
+services:
+  tailscale:
+    container_name: tailscale
+    image: tailscale/tailscale:stable
+    restart: unless-stopped
+    volumes:
+    - ./data/tailscale:/var/lib/tailscale
+    - /dev/net/tun:/dev/net/tun
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - AUTH_KEY=

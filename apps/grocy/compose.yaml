@@ -1,0 +1,14 @@
+services:
+  grocy:
+    container_name: grocy
+    image: linuxserver/grocy:latest
+    restart: unless-stopped
+    ports:
+    - 9283:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

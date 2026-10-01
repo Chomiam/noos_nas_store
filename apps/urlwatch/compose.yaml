@@ -1,0 +1,15 @@
+services:
+  urlwatch:
+    container_name: urlwatch
+    image: mediadepot/urlwatch:master
+    restart: unless-stopped
+    ports:
+    - 8081/tcp
+    volumes:
+    - ./data/apps/urlwatch:/srv/urlwatch/config
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

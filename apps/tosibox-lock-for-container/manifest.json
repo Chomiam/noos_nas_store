@@ -1,0 +1,29 @@
+{
+  "id": "tosibox-lock-for-container",
+  "name": "TOSIBOX Lock for Container",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Lock for Container brings secure connectivity inside your industrial IoT devices",
+  "description": "Lock for Container brings secure connectivity inside your industrial IoT devices",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/tosibox.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

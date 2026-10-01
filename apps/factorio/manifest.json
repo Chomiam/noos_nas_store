@@ -1,0 +1,29 @@
+{
+  "id": "factorio",
+  "name": "Factorio Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Headless Factorio via factoriotools/factorio - the community-standard image",
+  "description": "Headless Factorio via factoriotools/factorio - the community-standard image. Saves, mods, and server settings live on the `/factorio` volume; a new map generates on first boot and the latest save loads thereafter.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/factorio.png",
+  "default_port": 34197,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "lidify",
+  "name": "Lidify",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Self-hosted, on-demand audio streaming platform that brings the Spotify experience to your personal music library",
+  "description": "Self-hosted, on-demand audio streaming platform that brings the Spotify experience to your personal music library. Features music streaming, podcast subscriptions, audiobook integration, playlist generation, and Lidarr integration for music discovery.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Chevron7Locked/lidify/main/assets/logo.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

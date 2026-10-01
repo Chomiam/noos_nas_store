@@ -1,0 +1,41 @@
+{
+  "id": "cockroachdb-container",
+  "name": "CockroachDB (container)",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "An open-source, survivable, strongly consistent, scale-out SQL database",
+  "description": "An open-source, survivable, strongly consistent, scale-out SQL database",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cockroachdb.png",
+  "default_port": 26257,
+  "extra_ports": [
+    8080
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/cockroach_cockroach-data",
+      "container": "/cockroach/cockroach-data",
+      "description": "Dossier /cockroach/cockroach-data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

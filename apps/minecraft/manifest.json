@@ -1,0 +1,44 @@
+{
+  "id": "minecraft",
+  "name": "Minecraft Server (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "This docker image provides a Minecraft Server that will automatically download the latest stable version at startup",
+  "description": "This docker image provides a Minecraft Server that will automatically download the latest stable version at startup. You can also run/upgrade to any specific version or the latest snapshot. See the Versions section below for more information.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/minecraft.png",
+  "default_port": 25565,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Minecraft-data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "EULA",
+      "label": "EULA",
+      "default": "TRUE"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+services:
+  influxdb1810:
+    container_name: influxdb1810
+    image: influxdb:1.8.10
+    restart: unless-stopped
+    ports:
+    - 8086:8086/tcp
+    volumes:
+    - ./data/Influxdb/data:/var/lib/influxdb
+    - ./data/Influxdb/config:/etc/influxdb
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,29 @@
+{
+  "id": "openbudgeteer",
+  "name": "OpenBudgeteer",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "OpenBudgeteer is a budgeting app based on the Bucket Budgeting Principle and inspired by YNAB and Buckets",
+  "description": "OpenBudgeteer is a budgeting app based on the Bucket Budgeting Principle and inspired by YNAB and Buckets.",
+  "website": "",
+  "icon": "https://github.com/TheAxelander/OpenBudgeteer/raw/master/assets/banner.png",
+  "default_port": 8081,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+services:
+  gathio:
+    build: .
+    links:
+    - mongo
+    ports:
+    - 3022:3000
+    restart: unless-stopped
+  mongo:
+    image: mongo:latest
+    volumes:
+    - ./data/gathio/mongodb_data_db:/data/db
+    restart: unless-stopped

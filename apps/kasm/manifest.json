@@ -1,0 +1,76 @@
+{
+  "id": "kasm",
+  "name": "Kasm",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Kasm](https://www",
+  "description": "[Kasm](https://www.kasmweb.com/?utm_campaign=LinuxServer&utm_source=listing) Workspaces is a docker container streaming platform for delivering browser-based access to desktops, applications, and web services. Kasm uses devops-enabled Containerized Desktop Infrastructure (CDI) to create on-demand, disposable, docker containers that are accessible via web browser. Example use-cases include Remote Browser Isolation (RBI), Data Loss Prevention (DLP), Desktop as a Service (DaaS), Secure Remote Access Services (RAS), and Open Source Intelligence (OSINT) collections. The rendering of the graphical-based containers is powered by the open-source project [KasmVNC](https://www.kasmweb.com/kasmvnc.html?utm_campaign=LinuxServer&utm_source=kasmvnc).",
+  "website": "",
+  "icon": "https://kasm-ci.s3.amazonaws.com/kasm_wide.png",
+  "default_port": 3000,
+  "extra_ports": [
+    443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/opt",
+      "container": "/opt",
+      "description": "Dossier /opt"
+    },
+    {
+      "host": "./data/profiles",
+      "container": "/profiles",
+      "description": "Dossier /profiles"
+    },
+    {
+      "host": "/dev/input",
+      "container": "/dev/input",
+      "description": "Dossier /dev/input"
+    },
+    {
+      "host": "./data/data",
+      "container": "/run/udev/data",
+      "description": "Dossier /run/udev/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "KASM_PORT",
+      "label": "KASM_PORT",
+      "default": "443"
+    },
+    {
+      "name": "DOCKER_HUB_USERNAME",
+      "label": "DOCKER_HUB_USERNAME",
+      "default": "USER"
+    },
+    {
+      "name": "DOCKER_HUB_PASSWORD",
+      "label": "DOCKER_HUB_PASSWORD",
+      "default": "PASS"
+    },
+    {
+      "name": "DOCKER_MTU",
+      "label": "DOCKER_MTU",
+      "default": "1500"
+    }
+  ]
+}

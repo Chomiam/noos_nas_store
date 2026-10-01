@@ -1,0 +1,14 @@
+services:
+  embystat:
+    container_name: embystat
+    image: linuxserver/embystat:latest
+    restart: unless-stopped
+    ports:
+    - 6555:6555/tcp
+    volumes:
+    - ./data/EmbyStat:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

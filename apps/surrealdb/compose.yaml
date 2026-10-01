@@ -1,0 +1,16 @@
+services:
+  surrealdb:
+    container_name: surrealdb
+    image: surrealdb/surrealdb:latest
+    restart: unless-stopped
+    ports:
+    - 8020:8000/tcp
+    volumes:
+    - ./data/surrealdb/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - SDB_USERNAME=default_username
+    - SDB_PASSWORD=default_password

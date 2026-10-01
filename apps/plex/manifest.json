@@ -1,0 +1,59 @@
+{
+  "id": "plex",
+  "name": "Plex",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "[Plex](https://plex",
+  "description": "[Plex](https://plex.tv) organizes video, music and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone Plex Media Server. Straightforward design and bulk actions mean getting things done faster.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/plex-logo.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/tv",
+      "container": "/tv",
+      "description": "Dossier /tv"
+    },
+    {
+      "host": "./data/movies",
+      "container": "/movies",
+      "description": "Dossier /movies"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "VERSION",
+      "label": "VERSION",
+      "default": "docker"
+    },
+    {
+      "name": "PLEX_CLAIM",
+      "label": "PLEX_CLAIM",
+      "default": ""
+    }
+  ]
+}

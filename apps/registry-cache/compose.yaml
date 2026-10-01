@@ -1,0 +1,15 @@
+services:
+  registry-cache:
+    container_name: registry-cache
+    image: registry:latest
+    restart: unless-stopped
+    ports:
+    - 5000/tcp
+    volumes:
+    - ./data/var_lib_registry:/var/lib/registry
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - REGISTRY_PROXY_REMOTEURL=https://registry-1.docker.io

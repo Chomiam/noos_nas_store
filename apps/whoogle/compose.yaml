@@ -1,0 +1,14 @@
+services:
+  whoogle:
+    container_name: whoogle
+    image: benbusby/whoogle-search:latest
+    restart: unless-stopped
+    ports:
+    - 5001:5000/tcp
+    volumes:
+    - ./data/Whoogle:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

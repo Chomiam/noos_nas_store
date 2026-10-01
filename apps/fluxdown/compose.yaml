@@ -1,0 +1,15 @@
+services:
+  fluxdown:
+    container_name: fluxdown
+    image: ghcr.io/zerx-lab/fluxdown-server:0.2.3
+    restart: unless-stopped
+    ports:
+    - 17800:17800/tcp
+    volumes:
+    - ./data/data:/data
+    - ./data/root_Downloads:/root/Downloads
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=UTC
+    - UMASK=002

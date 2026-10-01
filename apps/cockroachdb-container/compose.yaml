@@ -1,0 +1,15 @@
+services:
+  cockroachdb-container:
+    container_name: cockroachdb-container
+    image: cockroachdb/cockroach:latest
+    restart: unless-stopped
+    ports:
+    - 26257/tcp
+    - 8080/tcp
+    volumes:
+    - ./data/cockroach_cockroach-data:/cockroach/cockroach-data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

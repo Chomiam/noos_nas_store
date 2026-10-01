@@ -1,0 +1,39 @@
+{
+  "id": "whoogle",
+  "name": "Whoogle",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Self-hosted, ad-free, privacy-respecting Google metasearch engine",
+  "description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/whoogle.png",
+  "default_port": 5001,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Whoogle",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

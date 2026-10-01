@@ -1,0 +1,59 @@
+{
+  "id": "readarr",
+  "name": "Readarr (container)",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Readarr - Book Manager and Automation (Sonarr for Ebooks)",
+  "description": "Readarr - Book Manager and Automation (Sonarr for Ebooks)",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/readarr-logo.png",
+  "default_port": 8787,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/readarr",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/ebooks",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    },
+    {
+      "host": "./data/ebooks",
+      "container": "/books",
+      "description": "Dossier /books"
+    },
+    {
+      "host": "./data/ebooks",
+      "container": "/blackhole",
+      "description": "Dossier /blackhole"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

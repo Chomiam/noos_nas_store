@@ -1,0 +1,29 @@
+{
+  "id": "oracle",
+  "name": "Oracle Database Free",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Oracle Database Free (the 26ai line) - the actual Oracle Database, free for development AND production under the Oracle ",
+  "description": "Oracle Database Free (the 26ai line) - the actual Oracle Database, free for development AND production under the Oracle Free Use Terms and Conditions, within software-enforced caps: 2 cores, 2 GB RAM, 12 GB user data, one instance per",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/oracle.png",
+  "default_port": 1521,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

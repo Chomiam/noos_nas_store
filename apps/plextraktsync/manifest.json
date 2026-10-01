@@ -1,0 +1,29 @@
+{
+  "id": "plextraktsync",
+  "name": "PlexTraktSync",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A python script that syncs the movies, shows and ratings between trakt and Plex",
+  "description": "A python script that syncs the movies, shows and ratings between trakt and Plex",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/plex-icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

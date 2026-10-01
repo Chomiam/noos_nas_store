@@ -1,0 +1,29 @@
+{
+  "id": "ihatemoney",
+  "name": "I hate money",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "I hate money is a web application made to ease shared budget management",
+  "description": "I hate money is a web application made to ease shared budget management. It keeps track of who bought what, when, and for whom; and helps to settle the bills.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/ihatemoney.png",
+  "default_port": 82303,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

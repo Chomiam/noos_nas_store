@@ -1,0 +1,15 @@
+services:
+  oled-stats:
+    container_name: oled-stats
+    image: mklements/oled_stats:latest
+    restart: unless-stopped
+    volumes:
+    - ./data/timezone:/etc/timezone
+    - ./data/localtime:/etc/localtime
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - start=8
+    - end=23

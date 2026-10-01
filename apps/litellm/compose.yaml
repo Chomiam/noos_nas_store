@@ -1,0 +1,46 @@
+name: litellm
+services:
+  litellm:
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - python3 -c 'import urllib.request as u; u.urlopen("http://127.0.0.1:5000/health/liveliness",
+        timeout=4)'
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    image: ghcr.io/berriai/litellm-database:v1.93.0
+    restart: unless-stopped
+    command:
+    - --port
+    - '5000'
+    environment:
+      DATABASE_URL: postgresql://litellm:litellm-local-only@db:5432/litellm
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY}
+      LITELLM_SALT_KEY: ${LITELLM_SALT_KEY}
+      STORE_MODEL_IN_DB: 'True'
+    ports:
+    - 5000:5000
+    depends_on:
+    - db
+  db:
+    healthcheck:
+      test:
+      - CMD
+      - pg_isready
+      - -h
+      - 127.0.0.1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: litellm
+      POSTGRES_PASSWORD: litellm-local-only
+      POSTGRES_DB: litellm
+    volumes:
+    - ./data/dbdata:/var/lib/postgresql/data
+volumes:
+  dbdata: null

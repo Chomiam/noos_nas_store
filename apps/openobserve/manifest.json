@@ -1,0 +1,31 @@
+{
+  "id": "openobserve",
+  "name": "OpenObserve",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "OpenObserve - logs, metrics, and traces in a single Rust binary: the open-source Datadog/Splunk/Elasticsearch alternativ",
+  "description": "OpenObserve - logs, metrics, and traces in a single Rust binary: the open-source Datadog/Splunk/Elasticsearch alternative.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/openobserve.png",
+  "default_port": 5000,
+  "extra_ports": [
+    5081
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

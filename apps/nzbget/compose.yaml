@@ -1,0 +1,17 @@
+services:
+  nzbget:
+    container_name: nzbget
+    image: linuxserver/nzbget:latest
+    restart: unless-stopped
+    ports:
+    - 6789:6789/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - NZBGET_USER=nzbget
+    - NZBGET_PASS=tegbzn6789

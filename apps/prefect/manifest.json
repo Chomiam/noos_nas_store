@@ -1,0 +1,29 @@
+{
+  "id": "prefect",
+  "name": "Prefect",
+  "version": "latest",
+  "category": "Domotique & IoT",
+  "tagline": "Prefect 3 - workflow orchestration for Python people: flows are decorated functions, deployments schedule them, and the ",
+  "description": "Prefect 3 - workflow orchestration for Python people: flows are decorated functions, deployments schedule them, and the UI shows every run. The server here holds UI/API/schedules; your flow code runs in WORKERS that connect outbound.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/prefect.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

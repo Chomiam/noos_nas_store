@@ -1,0 +1,16 @@
+services:
+  searxng:
+    container_name: searxng
+    image: searxng/searxng:latest
+    restart: unless-stopped
+    ports:
+    - 9017:8080/tcp
+    volumes:
+    - ./data/searxng:/etc/searxng
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - BASE_URL=http://localhost:9017
+    - INSTANCE_NAME=my-instance

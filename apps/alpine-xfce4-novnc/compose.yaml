@@ -1,0 +1,15 @@
+services:
+  alpine-xfce4-novnc:
+    container_name: alpine-xfce4-novnc
+    image: novaspirit/alpine_xfce4_novnc:latest
+    restart: unless-stopped
+    ports:
+    - 6080:6080/tcp
+    - 56780:56780/tcp
+    volumes:
+    - ./data/alpine-xfce4-novnc/home/alpine/downloads:/home/alpine/downloads
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

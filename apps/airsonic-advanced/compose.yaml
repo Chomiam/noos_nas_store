@@ -1,0 +1,20 @@
+services:
+  airsonic-advanced:
+    container_name: airsonic-advanced
+    image: linuxserver/airsonic-advanced:latest
+    restart: unless-stopped
+    ports:
+    - 4040:4040/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/music:/music
+    - ./data/playlists:/playlists
+    - ./data/podcasts:/podcasts
+    - ./data/media:/media
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - CONTEXT_PATH=
+    - JAVA_OPTS=

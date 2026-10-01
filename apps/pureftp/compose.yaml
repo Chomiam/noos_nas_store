@@ -1,0 +1,40 @@
+services:
+  pureftp:
+    container_name: pureftp
+    image: stilliard/pure-ftpd:hardened
+    restart: unless-stopped
+    ports:
+    - 21/tcp
+    - 30000/tcp
+    - 30001/tcp
+    - 30002/tcp
+    - 30003/tcp
+    - 30004/tcp
+    - 30005/tcp
+    - 30006/tcp
+    - 30007/tcp
+    - 30008/tcp
+    - 30009/tcp
+    volumes:
+    - ./data/apps/pureftp:/etc/pure-ftpd/passwd
+    - ./data/tvshows:/data/tvshows
+    - ./data/movies:/data/movies
+    - ./data/music:/data/music
+    - ./data/ebooks:/data/ebooks
+    - ./data/photos:/data/photos
+    - ./data/documents:/data/documents
+    - ./data/downloads:/data/downloads
+    - ./data/software:/data/software
+    - ./data/blackhole:/data/blackhole
+    - ./data/processing:/data/processing
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=America/Los_Angeles
+    - UMASK=002
+    - FTP_USER_NAME=depot
+    - FTP_USER_PASS=badpass
+    - FTP_USER_HOME=/data
+    - FTP_USER_GID=15000
+    - FTP_USER_UID=15000
+    - PUBLICHOST=localhost

@@ -1,0 +1,105 @@
+services:
+  audiomuse-ai-flask:
+    image: ghcr.io/neptunehub/audiomuse-ai:${AUDIOMUSE_TAG:-latest-nvidia}
+    restart: unless-stopped
+    ports:
+    - ${FRONTEND_PORT:-8000}:8000
+    environment:
+      SERVICE_TYPE: flask
+      TZ: ${TZ:-UTC}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: '5432'
+      POSTGRES_USER: ${POSTGRES_USER:-audiomuse}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-audiomusepassword}
+      POSTGRES_DB: audiomusedb
+      REDIS_URL: redis://redis:6379/0
+      TEMP_DIR: /app/temp_audio
+    volumes:
+    - ./data/temp-audio-flask:/app/temp_audio
+    - ./data/plugins-flask:/app/plugin/installed
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids:
+            - ${NVIDIA_GPU_ID:-0}
+            capabilities:
+            - gpu
+  audiomuse-ai-worker:
+    image: ghcr.io/neptunehub/audiomuse-ai:${AUDIOMUSE_TAG:-latest-nvidia}
+    restart: unless-stopped
+    environment:
+      SERVICE_TYPE: worker
+      TZ: ${TZ:-UTC}
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: '5432'
+      POSTGRES_USER: ${POSTGRES_USER:-audiomuse}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-audiomusepassword}
+      POSTGRES_DB: audiomusedb
+      REDIS_URL: redis://redis:6379/0
+      TEMP_DIR: /app/temp_audio
+      NVIDIA_VISIBLE_DEVICES: ${NVIDIA_GPU_ID:-0}
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+      USE_GPU_CLUSTERING: ${USE_GPU_CLUSTERING:-true}
+    volumes:
+    - ./data/temp-audio-worker:/app/temp_audio
+    - ./data/plugins-worker:/app/plugin/installed
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            device_ids:
+            - ${NVIDIA_GPU_ID:-0}
+            capabilities:
+            - gpu
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+      POSTGRES_USER: ${POSTGRES_USER:-audiomuse}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-audiomusepassword}
+      POSTGRES_DB: audiomusedb
+    volumes:
+    - ./data/postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -U ${POSTGRES_USER:-audiomuse} -d audiomusedb
+      interval: 10s
+      timeout: 5s
+      retries: 6
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    environment:
+      TZ: ${TZ:-UTC}
+    volumes:
+    - ./data/redis-data:/data
+    healthcheck:
+      test:
+      - CMD
+      - redis-cli
+      - ping
+      interval: 10s
+      timeout: 5s
+      retries: 6
+volumes:
+  postgres-data: null
+  redis-data: null
+  temp-audio-flask: null
+  temp-audio-worker: null
+  plugins-flask: null
+  plugins-worker: null

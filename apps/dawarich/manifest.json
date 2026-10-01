@@ -1,0 +1,29 @@
+{
+  "id": "dawarich",
+  "name": "Dawarich",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Self-Hosted Location History Tracker",
+  "description": "Self-Hosted Location History Tracker. | Visualize your location history, track your movements, and analyze your travel patterns with complete privacy and control.",
+  "website": "",
+  "icon": "https://dawarich.app/img/logo.svg",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

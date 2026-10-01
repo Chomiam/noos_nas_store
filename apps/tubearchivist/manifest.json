@@ -1,0 +1,29 @@
+{
+  "id": "tubearchivist",
+  "name": "Tubearchivist",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Tubearchivist is your self hosted YouTube media server",
+  "description": "Tubearchivist is your self hosted YouTube media server",
+  "website": "",
+  "icon": "https://nas.mengkai.fun:88/images/2023/11/17/tube-archivist.png",
+  "default_port": 8999,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

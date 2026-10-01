@@ -1,0 +1,14 @@
+services:
+  oscam:
+    container_name: oscam
+    image: linuxserver/oscam:latest
+    restart: unless-stopped
+    ports:
+    - 8888:8888/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

@@ -1,0 +1,15 @@
+services:
+  kavita:
+    container_name: kavita
+    image: linuxserver/kavita:latest
+    restart: unless-stopped
+    ports:
+    - 5000:5000/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

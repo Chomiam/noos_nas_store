@@ -1,0 +1,14 @@
+services:
+  libreddit:
+    container_name: libreddit
+    image: libreddit/libreddit:armv7
+    restart: unless-stopped
+    ports:
+    - 8088:8080/tcp
+    volumes:
+    - ./data/libreddit:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,14 @@
+services:
+  gatus:
+    container_name: gatus
+    image: twinproduction/gatus:stable
+    restart: unless-stopped
+    ports:
+    - 8080:8080/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

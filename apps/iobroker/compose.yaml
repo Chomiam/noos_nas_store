@@ -1,0 +1,14 @@
+services:
+  iobroker:
+    container_name: iobroker
+    image: buanet/iobroker:latest
+    restart: unless-stopped
+    ports:
+    - 8081:8081/tcp
+    volumes:
+    - ./data/iobrokerdata:/opt/iobroker
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002

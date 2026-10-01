@@ -1,0 +1,64 @@
+{
+  "id": "duplicati",
+  "name": "Duplicati",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Duplicati](https://www",
+  "description": "[Duplicati](https://www.duplicati.com/) is a backup client that securely stores encrypted, incremental, compressed backups on local storage, cloud storage services and remote file servers. It works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon S3, Google Drive, box.com, Mega, B2, and many others.",
+  "website": "",
+  "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/duplicati-icon.png",
+  "default_port": 8200,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/backups",
+      "container": "/backups",
+      "description": "Dossier /backups"
+    },
+    {
+      "host": "./data/source",
+      "container": "/source",
+      "description": "Dossier /source"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SETTINGS_ENCRYPTION_KEY",
+      "label": "SETTINGS_ENCRYPTION_KEY",
+      "default": ""
+    },
+    {
+      "name": "CLI_ARGS",
+      "label": "CLI_ARGS",
+      "default": ""
+    },
+    {
+      "name": "DUPLICATI__WEBSERVICE_PASSWORD",
+      "label": "DUPLICATI__WEBSERVICE_PASSWORD",
+      "default": ""
+    }
+  ]
+}

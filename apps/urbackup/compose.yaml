@@ -1,0 +1,16 @@
+services:
+  urbackup:
+    container_name: urbackup
+    image: uroni/urbackup-server:latest
+    restart: unless-stopped
+    ports:
+    - 55415:55415/tcp
+    - 55414:55414/tcp
+    volumes:
+    - ./data/urbackup:/var/urbackup
+    - ./data/backups:/backup
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002

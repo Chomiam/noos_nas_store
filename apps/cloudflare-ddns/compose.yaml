@@ -1,0 +1,15 @@
+services:
+  cloudflare-ddns:
+    container_name: cloudflare-ddns
+    image: favonia/cloudflare-ddns:latest
+    restart: unless-stopped
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - CLOUDFLARE_API_TOKEN=
+    - DOMAINS=
+    - PROXIED=true

@@ -1,0 +1,15 @@
+services:
+  yacht:
+    container_name: yacht
+    image: selfhostedpro/yacht:latest
+    restart: unless-stopped
+    ports:
+    - 8001:8000/tcp
+    volumes:
+    - ./data/yacht:/config
+    - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

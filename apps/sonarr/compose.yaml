@@ -1,0 +1,16 @@
+services:
+  sonarr:
+    container_name: sonarr
+    image: linuxserver/sonarr:latest
+    restart: unless-stopped
+    ports:
+    - 8989:8989/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/tv:/tv
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

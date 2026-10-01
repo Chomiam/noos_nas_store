@@ -1,0 +1,59 @@
+{
+  "id": "foundryvtt",
+  "name": "FoundryVTT Server",
+  "version": "latest",
+  "category": "Jeux & Divertissement",
+  "tagline": "This docker image provides the FoundryVTT system for hosting your own virtual table top games",
+  "description": "This docker image provides the FoundryVTT system for hosting your own virtual table top games.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/foundrylogo.png",
+  "default_port": 30000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/foundryvtt",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "FOUNDRY_USERNAME",
+      "label": "Foundry Account Name",
+      "default": "John"
+    },
+    {
+      "name": "FOUNDRY_PASSWORD",
+      "label": "Foundry Password",
+      "default": "password"
+    },
+    {
+      "name": "FOUNDRY_ADMIN_KEY",
+      "label": "Instance Admin Password",
+      "default": "changeme"
+    },
+    {
+      "name": "CONTAINER_PRESERVE_CONFIG",
+      "label": "CONTAINER_PRESERVE_CONFIG",
+      "default": "true"
+    }
+  ]
+}

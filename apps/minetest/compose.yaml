@@ -1,0 +1,14 @@
+services:
+  minetest:
+    container_name: minetest
+    image: linuxserver/minetest:latest
+    restart: unless-stopped
+    ports:
+    - 30000:30000/udp
+    volumes:
+    - ./data/config_.minetest:/config/.minetest
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

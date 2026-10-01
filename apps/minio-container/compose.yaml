@@ -1,0 +1,18 @@
+services:
+  minio-container:
+    container_name: minio-container
+    image: quay.io/minio/minio:latest
+    restart: unless-stopped
+    ports:
+    - 9000/tcp
+    - 9001/tcp
+    volumes:
+    - ./data/data:/data
+    - ./data/root_.minio:/root/.minio
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - MINIO_ROOT_USER=
+    - MINIO_ROOT_PASSWORD=

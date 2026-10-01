@@ -1,0 +1,16 @@
+services:
+  unmanic:
+    container_name: unmanic
+    image: josh5/unmanic:latest
+    restart: unless-stopped
+    ports:
+    - 8888:8888/tcp
+    volumes:
+    - ./data/unmanic/config:/config
+    - ./data/unmanic/library:/library
+    - ./data/unmanic/tmp:/tmp/unmanic
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002

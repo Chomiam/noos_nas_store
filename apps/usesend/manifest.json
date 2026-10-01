@@ -1,0 +1,29 @@
+{
+  "id": "usesend",
+  "name": "useSend",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "useSend (formerly Unsend) - the open-source Resend alternative: transactional email API, campaigns, contacts, and delive",
+  "description": "useSend (formerly Unsend) - the open-source Resend alternative: transactional email API, campaigns, contacts, and delivery analytics, with the actual sending done by your AWS SES (~$0.10 per 1,000 emails - deliverability is SES's job, the",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/usesend.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

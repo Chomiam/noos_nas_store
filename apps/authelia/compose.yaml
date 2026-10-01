@@ -1,0 +1,14 @@
+services:
+  authelia:
+    container_name: authelia
+    image: authelia/authelia:latest
+    restart: unless-stopped
+    ports:
+    - 9091:9091/tcp
+    volumes:
+    - ./data/Authelia:/etc/authelia/
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=
+    - UMASK=002

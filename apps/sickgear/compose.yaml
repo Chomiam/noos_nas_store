@@ -1,0 +1,16 @@
+services:
+  sickgear:
+    container_name: sickgear
+    image: linuxserver/sickgear:latest
+    restart: unless-stopped
+    ports:
+    - 8081:8081/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/tv:/tv
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

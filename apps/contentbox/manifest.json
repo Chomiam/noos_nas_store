@@ -1,0 +1,61 @@
+{
+  "id": "contentbox",
+  "name": "ContentBox",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Open-source modular CMS",
+  "description": "Open-source modular CMS",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/ortussolutions-contentbox.png",
+  "default_port": 8080,
+  "extra_ports": [
+    8443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data_contentbox_db",
+      "container": "/data/contentbox/db",
+      "description": "Dossier /data/contentbox/db"
+    },
+    {
+      "host": "./data/app_includes_shared_media",
+      "container": "/app/includes/shared/media",
+      "description": "Dossier /app/includes/shared/media"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "express",
+      "label": "express",
+      "default": "true"
+    },
+    {
+      "name": "install",
+      "label": "install",
+      "default": "true"
+    },
+    {
+      "name": "CFENGINE",
+      "label": "CFENGINE",
+      "default": "lucee@4.5"
+    }
+  ]
+}

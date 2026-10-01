@@ -1,0 +1,15 @@
+services:
+  dashy:
+    container_name: dashy
+    image: lissy93/dashy:latest
+    restart: unless-stopped
+    ports:
+    - 4000:8080/tcp
+    volumes:
+    - ./data/app_user-data:/app/user-data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=UTC
+    - UMASK=002
+    - NODE_ENV=production

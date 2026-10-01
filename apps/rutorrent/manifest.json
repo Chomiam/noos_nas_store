@@ -1,0 +1,69 @@
+{
+  "id": "rutorrent",
+  "name": "ruTorrent",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Popular torrent client with a webui for ease of use",
+  "description": "Popular torrent client with a webui for ease of use.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/beta-templates/master/lsiodev/img/rutorrent-icon.png",
+  "default_port": 6881,
+  "extra_ports": [
+    8000,
+    8080,
+    9001,
+    50000
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/ruTorrent/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    },
+    {
+      "host": "./data/ruTorrent/passwd",
+      "container": "/passwd",
+      "description": "Dossier /passwd"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MAX_FILE_UPLOADS",
+      "label": "MAX_FILE_UPLOADS",
+      "default": "50"
+    },
+    {
+      "name": "RT_LOG_LEVEL",
+      "label": "RT_LOG_LEVEL",
+      "default": "info"
+    },
+    {
+      "name": "RU_REMOVE_CORE_PLUGINS",
+      "label": "RU_REMOVE_CORE_PLUGINS",
+      "default": "erasedata,httprpc"
+    }
+  ]
+}

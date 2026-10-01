@@ -1,0 +1,15 @@
+services:
+  docuseal:
+    container_name: docuseal
+    image: docuseal/docuseal:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    volumes:
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - HOST=

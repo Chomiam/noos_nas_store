@@ -1,0 +1,21 @@
+services:
+  code-server:
+    container_name: code-server
+    image: linuxserver/code-server:latest
+    restart: unless-stopped
+    ports:
+    - 8443:8443/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - PASSWORD=password
+    - HASHED_PASSWORD=
+    - SUDO_PASSWORD=password
+    - SUDO_PASSWORD_HASH=
+    - PROXY_DOMAIN=code-server.my.domain
+    - DEFAULT_WORKSPACE=/config/workspace
+    - PWA_APPNAME=code-server

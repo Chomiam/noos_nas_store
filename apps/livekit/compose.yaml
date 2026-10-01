@@ -1,0 +1,12 @@
+name: livekit
+services:
+  livekit:
+    image: livekit/livekit-server:v1.13.4
+    restart: unless-stopped
+    environment:
+      LIVEKIT_CONFIG: "port: 5000\nrtc:\n  tcp_port: 7881\n  udp_port: 7882\n  use_external_ip:\
+        \ true\nkeys:\n  ${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}\n"
+    ports:
+    - 5000:5000
+    - 7881:7881
+    - 7882:7882/udp

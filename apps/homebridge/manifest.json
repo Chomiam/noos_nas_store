@@ -1,0 +1,49 @@
+{
+  "id": "homebridge",
+  "name": "Homebridge (container)",
+  "version": "latest",
+  "category": "Domotique & IoT",
+  "tagline": "Homebridge allows you to integrate with smart home devices that do not natively support HomeKit",
+  "description": "Homebridge allows you to integrate with smart home devices that do not natively support HomeKit. There are over 2,000 Homebridge plugins supporting thousands of different smart accessories.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/homebridge.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/homebridge",
+      "container": "/homebridge",
+      "description": "Dossier /homebridge"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "HOMEBRIDGE_CONFIG_UI",
+      "label": "HOMEBRIDGE_CONFIG_UI",
+      "default": "1"
+    },
+    {
+      "name": "HOMEBRIDGE_CONFIG_UI_PORT",
+      "label": "HOMEBRIDGE_CONFIG_UI_PORT",
+      "default": "8581"
+    }
+  ]
+}

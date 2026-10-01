@@ -1,0 +1,22 @@
+services:
+  bookstack:
+    container_name: bookstack
+    image: linuxserver/bookstack:latest
+    restart: unless-stopped
+    ports:
+    - 6875:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - APP_URL=
+    - APP_KEY=
+    - DB_HOST=
+    - DB_PORT=3306
+    - DB_USERNAME=
+    - DB_PASSWORD=
+    - DB_DATABASE=
+    - QUEUE_CONNECTION=

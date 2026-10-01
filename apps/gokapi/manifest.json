@@ -1,0 +1,29 @@
+{
+  "id": "gokapi",
+  "name": "Gokapi",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Gokapi is a lightweight server to share files, which expire after a set amount of downloads or days",
+  "description": "Gokapi is a lightweight server to share files, which expire after a set amount of downloads or days. It is similar to the discontinued Firefox Send, with the difference that only the admin is allowed to upload files",
+  "website": "",
+  "icon": "https://noted.lol/content/images/2023/02/gokapi-self-hosted-main.png",
+  "default_port": 53842,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

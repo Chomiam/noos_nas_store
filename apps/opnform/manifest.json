@@ -1,0 +1,29 @@
+{
+  "id": "opnform",
+  "name": "OpnForm",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "OpnForm is an open-source form builder",
+  "description": "OpnForm is an open-source form builder. It's an alternative to products like Typeform, JotForm, Tally etc.",
+  "website": "",
+  "icon": "https://opnform.com/img/logo.svg",
+  "default_port": 8380,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

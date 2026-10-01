@@ -1,0 +1,18 @@
+services:
+  murmur:
+    container_name: murmur
+    image: goofball222/murmur:latest
+    restart: unless-stopped
+    ports:
+    - 64738:64738/tcp
+    - 64738:64738/udp
+    volumes:
+    - ./data/localtime:ro:/etc/localtime
+    - ./data/Murmur:/opt/murmur/config
+    - ./data/data:/opt/murmur/data
+    - ./data/log:/opt/murmur/log
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=
+    - UMASK=002

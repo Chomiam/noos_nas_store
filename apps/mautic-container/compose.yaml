@@ -1,0 +1,16 @@
+services:
+  mautic-container:
+    container_name: mautic-container
+    image: mautic/mautic:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/var_www_html:/var/www/html
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - MAUTIC_DB_HOST=
+    - MAUTIC_DB_PASSWORD=

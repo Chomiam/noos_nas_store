@@ -1,0 +1,22 @@
+services:
+  stalwart-mail:
+    container_name: stalwart-mail
+    image: stalwartlabs/stalwart:latest
+    restart: unless-stopped
+    ports:
+    - 8080:8080/tcp
+    - 443:443/tcp
+    - 25:25/tcp
+    - 587:587/tcp
+    - 465:465/tcp
+    - 143:143/tcp
+    - 993:993/tcp
+    volumes:
+    - ./data/etc_stalwart:/etc/stalwart
+    - ./data/var_lib_stalwart:/var/lib/stalwart
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - STALWART_RECOVERY_ADMIN=

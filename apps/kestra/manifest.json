@@ -1,0 +1,31 @@
+{
+  "id": "kestra",
+  "name": "Kestra",
+  "version": "latest",
+  "category": "Domotique & IoT",
+  "tagline": "Powerful orchestration",
+  "description": "Powerful orchestration. Simplified workflows.Unify orchestration for all engineers. Build and govern all your workflows — Everything-as-Code, and from the UI.",
+  "website": "",
+  "icon": "https://kestra.io/cdn-cgi/image/f=webp,w=236,h=123,q=80/landing/header-menu/download-logo.svg",
+  "default_port": 8080,
+  "extra_ports": [
+    8081
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

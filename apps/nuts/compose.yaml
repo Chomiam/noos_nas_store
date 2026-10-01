@@ -1,0 +1,14 @@
+services:
+  nuts:
+    container_name: nuts
+    image: upshift/nut-upsd:latest
+    restart: always
+    ports:
+    - 3493:3493/tcp
+    volumes:
+    - ./data/nuts:/app
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

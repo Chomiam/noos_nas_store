@@ -1,0 +1,29 @@
+{
+  "id": "gocostweb",
+  "name": "GoCostWeb",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Golang-based web application for personal expense management, focused on a clean monthly workflow and intuitive tracking",
+  "description": "Golang-based web application for personal expense management, focused on a clean monthly workflow and intuitive tracking of recurring and non-recurring costs.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/gocostweb.png",
+  "default_port": 4000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

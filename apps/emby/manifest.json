@@ -1,0 +1,56 @@
+{
+  "id": "emby",
+  "name": "Emby",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "[Emby](https://emby",
+  "description": "[Emby](https://emby.media/) organizes video, music, live TV, and photos from personal media libraries and streams them to smart TVs, streaming boxes and mobile devices. This container is packaged as a standalone emby Media Server.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/emby-logo.png",
+  "default_port": 8096,
+  "extra_ports": [
+    8920
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/tvshows",
+      "container": "/data/tvshows",
+      "description": "Dossier /data/tvshows"
+    },
+    {
+      "host": "./data/movies",
+      "container": "/data/movies",
+      "description": "Dossier /data/movies"
+    },
+    {
+      "host": "./data/lib",
+      "container": "/opt/vc/lib",
+      "description": "Dossier /opt/vc/lib"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

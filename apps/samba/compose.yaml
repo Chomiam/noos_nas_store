@@ -1,0 +1,20 @@
+services:
+  samba:
+    container_name: samba
+    image: dperson/samba:latest
+    restart: unless-stopped
+    ports:
+    - 139:139/tcp
+    - 445:445/tcp
+    volumes:
+    - ./data/Downloads:/share
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - USERID=1000
+    - GROUPID=1000
+    - USER=guest;guest
+    - PERMISSIONS=true
+    - SHARE=portainer;/share;yes;no;yes;guest

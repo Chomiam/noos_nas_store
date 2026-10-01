@@ -1,0 +1,56 @@
+{
+  "id": "stalwart-mail",
+  "name": "Stalwart Mail Server",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "All-in-one mail server supporting SMTP, IMAP, JMAP, and more, with a built-in web administration interface",
+  "description": "All-in-one mail server supporting SMTP, IMAP, JMAP, and more, with a built-in web administration interface. Source: https://github.com/stalwartlabs/stalwart",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/114914856",
+  "default_port": 8080,
+  "extra_ports": [
+    443,
+    25,
+    587,
+    465,
+    143,
+    993
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/etc_stalwart",
+      "container": "/etc/stalwart",
+      "description": "Dossier /etc/stalwart"
+    },
+    {
+      "host": "./data/var_lib_stalwart",
+      "container": "/var/lib/stalwart",
+      "description": "Dossier /var/lib/stalwart"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "STALWART_RECOVERY_ADMIN",
+      "label": "Fallback admin as username:password (optional; blank = random password printed to logs)",
+      "default": ""
+    }
+  ]
+}

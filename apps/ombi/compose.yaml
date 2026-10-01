@@ -1,0 +1,15 @@
+services:
+  ombi:
+    container_name: ombi
+    image: linuxserver/ombi:latest
+    restart: unless-stopped
+    ports:
+    - 3579:3579/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - BASE_URL=/

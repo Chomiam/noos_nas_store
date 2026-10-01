@@ -1,0 +1,29 @@
+{
+  "id": "chibisafe",
+  "name": "Chibisafe",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Chibisafe is a modern and self-hosted take on file uploading services that can handle anything you throw at it thanks to",
+  "description": "Chibisafe is a modern and self-hosted take on file uploading services that can handle anything you throw at it thanks to it's robust and fast API, chunked uploads support and more.",
+  "website": "",
+  "icon": "https://chibisafe.moe/logo.svg",
+  "default_port": 2425,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

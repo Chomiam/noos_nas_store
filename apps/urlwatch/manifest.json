@@ -1,0 +1,44 @@
+{
+  "id": "urlwatch",
+  "name": "UrlWatch",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A tool for monitoring webpages for updates",
+  "description": "A tool for monitoring webpages for updates",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/urlwatch.png",
+  "default_port": 8081,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/urlwatch",
+      "container": "/srv/urlwatch/config",
+      "description": "Dossier /srv/urlwatch/config"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "hermes",
+  "name": "Hermes Agent",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Hermes Agent (Nous Research), a self-improving AI agent with a learning loop (skills from experience), cron, hooks, and ",
+  "description": "Hermes Agent (Nous Research), a self-improving AI agent with a learning loop (skills from experience), cron, hooks, and a web dashboard. Official image, single container + `/opt/data` volume (sessions, memories, skills, config all persist).",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/hermes.png",
+  "default_port": 5000,
+  "extra_ports": [
+    8642
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

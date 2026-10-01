@@ -1,0 +1,29 @@
+{
+  "id": "nexterm",
+  "name": "Nexterm",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The open source server management software for SSH, VNC & RDP",
+  "description": "The open source server management software for SSH, VNC & RDP",
+  "website": "",
+  "icon": "https://docs.nexterm.dev/logo.png",
+  "default_port": 6989,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

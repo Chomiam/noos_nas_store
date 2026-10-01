@@ -1,0 +1,14 @@
+services:
+  huginn:
+    container_name: huginn
+    image: huginn/huginn:latest
+    restart: unless-stopped
+    ports:
+    - 3000:3000/tcp
+    volumes:
+    - ./data/huginn:/var/lib/mysql
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

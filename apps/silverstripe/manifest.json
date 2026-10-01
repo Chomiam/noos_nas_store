@@ -1,0 +1,29 @@
+{
+  "id": "silverstripe",
+  "name": "Silverstripe",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Silverstripe CMS is a free and open source Content Management System (CMS) and Framework for creating and maintaining we",
+  "description": "Silverstripe CMS is a free and open source Content Management System (CMS) and Framework for creating and maintaining websites and web applications.",
+  "website": "",
+  "icon": "https://github.com/brettt89/silverstripe-docker/raw/master/docs/logo.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

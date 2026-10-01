@@ -1,0 +1,23 @@
+services:
+  rutorrent:
+    container_name: rutorrent
+    image: crazymax/rtorrent-rutorrent:latest
+    restart: unless-stopped
+    ports:
+    - 6881:6881/udp
+    - 8000:8000/tcp
+    - 8080:8080/tcp
+    - 9001:9000/tcp
+    - 50000:50000/tcp
+    volumes:
+    - ./data/ruTorrent/config:/config
+    - ./data/Downloads:/downloads
+    - ./data/ruTorrent/passwd:/passwd
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/New_York
+    - UMASK=002
+    - MAX_FILE_UPLOADS=50
+    - RT_LOG_LEVEL=info
+    - RU_REMOVE_CORE_PLUGINS=erasedata,httprpc

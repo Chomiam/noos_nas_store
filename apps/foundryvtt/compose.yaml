@@ -1,0 +1,18 @@
+services:
+  foundryvtt:
+    container_name: foundryvtt
+    image: felddy/foundryvtt:release
+    restart: unless-stopped
+    ports:
+    - 30000:30000/tcp
+    volumes:
+    - ./data/foundryvtt:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - FOUNDRY_USERNAME=John
+    - FOUNDRY_PASSWORD=password
+    - FOUNDRY_ADMIN_KEY=changeme
+    - CONTAINER_PRESERVE_CONFIG=true

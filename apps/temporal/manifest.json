@@ -1,0 +1,29 @@
+{
+  "id": "temporal",
+  "name": "Temporal",
+  "version": "latest",
+  "category": "Domotique & IoT",
+  "tagline": "Temporal - durable execution: write workflows as ordinary code and Temporal makes them crash-proof, with automatic retri",
+  "description": "Temporal - durable execution: write workflows as ordinary code and Temporal makes them crash-proof, with automatic retries, timers that survive restarts, and a complete event history.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/temporal.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

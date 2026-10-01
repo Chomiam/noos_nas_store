@@ -1,0 +1,14 @@
+services:
+  gaps:
+    container_name: gaps
+    image: housewrecker/gaps:latest
+    restart: unless-stopped
+    ports:
+    - 8484/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=America/Los_Angeles
+    - UMASK=002

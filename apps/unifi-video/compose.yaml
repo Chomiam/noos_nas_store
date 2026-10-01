@@ -1,0 +1,24 @@
+services:
+  unifi-video:
+    container_name: unifi-video
+    image: pducharme/unifi-video-controller:latest
+    restart: unless-stopped
+    ports:
+    - 1935:1935/tcp
+    - 7444:7444/tcp
+    - 7447:7447/tcp
+    - 6666:6666/tcp
+    - 7442:7442/tcp
+    - 7080:7080/tcp
+    - 7443:7443/tcp
+    - 7445:7445/tcp
+    - 7446:7446/tcp
+    volumes:
+    - ./data/UnifFiVideo/Recordings/:/recordings
+    - ./data/UniFiVideo/:/config
+    environment:
+    - PUID=99
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - CONTEXT_PATH=UniFi Video

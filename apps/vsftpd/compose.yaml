@@ -1,0 +1,36 @@
+services:
+  vsftpd:
+    container_name: vsftpd
+    image: delfer/alpine-ftp-server:latest
+    restart: unless-stopped
+    ports:
+    - 21/tcp
+    - 21000/tcp
+    - 21001/tcp
+    - 21002/tcp
+    - 21003/tcp
+    - 21004/tcp
+    - 21005/tcp
+    - 21006/tcp
+    - 21007/tcp
+    - 21008/tcp
+    - 21009/tcp
+    - 21010/tcp
+    volumes:
+    - ./data/tvshows:/home/depot/tvshows
+    - ./data/movies:/home/depot/movies
+    - ./data/music:/home/depot/music
+    - ./data/ebooks:/home/depot/ebooks
+    - ./data/photos:/home/depot/photos
+    - ./data/documents:/home/depot/documents
+    - ./data/downloads:/home/depot/downloads
+    - ./data/software:/home/depot/software
+    - ./data/blackhole:/home/depot/blackhole
+    - ./data/processing:/home/depot/processing
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - ADDRESS=
+    - USERS=depot|badpass|/home/depot|15000

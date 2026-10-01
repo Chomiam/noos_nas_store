@@ -1,0 +1,16 @@
+services:
+  photoshow:
+    container_name: photoshow
+    image: linuxserver/photoshow:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/Pictures:/Pictures
+    - ./data/Thumbs:/Thumbs
+    - ./data/PhotoShow:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

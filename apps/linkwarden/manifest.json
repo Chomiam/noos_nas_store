@@ -1,0 +1,29 @@
+{
+  "id": "linkwarden",
+  "name": "Linkwarden",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Linkwarden - a bookmark manager that actually keeps your links: every save is preserved as a screenshot, PDF, readable H",
+  "description": "Linkwarden - a bookmark manager that actually keeps your links: every save is preserved as a screenshot, PDF, readable HTML, and an archive.org snapshot, so a dead page is still readable years later.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/linkwarden.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

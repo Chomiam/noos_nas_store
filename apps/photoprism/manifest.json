@@ -1,0 +1,29 @@
+{
+  "id": "photoprism",
+  "name": "Photoprism",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "PhotoPrism is an AI-powered app for browsing, organizing & sharing your photo collection",
+  "description": "PhotoPrism is an AI-powered app for browsing, organizing & sharing your photo collection. It makes use of the latest technologies to tag and find pictures automatically without getting in your way.| Copy as Custom stack and EDIT environment variables.",
+  "website": "",
+  "icon": "https://photoprism.app/static/img/logo.svg",
+  "default_port": 2342,
+  "extra_ports": [],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "cryptpad",
+  "name": "CryptPad",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Collaboration suite, encrypted and open-source",
+  "description": "Collaboration suite, encrypted and open-source. Source: https://github.com/cryptpad/cryptpad",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/20967956",
+  "default_port": 3000,
+  "extra_ports": [
+    3003
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

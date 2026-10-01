@@ -1,0 +1,29 @@
+{
+  "id": "writebook",
+  "name": "Writebook",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Writebook - 37signals' free, self-hosted publishing tool: write and share books, manuals, and documentation with a clean",
+  "description": "Writebook - 37signals' free, self-hosted publishing tool: write and share books, manuals, and documentation with a clean, fast reader. It is a Rails app (the same stack behind Basecamp and HEY) fronted by Thruster, 37signals' HTTP/2 proxy.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/writebook.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

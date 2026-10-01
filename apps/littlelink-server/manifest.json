@@ -1,0 +1,29 @@
+{
+  "id": "littlelink-server",
+  "name": "Littlelink Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "LittleLink is an open source DIY self-hosted alternative to services like Linktree and many",
+  "description": "LittleLink is an open source DIY self-hosted alternative to services like Linktree and many.link.",
+  "website": "",
+  "icon": "https://littlelink.io/images/avatar@2x.png",
+  "default_port": 8480,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

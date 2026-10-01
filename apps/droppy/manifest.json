@@ -1,0 +1,99 @@
+{
+  "id": "droppy",
+  "name": "Droppy",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Droppy is a self-hosted file storage server",
+  "description": "Droppy is a self-hosted file storage server",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/filebrowser-icon.png",
+  "default_port": 8989,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/tvshows",
+      "container": "/files/tvshows",
+      "description": "Dossier /files/tvshows"
+    },
+    {
+      "host": "./data/movies",
+      "container": "/files/movies",
+      "description": "Dossier /files/movies"
+    },
+    {
+      "host": "./data/music",
+      "container": "/files/music",
+      "description": "Dossier /files/music"
+    },
+    {
+      "host": "./data/photos",
+      "container": "/files/photos",
+      "description": "Dossier /files/photos"
+    },
+    {
+      "host": "./data/ebooks",
+      "container": "/files/ebooks",
+      "description": "Dossier /files/ebooks"
+    },
+    {
+      "host": "./data/documents",
+      "container": "/files/documents",
+      "description": "Dossier /files/documents"
+    },
+    {
+      "host": "./data/software",
+      "container": "/files/software",
+      "description": "Dossier /files/software"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/files/downloads",
+      "description": "Dossier /files/downloads"
+    },
+    {
+      "host": "./data/blackhole",
+      "container": "/files/blackhole",
+      "description": "Dossier /files/blackhole"
+    },
+    {
+      "host": "./data/processing",
+      "container": "/files/processing",
+      "description": "Dossier /files/processing"
+    },
+    {
+      "host": "./data/apps/droppy",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "GID",
+      "label": "GID",
+      "default": "15000"
+    },
+    {
+      "name": "UID",
+      "label": "UID",
+      "default": "15000"
+    }
+  ]
+}

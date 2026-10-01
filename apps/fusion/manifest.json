@@ -1,0 +1,29 @@
+{
+  "id": "fusion",
+  "name": "Fusion",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A lightweight RSS feed aggregator and reader",
+  "description": "A lightweight RSS feed aggregator and reader.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/fusion.png",
+  "default_port": 8980,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

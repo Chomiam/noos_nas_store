@@ -1,0 +1,16 @@
+services:
+  archisteamfarm:
+    container_name: archisteamfarm
+    image: justarchi/archisteamfarm:latest
+    restart: unless-stopped
+    ports:
+    - 1242:1242/tcp
+    volumes:
+    - ./data/ArchiSteamFarm/config:/app/config
+    - ./data/ArchiSteamFarm/plugins:/app/plugins
+    - ./data/ArchiSteamFarm/logs:/app/logs
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002

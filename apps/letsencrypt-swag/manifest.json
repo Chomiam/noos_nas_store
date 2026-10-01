@@ -1,0 +1,76 @@
+{
+  "id": "letsencrypt-swag",
+  "name": "Let's Encrypt / SWAG",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "This container sets up an Nginx webserver and reverse proxy with php support and a built-in letsencrypt client that auto",
+  "description": "This container sets up an Nginx webserver and reverse proxy with php support and a built-in letsencrypt client that automates free SSL server certificate generation and renewal processes. It also contains fail2ban for intrusion prevention.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/letsencrypt.png",
+  "default_port": 80,
+  "extra_ports": [
+    443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/LetsEncrypt",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "EMAIL",
+      "label": "EMAIL",
+      "default": "-Xms256m -Xmx512m"
+    },
+    {
+      "name": "URL",
+      "label": "URL",
+      "default": "-Xms256m -Xmx512m"
+    },
+    {
+      "name": "SUBDOMAINS",
+      "label": "SUBDOMAINS",
+      "default": "www,"
+    },
+    {
+      "name": "ONLY_SUBDOMAINS",
+      "label": "ONLY_SUBDOMAINS",
+      "default": "false"
+    },
+    {
+      "name": "DHLEVEL",
+      "label": "DHLEVEL",
+      "default": "2048"
+    },
+    {
+      "name": "VALIDATION",
+      "label": "VALIDATION",
+      "default": "http"
+    },
+    {
+      "name": "DNSPLUGIN",
+      "label": "DNSPLUGIN",
+      "default": "http"
+    }
+  ]
+}

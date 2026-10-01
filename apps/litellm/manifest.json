@@ -1,0 +1,29 @@
+{
+  "id": "litellm",
+  "name": "LiteLLM",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "LiteLLM proxy - one OpenAI-compatible endpoint in front of every LLM provider (Anthropic, OpenAI, Gemini, Bedrock, Mistr",
+  "description": "LiteLLM proxy - one OpenAI-compatible endpoint in front of every LLM provider (Anthropic, OpenAI, Gemini, Bedrock, Mistral, local, …) with virtual keys, per-key budgets, spend tracking, fallbacks and retries.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/litellm.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "ansible-semaphore",
+  "name": "Ansible-semaphore",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Modern UI for Ansible",
+  "description": "Modern UI for Ansible",
+  "website": "",
+  "icon": "https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,w_60,h_60/https://dashboard.snapcraft.io/site_media/appmedia/2020/11/Screenshot_2020-11-21_at_02.05.22.png",
+  "default_port": 3306,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

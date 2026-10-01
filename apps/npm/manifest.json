@@ -1,0 +1,32 @@
+{
+  "id": "npm",
+  "name": "Nginx Proxy Manager (stack)",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, wit",
+  "description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.",
+  "website": "",
+  "icon": "https://nginxproxymanager.com/icon.png",
+  "default_port": 80,
+  "extra_ports": [
+    443,
+    81
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "pixel-server",
+  "name": "Pixel-server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Wireless control of PixelStrips or NeoPixels using a web graphical interface running on a Raspberry Pi",
+  "description": "Wireless control of PixelStrips or NeoPixels using a web graphical interface running on a Raspberry Pi.",
+  "website": "",
+  "icon": "https://lirp.cdn-website.com/c73f56a6/dms3rep/multi/opt/ir.appnice.controlpad_512x512-640w.png",
+  "default_port": 85,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/pixel-server/auth.cfg",
+      "container": "/opt/pixel-server/auth.cfg",
+      "description": "Dossier /opt/pixel-server/auth.cfg"
+    },
+    {
+      "host": "./data/pixel-server/pixelserver.cfg",
+      "container": "/opt/pixel-server/pixelserver.cfg",
+      "description": "Dossier /opt/pixel-server/pixelserver.cfg"
+    },
+    {
+      "host": "./data/pixel-server/users.cfg",
+      "container": "/opt/pixel-server/users.cfg",
+      "description": "Dossier /opt/pixel-server/users.cfg"
+    },
+    {
+      "host": "./data/etc_crontabs",
+      "container": "/etc/crontabs/",
+      "description": "Dossier /etc/crontabs/"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

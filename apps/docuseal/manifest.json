@@ -1,0 +1,44 @@
+{
+  "id": "docuseal",
+  "name": "DocuSeal (container)",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Open source DocuSign alternative for document filling and signing",
+  "description": "Open source DocuSign alternative for document filling and signing. Source: https://github.com/docusealco/docuseal",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/138379721",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "HOST",
+      "label": "Public domain (e.g. sign.example.com) — used for links and emails",
+      "default": ""
+    }
+  ]
+}

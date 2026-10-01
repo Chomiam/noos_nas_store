@@ -1,0 +1,17 @@
+services:
+  scality-s3:
+    container_name: scality-s3
+    image: scality/s3server:latest
+    restart: unless-stopped
+    ports:
+    - 8000/tcp
+    volumes:
+    - ./data/usr_src_app_localData:/usr/src/app/localData
+    - ./data/usr_src_app_localMetadata:/usr/src/app/localMetadata
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - SCALITY_ACCESS_KEY=
+    - SCALITY_SECRET_KEY=

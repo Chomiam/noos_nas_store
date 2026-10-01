@@ -1,0 +1,29 @@
+{
+  "id": "mailpile",
+  "name": "Mailpile",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Mailpile is an e-mail client!/search engine and a personal webmail server/easy way to encrypt your e-mail/easy way to en",
+  "description": "Mailpile is an e-mail client!/search engine and a personal webmail server/easy way to encrypt your e-mail/easy way to encrypt your e-mail",
+  "website": "",
+  "icon": "https://www.mailpile.is/img/icon-512x512.png",
+  "default_port": 33411,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

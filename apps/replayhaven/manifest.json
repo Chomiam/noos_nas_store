@@ -1,0 +1,29 @@
+{
+  "id": "replayhaven",
+  "name": "ReplayHaven",
+  "version": "latest",
+  "category": "Jeux & Divertissement",
+  "tagline": "Game clip archive: a Windows client names every clip with a local AI, this server keeps the originals and streams them t",
+  "description": "Game clip archive: a Windows client names every clip with a local AI, this server keeps the originals and streams them to your devices. Source: https://github.com/SauerExe/ReplayHaven",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/SauerExe/ReplayHaven/main/desktop/icon-source.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

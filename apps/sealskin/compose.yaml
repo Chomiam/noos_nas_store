@@ -1,0 +1,18 @@
+services:
+  sealskin:
+    container_name: sealskin
+    image: linuxserver/sealskin:latest
+    restart: unless-stopped
+    ports:
+    - 8443:8443/tcp
+    - 8000:8000/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/storage:/storage
+    - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - HOST_URL=IP or subdomain.doman.com

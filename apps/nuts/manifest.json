@@ -1,0 +1,39 @@
+{
+  "id": "nuts",
+  "name": "NUTS",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Network UPS Tools server",
+  "description": "Network UPS Tools server",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/nuts.png",
+  "default_port": 3493,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/nuts",
+      "container": "/app",
+      "description": "Dossier /app"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

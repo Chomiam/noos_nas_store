@@ -1,0 +1,29 @@
+{
+  "id": "jump",
+  "name": "Jump",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Jump is yet another self-hosted startpage for your server designed to be simple, stylish, fast and secure",
+  "description": "Jump is yet another self-hosted startpage for your server designed to be simple, stylish, fast and secure.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/jump.png",
+  "default_port": 9123,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

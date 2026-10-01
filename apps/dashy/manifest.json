@@ -1,0 +1,44 @@
+{
+  "id": "dashy",
+  "name": "Dashy (container)",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "The ultimate personal dashboard, keep all your self-hosted services and websites organized",
+  "description": "The ultimate personal dashboard, keep all your self-hosted services and websites organized. Includes live status monitoring, widgets, icons, themes, 30+ languages, instant search, multi-page support, UI editor, authentication and more. GitHub: [lissy93/dashy](https://github.com/lissy93/dashy)",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Lissy93/dashy/master/docs/assets/logo.png",
+  "default_port": 4000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/app_user-data",
+      "container": "/app/user-data",
+      "description": "Dossier /app/user-data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "NODE_ENV",
+      "label": "Node environment",
+      "default": "production"
+    }
+  ]
+}

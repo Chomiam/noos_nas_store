@@ -1,0 +1,49 @@
+{
+  "id": "photoshow",
+  "name": "PhotoShow",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "A simple, easy way to turn a photo album into a webgallery",
+  "description": "A simple, easy way to turn a photo album into a webgallery.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/photoshow-icon.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Pictures",
+      "container": "/Pictures",
+      "description": "Dossier /Pictures"
+    },
+    {
+      "host": "./data/Thumbs",
+      "container": "/Thumbs",
+      "description": "Dossier /Thumbs"
+    },
+    {
+      "host": "./data/PhotoShow",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

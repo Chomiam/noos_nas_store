@@ -1,0 +1,29 @@
+{
+  "id": "freescout",
+  "name": "Freescout",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "FreeScout is the super lightweight free open source help desk and shared inbox written in PHP (Laravel framework) – self",
+  "description": "FreeScout is the super lightweight free open source help desk and shared inbox written in PHP (Laravel framework) – self hosted clone of HelpScout.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/freescout-helpdesk/freescout/master/public/img/logo-300.png",
+  "default_port": 5135,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

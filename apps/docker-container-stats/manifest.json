@@ -1,0 +1,29 @@
+{
+  "id": "docker-container-stats",
+  "name": "Docker Container Stats",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Docker Container Stats is a web interface for viewing historical and current statistics per docker container (cpu, mem, ",
+  "description": "Docker Container Stats is a web interface for viewing historical and current statistics per docker container (cpu, mem, net i/o, block i/o) - in a docker container.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Poeschl/Hassio-Addons/master/container-stats/logo.png",
+  "default_port": 8383,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

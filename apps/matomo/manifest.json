@@ -1,0 +1,29 @@
+{
+  "id": "matomo",
+  "name": "Matomo",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Google Analytics alternative that protects your data and your customers' privacy",
+  "description": "Google Analytics alternative that protects your data and your customers' privacy",
+  "website": "",
+  "icon": "https://gallery.ncnet.nl/upload/2020/05/22/20200522171613-9205fa32.png",
+  "default_port": 8282,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

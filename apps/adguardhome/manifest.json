@@ -1,0 +1,56 @@
+{
+  "id": "adguardhome",
+  "name": "Adguardhome (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "AdGuard Home is a network-wide software for blocking ads & tracking",
+  "description": "AdGuard Home is a network-wide software for blocking ads & tracking.",
+  "website": "",
+  "icon": "https://developer.asustor.com/uploadIcons/0020_999_1595573028_AdGuardhome_256.png",
+  "default_port": 53,
+  "extra_ports": [
+    67,
+    80,
+    443,
+    443,
+    3001,
+    853,
+    784,
+    853,
+    8853,
+    5443,
+    5443
+  ],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/AdguardHome/config",
+      "container": "/opt/adguardhome/conf",
+      "description": "Dossier /opt/adguardhome/conf"
+    },
+    {
+      "host": "./data/AdguardHome/work",
+      "container": "/opt/adguardhome/work",
+      "description": "Dossier /opt/adguardhome/work"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "wallabag",
+  "name": "Wallabag",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "wallabag is a web application allowing you to save web pages for later reading",
+  "description": "wallabag is a web application allowing you to save web pages for later reading. Click, save and read it when you want.",
+  "website": "",
+  "icon": "https://www.wallabag.org/user/themes/boxify/img/logo-wallabag.svg",
+  "default_port": 1180,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

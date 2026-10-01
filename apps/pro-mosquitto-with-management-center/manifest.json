@@ -1,0 +1,29 @@
+{
+  "id": "pro-mosquitto-with-management-center",
+  "name": "Pro Mosquitto with Management Center",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Commercial-grade Mosquitto MQTT broker with Management Center",
+  "description": "Commercial-grade Mosquitto MQTT broker with Management Center",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cedalo.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+services:
+  nginx-proxy-manager-v3:
+    container_name: nginx-proxy-manager-v3
+    image: jc21/nginx-proxy-manager:v3
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 81:81/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/nginx-proxy-manager-v3/data:/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/New_York
+    - UMASK=002

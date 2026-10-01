@@ -1,0 +1,54 @@
+{
+  "id": "davinci-postgres-server",
+  "name": "DaVinci Postgres Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "DaVinci Resolve Postgresql Server, Davinci requires a specific version of postgres db, this container will install the v",
+  "description": "DaVinci Resolve Postgresql Server, Davinci requires a specific version of postgres db, this container will install the version needed",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/resolve.png",
+  "default_port": 5432,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/DavinciServer/",
+      "container": "/var/lib/postgresql/data",
+      "description": "Dossier /var/lib/postgresql/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "POSTGRES_DB",
+      "label": "POSTGRES_DB",
+      "default": "database"
+    },
+    {
+      "name": "POSTGRES_USER",
+      "label": "POSTGRES_USER",
+      "default": "postgres"
+    },
+    {
+      "name": "POSTGRES_PASSWORD",
+      "label": "POSTGRES_PASSWORD",
+      "default": "DaVinci"
+    }
+  ]
+}

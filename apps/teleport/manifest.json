@@ -1,0 +1,32 @@
+{
+  "id": "teleport",
+  "name": "Teleport",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Teleport allows engineers and security professionals to unify access for SSH servers, Kubernetes clusters, web applicati",
+  "description": "Teleport allows engineers and security professionals to unify access for SSH servers, Kubernetes clusters, web applications, and databases across all environments.",
+  "website": "",
+  "icon": "https://bookface-images.s3.amazonaws.com/logos/386100350818400a035ac8e0caa84111de3316eb.png",
+  "default_port": 3080,
+  "extra_ports": [
+    3023,
+    3025
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

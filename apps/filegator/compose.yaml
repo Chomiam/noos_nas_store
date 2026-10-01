@@ -1,0 +1,10 @@
+services:
+  filegator:
+    image: filegator/filegator:latest
+    container_name: filegator
+    ports:
+    - 8886:80
+    volumes:
+    - ./data/MYSMBMOUNT:/srv/files:shared
+    - ./data/filegator/data:/config
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+services:
+  statping:
+    container_name: statping
+    image: statping/statping:latest
+    restart: always
+    ports:
+    - 4040:8080/tcp
+    volumes:
+    - ./data/statping:/app
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

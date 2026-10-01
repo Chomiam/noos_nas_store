@@ -1,0 +1,16 @@
+services:
+  maloja:
+    container_name: maloja
+    image: krateng/maloja:latest
+    restart: unless-stopped
+    ports:
+    - 42010:42010/tcp
+    volumes:
+    - ./data/Maloja/Data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - MALOJA_FORCE_PASSWORD=malojapassword
+    - MALOJA_DATA_DIRECTORY=/data

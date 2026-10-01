@@ -1,0 +1,16 @@
+services:
+  trilium:
+    container_name: trilium
+    image: zadam/trilium:latest
+    restart: unless-stopped
+    ports:
+    - 3388:8080/tcp
+    volumes:
+    - ./data/trilium-data:/home/node/trilium-data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - TRILIUM_DATA_DIR=/home/node/trilium-data
+    - PORT=

@@ -1,25 +1,57 @@
 {
   "id": "qbittorrent",
-  "name": "qBittorrent",
+  "name": "Qbittorrent",
   "version": "latest",
   "category": "Téléchargement",
-  "tagline": "Client BitTorrent rapide avec interface web complète",
-  "description": "Client BitTorrent open-source robuste doté d'une interface Web complète pour gérer vos téléchargements à distance avec gestion de la bande passante.",
-  "website": "https://www.qbittorrent.org/",
-  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/qbittorrent/icon.svg",
-  "default_port": 8085,
-  "recommended": false,
+  "tagline": "The [Qbittorrent](https://www",
+  "description": "The [Qbittorrent](https://www.qbittorrent.org/) is a bittorrent client programmed in C++ / Qt that uses libtorrent (sometimes called libtorrent-rasterbar) by Arvid Norberg.",
+  "website": "",
+  "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/qbittorrent-icon.png",
+  "default_port": 8080,
+  "extra_ports": [
+    6881,
+    6881
+  ],
+  "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "/home/{USER}/docker/qbittorrent/config",
+      "host": "./data/config",
       "container": "/config",
-      "description": "Fichiers de configuration et torrents actifs"
+      "description": "Dossier /config"
     },
     {
-      "host": "/home/{USER}/docker/qbittorrent/downloads",
+      "host": "./data/downloads",
       "container": "/downloads",
-      "description": "Dossier des fichiers téléchargés"
+      "description": "Dossier /downloads"
     }
   ],
-  "nix_file": "qbittorrent.nix"
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "WEBUI_PORT",
+      "label": "WEBUI_PORT",
+      "default": "8080"
+    },
+    {
+      "name": "TORRENTING_PORT",
+      "label": "TORRENTING_PORT",
+      "default": "6881"
+    }
+  ]
 }

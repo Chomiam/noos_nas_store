@@ -1,0 +1,29 @@
+{
+  "id": "prestashop",
+  "name": "PrestaShop",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "PrestaShop 9 - the open-source storefront that runs a huge share of European e-commerce: catalogue, checkout, multi-lang",
+  "description": "PrestaShop 9 - the open-source storefront that runs a huge share of European e-commerce: catalogue, checkout, multi-language/multi-currency, and a vast module marketplace.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/prestashop.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "timetagger",
+  "name": "TimeTagger",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Open source time-tracker with an interactive user experience and powerful reporting",
+  "description": "Open source time-tracker with an interactive user experience and powerful reporting.",
+  "website": "",
+  "icon": "https://timetagger.app/timetagger_wl.svg",
+  "default_port": 280,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

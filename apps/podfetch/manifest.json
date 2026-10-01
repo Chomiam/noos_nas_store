@@ -1,0 +1,74 @@
+{
+  "id": "podfetch",
+  "name": "PodFetch",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "Sleek, self-hosted podcast manager that automatically downloads new episodes, offers a web UI for listening, and provide",
+  "description": "Sleek, self-hosted podcast manager that automatically downloads new episodes, offers a web UI for listening, and provides a GPodder-compatible sync API for mobile apps like AntennaPod. GitHub: [SamTV12345/PodFetch](https://github.com/SamTV12345/PodFetch)",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons@main/png/podfetch.png",
+  "default_port": 8000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/podcasts",
+      "container": "/app/podcasts",
+      "description": "Dossier /app/podcasts"
+    },
+    {
+      "host": "./data/db",
+      "container": "/app/db",
+      "description": "Dossier /app/db"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DATABASE_URL",
+      "label": "DATABASE_URL",
+      "default": "sqlite:///app/db/podcast.db"
+    },
+    {
+      "name": "POLLING_INTERVAL",
+      "label": "POLLING_INTERVAL",
+      "default": "300"
+    },
+    {
+      "name": "BASIC_AUTH",
+      "label": "BASIC_AUTH",
+      "default": "false"
+    },
+    {
+      "name": "USERNAME",
+      "label": "USERNAME",
+      "default": ""
+    },
+    {
+      "name": "PASSWORD",
+      "label": "PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "GPODDER_INTEGRATION_ENABLED",
+      "label": "GPODDER_INTEGRATION_ENABLED",
+      "default": "false"
+    }
+  ]
+}

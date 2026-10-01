@@ -1,0 +1,16 @@
+services:
+  stump:
+    container_name: stump
+    image: aaronleopold/stump:latest
+    restart: unless-stopped
+    ports:
+    - 10801:10801/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - STUMP_CONFIG_DIR=/config

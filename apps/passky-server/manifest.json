@@ -1,0 +1,49 @@
+{
+  "id": "passky-server",
+  "name": "Passky Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Passky is a simple, modern, lightweight, open-source and secure password manager",
+  "description": "Passky is a simple, modern, lightweight, open-source and secure password manager.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/passky-icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/var/www/html/databases",
+      "description": "Dossier /var/www/html/databases"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "ADMIN_USERNAME",
+      "label": "ADMIN_USERNAME",
+      "default": "admin"
+    },
+    {
+      "name": "ADMIN_PASSWORD",
+      "label": "ADMIN_PASSWORD",
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "sickchill",
+  "name": "SickChill",
+  "version": "latest",
+  "category": "Téléchargement",
+  "tagline": "Automatic Video Library Manager for TV Shows",
+  "description": "Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/sickchill-icon.png",
+  "default_port": 8081,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/SickChill",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/Downloads",
+      "container": "/downloads",
+      "description": "Dossier /downloads"
+    },
+    {
+      "host": "./data/TV",
+      "container": "/tv",
+      "description": "Dossier /tv"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

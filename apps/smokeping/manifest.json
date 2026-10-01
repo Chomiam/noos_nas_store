@@ -1,0 +1,59 @@
+{
+  "id": "smokeping",
+  "name": "Smokeping",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "[Smokeping](https://oss",
+  "description": "[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. For a full example of what this application is capable of visit [UCDavis](http://smokeping.ucdavis.edu/cgi-bin/smokeping.fcgi).",
+  "website": "",
+  "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/smokeping-logo.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "MASTER_URL",
+      "label": "MASTER_URL",
+      "default": "http://<master-host-ip>:80/smokeping/"
+    },
+    {
+      "name": "SHARED_SECRET",
+      "label": "SHARED_SECRET",
+      "default": "password"
+    },
+    {
+      "name": "CACHE_DIR",
+      "label": "CACHE_DIR",
+      "default": "/tmp"
+    }
+  ]
+}

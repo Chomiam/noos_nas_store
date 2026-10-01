@@ -1,0 +1,40 @@
+services:
+  lazytainer:
+    container_name: lazytainer
+    image: ghcr.io/vmorganp/lazytainer:master
+    environment:
+    - PORT=81,82
+    - LABEL=lazytainer
+    - TIMEOUT=30
+    - MINPACKETTHRESH=10
+    - POLLRATE=1
+    - VERBOSE=true
+    - INTERFACE=eth0
+    ports:
+    - 81:81
+    - 82:82
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: unless-stopped
+  whoami1:
+    container_name: whoami1
+    image: containous/whoami
+    command: --port 81
+    network_mode: service:lazytainer
+    depends_on:
+    - lazytainer
+    labels:
+    - lazytainer.marker=lazytainer
+    - lazytainer.sleepMethod=pause
+    restart: unless-stopped
+  whoami2:
+    container_name: whoami2
+    image: containous/whoami
+    command: --port 82
+    network_mode: service:lazytainer
+    depends_on:
+    - lazytainer
+    labels:
+    - lazytainer.marker=lazytainer
+    - lazytainer.sleepMethod=stop
+    restart: unless-stopped

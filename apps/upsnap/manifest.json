@@ -1,0 +1,29 @@
+{
+  "id": "upsnap",
+  "name": "Upsnap",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "UpSnap is a simple wake on lan app written with SvelteKit, Go, PocketBase and nmap",
+  "description": "UpSnap is a simple wake on lan app written with SvelteKit, Go, PocketBase and nmap.",
+  "website": "",
+  "icon": "https://github.com/seriousm4x/UpSnap/raw/master/frontend/static/favicon.png",
+  "default_port": 8290,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

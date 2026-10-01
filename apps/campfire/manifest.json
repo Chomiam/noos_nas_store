@@ -1,0 +1,29 @@
+{
+  "id": "campfire",
+  "name": "Campfire",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Campfire - 37signals' free, open-source group chat: rooms, direct messages, file sharing, full-text search, @mentions, s",
+  "description": "Campfire - 37signals' free, open-source group chat: rooms, direct messages, file sharing, full-text search, @mentions, sounds, and Web Push. It was the first ONCE app (a one-time paid product) and is now MIT-licensed and free.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/campfire.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

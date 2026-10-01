@@ -1,0 +1,19 @@
+services:
+  upsnap:
+    image: ghcr.io/seriousm4x/upsnap:3
+    network_mode: host
+    restart: always
+    ports:
+    - 8290:80
+    volumes:
+    - ./data/upsnap:/app/pb_data
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8290/api/health
+        || exit 1
+      interval: 1m
+      timeout: 10s
+      retries: 3
+    environment:
+    - TZ=Europe/Athens
+    - UPSNAP_SCAN_RANGE=192.168.0.0/24
+    - UPSNAP_WEBSITE_TITLE=Custom name

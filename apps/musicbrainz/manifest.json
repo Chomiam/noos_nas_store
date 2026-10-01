@@ -1,0 +1,49 @@
+{
+  "id": "musicbrainz",
+  "name": "MusicBrainz",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public",
+  "description": "MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/musicbrainz-icon.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/MusicBrainz",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "BRAINZCODE",
+      "label": "BRAINZCODE",
+      "default": ""
+    }
+  ]
+}

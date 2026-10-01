@@ -1,0 +1,39 @@
+{
+  "id": "socks5-proxy",
+  "name": "Go-Socks5-Proxy",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Simple socks5 server using go-socks5 with authentication options",
+  "description": "Simple socks5 server using go-socks5 with authentication options",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/socks5.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Données et configuration"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

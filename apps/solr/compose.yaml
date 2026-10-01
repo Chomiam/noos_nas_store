@@ -1,0 +1,14 @@
+services:
+  solr:
+    container_name: solr
+    image: solr:latest
+    restart: unless-stopped
+    ports:
+    - 8983/tcp
+    volumes:
+    - ./data/opt_solr_mydata:/opt/solr/mydata
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,44 @@
+{
+  "id": "revealjs",
+  "name": "Reveal.js",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "It is an open source HTML presentation framework",
+  "description": "It is an open source HTML presentation framework. It enables anyone with a web browser to create fully featured and beautiful presentations for free | Production Mode",
+  "website": "",
+  "icon": "https://pbs.twimg.com/profile_images/1260911777929400325/_ClbHpsz_400x400.jpg",
+  "default_port": 6060,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/revealjs/docs/slides",
+      "container": "/reveal/docs/slides",
+      "description": "Dossier /reveal/docs/slides"
+    },
+    {
+      "host": "./data/revealjs/scripts/test",
+      "container": "/resources",
+      "description": "Dossier /resources"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

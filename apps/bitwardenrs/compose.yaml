@@ -1,0 +1,14 @@
+services:
+  bitwardenrs:
+    container_name: bitwardenrs
+    image: bitwardenrs/server:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/Bitwarden-rs:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

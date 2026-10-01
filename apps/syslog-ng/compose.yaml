@@ -1,0 +1,18 @@
+services:
+  syslog-ng:
+    container_name: syslog-ng
+    image: linuxserver/syslog-ng:latest
+    restart: unless-stopped
+    ports:
+    - 514:5514/udp
+    - 601:6601/tcp
+    - 6514:6514/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/log:/var/log
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - LOG_TO_STDOUT=

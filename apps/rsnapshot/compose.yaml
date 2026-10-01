@@ -1,0 +1,16 @@
+services:
+  rsnapshot:
+    container_name: rsnapshot
+    image: linuxserver/rsnapshot:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/.snapshots:/.snapshots
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

@@ -1,0 +1,44 @@
+{
+  "id": "privatebin",
+  "name": "PrivateBin",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data!",
+  "description": "PrivateBin is a minimalist, open source online pastebin where the server has zero knowledge of pasted data!",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/privatebin.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/srv/data",
+      "description": "Dossier /srv/data"
+    },
+    {
+      "host": "./data/PrivateBin",
+      "container": "/srv/cfg",
+      "description": "Dossier /srv/cfg"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

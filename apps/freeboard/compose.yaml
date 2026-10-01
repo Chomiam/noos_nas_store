@@ -1,0 +1,12 @@
+services:
+  nginx:
+    image: nginx:1.13
+    ports:
+    - 8003:80
+    volumes_from:
+    - freeboard:ro
+    restart: unless-stopped
+  freeboard:
+    image: freeboard
+    build: .
+    restart: unless-stopped

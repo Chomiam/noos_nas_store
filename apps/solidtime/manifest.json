@@ -1,0 +1,29 @@
+{
+  "id": "solidtime",
+  "name": "SolidTime",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The modern Open-Source Time Tracker",
+  "description": "The modern Open-Source Time Tracker",
+  "website": "",
+  "icon": "https://github.com/solidtime-io/solidtime/raw/main/docs/solidtime-banner.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

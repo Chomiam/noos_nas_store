@@ -1,0 +1,29 @@
+{
+  "id": "ollama",
+  "name": "Ollama",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Ollama - run open large language models locally behind a simple HTTP API",
+  "description": "Ollama - run open large language models locally behind a simple HTTP API. Pull a model (Llama, Mistral, Qwen, Gemma, Phi, and many more) and serve it from your own infrastructure, with OpenAI-compatible endpoints.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/ollama.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "cratedb",
+  "name": "CrateDB",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "An open-source distributed SQL database",
+  "description": "An open-source distributed SQL database",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cratedb.png",
+  "default_port": 4200,
+  "extra_ports": [
+    4300
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

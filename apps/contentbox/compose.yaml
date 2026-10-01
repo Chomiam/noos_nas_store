@@ -1,0 +1,19 @@
+services:
+  contentbox:
+    container_name: contentbox
+    image: ortussolutions/contentbox:latest
+    restart: unless-stopped
+    ports:
+    - 8080/tcp
+    - 8443/tcp
+    volumes:
+    - ./data/data_contentbox_db:/data/contentbox/db
+    - ./data/app_includes_shared_media:/app/includes/shared/media
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - express=true
+    - install=true
+    - CFENGINE=lucee@4.5

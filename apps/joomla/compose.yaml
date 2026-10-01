@@ -1,0 +1,16 @@
+services:
+  joomla:
+    container_name: joomla
+    image: joomla:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/var_www_html:/var/www/html
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - JOOMLA_DB_HOST=
+    - JOOMLA_DB_PASSWORD=

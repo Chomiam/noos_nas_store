@@ -1,0 +1,54 @@
+{
+  "id": "clamav",
+  "name": "Clamav",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "ClamAV® is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats",
+  "description": "ClamAV® is an open source antivirus engine for detecting trojans, viruses, malware & other malicious threats.",
+  "website": "",
+  "icon": "http://www.clamav.net/assets/clamav-trademark.png",
+  "default_port": 3310,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/timezone",
+      "container": "/etc/timezone",
+      "description": "Dossier /etc/timezone"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    },
+    {
+      "host": "./data/clamav/config",
+      "container": "/etc/clamav",
+      "description": "Dossier /etc/clamav"
+    },
+    {
+      "host": "./data/clamav/virus_definitions",
+      "container": "/var/lib/clamav",
+      "description": "Dossier /var/lib/clamav"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

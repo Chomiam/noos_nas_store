@@ -1,0 +1,67 @@
+{
+  "id": "pihole-unbound",
+  "name": "Pi-Hole-Unbound",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole",
+  "description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers. When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article <a href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'>here</a>",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/pihole-unbound.png",
+  "default_port": 53,
+  "extra_ports": [
+    1010,
+    4443
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/PiHole-Unbound",
+      "container": "/etc/pihole",
+      "description": "Dossier /etc/pihole"
+    },
+    {
+      "host": "./data/PiHole-Unbound/DNS",
+      "container": "/etc/dnsmasq.d",
+      "description": "Dossier /etc/dnsmasq.d"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "ServerIP",
+      "label": "ServerIP",
+      "default": "192.168.0.X"
+    },
+    {
+      "name": "DNSSEC",
+      "label": "DNSSEC",
+      "default": ""
+    },
+    {
+      "name": "DNS1",
+      "label": "DNS1",
+      "default": "127.0.0.1#5335"
+    },
+    {
+      "name": "DNS2",
+      "label": "DNS2",
+      "default": "127.0.0.1#5335"
+    }
+  ]
+}

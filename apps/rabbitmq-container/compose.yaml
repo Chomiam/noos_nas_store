@@ -1,0 +1,15 @@
+services:
+  rabbitmq-container:
+    container_name: rabbitmq-container
+    image: rabbitmq:latest
+    restart: unless-stopped
+    ports:
+    - 5671/tcp
+    - 5672/tcp
+    volumes:
+    - ./data/var_lib_rabbitmq:/var/lib/rabbitmq
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

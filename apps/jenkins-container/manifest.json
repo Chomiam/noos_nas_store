@@ -1,0 +1,46 @@
+{
+  "id": "jenkins-container",
+  "name": "Jenkins (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Open-source continuous integration tool",
+  "description": "Open-source continuous integration tool",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/jenkins.png",
+  "default_port": 8080,
+  "extra_ports": [
+    50000
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/var_jenkins_home",
+      "container": "/var/jenkins_home",
+      "description": "Dossier /var/jenkins_home"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "JENKINS_OPTS",
+      "label": "Jenkins options",
+      "default": ""
+    }
+  ]
+}

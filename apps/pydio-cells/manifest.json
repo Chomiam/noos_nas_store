@@ -1,0 +1,49 @@
+{
+  "id": "pydio-cells",
+  "name": "Pydio-cells",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Pydio-cells](https://pydio",
+  "description": "[Pydio-cells](https://pydio.com/) is the nextgen file sharing platform for organizations. It is a full rewrite of the Pydio project using the Go language following a micro-service architecture.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/pydio-cells-icon.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "EXTERNALURL",
+      "label": "EXTERNALURL",
+      "default": "yourdomain.url"
+    },
+    {
+      "name": "SERVER_IP",
+      "label": "SERVER_IP",
+      "default": "0.0.0.0"
+    }
+  ]
+}

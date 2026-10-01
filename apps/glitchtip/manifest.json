@@ -1,0 +1,29 @@
+{
+  "id": "glitchtip",
+  "name": "GlitchTip",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "GlitchTip, open-source, Sentry-API-compatible error tracking (point any Sentry SDK at its DSN) at a fraction of self-hos",
+  "description": "GlitchTip, open-source, Sentry-API-compatible error tracking (point any Sentry SDK at its DSN) at a fraction of self-hosted Sentry's footprint.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/glitchtip.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

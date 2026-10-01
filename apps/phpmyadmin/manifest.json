@@ -1,0 +1,49 @@
+{
+  "id": "phpmyadmin",
+  "name": "Phpmyadmin",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "[Phpmyadmin](https://github",
+  "description": "[Phpmyadmin](https://github.com/phpmyadmin/phpmyadmin/) is a free software tool written in PHP, intended to handle the administration of MySQL over the Web. phpMyAdmin supports a wide range of operations on MySQL and MariaDB.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/phpmyadmin-logo.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "PMA_ARBITRARY",
+      "label": "PMA_ARBITRARY",
+      "default": "1"
+    },
+    {
+      "name": "PMA_ABSOLUTE_URI",
+      "label": "PMA_ABSOLUTE_URI",
+      "default": "https://phpmyadmin.example.com"
+    }
+  ]
+}

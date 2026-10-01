@@ -1,0 +1,16 @@
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    - 443/tcp
+    volumes:
+    - ./data/etc_nginx:/etc/nginx
+    - ./data/usr_share_nginx_html:/usr/share/nginx/html
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

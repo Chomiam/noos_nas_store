@@ -1,0 +1,21 @@
+services:
+  your-spotify:
+    container_name: your-spotify
+    image: linuxserver/your_spotify:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - APP_URL=http://localhost
+    - SPOTIFY_PUBLIC=
+    - SPOTIFY_SECRET=
+    - SPOTIFY_API_DELAY_MS=2000
+    - CORS=http://localhost:80,https://localhost:443
+    - MONGO_ENDPOINT=mongodb://mongo:27017/your_spotify

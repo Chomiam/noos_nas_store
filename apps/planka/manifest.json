@@ -1,0 +1,84 @@
+{
+  "id": "planka",
+  "name": "Planka (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Planka](https://github",
+  "description": "[Planka](https://github.com/plankanban/planka/) is an elegant open source project tracking tool.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/planka-logo.png",
+  "default_port": 1337,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "BASE_URL",
+      "label": "BASE_URL",
+      "default": "https://planka.example.com"
+    },
+    {
+      "name": "DATABASE_URL",
+      "label": "DATABASE_URL",
+      "default": "postgresql://user:password@planka-db:5432/planka"
+    },
+    {
+      "name": "DEFAULT_ADMIN_EMAIL",
+      "label": "DEFAULT_ADMIN_EMAIL",
+      "default": "demo@demo.demo"
+    },
+    {
+      "name": "DEFAULT_ADMIN_USERNAME",
+      "label": "DEFAULT_ADMIN_USERNAME",
+      "default": "demo"
+    },
+    {
+      "name": "DEFAULT_ADMIN_PASSWORD",
+      "label": "DEFAULT_ADMIN_PASSWORD",
+      "default": "demo"
+    },
+    {
+      "name": "DEFAULT_ADMIN_NAME",
+      "label": "DEFAULT_ADMIN_NAME",
+      "default": "Demo User"
+    },
+    {
+      "name": "SECRET_KEY",
+      "label": "SECRET_KEY",
+      "default": "notasecretkey"
+    },
+    {
+      "name": "TRUST_PROXY",
+      "label": "TRUST_PROXY",
+      "default": "false"
+    },
+    {
+      "name": "DEFAULT_LANGUAGE",
+      "label": "DEFAULT_LANGUAGE",
+      "default": "en-US"
+    }
+  ]
+}

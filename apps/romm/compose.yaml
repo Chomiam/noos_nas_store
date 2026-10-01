@@ -1,0 +1,48 @@
+services:
+  romm:
+    image: rommapp/romm:latest
+    container_name: romm
+    restart: unless-stopped
+    environment:
+    - DB_HOST=romm-db
+    - DB_NAME=romm
+    - DB_USER=romm-user
+    - DB_PASSWD=
+    - ROMM_AUTH_SECRET_KEY=
+    - IGDB_CLIENT_ID=
+    - IGDB_CLIENT_SECRET=
+    - MOBYGAMES_API_KEY=
+    - STEAMGRIDDB_API_KEY=
+    volumes:
+    - ./data/romm/resources:/romm/resources
+    - ./data/romm/redis_data:/redis-data
+    - ./data/library:/romm/library
+    - ./data/assets:/romm/assets
+    - ./data/romm/config:/romm/config
+    ports:
+    - 480:8080
+    depends_on:
+      romm-db:
+        condition: service_healthy
+        restart: true
+  romm-db:
+    image: mariadb:latest
+    container_name: romm-db
+    restart: unless-stopped
+    env_file:
+    - romm.env
+    volumes:
+    - ./data/romm/maria-db:/var/lib/mysql
+    healthcheck:
+      test:
+      - CMD
+      - healthcheck.sh
+      - --connect
+      - --innodb_initialized
+      start_period: 30s
+      start_interval: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+    - $DB_PORT:3306

@@ -1,0 +1,41 @@
+{
+  "id": "rabbitmq-container",
+  "name": "RabbitMQ (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Highly reliable enterprise messaging system",
+  "description": "Highly reliable enterprise messaging system",
+  "website": "",
+  "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/rabbitmq.png",
+  "default_port": 5671,
+  "extra_ports": [
+    5672
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/var_lib_rabbitmq",
+      "container": "/var/lib/rabbitmq",
+      "description": "Dossier /var/lib/rabbitmq"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

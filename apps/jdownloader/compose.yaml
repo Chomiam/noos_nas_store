@@ -1,0 +1,18 @@
+services:
+  jdownloader:
+    container_name: jdownloader
+    image: jaymoulin/jdownloader:latest
+    restart: unless-stopped
+    ports:
+    - 3129:3129/tcp
+    volumes:
+    - ./data/JDownloader:/opt/JDownloader/app/cfg
+    - ./data/Downloads:/opt/JDownloader/Downloads
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - MYJD_DEVICE_NAME=
+    - MYJD_USER=
+    - MYJD_PASSWORD=

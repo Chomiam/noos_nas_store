@@ -1,0 +1,42 @@
+{
+  "id": "bitcoin-knots",
+  "name": "Bitcoin-knots",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "[Bitcoin Knots](https://bitcoinknots",
+  "description": "[Bitcoin Knots](https://bitcoinknots.org/) can be used as a desktop client for regular payments or as a full node server utility for merchants and other payment services.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bitcoin-knots-logo.png",
+  "default_port": 3000,
+  "extra_ports": [
+    3001,
+    8333
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

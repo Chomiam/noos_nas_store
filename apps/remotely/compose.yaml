@@ -1,0 +1,8 @@
+services:
+  remotely:
+    image: immybot/remotely:latest
+    ports:
+    - 5009:5000
+    volumes:
+    - ./data/remotely:/remotely-data
+    restart: unless-stopped

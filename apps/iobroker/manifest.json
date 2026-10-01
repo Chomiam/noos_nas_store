@@ -1,0 +1,39 @@
+{
+  "id": "iobroker",
+  "name": "iobroker",
+  "version": "latest",
+  "category": "Domotique & IoT",
+  "tagline": "IoBroker is a open source IoT platform written in JavaScript that easily connects smarthome components from different ma",
+  "description": "IoBroker is a open source IoT platform written in JavaScript that easily connects smarthome components from different manufactures. With the help of plugins (called: adapters) ioBroker is able to communicate with a big variety of IoT hardware and services using different protocols and APIs.",
+  "website": "",
+  "icon": "https://github.com/buanet/ioBroker.docker/raw/main/docs/img/iobroker_logo.png",
+  "default_port": 8081,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/iobrokerdata",
+      "container": "/opt/iobroker",
+      "description": "Dossier /opt/iobroker"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "mssql",
+  "name": "SQL Server (stack)",
+  "version": "latest",
+  "category": "Développement",
+  "tagline": "Official SQL Server on Linux container (SQL Server 2025), Express edition by default - the edition Microsoft licenses fo",
+  "description": "Official SQL Server on Linux container (SQL Server 2025), Express edition by default - the edition Microsoft licenses for production at no cost. Single node + 10 GB volume, internal-only (databases never get a public domain).",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/mssql.png",
+  "default_port": 1433,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

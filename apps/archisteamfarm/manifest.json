@@ -1,0 +1,49 @@
+{
+  "id": "archisteamfarm",
+  "name": "ArchiSteamFarm",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "C# application with primary purpose of farming Steam cards from multiple accounts simultaneously",
+  "description": "C# application with primary purpose of farming Steam cards from multiple accounts simultaneously.\n\nSource: https://github.com/JustArchiNET/ArchiSteamFarm",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/JustArchiNET/ArchiSteamFarm/main/resources/ASF_184x184.png",
+  "default_port": 1242,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/ArchiSteamFarm/config",
+      "container": "/app/config",
+      "description": "Dossier /app/config"
+    },
+    {
+      "host": "./data/ArchiSteamFarm/plugins",
+      "container": "/app/plugins",
+      "description": "Dossier /app/plugins"
+    },
+    {
+      "host": "./data/ArchiSteamFarm/logs",
+      "container": "/app/logs",
+      "description": "Dossier /app/logs"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

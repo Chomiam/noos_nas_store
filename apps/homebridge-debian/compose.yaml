@@ -1,0 +1,14 @@
+services:
+  homebridge-debian:
+    container_name: homebridge-debian
+    image: homebridge/homebridge:ubuntu-arm32v7
+    restart: unless-stopped
+    volumes:
+    - ./data/debian-homebridge:/homebridge
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/New_York
+    - UMASK=002
+    - HOMEBRIDGE_CONFIG_UI=1
+    - HOMEBRIDGE_CONFIG_UI_PORT=8581

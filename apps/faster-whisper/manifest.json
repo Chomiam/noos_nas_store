@@ -1,0 +1,64 @@
+{
+  "id": "faster-whisper",
+  "name": "Faster-whisper",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Faster-whisper](https://github",
+  "description": "[Faster-whisper](https://github.com/SYSTRAN/faster-whisper) is a reimplementation of OpenAI's Whisper model using CTranslate2, which is a fast inference engine for Transformer models. This container provides a Wyoming protocol server for faster-whisper.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/faster-whisper.png",
+  "default_port": 10300,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DEBUG",
+      "label": "DEBUG",
+      "default": ""
+    },
+    {
+      "name": "LOCAL_ONLY",
+      "label": "LOCAL_ONLY",
+      "default": ""
+    },
+    {
+      "name": "WHISPER_BEAM",
+      "label": "WHISPER_BEAM",
+      "default": "1"
+    },
+    {
+      "name": "WHISPER_LANG",
+      "label": "WHISPER_LANG",
+      "default": "auto"
+    },
+    {
+      "name": "WHISPER_MODEL",
+      "label": "WHISPER_MODEL",
+      "default": "auto"
+    }
+  ]
+}

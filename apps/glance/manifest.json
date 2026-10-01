@@ -1,0 +1,39 @@
+{
+  "id": "glance",
+  "name": "Glance",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "A self-hosted dashboard that puts all your feeds in one place",
+  "description": "A self-hosted dashboard that puts all your feeds in one place. Source: https://github.com/glanceapp/glance",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/159397742",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/app_config",
+      "container": "/app/config",
+      "description": "Dossier /app/config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

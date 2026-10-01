@@ -1,0 +1,17 @@
+services:
+  booksonic:
+    container_name: booksonic
+    image: linuxserver/booksonic:latest
+    restart: unless-stopped
+    ports:
+    - 4040:4040/tcp
+    volumes:
+    - ./data/Books:/books
+    - ./data/Podcasts:/podcast
+    - ./data/Booksonic:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - CONTEXT_PATH=booksonic

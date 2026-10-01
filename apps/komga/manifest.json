@@ -1,0 +1,49 @@
+{
+  "id": "komga",
+  "name": "Komga",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Komga is a free and open source comics/mangas/magazines server",
+  "description": "Komga is a free and open source comics/mangas/magazines server.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/komga.png",
+  "default_port": 8995,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/komga/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/komga/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/timezone",
+      "container": "/etc/timezone",
+      "description": "Dossier /etc/timezone"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

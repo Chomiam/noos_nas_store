@@ -1,0 +1,19 @@
+services:
+  vscodium-web:
+    container_name: vscodium-web
+    image: linuxserver/vscodium-web:latest
+    restart: unless-stopped
+    ports:
+    - 8000:8000/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - CONNECTION_TOKEN=
+    - CONNECTION_TOKEN_FILE=
+    - SUDO_PASSWORD=password
+    - SUDO_PASSWORD_HASH=
+    - CODE_ARGS=

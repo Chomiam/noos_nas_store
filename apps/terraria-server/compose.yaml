@@ -1,0 +1,15 @@
+services:
+  terraria-server:
+    container_name: terraria-server
+    image: passivelemon/terraria-docker:latest
+    restart: unless-stopped
+    ports:
+    - 7777:7777/tcp
+    volumes:
+    - ./data/StirlingPDF/tessdata:/usr/share/tesseract-ocr/5/tessdata
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002
+    - WORLD=dockerworld

@@ -1,0 +1,29 @@
+{
+  "id": "tei",
+  "name": "TEI Embeddings",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "TEI - Hugging Face's Rust embeddings server: small models like `BAAI/bge-small-en-v1",
+  "description": "TEI - Hugging Face's Rust embeddings server: small models like `BAAI/bge-small-en-v1.5` (384-dim) serve real RAG workloads from CPU in ~512 MB, over both TEI's native API and an OpenAI-compatible `/v1/embeddings` endpoint.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/tei.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

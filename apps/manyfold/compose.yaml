@@ -1,0 +1,18 @@
+services:
+  manyfold:
+    container_name: manyfold
+    image: linuxserver/manyfold:latest
+    restart: unless-stopped
+    ports:
+    - 3214:3214/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/libraries:/libraries
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - DATABASE_URL=
+    - REDIS_URL=
+    - SECRET_KEY_BASE=

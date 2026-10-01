@@ -1,0 +1,16 @@
+services:
+  domoticz:
+    container_name: domoticz
+    image: linuxserver/domoticz:latest
+    restart: unless-stopped
+    ports:
+    - 1443:1443/tcp
+    - 6144:6144/tcp
+    - 8080:8080/tcp
+    volumes:
+    - ./data/Domoticz:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

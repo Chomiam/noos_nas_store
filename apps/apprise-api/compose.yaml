@@ -1,0 +1,16 @@
+services:
+  apprise-api:
+    container_name: apprise-api
+    image: linuxserver/apprise-api:latest
+    restart: unless-stopped
+    ports:
+    - 8000:8000/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/attachments:/attachments
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - APPRISE_ATTACH_SIZE=0

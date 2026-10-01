@@ -1,0 +1,26 @@
+services:
+  speedtest-tracker:
+    container_name: speedtest-tracker
+    image: linuxserver/speedtest-tracker:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - APP_KEY=
+    - APP_URL=
+    - DB_CONNECTION=sqlite
+    - SPEEDTEST_SCHEDULE=
+    - SPEEDTEST_SERVERS=
+    - DB_HOST=
+    - DB_PORT=
+    - DB_DATABASE=
+    - DB_USERNAME=
+    - DB_PASSWORD=
+    - DISPLAY_TIMEZONE=Etc/UTC
+    - PRUNE_RESULTS_OLDER_THAN=0

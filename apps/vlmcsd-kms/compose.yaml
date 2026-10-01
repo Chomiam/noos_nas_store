@@ -1,0 +1,14 @@
+services:
+  vlmcsd-kms:
+    container_name: vlmcsd-kms
+    image: mikolatero/vlmcsd:latest
+    restart: unless-stopped
+    ports:
+    - 1688:1688/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -1,0 +1,29 @@
+{
+  "id": "tandoor",
+  "name": "Tandoor",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "The recipe manager that allows you to manage your ever growing collection of digital recipes",
+  "description": "The recipe manager that allows you to manage your ever growing collection of digital recipes.",
+  "website": "",
+  "icon": "https://docs.tandoor.dev/logo_color.svg",
+  "default_port": 82,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

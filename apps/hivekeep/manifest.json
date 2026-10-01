@@ -1,0 +1,49 @@
+{
+  "id": "hivekeep",
+  "name": "Hivekeep",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Self-hosted platform of autonomous, persistent personal AI agents that collaborate, remember, and build their own tools",
+  "description": "Self-hosted platform of autonomous, persistent personal AI agents that collaborate, remember, and build their own tools. Reachable via Telegram, WhatsApp, Slack, Discord, Signal and Matrix. Single container with Bun and SQLite, no external infrastructure. Source: https://github.com/MarlBurroW/hivekeep",
+  "website": "",
+  "icon": "https://hivekeep.app/apple-touch-icon.png",
+  "default_port": 3000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/app/data",
+      "description": "Dossier /app/data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "HOST",
+      "label": "Bind address — keep 0.0.0.0 so the port mapping is reachable",
+      "default": "0.0.0.0"
+    },
+    {
+      "name": "PUBLIC_URL",
+      "label": "External URL for links and webhooks",
+      "default": "http://localhost:3000"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "nutify",
+  "name": "Nutify",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Nutify is a comprehensive monitoring system designed to track the health and performance of your Uninterruptible Power S",
+  "description": "Nutify is a comprehensive monitoring system designed to track the health and performance of your Uninterruptible Power Supply (UPS) devices.",
+  "website": "",
+  "icon": "https://github.com/DartSteven/Nutify/raw/main/pic/logo.jpg",
+  "default_port": 3493,
+  "extra_ports": [
+    5050
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

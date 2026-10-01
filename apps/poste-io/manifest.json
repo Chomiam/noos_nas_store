@@ -1,0 +1,38 @@
+{
+  "id": "poste-io",
+  "name": "Poste.io",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Full stack mailserver solution with  TLS support",
+  "description": "Full stack mailserver solution with  TLS support. POP3s, SMTP(s), IMAPs, RSPAMD, Clamav, Roundcube(HTTPS), SPF, DKIM with simple installation and web administration.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/poste-io.png",
+  "default_port": 82,
+  "extra_ports": [
+    445,
+    25,
+    110,
+    143,
+    587,
+    993,
+    995,
+    4190
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "id": "surrealdb",
+  "name": "SurrealDB",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "SurrealDB is an end-to-end cloud native database for web, mobile, serverless, jamstack, backend, and traditional applica",
+  "description": "SurrealDB is an end-to-end cloud native database for web, mobile, serverless, jamstack, backend, and traditional applications.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/surrealdb.png",
+  "default_port": 8020,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/surrealdb/data",
+      "container": "/data",
+      "description": "Dossier /data"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "SDB_USERNAME",
+      "label": "SDB_USERNAME",
+      "default": "default_username"
+    },
+    {
+      "name": "SDB_PASSWORD",
+      "label": "SDB_PASSWORD",
+      "default": "default_password"
+    }
+  ]
+}

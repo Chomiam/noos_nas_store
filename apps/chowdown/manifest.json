@@ -1,0 +1,39 @@
+{
+  "id": "chowdown",
+  "name": "Chowdown",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Have recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease",
+  "description": "Have recipes in seconds with plain text formatting and create beatiful recipe pages with automated ease.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/chowdown.png",
+  "default_port": 4000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Chowdown",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

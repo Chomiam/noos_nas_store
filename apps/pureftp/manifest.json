@@ -1,0 +1,130 @@
+{
+  "id": "pureftp",
+  "name": "Pure-FTP Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant FTP server",
+  "description": "Pure-FTPd is a free (BSD), secure, production-quality and standard-conformant FTP server.",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/pureftpd-icon.jpg",
+  "default_port": 21,
+  "extra_ports": [
+    30000,
+    30001,
+    30002,
+    30003,
+    30004,
+    30005,
+    30006,
+    30007,
+    30008,
+    30009
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/pureftp",
+      "container": "/etc/pure-ftpd/passwd",
+      "description": "Dossier /etc/pure-ftpd/passwd"
+    },
+    {
+      "host": "./data/tvshows",
+      "container": "/data/tvshows",
+      "description": "Dossier /data/tvshows"
+    },
+    {
+      "host": "./data/movies",
+      "container": "/data/movies",
+      "description": "Dossier /data/movies"
+    },
+    {
+      "host": "./data/music",
+      "container": "/data/music",
+      "description": "Dossier /data/music"
+    },
+    {
+      "host": "./data/ebooks",
+      "container": "/data/ebooks",
+      "description": "Dossier /data/ebooks"
+    },
+    {
+      "host": "./data/photos",
+      "container": "/data/photos",
+      "description": "Dossier /data/photos"
+    },
+    {
+      "host": "./data/documents",
+      "container": "/data/documents",
+      "description": "Dossier /data/documents"
+    },
+    {
+      "host": "./data/downloads",
+      "container": "/data/downloads",
+      "description": "Dossier /data/downloads"
+    },
+    {
+      "host": "./data/software",
+      "container": "/data/software",
+      "description": "Dossier /data/software"
+    },
+    {
+      "host": "./data/blackhole",
+      "container": "/data/blackhole",
+      "description": "Dossier /data/blackhole"
+    },
+    {
+      "host": "./data/processing",
+      "container": "/data/processing",
+      "description": "Dossier /data/processing"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "FTP_USER_NAME",
+      "label": "FTP_USER_NAME",
+      "default": "depot"
+    },
+    {
+      "name": "FTP_USER_PASS",
+      "label": "FTP_USER_PASS",
+      "default": "badpass"
+    },
+    {
+      "name": "FTP_USER_HOME",
+      "label": "FTP_USER_HOME",
+      "default": "/data"
+    },
+    {
+      "name": "FTP_USER_GID",
+      "label": "FTP_USER_GID",
+      "default": "15000"
+    },
+    {
+      "name": "FTP_USER_UID",
+      "label": "FTP_USER_UID",
+      "default": "15000"
+    },
+    {
+      "name": "PUBLICHOST",
+      "label": "PUBLICHOST",
+      "default": "localhost"
+    }
+  ]
+}

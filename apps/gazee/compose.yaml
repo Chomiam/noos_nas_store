@@ -1,0 +1,14 @@
+services:
+  gazee:
+    container_name: gazee
+    image: linuxserver/gazee:latest
+    restart: unless-stopped
+    volumes:
+    - ./data/Gazee:/config
+    - ./data/Comics:/comics
+    - ./data:/mylar
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

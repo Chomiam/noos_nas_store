@@ -1,0 +1,29 @@
+{
+  "id": "invoice-ninja",
+  "name": "Invoice Ninja (stack)",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Invoices, Expenses and Tasks built with Laravel and Flutter",
+  "description": "Invoices, Expenses and Tasks built with Laravel and Flutter.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/invoice_ninja.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+services:
+  pixel-server:
+    container_name: pixel-server
+    image: macley/pixel-server:latest
+    restart: unless-stopped
+    ports:
+    - 85:80/tcp
+    volumes:
+    - ./data/pixel-server/auth.cfg:/opt/pixel-server/auth.cfg
+    - ./data/pixel-server/pixelserver.cfg:/opt/pixel-server/pixelserver.cfg
+    - ./data/pixel-server/users.cfg:/opt/pixel-server/users.cfg
+    - ./data/etc_crontabs:/etc/crontabs/
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

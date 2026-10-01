@@ -1,0 +1,29 @@
+{
+  "id": "trudesk",
+  "name": "Trudesk",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Trudesk is an Open Source Help Desk Software and Ticketing System",
+  "description": "Trudesk is an Open Source Help Desk Software and Ticketing System",
+  "website": "",
+  "icon": "https://trudesk.io/wp-content/uploads/2019/10/logo-med.png",
+  "default_port": 8118,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

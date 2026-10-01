@@ -1,0 +1,17 @@
+services:
+  openvpn-as:
+    container_name: openvpn-as
+    image: linuxserver/openvpn-as:latest
+    restart: unless-stopped
+    ports:
+    - 943:943/tcp
+    - 9443:9443/tcp
+    - 1194:1194/udp
+    volumes:
+    - ./data/OpenVPN-AS:/config
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - INTERFACE=eth0

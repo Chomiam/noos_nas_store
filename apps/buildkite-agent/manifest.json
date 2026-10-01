@@ -1,0 +1,29 @@
+{
+  "id": "buildkite-agent",
+  "name": "Buildkite Agent",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "A Buildkite agent: Buildkite hosts the UI and orchestration, your agents run the jobs - the hybrid-CI model where comput",
+  "description": "A Buildkite agent: Buildkite hosts the UI and orchestration, your agents run the jobs - the hybrid-CI model where compute was always meant to be yours. This is the cleanest runner in the catalogue: official image, one token, done.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/buildkite-agent.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

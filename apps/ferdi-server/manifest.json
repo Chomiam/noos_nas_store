@@ -1,0 +1,29 @@
+{
+  "id": "ferdi-server",
+  "name": "Ferdi Server",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Ferdi is a messaging browser that allows you to combine your favourite messaging services into one application",
+  "description": "Ferdi is a messaging browser that allows you to combine your favourite messaging services into one application",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/getferdi/server/master/logo.png",
+  "default_port": 3333,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

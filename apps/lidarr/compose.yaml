@@ -1,0 +1,16 @@
+services:
+  lidarr:
+    container_name: lidarr
+    image: linuxserver/lidarr:latest
+    restart: unless-stopped
+    ports:
+    - 8686:8686/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/music:/music
+    - ./data/downloads:/downloads
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002

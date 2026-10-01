@@ -1,0 +1,15 @@
+services:
+  cratedb:
+    container_name: cratedb
+    image: crate:latest
+    restart: unless-stopped
+    ports:
+    - 4200/tcp
+    - 4300/tcp
+    volumes:
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

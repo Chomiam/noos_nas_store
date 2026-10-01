@@ -1,0 +1,21 @@
+services:
+  piper:
+    container_name: piper
+    image: linuxserver/piper:latest
+    restart: unless-stopped
+    ports:
+    - 10200:10200/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - PIPER_VOICE=en_US-lessac-medium
+    - LOCAL_ONLY=
+    - PIPER_LENGTH=1.0
+    - PIPER_NOISE=0.667
+    - PIPER_NOISEW=0.333
+    - PIPER_SPEAKER=0
+    - NO_STREAMING=

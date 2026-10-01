@@ -1,0 +1,39 @@
+{
+  "id": "pi-alert",
+  "name": "Pi.alert",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "WIFI / LAN intruder detector",
+  "description": "WIFI / LAN intruder detector",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pucherot/Pi.Alert/main/docs/img/1_devices.jpg",
+  "default_port": 20211,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/pi.alert",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+services:
+  kestra-postgres:
+    image: postgres
+    volumes:
+    - ./data/kestra/postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: kestra
+      POSTGRES_USER: kestra
+      POSTGRES_PASSWORD: k3str4
+    healthcheck:
+      test:
+      - CMD-SHELL
+      - pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
+      interval: 30s
+      timeout: 10s
+      retries: 10
+    restart: unless-stopped
+  kestra:
+    image: kestra/kestra:latest
+    pull_policy: always
+    user: root
+    command: server standalone
+    volumes:
+    - ./data/kestra/kestra-data:/app/storage
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./data/kestra/kestra-wd:/tmp/kestra-wd
+    environment:
+      KESTRA_CONFIGURATION: "datasources:\n  kestra-postgres:\n    url: jdbc:postgresql://postgres:5432/kestra\n\
+        \    driverClassName: org.postgresql.Driver\n    username: kestra\n    password:\
+        \ k3str4\nkestra:\n  server:\n    basicAuth:\n      enabled: false\n     \
+        \ username: \"admin@localhost.dev\" # it must be a valid email address\n \
+        \     password: kestra\n  repository:\n    type: postgres\n  storage:\n  \
+        \  type: local\n    local:\n      basePath: \"/app/storage\"\n  queue:\n \
+        \   type: postgres\n  tasks:\n    tmpDir:\n      path: /portainer/Files/AppData/Config/kestra/kestra-wd\n\
+        \  url: http://localhost:8080/\n"
+    ports:
+    - 8080:8080
+    - 8081:8081
+    depends_on:
+      kestra-postgres:
+        condition: service_started
+    restart: unless-stopped

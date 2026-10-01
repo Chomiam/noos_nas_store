@@ -1,0 +1,17 @@
+services:
+  twitch-points-miner:
+    container_name: twitch-points-miner
+    image: rdavidoff/twitch-channel-points-miner-v2:latest
+    restart: unless-stopped
+    ports:
+    - 5000:5000/tcp
+    volumes:
+    - ./data/TwitchPointsMiner/run.py:/usr/src/app/run.py
+    - ./data/cookies:/usr/src/app/cookies
+    - ./data/logs:/usr/src/app/logs
+    - ./data/analytics:/usr/src/app/analytics
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

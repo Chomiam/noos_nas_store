@@ -1,0 +1,44 @@
+{
+  "id": "scrutiny",
+  "name": "Scrutiny",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "WebUI for smartd S",
+  "description": "WebUI for smartd S.M.A.R.T monitoring",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/scrutiny.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/scrutiny",
+      "container": "/scrutiny/config/",
+      "description": "Dossier /scrutiny/config/"
+    },
+    {
+      "host": "./data/udev",
+      "container": "/run/udev",
+      "description": "Dossier /run/udev"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

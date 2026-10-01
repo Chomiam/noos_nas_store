@@ -1,0 +1,29 @@
+{
+  "id": "filegator",
+  "name": "Filegator",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "FileGator is a free, open-source, self-hosted web application for managing files and folders",
+  "description": "FileGator is a free, open-source, self-hosted web application for managing files and folders.",
+  "website": "",
+  "icon": "https://filegator.io/filegator_logo.svg",
+  "default_port": 8886,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

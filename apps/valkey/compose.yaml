@@ -1,0 +1,21 @@
+name: valkey
+services:
+  valkey:
+    healthcheck:
+      test:
+      - CMD
+      - valkey-cli
+      - ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    build: .
+    restart: unless-stopped
+    environment:
+      VALKEY_PASSWORD: ${VALKEY_PASSWORD}
+    ports:
+    - 6379:6379
+    volumes:
+    - ./data/valkeydata:/data
+volumes:
+  valkeydata: null

@@ -1,0 +1,39 @@
+{
+  "id": "dozzle",
+  "name": "Dozzle",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Dozzle is a small lightweight application with a web based interface to monitor Docker logs",
+  "description": "Dozzle is a small lightweight application with a web based interface to monitor Docker logs. It doesn’t store any log files. It is for live monitoring of your container logs only.",
+  "website": "",
+  "icon": "https://dozzle.dev/favicon.ico",
+  "default_port": 8888,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

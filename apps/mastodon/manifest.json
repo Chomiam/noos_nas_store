@@ -1,0 +1,232 @@
+{
+  "id": "mastodon",
+  "name": "Mastodon (container)",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Mastodon](https://github",
+  "description": "[Mastodon](https://github.com/mastodon/mastodon/) is a free, open-source social network server based on ActivityPub where users can follow friends and discover new ones..",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mastodon-banner.png",
+  "default_port": 80,
+  "extra_ports": [
+    443,
+    9394
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "LOCAL_DOMAIN",
+      "label": "LOCAL_DOMAIN",
+      "default": "example.com"
+    },
+    {
+      "name": "REDIS_HOST",
+      "label": "REDIS_HOST",
+      "default": "redis"
+    },
+    {
+      "name": "REDIS_PORT",
+      "label": "REDIS_PORT",
+      "default": "6379"
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "default": "db"
+    },
+    {
+      "name": "DB_USER",
+      "label": "DB_USER",
+      "default": "mastodon"
+    },
+    {
+      "name": "DB_NAME",
+      "label": "DB_NAME",
+      "default": "mastodon"
+    },
+    {
+      "name": "DB_PASS",
+      "label": "DB_PASS",
+      "default": "mastodon"
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": "5432"
+    },
+    {
+      "name": "ES_ENABLED",
+      "label": "ES_ENABLED",
+      "default": "false"
+    },
+    {
+      "name": "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY",
+      "label": "ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY",
+      "default": ""
+    },
+    {
+      "name": "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY",
+      "label": "ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY",
+      "default": ""
+    },
+    {
+      "name": "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT",
+      "label": "ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT",
+      "default": ""
+    },
+    {
+      "name": "SECRET_KEY_BASE",
+      "label": "SECRET_KEY_BASE",
+      "default": ""
+    },
+    {
+      "name": "OTP_SECRET",
+      "label": "OTP_SECRET",
+      "default": ""
+    },
+    {
+      "name": "VAPID_PRIVATE_KEY",
+      "label": "VAPID_PRIVATE_KEY",
+      "default": ""
+    },
+    {
+      "name": "VAPID_PUBLIC_KEY",
+      "label": "VAPID_PUBLIC_KEY",
+      "default": ""
+    },
+    {
+      "name": "SMTP_SERVER",
+      "label": "SMTP_SERVER",
+      "default": "mail.example.com"
+    },
+    {
+      "name": "SMTP_PORT",
+      "label": "SMTP_PORT",
+      "default": "25"
+    },
+    {
+      "name": "SMTP_LOGIN",
+      "label": "SMTP_LOGIN",
+      "default": ""
+    },
+    {
+      "name": "SMTP_PASSWORD",
+      "label": "SMTP_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "SMTP_FROM_ADDRESS",
+      "label": "SMTP_FROM_ADDRESS",
+      "default": "notifications@example.com"
+    },
+    {
+      "name": "S3_ENABLED",
+      "label": "S3_ENABLED",
+      "default": "false"
+    },
+    {
+      "name": "WEB_DOMAIN",
+      "label": "WEB_DOMAIN",
+      "default": "mastodon.example.com"
+    },
+    {
+      "name": "ES_HOST",
+      "label": "ES_HOST",
+      "default": "es"
+    },
+    {
+      "name": "ES_PORT",
+      "label": "ES_PORT",
+      "default": "9200"
+    },
+    {
+      "name": "ES_USER",
+      "label": "ES_USER",
+      "default": "elastic"
+    },
+    {
+      "name": "ES_PASS",
+      "label": "ES_PASS",
+      "default": "elastic"
+    },
+    {
+      "name": "S3_BUCKET",
+      "label": "S3_BUCKET",
+      "default": ""
+    },
+    {
+      "name": "AWS_ACCESS_KEY_ID",
+      "label": "AWS_ACCESS_KEY_ID",
+      "default": ""
+    },
+    {
+      "name": "AWS_SECRET_ACCESS_KEY",
+      "label": "AWS_SECRET_ACCESS_KEY",
+      "default": ""
+    },
+    {
+      "name": "S3_ALIAS_HOST",
+      "label": "S3_ALIAS_HOST",
+      "default": ""
+    },
+    {
+      "name": "SIDEKIQ_ONLY",
+      "label": "SIDEKIQ_ONLY",
+      "default": "false"
+    },
+    {
+      "name": "SIDEKIQ_QUEUE",
+      "label": "SIDEKIQ_QUEUE",
+      "default": ""
+    },
+    {
+      "name": "SIDEKIQ_DEFAULT",
+      "label": "SIDEKIQ_DEFAULT",
+      "default": "false"
+    },
+    {
+      "name": "SIDEKIQ_THREADS",
+      "label": "SIDEKIQ_THREADS",
+      "default": "5"
+    },
+    {
+      "name": "DB_POOL",
+      "label": "DB_POOL",
+      "default": "5"
+    },
+    {
+      "name": "NO_CHOWN",
+      "label": "NO_CHOWN",
+      "default": ""
+    },
+    {
+      "name": "MASTODON_PROMETHEUS_EXPORTER_ENABLED",
+      "label": "MASTODON_PROMETHEUS_EXPORTER_ENABLED",
+      "default": ""
+    }
+  ]
+}

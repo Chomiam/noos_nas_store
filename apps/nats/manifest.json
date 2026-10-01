@@ -1,0 +1,29 @@
+{
+  "id": "nats",
+  "name": "NATS Cluster",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "NATS - the lightweight, blazing-fast messaging system: subjects, pub/sub, request/reply, and JetStream for persistent st",
+  "description": "NATS - the lightweight, blazing-fast messaging system: subjects, pub/sub, request/reply, and JetStream for persistent streams and key-value/object stores.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/nats.png",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

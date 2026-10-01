@@ -1,0 +1,16 @@
+services:
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    ports:
+    - 5050:80/tcp
+    volumes:
+    - ./data/pgadmin:/var/lib/pgadmin
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/New_York
+    - UMASK=002
+    - PGADMIN_DEFAULT_EMAIL=
+    - PGADMIN_DEFAULT_PASSWORD=

@@ -1,0 +1,19 @@
+services:
+  faster-whisper:
+    container_name: faster-whisper
+    image: linuxserver/faster-whisper:latest
+    restart: unless-stopped
+    ports:
+    - 10300:10300/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - DEBUG=
+    - LOCAL_ONLY=
+    - WHISPER_BEAM=1
+    - WHISPER_LANG=auto
+    - WHISPER_MODEL=auto

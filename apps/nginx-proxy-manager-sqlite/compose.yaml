@@ -1,0 +1,17 @@
+services:
+  nginx-proxy-manager-sqlite:
+    container_name: nginx-proxy-manager-sqlite
+    image: jc21/nginx-proxy-manager:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 81:81/tcp
+    - 443:443/tcp
+    volumes:
+    - ./data/nginx-proxy-manager/data:/data
+    - ./data/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/New_York
+    - UMASK=002

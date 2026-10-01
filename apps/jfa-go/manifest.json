@@ -1,0 +1,49 @@
+{
+  "id": "jfa-go",
+  "name": "Jellyfin-Accounts",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "jfa-go is a user management app for Jellyfin (and now Emby) that provides invite-based account creation as well as other",
+  "description": "jfa-go is a user management app for Jellyfin (and now Emby) that provides invite-based account creation as well as other features that make one's instance much easier to manage.",
+  "website": "",
+  "icon": "https://github.com/hrfee/jfa-go/raw/main/images/jfa-go-icon.png",
+  "default_port": 8056,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/Jelllyfin",
+      "container": "/jf",
+      "description": "Dossier /jf"
+    },
+    {
+      "host": "./data/jfago",
+      "container": "/data",
+      "description": "Dossier /data"
+    },
+    {
+      "host": "./data/localtime",
+      "container": "/etc/localtime",
+      "description": "Dossier /etc/localtime"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

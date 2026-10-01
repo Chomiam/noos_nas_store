@@ -1,0 +1,16 @@
+services:
+  mylar:
+    container_name: mylar
+    image: linuxserver/mylar:latest
+    restart: unless-stopped
+    ports:
+    - 8090:8090/tcp
+    volumes:
+    - ./data/Mylar:/config
+    - ./data/Downloads:/downloads
+    - ./data/Comics:/comics
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

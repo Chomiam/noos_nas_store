@@ -1,0 +1,46 @@
+{
+  "id": "urbackup",
+  "name": "UrBackup",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "UrBackup is an easy to setup Open Source client/server backup system, that through a combination of image and file backu",
+  "description": "UrBackup is an easy to setup Open Source client/server backup system, that through a combination of image and file backups accomplishes both data safety and a fast restoration time.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/urbackup.png",
+  "default_port": 55415,
+  "extra_ports": [
+    55414
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/urbackup",
+      "container": "/var/urbackup",
+      "description": "Dossier /var/urbackup"
+    },
+    {
+      "host": "./data/backups",
+      "container": "/backup",
+      "description": "Dossier /backup"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

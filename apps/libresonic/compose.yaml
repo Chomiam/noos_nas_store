@@ -1,0 +1,19 @@
+services:
+  libresonic:
+    container_name: libresonic
+    image: linuxserver/libresonic:latest
+    restart: unless-stopped
+    ports:
+    - 4040/tcp
+    volumes:
+    - ./data/music:/music
+    - ./data/playlists:/playlists
+    - ./data/podcasts:/podcasts
+    - ./data/media:/media
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=America/Chicago
+    - UMASK=002
+    - CONTEXT_PATH=

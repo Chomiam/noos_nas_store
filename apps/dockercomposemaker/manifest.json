@@ -1,0 +1,29 @@
+{
+  "id": "dockercomposemaker",
+  "name": "Docker Compose maker",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "DCM (Docker Compose Maker) is a simple yet powerful tool that helps you create docker-compose",
+  "description": "DCM (Docker Compose Maker) is a simple yet powerful tool that helps you create docker-compose.yaml files for your self-hosted applications.",
+  "website": "",
+  "icon": "https://github.com/ajnart/dcm/raw/main/public/favicon.png",
+  "default_port": 7576,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

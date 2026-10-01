@@ -1,0 +1,16 @@
+services:
+  musicbrainz:
+    container_name: musicbrainz
+    image: linuxserver/musicbrainz:latest
+    restart: unless-stopped
+    ports:
+    - 5000:5000/tcp
+    volumes:
+    - ./data/MusicBrainz:/config
+    - ./data:/data
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - BRAINZCODE=

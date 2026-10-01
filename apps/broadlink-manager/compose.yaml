@@ -1,0 +1,8 @@
+services:
+  broadlinkmanager:
+    image: techblog/broadlinkmanager
+    network_mode: host
+    container_name: broadlinkmanager
+    restart: unless-stopped
+    volumes:
+    - ./data/broadlinkmanager:/opt/broadlinkmanager/data

@@ -1,0 +1,29 @@
+{
+  "id": "baikal",
+  "name": "Baikal",
+  "version": "latest",
+  "category": "Finance & Organisation",
+  "tagline": "Baïkal is a lightweight CalDAV+CardDAV server",
+  "description": "Baïkal is a lightweight CalDAV+CardDAV server. It offers an extensive web interface with easy management of users, address books and calendars.",
+  "website": "",
+  "icon": "https://sabre.io/img/logo.png",
+  "default_port": 8220,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+services:
+  foldingathome:
+    container_name: foldingathome
+    image: linuxserver/foldingathome:latest
+    restart: unless-stopped
+    ports:
+    - 80:80/tcp
+    - 7396:7396/tcp
+    volumes:
+    - ./data/config:/config
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - ACCOUNT_TOKEN=
+    - MACHINE_NAME=
+    - CLI_ARGS=

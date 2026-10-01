@@ -1,0 +1,59 @@
+{
+  "id": "duplicacy",
+  "name": "Duplicacy",
+  "version": "latest",
+  "category": "Administration & Monitoring",
+  "tagline": "Duplicacy backs up your files to many cloud storages with client-side encryption and the highest level of deduplication",
+  "description": "Duplicacy backs up your files to many cloud storages with client-side encryption and the highest level of deduplication",
+  "website": "",
+  "icon": "https://mediadepot.github.io/templates/img/duplicacy-icon.png",
+  "default_port": 3875,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/apps/duplicacy/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/apps/duplicacy/logs",
+      "container": "/logs",
+      "description": "Dossier /logs"
+    },
+    {
+      "host": "./data/apps/duplicacy/cache",
+      "container": "/cache",
+      "description": "Dossier /cache"
+    },
+    {
+      "host": "./data/apps/",
+      "container": "/source/apps",
+      "description": "Dossier /source/apps"
+    },
+    {
+      "host": "./data/storage",
+      "container": "/source/storage",
+      "description": "Dossier /source/storage"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
+}

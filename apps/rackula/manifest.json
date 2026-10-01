@@ -1,0 +1,29 @@
+{
+  "id": "rackula",
+  "name": "Rackula",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "Plan your rack layout",
+  "description": "Plan your rack layout. Drag your devices in, move them around, export it. It runs in your browser. You can close the tab whenever you want",
+  "website": "",
+  "icon": "https://github.com/RackulaLives/Rackula/raw/main/assets/Rackula-lockup-dark.svg",
+  "default_port": 8383,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

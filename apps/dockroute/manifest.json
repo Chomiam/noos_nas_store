@@ -1,0 +1,84 @@
+{
+  "id": "dockroute",
+  "name": "DockRoute",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "External-DNS for plain Docker hosts: watches running containers, reads dockroute",
+  "description": "External-DNS for plain Docker hosts: watches running containers, reads dockroute.* labels and reconciles the matching DNS records — and Cloudflare Tunnel routes — in a pluggable provider. TXT-based ownership means it never alters records it cannot prove it manages. Source: https://github.com/Dockroute/Dockroute",
+  "website": "",
+  "icon": "https://avatars.githubusercontent.com/u/309590892",
+  "default_port": 8080,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "/var/run/docker.sock",
+      "container": "/var/run/docker.sock",
+      "description": "Dossier /var/run/docker.sock"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DOCKROUTE_PROVIDER",
+      "label": "DNS provider ('log' is a credential-free dry run that only prints the desired state)",
+      "default": "log"
+    },
+    {
+      "name": "DOCKROUTE_OWNER_ID",
+      "label": "Ownership id written to companion TXT records (lets several instances share a zone safely)",
+      "default": "default"
+    },
+    {
+      "name": "DOCKROUTE_POLICY",
+      "label": "Sync policy — sync creates/updates/deletes owned records, upsert-only never deletes, create-only never updates or deletes",
+      "default": "sync"
+    },
+    {
+      "name": "DOCKROUTE_DEFAULT_TARGET",
+      "label": "Default target — fallback record value (IP or CNAME target) when a container omits the dockroute.target label",
+      "default": ""
+    },
+    {
+      "name": "DOCKROUTE_DOMAIN_FILTER",
+      "label": "Domain filter — comma-separated allowlist of DNS zones DockRoute may touch (blank = every zone the token can see)",
+      "default": ""
+    },
+    {
+      "name": "DOCKROUTE_RESYNC_SECONDS",
+      "label": "Resync interval in seconds (periodic full reconcile that backs up the event stream)",
+      "default": "60"
+    },
+    {
+      "name": "CLOUDFLARE_API_TOKEN",
+      "label": "Cloudflare API token — required when provider is cloudflare (Zone → DNS → Edit)",
+      "default": ""
+    },
+    {
+      "name": "CLOUDFLARE_ACCOUNT_ID",
+      "label": "Cloudflare account ID (only needed for Cloudflare Tunnel publishing)",
+      "default": ""
+    },
+    {
+      "name": "CLOUDFLARE_TUNNEL_ID",
+      "label": "Cloudflare tunnel ID — an existing tunnel; you keep running cloudflared yourself (only needed for Tunnel publishing)",
+      "default": ""
+    }
+  ]
+}

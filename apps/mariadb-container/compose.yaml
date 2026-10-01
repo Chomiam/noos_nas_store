@@ -1,0 +1,15 @@
+services:
+  mariadb-container:
+    container_name: mariadb-container
+    image: mariadb:latest
+    restart: unless-stopped
+    ports:
+    - 3306/tcp
+    volumes:
+    - ./data/var_lib_mysql:/var/lib/mysql
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - MYSQL_ROOT_PASSWORD=

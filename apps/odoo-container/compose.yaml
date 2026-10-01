@@ -1,0 +1,18 @@
+services:
+  odoo-container:
+    container_name: odoo-container
+    image: odoo:latest
+    restart: unless-stopped
+    ports:
+    - 8069/tcp
+    volumes:
+    - ./data/var_lib_odoo:/var/lib/odoo
+    - ./data/mnt_extra-addons:/mnt/extra-addons
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002
+    - HOST=
+    - USER=
+    - PASSWORD=

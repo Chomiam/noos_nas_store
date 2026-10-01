@@ -1,0 +1,19 @@
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    restart: unless-stopped
+    ports:
+    - 53:53/tcp
+    - 53:53/udp
+    - 67:67/udp
+    - 1010:80/tcp
+    - 4443:443/tcp
+    volumes:
+    - ./data/PiHole:/etc/pihole
+    - ./data/PiHole/DNS:/etc/dnsmasq.d
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

@@ -2,19 +2,38 @@
   "id": "jellyseerr",
   "name": "Jellyseerr",
   "version": "latest",
-  "category": "Multimédia",
-  "tagline": "Gestionnaire de demandes de films et séries pour Jellyfin",
-  "description": "Permet aux utilisateurs de votre NAS de demander de nouveaux contenus vidéo avec découverte interactive, bandes-annonces et synchronisation Jellyfin.",
-  "website": "https://github.com/Fallenbagel/jellyseerr",
-  "icon": "https://raw.githubusercontent.com/Chomiam/steveos_nas_store/main/apps/jellyseerr/icon.svg",
+  "category": "Outils & Utilitaires",
+  "tagline": "Jellyseer is a free and open source software application for managing requests for your media library",
+  "description": "Jellyseer is a free and open source software application for managing requests for your media library.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/jellyseerr.png",
   "default_port": 5055,
+  "extra_ports": [],
   "recommended": true,
+  "type": "compose",
+  "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "/home/{USER}/docker/jellyseerr/config",
+      "host": "./data/Jellyseerr",
       "container": "/app/config",
-      "description": "Configuration et base de données"
+      "description": "Dossier /app/config"
     }
   ],
-  "nix_file": "jellyseerr.nix"
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    }
+  ]
 }

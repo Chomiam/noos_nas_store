@@ -1,0 +1,14 @@
+services:
+  reactive-resume:
+    container_name: reactive-resume
+    image: amruthpillai/reactive-resume:latest
+    restart: unless-stopped
+    ports:
+    - 80/tcp
+    volumes:
+    - ./data/ReactiveResume:/usr/src/app
+    environment:
+    - PUID=1000
+    - PGID=100
+    - TZ=Europe/Paris
+    - UMASK=002

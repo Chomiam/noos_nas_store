@@ -1,0 +1,29 @@
+{
+  "id": "marreta",
+  "name": "Marreta",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Marreta is a tool that breaks down access barriers and elements that hinder reading!",
+  "description": "Marreta is a tool that breaks down access barriers and elements that hinder reading!",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/marreta.png",
+  "default_port": 1180,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

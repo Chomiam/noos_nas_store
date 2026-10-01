@@ -1,0 +1,111 @@
+{
+  "id": "swag",
+  "name": "Swag",
+  "version": "latest",
+  "category": "Sécurité & Réseau",
+  "tagline": "SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt™) sets up an Nginx we",
+  "description": "SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt™) sets up an Nginx webserver and reverse proxy with php support and a built-in certbot client that automates free SSL server certificate generation and renewal processes (Let's Encrypt and ZeroSSL). It also contains fail2ban for intrusion prevention.",
+  "website": "",
+  "icon": "https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/swag.gif",
+  "default_port": 443,
+  "extra_ports": [
+    80
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "URL",
+      "label": "URL",
+      "default": "example.com"
+    },
+    {
+      "name": "VALIDATION",
+      "label": "VALIDATION",
+      "default": "http"
+    },
+    {
+      "name": "SUBDOMAINS",
+      "label": "SUBDOMAINS",
+      "default": "www,"
+    },
+    {
+      "name": "CERTPROVIDER",
+      "label": "CERTPROVIDER",
+      "default": ""
+    },
+    {
+      "name": "CERT_PROFILE",
+      "label": "CERT_PROFILE",
+      "default": ""
+    },
+    {
+      "name": "DNSPLUGIN",
+      "label": "DNSPLUGIN",
+      "default": "cloudflare"
+    },
+    {
+      "name": "PROPAGATION",
+      "label": "PROPAGATION",
+      "default": ""
+    },
+    {
+      "name": "EMAIL",
+      "label": "EMAIL",
+      "default": ""
+    },
+    {
+      "name": "ONLY_SUBDOMAINS",
+      "label": "ONLY_SUBDOMAINS",
+      "default": "false"
+    },
+    {
+      "name": "EXTRA_DOMAINS",
+      "label": "EXTRA_DOMAINS",
+      "default": ""
+    },
+    {
+      "name": "STAGING",
+      "label": "STAGING",
+      "default": "false"
+    },
+    {
+      "name": "DISABLE_F2B",
+      "label": "DISABLE_F2B",
+      "default": ""
+    },
+    {
+      "name": "SWAG_AUTORELOAD",
+      "label": "SWAG_AUTORELOAD",
+      "default": ""
+    },
+    {
+      "name": "SWAG_AUTORELOAD_WATCHLIST",
+      "label": "SWAG_AUTORELOAD_WATCHLIST",
+      "default": ""
+    }
+  ]
+}

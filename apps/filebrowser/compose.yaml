@@ -1,0 +1,16 @@
+services:
+  filebrowser:
+    container_name: filebrowser
+    image: filebrowser/filebrowser:s6
+    restart: unless-stopped
+    ports:
+    - 8082:80/tcp
+    volumes:
+    - ./data/Downloads:/srv
+    - ./data/filebrowser/filebrowser.db:/database/filebrowser.db
+    - ./data/filebrowser/settings.json:/config/settings.json
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Europe/Paris
+    - UMASK=002

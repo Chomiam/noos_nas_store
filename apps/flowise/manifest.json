@@ -1,0 +1,29 @@
+{
+  "id": "flowise",
+  "name": "Flowise",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "Flowise - the visual builder for LLM apps: drag-and-drop chatflows and agentflows over 100+ integrations (models, vector",
+  "description": "Flowise - the visual builder for LLM apps: drag-and-drop chatflows and agentflows over 100+ integrations (models, vector stores, tools), with APIs and embeddable chat widgets. One app container + a managed Postgres.",
+  "website": "",
+  "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/flowise.png",
+  "default_port": 5000,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data",
+      "container": "/data",
+      "description": "Données de la stack"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    }
+  ]
+}

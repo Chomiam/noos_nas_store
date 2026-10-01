@@ -1,0 +1,89 @@
+{
+  "id": "lychee",
+  "name": "Lychee",
+  "version": "latest",
+  "category": "Multimédia",
+  "tagline": "[Lychee](https://lycheeorg",
+  "description": "[Lychee](https://lycheeorg.github.io/) is a free photo-management tool, which runs on your server or web-space. Installing is a matter of seconds. Upload, manage and share photos like from a native application. Lychee comes with everything you need and all your photos are stored securely.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/lychee-icon.png",
+  "default_port": 80,
+  "extra_ports": [],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    },
+    {
+      "host": "./data/pictures",
+      "container": "/pictures",
+      "description": "Dossier /pictures"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "DB_CONNECTION",
+      "label": "DB_CONNECTION",
+      "default": ""
+    },
+    {
+      "name": "DB_HOST",
+      "label": "DB_HOST",
+      "default": ""
+    },
+    {
+      "name": "DB_PORT",
+      "label": "DB_PORT",
+      "default": ""
+    },
+    {
+      "name": "DB_USERNAME",
+      "label": "DB_USERNAME",
+      "default": ""
+    },
+    {
+      "name": "DB_PASSWORD",
+      "label": "DB_PASSWORD",
+      "default": ""
+    },
+    {
+      "name": "DB_DATABASE",
+      "label": "DB_DATABASE",
+      "default": ""
+    },
+    {
+      "name": "APP_NAME",
+      "label": "APP_NAME",
+      "default": "Lychee"
+    },
+    {
+      "name": "APP_URL",
+      "label": "APP_URL",
+      "default": ""
+    },
+    {
+      "name": "TRUSTED_PROXIES",
+      "label": "TRUSTED_PROXIES",
+      "default": ""
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "helium",
+  "name": "Helium",
+  "version": "latest",
+  "category": "Outils & Utilitaires",
+  "tagline": "[Helium](https://helium",
+  "description": "[Helium](https://helium.computer/) is a Chromium-based web browser made for people, with love. Privacy-first with unbiased ad-blocking.",
+  "website": "",
+  "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/helium-logo.png",
+  "default_port": 3000,
+  "extra_ports": [
+    3001
+  ],
+  "recommended": false,
+  "type": "compose",
+  "compose_file": "compose.yaml",
+  "volumes": [
+    {
+      "host": "./data/config",
+      "container": "/config",
+      "description": "Dossier /config"
+    }
+  ],
+  "env": [
+    {
+      "name": "TZ",
+      "label": "Fuseau horaire",
+      "default": "Europe/Paris"
+    },
+    {
+      "name": "PUID",
+      "label": "User ID",
+      "default": "1000"
+    },
+    {
+      "name": "PGID",
+      "label": "Group ID",
+      "default": "100"
+    },
+    {
+      "name": "HELIUM_CLI",
+      "label": "HELIUM_CLI",
+      "default": "https://www.linuxserver.io/"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+services:
+  flexget:
+    container_name: flexget
+    image: linuxserver/flexget:latest
+    restart: unless-stopped
+    ports:
+    - 5050:5050/tcp
+    volumes:
+    - ./data/config:/config
+    - ./data/data:/data
+    environment:
+    - PUID=1000
+    - PGID=1000
+    - TZ=Etc/UTC
+    - UMASK=002
+    - FG_LOG_LEVEL=info
+    - FG_LOG_FILE=/config/flexget.log
+    - FG_CONFIG_FILE=/config/.flexget/config.yml
+    - FG_WEBUI_PASSWORD=info
