@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "updated_at": "2026-10-01T02:00:00Z",
   "repository": "https://github.com/Chomiam/steveos_nas_store",
-  "total_apps": 722,
+  "total_apps": 640,
   "categories": [
     "Tous",
     "Administration & Monitoring",
@@ -2972,35 +2972,6 @@
       ]
     },
     {
-      "id": "asciinema",
-      "name": "Asciinema {shmolf}",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Self-hosted terminal recording and playback",
-      "description": "Self-hosted terminal recording and playback",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/shmolf/portainer-templates/main/assets/logos/asciinema.svg",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "atrium",
       "name": "Atrium",
       "version": "latest",
@@ -3257,35 +3228,6 @@
       ]
     },
     {
-      "id": "authentik",
-      "name": "Authentik",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Authentik is an open-source Identity Provider focused on flexibility and versatility",
-      "description": "Authentik is an open-source Identity Provider focused on flexibility and versatility",
-      "website": "",
-      "icon": "https://d33wubrfki0l68.cloudfront.net/228cc7243c167d0ad9f9adf2129d69b787129ccb/73d36/img/icon_left_brand.svg",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "autobrr",
       "name": "Autobrr",
       "version": "latest",
@@ -3356,35 +3298,6 @@
       ]
     },
     {
-      "id": "azp-agent",
-      "name": "Azure Pipelines Agent",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "A self-hosted Azure Pipelines agent (Azure DevOps), built from Microsoft's official Dockerfile recipe - the agent ships ",
-      "description": "A self-hosted Azure Pipelines agent (Azure DevOps), built from Microsoft's official Dockerfile recipe - the agent ships no container image, this is the documented path.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/azp-agent.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "babybuddy",
       "name": "Babybuddy",
       "version": "latest",
@@ -3425,35 +3338,6 @@
           "name": "CSRF_TRUSTED_ORIGINS",
           "label": "CSRF_TRUSTED_ORIGINS",
           "default": "http://127.0.0.1:8000,https://babybuddy.domain.com"
-        }
-      ]
-    },
-    {
-      "id": "bagisto",
-      "name": "Bagisto",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Bagisto - the open-source Laravel ecommerce platform: catalog, cart, checkout, multi-channel and multi-currency storefro",
-      "description": "Bagisto - the open-source Laravel ecommerce platform: catalog, cart, checkout, multi-channel and multi-currency storefronts, and a full admin. MIT-licensed.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/bagisto.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -3697,45 +3581,6 @@
       ]
     },
     {
-      "id": "bitwardenrs",
-      "name": "Bitwarden RS",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for s",
-      "description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/mikestraney/portainer-templates/master/Images/bitwarden.png",
-      "default_port": 80,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/Bitwarden-rs",
-          "container": "/config",
-          "description": "Dossier /config"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        }
-      ]
-    },
-    {
       "id": "blade-of-agony",
       "name": "Blade-of-agony",
       "version": "latest",
@@ -3814,35 +3659,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "blinko",
-      "name": "Blinko",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "Blinko is an innovative open-source project designed for individuals who want to quickly capture and organize their flee",
-      "description": "Blinko is an innovative open-source project designed for individuals who want to quickly capture and organize their fleeting thoughts. Blinko allows users to seamlessly jot down ideas the moment they strike, ensuring that no spark of creativity is lost.",
-      "website": "",
-      "icon": "https://blinko-demo.vercel.app/logo-light.png",
-      "default_port": 1111,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -4162,35 +3978,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "budibase",
-      "name": "Budibase",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "Budibase allows no-code users to build apps quickly, with more functionality available with a little bit of inline code",
-      "description": "Budibase allows no-code users to build apps quickly, with more functionality available with a little bit of inline code.",
-      "website": "",
-      "icon": "https://files.readme.io/593b386-budibase-logo-website.svg",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -4947,35 +4734,6 @@
       ]
     },
     {
-      "id": "chiefonboarding",
-      "name": "Chiefonboarding",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "ChiefOnboarding is a free and open source employee onboarding platform",
-      "description": "ChiefOnboarding is a free and open source employee onboarding platform. You can onboarding new hires through Slack or the dashboard.",
-      "website": "",
-      "icon": "https://chiefonboarding.com/wp-content/uploads/2022/07/ChiefOnBoarding-768x138.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "chowdown",
       "name": "Chowdown",
       "version": "latest",
@@ -5651,35 +5409,6 @@
       ]
     },
     {
-      "id": "codex",
-      "name": "Codex",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Codex is a web server comic book browser and reader",
-      "description": "Codex is a web server comic book browser and reader.",
-      "website": "",
-      "icon": "https://github.com/ajslater/codex/raw/main/codex/static_src/img/logo.svg",
-      "default_port": 9810,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "codiad",
       "name": "Codiad",
       "version": "latest",
@@ -6076,45 +5805,6 @@
           "name": "TZ",
           "label": "Fuseau horaire",
           "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "cryptofolio",
-      "name": "Cryptofolio",
-      "version": "latest",
-      "category": "Administration & Monitoring",
-      "tagline": "Cryptofolio is an open-source, and self-hosted solution for tracking your cryptocurrency holdings",
-      "description": "Cryptofolio is an open-source, and self-hosted solution for tracking your cryptocurrency holdings. It features a web interface, an Android mobile app, and a cross-platform desktop application for Windows, macOS, and Linux.",
-      "website": "",
-      "icon": "https://i.imgur.com/5v8lzea.png",
-      "default_port": 7280,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/config",
-          "container": "/config",
-          "description": "Données et configuration"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
         }
       ]
     },
@@ -6837,35 +6527,6 @@
       ]
     },
     {
-      "id": "dify",
-      "name": "Dify",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Dify - the LLM application platform: a visual builder for chatbots, agents, and workflows, with built-in RAG, model mana",
-      "description": "Dify - the LLM application platform: a visual builder for chatbots, agents, and workflows, with built-in RAG, model management, and observability.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/dify.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "digikam",
       "name": "Digikam",
       "version": "latest",
@@ -7048,35 +6709,6 @@
       ]
     },
     {
-      "id": "docker-registry",
-      "name": "Docker Registry",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Your own private container registry - the CNCF Distribution registry (the same engine behind Docker Hub) - with https, b",
-      "description": "Your own private container registry - the CNCF Distribution registry (the same engine behind Docker Hub) - with https, basic-auth, and image storage on a Miget Bucket so the service itself holds no state. Listens natively on port 5000.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/docker.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "dockge",
       "name": "Dockge",
       "version": "latest",
@@ -7199,35 +6831,6 @@
       "website": "",
       "icon": "https://avatars.githubusercontent.com/u/172325533",
       "default_port": 3000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "documenso",
-      "name": "Documenso",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Documenso - the open-source DocuSign alternative: signing workflows, templates, teams, and an API, with real PKCS#12 doc",
-      "description": "Documenso - the open-source DocuSign alternative: signing workflows, templates, teams, and an API, with real PKCS#12 document sealing. One app container + a managed Postgres; no volumes (the signing cert rides env as base64).",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/documenso.png",
-      "default_port": 5000,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -7801,37 +7404,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "drawio",
-      "name": "Draw.io",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "draw",
-      "description": "draw.io (formerly Diagramly) is free online diagram software. You can use it as a flowchart maker, network diagram software, to create UML online, as an ER diagram tool, to design database schema, to build BPMN online, as a circuit diagram maker, and more. draw.io can import .vsdx, Gliffy™ and Lucidchart™ files.",
-      "website": "",
-      "icon": "https://appedreview.com/app/wp-content/uploads/2016/10/Screen-Shot-2016-10-18-at-8.28.57-AM-768x766.png",
-      "default_port": 28181,
-      "extra_ports": [
-        28443
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -8459,35 +8031,6 @@
       ]
     },
     {
-      "id": "excalidraw",
-      "name": "Excalidraw",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "Virtual whiteboard for sketching hand-drawn like diagrams",
-      "description": "Virtual whiteboard for sketching hand-drawn like diagrams. Collaborative and end-to-end encrypted.",
-      "website": "",
-      "icon": "https://github.com/excalidraw/excalidraw/raw/master/public/og-image-sm.png",
-      "default_port": 3111,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "factorio",
       "name": "Factorio Server",
       "version": "latest",
@@ -8513,140 +8056,6 @@
           "name": "TZ",
           "label": "Fuseau horaire",
           "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "fail2ban",
-      "name": "Fail2ban",
-      "version": "latest",
-      "category": "Sécurité & Réseau",
-      "tagline": "[Fail2ban](http://www",
-      "description": "[Fail2ban](http://www.fail2ban.org/) is a daemon to ban hosts that cause multiple authentication errors.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/fail2ban-logo.png",
-      "default_port": 80,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/config",
-          "container": "/config",
-          "description": "Dossier /config"
-        },
-        {
-          "host": "./data/log:ro",
-          "container": "/var/log:ro",
-          "description": "Dossier /var/log:ro"
-        },
-        {
-          "host": "./data/airsonic:ro",
-          "container": "/remotelogs/airsonic:ro",
-          "description": "Dossier /remotelogs/airsonic:ro"
-        },
-        {
-          "host": "./data/apache2:ro",
-          "container": "/remotelogs/apache2:ro",
-          "description": "Dossier /remotelogs/apache2:ro"
-        },
-        {
-          "host": "./data/authelia:ro",
-          "container": "/remotelogs/authelia:ro",
-          "description": "Dossier /remotelogs/authelia:ro"
-        },
-        {
-          "host": "./data/emby:ro",
-          "container": "/remotelogs/emby:ro",
-          "description": "Dossier /remotelogs/emby:ro"
-        },
-        {
-          "host": "./data/filebrowser:ro",
-          "container": "/remotelogs/filebrowser:ro",
-          "description": "Dossier /remotelogs/filebrowser:ro"
-        },
-        {
-          "host": "./data/homeassistant:ro",
-          "container": "/remotelogs/homeassistant:ro",
-          "description": "Dossier /remotelogs/homeassistant:ro"
-        },
-        {
-          "host": "./data/lighttpd:ro",
-          "container": "/remotelogs/lighttpd:ro",
-          "description": "Dossier /remotelogs/lighttpd:ro"
-        },
-        {
-          "host": "./data/nextcloud:ro",
-          "container": "/remotelogs/nextcloud:ro",
-          "description": "Dossier /remotelogs/nextcloud:ro"
-        },
-        {
-          "host": "./data/nginx:ro",
-          "container": "/remotelogs/nginx:ro",
-          "description": "Dossier /remotelogs/nginx:ro"
-        },
-        {
-          "host": "./data/nzbget:ro",
-          "container": "/remotelogs/nzbget:ro",
-          "description": "Dossier /remotelogs/nzbget:ro"
-        },
-        {
-          "host": "./data/overseerr:ro",
-          "container": "/remotelogs/overseerr:ro",
-          "description": "Dossier /remotelogs/overseerr:ro"
-        },
-        {
-          "host": "./data/prowlarr:ro",
-          "container": "/remotelogs/prowlarr:ro",
-          "description": "Dossier /remotelogs/prowlarr:ro"
-        },
-        {
-          "host": "./data/radarr:ro",
-          "container": "/remotelogs/radarr:ro",
-          "description": "Dossier /remotelogs/radarr:ro"
-        },
-        {
-          "host": "./data/sabnzbd:ro",
-          "container": "/remotelogs/sabnzbd:ro",
-          "description": "Dossier /remotelogs/sabnzbd:ro"
-        },
-        {
-          "host": "./data/sonarr:ro",
-          "container": "/remotelogs/sonarr:ro",
-          "description": "Dossier /remotelogs/sonarr:ro"
-        },
-        {
-          "host": "./data/unificontroller:ro",
-          "container": "/remotelogs/unificontroller:ro",
-          "description": "Dossier /remotelogs/unificontroller:ro"
-        },
-        {
-          "host": "./data/vaultwarden:ro",
-          "container": "/remotelogs/vaultwarden:ro",
-          "description": "Dossier /remotelogs/vaultwarden:ro"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "VERBOSITY",
-          "label": "VERBOSITY",
-          "default": "-vv"
         }
       ]
     },
@@ -8784,35 +8193,6 @@
       "website": "",
       "icon": "https://user-images.githubusercontent.com/958400/154829266-62206846-c6ef-4718-9910-2b83eb6aa41c.png",
       "default_port": 3003,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "ferdi-server",
-      "name": "Ferdi Server",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Ferdi is a messaging browser that allows you to combine your favourite messaging services into one application",
-      "description": "Ferdi is a messaging browser that allows you to combine your favourite messaging services into one application",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/getferdi/server/master/logo.png",
-      "default_port": 3333,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -8995,35 +8375,6 @@
       "website": "",
       "icon": "https://raw.githubusercontent.com/kern/filepizza/master/src/static/images/wordmark.png",
       "default_port": 3333,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "filerun",
-      "name": "Filerun",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "access your files anywhere through self-hosted secure cloud storage, file backup and sharing for your photos, videos, fi",
-      "description": "access your files anywhere through self-hosted secure cloud storage, file backup and sharing for your photos, videos, files and more.",
-      "website": "",
-      "icon": "https://mediadepot.github.io/templates/img/filerun-logo.png",
-      "default_port": 80,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -9409,37 +8760,6 @@
       ]
     },
     {
-      "id": "flood",
-      "name": "Flood",
-      "version": "latest",
-      "category": "Téléchargement",
-      "tagline": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support",
-      "description": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support.",
-      "website": "",
-      "icon": "https://hotio.dev/img/image-logos/flood.svg",
-      "default_port": 8282,
-      "extra_ports": [
-        3223
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "flowise",
       "name": "Flowise",
       "version": "latest",
@@ -9690,35 +9010,6 @@
       ]
     },
     {
-      "id": "forgejo-runner",
-      "name": "Forgejo Runner",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "A Forgejo Actions runner in `host` mode - CI for your self-hosted Forgejo or for Codeberg, with jobs running as shell st",
-      "description": "A Forgejo Actions runner in `host` mode - CI for your self-hosted Forgejo or for Codeberg, with jobs running as shell steps in this container (no Docker daemon needed). GitHub-Actions-compatible workflow syntax.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/forgejo.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "foundryvtt",
       "name": "FoundryVTT Server",
       "version": "latest",
@@ -9916,39 +9207,6 @@
       ]
     },
     {
-      "id": "frigatenvr",
-      "name": "Frigate NVR",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "A complete and local NVR designed for Home Assistant with AI object detection",
-      "description": "A complete and local NVR designed for Home Assistant with AI object detection. Uses OpenCV and Tensorflow to perform realtime object detection locally for IP cameras.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/blakeblackshear/frigate/master/docs/static/img/frigate.png",
-      "default_port": 1935,
-      "extra_ports": [
-        5000,
-        5001,
-        8080
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "funkwhale",
       "name": "Funkwhale",
       "version": "latest",
@@ -10118,66 +9376,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "garage",
-      "name": "Garage",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Garage - the S3-compatible object store the self-hosting community moved to after MinIO archived its open source in 2026",
-      "description": "Garage - the S3-compatible object store the self-hosting community moved to after MinIO archived its open source in 2026: a single static Rust binary, AGPL, actively released, designed for exactly this job.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/garage.png",
-      "default_port": 3900,
-      "extra_ports": [
-        3903
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "gathio",
-      "name": "Gathio",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Gathio is a simple, federated, privacy-first event hosting platform",
-      "description": "Gathio is a simple, federated, privacy-first event hosting platform.",
-      "website": "",
-      "icon": "https://gath.io/og-image.jpg",
-      "default_port": 3022,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -10581,35 +9779,6 @@
       ]
     },
     {
-      "id": "gitlab-runner",
-      "name": "GitLab Runner",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "A self-hosted GitLab Runner in shell mode: jobs run inside this container, your own compute, no CI-minute quota",
-      "description": "A self-hosted GitLab Runner in shell mode: jobs run inside this container, your own compute, no CI-minute quota. Registers itself on first boot and persists registration on a volume.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/gitlab.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "gitqlient",
       "name": "Gitqlient",
       "version": "latest",
@@ -10783,64 +9952,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "gocostweb",
-      "name": "GoCostWeb",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "Golang-based web application for personal expense management, focused on a clean monthly workflow and intuitive tracking",
-      "description": "Golang-based web application for personal expense management, focused on a clean monthly workflow and intuitive tracking of recurring and non-recurring costs.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/gocostweb.png",
-      "default_port": 4000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "gokapi",
-      "name": "Gokapi",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Gokapi is a lightweight server to share files, which expire after a set amount of downloads or days",
-      "description": "Gokapi is a lightweight server to share files, which expire after a set amount of downloads or days. It is similar to the discontinued Firefox Send, with the difference that only the admin is allowed to upload files",
-      "website": "",
-      "icon": "https://noted.lol/content/images/2023/02/gokapi-self-hosted-main.png",
-      "default_port": 53842,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -11030,35 +10141,6 @@
       "website": "",
       "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Grafana_logo.svg/1200px-Grafana_logo.svg.png",
       "default_port": 3000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "grafana-stack",
-      "name": "Grafana Stack",
-      "version": "latest",
-      "category": "Administration & Monitoring",
-      "tagline": "Grafana + Prometheus + Loki - dashboards, metrics, and logs for everything in your project, at a flat price instead of p",
-      "description": "Grafana + Prometheus + Loki - dashboards, metrics, and logs for everything in your project, at a flat price instead of per-host or per-GB-ingested SaaS pricing.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/grafana.png",
-      "default_port": 5000,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -12592,35 +11674,6 @@
       ]
     },
     {
-      "id": "infisical",
-      "name": "Infisical",
-      "version": "latest",
-      "category": "Sécurité & Réseau",
-      "tagline": "Infisical - the open-source secrets manager: projects with environments, secret versioning, references, dynamic secrets,",
-      "description": "Infisical - the open-source secrets manager: projects with environments, secret versioning, references, dynamic secrets, and first-class integrations (Kubernetes operator, CI runners, Terraform, SDKs).",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/infisical.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "influxdb2",
       "name": "Influxdb",
       "version": "latest",
@@ -12830,35 +11883,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "invidious",
-      "name": "Invidious",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "Invidious is an open source alternative front-end to YouTube",
-      "description": "Invidious is an open source alternative front-end to YouTube.",
-      "website": "",
-      "icon": "https://invidious.io/invidious-colored-vector.svg",
-      "default_port": 3333,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -13537,35 +12561,6 @@
       ]
     },
     {
-      "id": "karakeep",
-      "name": "Karakeep",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "Karakeep (formerly Hoarder) - a self-hosted \"bookmark everything\" app: save links, notes, and images, and it automatical",
-      "description": "Karakeep (formerly Hoarder) - a self-hosted \"bookmark everything\" app: save links, notes, and images, and it automatically crawls and archives the page (so your links never rot), takes a screenshot, full-text indexes everything, and can",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/karakeep.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "kasm",
       "name": "Kasm",
       "version": "latest",
@@ -13830,35 +12825,6 @@
       ]
     },
     {
-      "id": "keycloak",
-      "name": "Keycloak",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Keycloak, identity & access management (OIDC, SAML, social login, user federation) backed by a managed Postgres",
-      "description": "Keycloak, identity & access management (OIDC, SAML, social login, user federation) backed by a managed Postgres.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/keycloak.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "kicad",
       "name": "Kicad",
       "version": "latest",
@@ -14048,47 +13014,6 @@
       ]
     },
     {
-      "id": "kodi-headless",
-      "name": "Kodi Headless",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "Headless installation of Kodi™ (formerly known as XBMC™), to enable library updates",
-      "description": "Headless installation of Kodi™ (formerly known as XBMC™), to enable library updates.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/kodi-icon.png",
-      "default_port": 8080,
-      "extra_ports": [
-        9777
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/Kodi",
-          "container": "/config",
-          "description": "Dossier /config"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        }
-      ]
-    },
-    {
       "id": "koillection",
       "name": "Koillection",
       "version": "latest",
@@ -14231,38 +13156,6 @@
       ]
     },
     {
-      "id": "kong",
-      "name": "Kong Gateway",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "DB-backed Kong Gateway (OSS) in front of your project's apps, deployable locally with plain Docker Compose or to Miget a",
-      "description": "DB-backed Kong Gateway (OSS) in front of your project's apps, deployable locally with plain Docker Compose or to Miget as a compose stack.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/kong.png",
-      "default_port": 5000,
-      "extra_ports": [
-        8001,
-        8002
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "krita",
       "name": "Krita",
       "version": "latest",
@@ -14383,37 +13276,6 @@
           "name": "DOCKER_MODS",
           "label": "DOCKER_MODS",
           "default": "linuxserver/mods:universal-calibre|linuxserver/mods:lazylibrarian-ffmpeg"
-        }
-      ]
-    },
-    {
-      "id": "lazytainer",
-      "name": "Lazytainer",
-      "version": "latest",
-      "category": "Administration & Monitoring",
-      "tagline": "Lazytainer monitors network traffic to containers",
-      "description": "Lazytainer monitors network traffic to containers. If there is traffic, the container runs, otherwise the container is stopped/paused.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/lazytainer.png",
-      "default_port": 81,
-      "extra_ports": [
-        82
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -15237,66 +14099,6 @@
       ]
     },
     {
-      "id": "litmus-edge",
-      "name": "Litmus Edge",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Litmus Edge is an edge data platform that enables industrial AI at scale",
-      "description": "Litmus Edge is an edge data platform that enables industrial AI at scale. It connects, processes, and analyzes real-time OT data at the edge to power smart manufacturing.",
-      "website": "",
-      "icon": "https://www.gravatar.com/avatar/3c545a4e847eb960bfc9bf5bf877c979?s=120&r=g&d=404",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "litmus-edge-digital-factory-demo",
-      "name": "Litmus Edge Digital Factory Demo",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Demo System for Litmus Edge",
-      "description": "Demo System for Litmus Edge. Litmus Edge is an edge data platform that enables industrial AI at scale. It connects, processes, and analyzes real-time OT data at the edge to power smart manufacturing. Note: Requires 5GB Disk Space / 3GB RAM available on the Host for deployment to succeed.",
-      "website": "",
-      "icon": "https://www.gravatar.com/avatar/3c545a4e847eb960bfc9bf5bf877c979?s=120&r=g&d=404",
-      "default_port": 8443,
-      "extra_ports": [
-        8086
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "littlelink-server",
       "name": "Littlelink Server",
       "version": "latest",
@@ -15339,35 +14141,6 @@
         7881,
         7882
       ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "livekit-agents",
-      "name": "LiveKit Agents",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "A voice AI agent worker on the LiveKit Agents framework: it joins LiveKit rooms and converses - Deepgram for ears, Eleve",
-      "description": "A voice AI agent worker on the LiveKit Agents framework: it joins LiveKit rooms and converses - Deepgram for ears, ElevenLabs for voice, any OpenAI-compatible LLM for the brain (the catalogue's `litellm` gateway slots in via",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/livekit-agents.png",
-      "default_port": 8080,
-      "extra_ports": [],
       "recommended": false,
       "type": "compose",
       "compose_file": "compose.yaml",
@@ -15546,37 +14319,6 @@
       ]
     },
     {
-      "id": "logto",
-      "name": "Logto",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Logto - the open-source Auth0 experience: pre-built hosted sign-in pages, OIDC/OAuth, social logins, organizations, MFA,",
-      "description": "Logto - the open-source Auth0 experience: pre-built hosted sign-in pages, OIDC/OAuth, social logins, organizations, MFA, and clean SDKs for every framework. MPL-2.0, one container + a managed Postgres.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/logto.png",
-      "default_port": 5000,
-      "extra_ports": [
-        3002
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "logzio-logs-collector",
       "name": "Logzio Logs Collector",
       "version": "latest",
@@ -15627,70 +14369,6 @@
           "name": "LOGZIO_URL",
           "label": "LOGZIO_URL",
           "default": "listener.logz.io:5015"
-        }
-      ]
-    },
-    {
-      "id": "logzio-metrics-collector",
-      "name": "Logzio Metrics Collector",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Docker Metrics Collector is a container that runs Metricbeat with the modules you enable at runtime",
-      "description": "Docker Metrics Collector is a container that runs Metricbeat with the modules you enable at runtime.",
-      "website": "",
-      "icon": "https://mediadepot.github.io/templates/img/logzio-icon.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "/var/run/docker.sock",
-          "container": "/var/run/docker.sock",
-          "description": "Dossier /var/run/docker.sock"
-        },
-        {
-          "host": "./data/cgroup",
-          "container": "/hostfs/sys/fs/cgroup",
-          "description": "Dossier /hostfs/sys/fs/cgroup"
-        },
-        {
-          "host": "./data/proc",
-          "container": "/hostfs/proc",
-          "description": "Dossier /hostfs/proc"
-        },
-        {
-          "host": "./data/config",
-          "container": "/hostfs",
-          "description": "Dossier /hostfs"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "LOGZIO_TOKEN",
-          "label": "LOGZIO_TOKEN",
-          "default": "REPLACE-LOGZIO-TOKEN-HERE"
-        },
-        {
-          "name": "LOGZIO_MODULES",
-          "label": "LOGZIO_MODULES",
-          "default": "system,docker"
         }
       ]
     },
@@ -15927,38 +14605,6 @@
       ]
     },
     {
-      "id": "maestrohub",
-      "name": "MaestroHub",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Industrial data orchestrator with a Unified Namespace, drag-and-drop pipelines, and 40+ protocol connectors",
-      "description": "Industrial data orchestrator with a Unified Namespace, drag-and-drop pipelines, and 40+ protocol connectors. Built-in MCP server brings AI agents into your operational data stack.",
-      "website": "",
-      "icon": "https://avatars.githubusercontent.com/u/219120420?s=400&u=699c593f7490c79736e08eec580fd9af40278576&v=4",
-      "default_port": 8080,
-      "extra_ports": [
-        1883,
-        8083
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "magento-2",
       "name": "Magento 2",
       "version": "latest",
@@ -16110,52 +14756,6 @@
       ]
     },
     {
-      "id": "mame",
-      "name": "Mame",
-      "version": "latest",
-      "category": "Jeux & Divertissement",
-      "tagline": "[MAME](https://www",
-      "description": "[MAME](https://www.mamedev.org/) is a free and open-source emulator designed to emulate the hardware of arcade games, video game consoles, old computers and other systems in software on modern personal computers.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mame-logo.png",
-      "default_port": 3000,
-      "extra_ports": [
-        3001
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/config",
-          "container": "/config",
-          "description": "Dossier /config"
-        },
-        {
-          "host": "./data/mame:ro",
-          "container": "/mame:ro",
-          "description": "Dossier /mame:ro"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        }
-      ]
-    },
-    {
       "id": "manubes-edge-node",
       "name": "Manubes Edge Node",
       "version": "latest",
@@ -16297,35 +14897,6 @@
       "website": "",
       "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/mariadb.png",
       "default_port": 3306,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "mariadb-galera",
-      "name": "MariaDB Galera",
-      "version": "latest",
-      "category": "Développement",
-      "tagline": "3-node MariaDB 11",
-      "description": "3-node MariaDB 11.8 LTS cluster with Galera synchronous multi-primary replication - every node accepts writes, any node can die. Runs the OFFICIAL mariadb image (the Galera library ships in it); clustering is pure command-line flags.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/mariadb.png",
-      "default_port": 8080,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -16801,35 +15372,6 @@
       ]
     },
     {
-      "id": "mayan",
-      "name": "Mayan EDMS",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Mayan EDMS is an electronic vault for your documents",
-      "description": "Mayan EDMS is an electronic vault for your documents.",
-      "website": "",
-      "icon": "https://mediadepot.github.io/templates/img/mayan-logo.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "mcmyadmin2",
       "name": "McMyAdmin 2",
       "version": "latest",
@@ -16986,35 +15528,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "meilisearch",
-      "name": "Meilisearch",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Meilisearch is a **RESTful search API**",
-      "description": "Meilisearch is a **RESTful search API**. It aims to be a **ready-to-go solution** for everyone who wants a **fast and relevant search experience** for their end-users",
-      "website": "",
-      "icon": "https://docs.meilisearch.com/logo.svg",
-      "default_port": 7700,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -17184,35 +15697,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "midarr",
-      "name": "Midarr",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "Your media enjoyed through a minimal lightweight media server",
-      "description": "Your media enjoyed through a minimal lightweight media server.",
-      "website": "",
-      "icon": "https://github.com/midarrlabs/midarr-server/raw/master/priv/static/logo.svg",
-      "default_port": 4000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -17874,60 +16358,6 @@
       ]
     },
     {
-      "id": "murmur",
-      "name": "Murmur",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Mumble is a voicechat program for gamers written on top of Qt and Opus",
-      "description": "Mumble is a voicechat program for gamers written on top of Qt and Opus. Murmur is the server backend for Mumble.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/Mumble-logo.png",
-      "default_port": 64738,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/localtime:ro",
-          "container": "/etc/localtime",
-          "description": "Dossier /etc/localtime"
-        },
-        {
-          "host": "./data/Murmur",
-          "container": "/opt/murmur/config",
-          "description": "Dossier /opt/murmur/config"
-        },
-        {
-          "host": "./data/data",
-          "container": "/opt/murmur/data",
-          "description": "Dossier /opt/murmur/data"
-        },
-        {
-          "host": "./data/log",
-          "container": "/opt/murmur/log",
-          "description": "Dossier /opt/murmur/log"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        }
-      ]
-    },
-    {
       "id": "musicbrainz",
       "name": "MusicBrainz",
       "version": "latest",
@@ -18164,35 +16594,6 @@
       "category": "Développement",
       "tagline": "MySQL 8",
       "description": "MySQL 8.4 LTS - the world's most popular open- source relational database, as a single self-hosted node. Configured entirely through the official image's environment variables, with data on a volume.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/mysql.png",
-      "default_port": 3306,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "mysql-innodb-cluster",
-      "name": "MySQL InnoDB Cluster",
-      "version": "latest",
-      "category": "Développement",
-      "tagline": "3-node high availability using MySQL Group Replication - the engine that MySQL InnoDB Cluster is built on",
-      "description": "3-node high availability using MySQL Group Replication - the engine that MySQL InnoDB Cluster is built on.",
       "website": "",
       "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/mysql.png",
       "default_port": 3306,
@@ -19497,35 +17898,6 @@
       ]
     },
     {
-      "id": "odoo",
-      "name": "Odoo (stack)",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Odoo Community 18 - the open-source business suite: CRM, sales, inventory, accounting, projects, manufacturing, website,",
-      "description": "Odoo Community 18 - the open-source business suite: CRM, sales, inventory, accounting, projects, manufacturing, website, and ecommerce, with a vast app store. LGPL-3 Community edition on a managed Postgres.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/odoo.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "ollama",
       "name": "Ollama",
       "version": "latest",
@@ -19683,67 +18055,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "opc-router",
-      "name": "OPC Router",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "No-code middleware for industrial applications The OPC Router connects PLCs, PCS, SCADA, MES, SQL databases and servers,",
-      "description": "No-code middleware for industrial applications The OPC Router connects PLCs, PCS, SCADA, MES, SQL databases and servers, label printers, e-mail servers and erp-systems via OPC UA, MQTT, REST, CSV and many others without any programming effort",
-      "website": "",
-      "icon": "https://store-images.s-microsoft.com/image/apps.45485.5f358ea4-e35f-478a-ab92-e85946891f86.b38fbf34-c2b9-4714-9d8a-1232c004df99.4469177b-aba0-4422-ad40-218ff1d967fb",
-      "default_port": 49420,
-      "extra_ports": [
-        8080,
-        8081
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "open-mercato",
-      "name": "Open Mercato",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Open Mercato - the MIT \"AI-engineering foundation framework\": multi-tenant CRM/ERP/commerce modules on Next",
-      "description": "Open Mercato - the MIT \"AI-engineering foundation framework\": multi-tenant CRM/ERP/commerce modules on Next.js with RBAC, dynamic entities, and an agent-ready repo layout (specs + skills checked in). Start business apps at \"80% done\".",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/open-mercato.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -20256,66 +18567,6 @@
       ]
     },
     {
-      "id": "ory-kratos-oathkeeper",
-      "name": "Ory Kratos (Oathkeeper)",
-      "version": "latest",
-      "category": "Sécurité & Réseau",
-      "tagline": "Ory Kratos with Oathkeeper (ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that auth",
-      "description": "Ory Kratos with Oathkeeper (ORY Oathkeeper is an Identity & Access Proxy (IAP) and Access Control Decision API that authorizes HTTP requests based on sets of Access Rules.)",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/ory/meta/master/static/banners/oathkeeper.svg",
-      "default_port": 4455,
-      "extra_ports": [
-        4456
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "ory-kratos",
-      "name": "Ory Kratos (Standalone)",
-      "version": "latest",
-      "category": "Sécurité & Réseau",
-      "tagline": "Ory Kratos with Oathkeeper is _the_ developer-friendly, security-hardened and battle-test Identity, User Management and ",
-      "description": "Ory Kratos with Oathkeeper is _the_ developer-friendly, security-hardened and battle-test Identity, User Management and Authentication system for the Cloud.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/ory/meta/master/static/banners/kratos.svg",
-      "default_port": 4455,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "oscam",
       "name": "Oscam",
       "version": "latest",
@@ -20365,37 +18616,6 @@
       "icon": "https://avatars.githubusercontent.com/u/1765001",
       "default_port": 3000,
       "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "owncast",
-      "name": "Owncast",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "Owncast - your own self-hosted live streaming server: a Twitch / YouTube Live alternative with a built-in web video play",
-      "description": "Owncast - your own self-hosted live streaming server: a Twitch / YouTube Live alternative with a built-in web video player, live chat, and federation.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/owncast.png",
-      "default_port": 5000,
-      "extra_ports": [
-        1935
-      ],
       "recommended": false,
       "type": "compose",
       "compose_file": "compose.yaml",
@@ -20479,35 +18699,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "parseable",
-      "name": "Parseable",
-      "version": "latest",
-      "category": "Administration & Monitoring",
-      "tagline": "Parseable - a single-binary log lake built for object storage: ingest logs over HTTP, store them as compressed Parquet o",
-      "description": "Parseable - a single-binary log lake built for object storage: ingest logs over HTTP, store them as compressed Parquet on S3, query with SQL. Rust, lean (runs in 512 MB), and S3-native by design - a natural fit for Miget Buckets.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/parseable.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -21505,35 +19696,6 @@
       ]
     },
     {
-      "id": "plane",
-      "name": "Plane",
-      "version": "latest",
-      "category": "Finance & Organisation",
-      "tagline": "Project management tool from the future",
-      "description": "Project management tool from the future. An open-source software development tool to manage issues, sprints, and product roadmaps with peace of mind.",
-      "website": "",
-      "icon": "https://plane-marketing.s3.ap-south-1.amazonaws.com/plane-assets/logo/text-logo.svg",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "planka",
       "name": "Planka (container)",
       "version": "latest",
@@ -21614,35 +19776,6 @@
           "name": "DEFAULT_LANGUAGE",
           "label": "DEFAULT_LANGUAGE",
           "default": "en-US"
-        }
-      ]
-    },
-    {
-      "id": "plausible",
-      "name": "Plausible",
-      "version": "latest",
-      "category": "Administration & Monitoring",
-      "tagline": "Plausible - privacy-friendly web analytics: a lightweight, cookie-free, open-source Google Analytics alternative",
-      "description": "Plausible - privacy-friendly web analytics: a lightweight, cookie-free, open-source Google Analytics alternative. A clean single-page dashboard, no personal data collection, no consent banner needed, and a script ~75x smaller than GA.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/plausible.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -22793,57 +20926,6 @@
       ]
     },
     {
-      "id": "qflood",
-      "name": "qFlood",
-      "version": "latest",
-      "category": "Téléchargement",
-      "tagline": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support",
-      "description": "A docker image with qBittorrent and the Flood UI, also optional WireGuard VPN support. See the official documentation for WireGuard VPN support at https://hotio.dev/containers/qflood/",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/jesec/flood/master/flood.svg",
-      "default_port": 3000,
-      "extra_ports": [
-        8080
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/qFlood",
-          "container": "/config",
-          "description": "Dossier /config"
-        },
-        {
-          "host": "./data/Downloads",
-          "container": "/app/qBittorrent/downloads",
-          "description": "Dossier /app/qBittorrent/downloads"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "FLOOD_AUTH",
-          "label": "FLOOD_AUTH",
-          "default": "false"
-        }
-      ]
-    },
-    {
       "id": "quassel-core",
       "name": "Quassel IRC",
       "version": "latest",
@@ -22920,39 +21002,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "rabbitmq",
-      "name": "RabbitMQ (stack)",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "3-node RabbitMQ 4",
-      "description": "3-node RabbitMQ 4.x cluster (quorum-queue ready), deployable locally with plain Docker Compose or to Miget as a compose stack.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/rabbitmq.png",
-      "default_port": 5000,
-      "extra_ports": [
-        5672,
-        4369,
-        25672
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -23315,93 +21364,6 @@
       ]
     },
     {
-      "id": "redis",
-      "name": "Redis (stack)",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Redis - the in-memory data store used for caching, queues, pub/sub, streams, rate-limiting, and rich data structures",
-      "description": "Redis - the in-memory data store used for caching, queues, pub/sub, streams, rate-limiting, and rich data structures. This is a single node, password-protected, with append-only persistence on a volume.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/redis.png",
-      "default_port": 6379,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "redis-cluster",
-      "name": "Redis Cluster (stack)",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Redis Cluster - horizontally-scaled Redis where the keyspace is partitioned across multiple master shards, each with a r",
-      "description": "Redis Cluster - horizontally-scaled Redis where the keyspace is partitioned across multiple master shards, each with a replica. This template runs 6 nodes (3 masters + 3 replicas) and a one-shot init that forms the cluster.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/redis.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "redis-sentinel",
-      "name": "Redis Sentinel",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Redis Sentinel - high availability for Redis with automatic failover",
-      "description": "Redis Sentinel - high availability for Redis with automatic failover. This template runs one master, two replicas, and three sentinels that watch the master and promote a replica if it goes down.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/redis.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "redmine",
       "name": "Redmine",
       "version": "latest",
@@ -23437,39 +21399,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "redpanda",
-      "name": "Redpanda",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "3-broker Redpanda cluster (Kafka-compatible, no ZooKeeper/JVM) with Redpanda Console, deployable locally with plain Dock",
-      "description": "3-broker Redpanda cluster (Kafka-compatible, no ZooKeeper/JVM) with Redpanda Console, deployable locally with plain Docker Compose or to Miget as a compose stack.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/redpanda.png",
-      "default_port": 9092,
-      "extra_ports": [
-        33145,
-        8081,
-        8082
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -23607,35 +21536,6 @@
       "website": "",
       "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/remotely.png",
       "default_port": 5009,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "replayhaven",
-      "name": "ReplayHaven",
-      "version": "latest",
-      "category": "Jeux & Divertissement",
-      "tagline": "Game clip archive: a Windows client names every clip with a local AI, this server keeps the originals and streams them t",
-      "description": "Game clip archive: a Windows client names every clip with a local AI, this server keeps the originals and streams them to your devices. Source: https://github.com/SauerExe/ReplayHaven",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/SauerExe/ReplayHaven/main/desktop/icon-source.png",
-      "default_port": 8080,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -23830,35 +21730,6 @@
       "website": "",
       "icon": "https://raw.githubusercontent.com/rommapp/romm/release/.github/resources/romm_complete.png",
       "default_port": 480,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "roundcube",
-      "name": "Roundcube",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Roundcube - the standard open-source webmail client: folders, search, contacts, filters, and a clean responsive skin",
-      "description": "Roundcube - the standard open-source webmail client: folders, search, contacts, filters, and a clean responsive skin.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/roundcube.png",
-      "default_port": 80,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -24222,126 +22093,6 @@
       ]
     },
     {
-      "id": "samba",
-      "name": "Samba",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Samba has provided secure, stable and fast file and print services for all clients using the SMB/CIFS protocol, such as ",
-      "description": "Samba has provided secure, stable and fast file and print services for all clients using the SMB/CIFS protocol, such as all versions of DOS and Windows, OS/2, Linux and many others.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/samba.png",
-      "default_port": 139,
-      "extra_ports": [
-        445
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/Downloads",
-          "container": "/share",
-          "description": "Dossier /share"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "USERID",
-          "label": "USERID",
-          "default": "1000"
-        },
-        {
-          "name": "GROUPID",
-          "label": "GROUPID",
-          "default": "1000"
-        },
-        {
-          "name": "USER",
-          "label": "USER",
-          "default": "guest;guest"
-        },
-        {
-          "name": "PERMISSIONS",
-          "label": "PERMISSIONS",
-          "default": "true"
-        },
-        {
-          "name": "SHARE",
-          "label": "SHARE",
-          "default": "portainer;/share;yes;no;yes;guest"
-        }
-      ]
-    },
-    {
-      "id": "scality-s3",
-      "name": "Scality S3",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Standalone AWS S3 protocol server",
-      "description": "Standalone AWS S3 protocol server",
-      "website": "",
-      "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/scality-s3.png",
-      "default_port": 8000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/usr_src_app_localData",
-          "container": "/usr/src/app/localData",
-          "description": "Dossier /usr/src/app/localData"
-        },
-        {
-          "host": "./data/usr_src_app_localMetadata",
-          "container": "/usr/src/app/localMetadata",
-          "description": "Dossier /usr/src/app/localMetadata"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "SCALITY_ACCESS_KEY",
-          "label": "Scality S3 access key",
-          "default": ""
-        },
-        {
-          "name": "SCALITY_SECRET_KEY",
-          "label": "Scality S3 secret key",
-          "default": ""
-        }
-      ]
-    },
-    {
       "id": "scrutiny",
       "name": "Scrutiny",
       "version": "latest",
@@ -24532,55 +22283,6 @@
       ]
     },
     {
-      "id": "sematext-agent",
-      "name": "Sematext Docker Agent (container)",
-      "version": "latest",
-      "category": "Administration & Monitoring",
-      "tagline": "Collect logs, metrics and docker events",
-      "description": "Collect logs, metrics and docker events",
-      "website": "",
-      "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/sematext_agent.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "/var/run/docker.sock",
-          "container": "/var/run/docker.sock",
-          "description": "Dossier /var/run/docker.sock"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "LOGSENE_TOKEN",
-          "label": "Logs token",
-          "default": ""
-        },
-        {
-          "name": "SPM_TOKEN",
-          "label": "SPM monitoring token",
-          "default": ""
-        }
-      ]
-    },
-    {
       "id": "sftpgo",
       "name": "SFTPGo",
       "version": "latest",
@@ -24621,35 +22323,6 @@
       "website": "",
       "icon": "https://github.com/shaarli/Shaarli/raw/master/doc/md/images/doc-logo.png",
       "default_port": 7755,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "shadowbroker",
-      "name": "Shadowbroker",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Global Threat Intercept — Real-Time Geospatial Intelligence Platform",
-      "description": "Global Threat Intercept — Real-Time Geospatial Intelligence Platform",
-      "website": "",
-      "icon": "https://avatars.githubusercontent.com/u/43977454?s=48&v=4",
-      "default_port": 8000,
       "extra_ports": [],
       "recommended": false,
       "type": "compose",
@@ -24897,60 +22570,6 @@
           "host": "./data/downloads",
           "container": "/downloads",
           "description": "Dossier /downloads"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "sickrage",
-      "name": "SickRage",
-      "version": "latest",
-      "category": "Téléchargement",
-      "tagline": "Automatic Video Library Manager for TV Shows",
-      "description": "Automatic Video Library Manager for TV Shows. It watches for new episodes of your favorite shows, and when they are posted it does its magic.",
-      "website": "",
-      "icon": "https://mediadepot.github.io/templates/img/sickrage-icon.png",
-      "default_port": 8081,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/apps/sickrage",
-          "container": "/config",
-          "description": "Dossier /config"
-        },
-        {
-          "host": "./data/tvshows",
-          "container": "/downloads",
-          "description": "Dossier /downloads"
-        },
-        {
-          "host": "./data/tvshows",
-          "container": "/tv",
-          "description": "Dossier /tv"
-        },
-        {
-          "host": "./data/tvshows",
-          "container": "/blackhole",
-          "description": "Dossier /blackhole"
         }
       ],
       "env": [
@@ -25848,122 +23467,6 @@
       ]
     },
     {
-      "id": "supabase",
-      "name": "Supabase",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "The full Supabase stack, Postgres (supabase image with extensions), Auth (GoTrue), REST (PostgREST), Realtime, Storage, ",
-      "description": "The full Supabase stack, Postgres (supabase image with extensions), Auth (GoTrue), REST (PostgREST), Realtime, Storage, postgres-meta, Studio, behind the Kong gateway, adapted from the official self-hosting compose.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/supabase.png",
-      "default_port": 3000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "supabase-lite",
-      "name": "Supabase Lite",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "The budget cut of the supabase template: Postgres, Auth (GoTrue) and REST (PostgREST) behind the Kong gateway - the four",
-      "description": "The budget cut of the supabase template: Postgres, Auth (GoTrue) and REST (PostgREST) behind the Kong gateway - the four services most Supabase apps actually use - plus the Studio dashboard. No Realtime, Storage, edge functions or pooler.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/supabase.png",
-      "default_port": 3000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "supabase-nano",
-      "name": "Supabase Nano",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "supabase-lite squeezed into a 1 GiB plan - the same six services (Postgres, Auth, REST, Kong, Studio, postgres-meta), me",
-      "description": "supabase-lite squeezed into a 1 GiB plan - the same six services (Postgres, Auth, REST, Kong, Studio, postgres-meta), memory- tuned until the whole stack, dashboard included, allocates exactly 1024 MiB.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/supabase.png",
-      "default_port": 3000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "supabase-pico",
-      "name": "Supabase Pico",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Supabase's API surface - Postgres, Auth (GoTrue) and REST (PostgREST) - in 512 MiB total",
-      "description": "Supabase's API surface - Postgres, Auth (GoTrue) and REST (PostgREST) - in 512 MiB total.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/supabase.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "superset",
       "name": "Superset",
       "version": "latest",
@@ -26645,35 +24148,6 @@
       ]
     },
     {
-      "id": "temporal",
-      "name": "Temporal",
-      "version": "latest",
-      "category": "Domotique & IoT",
-      "tagline": "Temporal - durable execution: write workflows as ordinary code and Temporal makes them crash-proof, with automatic retri",
-      "description": "Temporal - durable execution: write workflows as ordinary code and Temporal makes them crash-proof, with automatic retries, timers that survive restarts, and a complete event history.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/temporal.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
       "id": "terraria-server",
       "name": "Terraria Server {shmolf}",
       "version": "latest",
@@ -26891,45 +24365,6 @@
           "name": "TZ",
           "label": "Fuseau horaire",
           "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "tt-rss",
-      "name": "Tiny Tiny RSS",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Tiny Tiny RSS is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news",
-      "description": "Tiny Tiny RSS is an open source web-based news feed (RSS/Atom) reader and aggregator, designed to allow you to read news from any location, while feeling as close to a real desktop application as possible.",
-      "website": "",
-      "icon": "https://raw.githubusercontent.com/xneo1/portainer_templates/master/Images/tt-rss-icon.png",
-      "default_port": 80,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/tt-rss",
-          "container": "/config",
-          "description": "Dossier /config"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
         }
       ]
     },
@@ -27292,35 +24727,6 @@
           "name": "RUN_OPTS",
           "label": "RUN_OPTS",
           "default": ""
-        }
-      ]
-    },
-    {
-      "id": "twenty",
-      "name": "Twenty CRM",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Twenty - the open-source CRM rethought for this decade: a modern data model (any object, custom fields), pipelines, note",
-      "description": "Twenty - the open-source CRM rethought for this decade: a modern data model (any object, custom fields), pipelines, notes, tasks, email sync, and workflows.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/twenty-crm.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },
@@ -27963,50 +25369,6 @@
       ]
     },
     {
-      "id": "urlwatch",
-      "name": "UrlWatch",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "A tool for monitoring webpages for updates",
-      "description": "A tool for monitoring webpages for updates",
-      "website": "",
-      "icon": "https://mediadepot.github.io/templates/img/urlwatch.png",
-      "default_port": 8081,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/apps/urlwatch",
-          "container": "/srv/urlwatch/config",
-          "description": "Dossier /srv/urlwatch/config"
-        },
-        {
-          "host": "./data/localtime",
-          "container": "/etc/localtime",
-          "description": "Dossier /etc/localtime"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        }
-      ]
-    },
-    {
       "id": "usesend",
       "name": "useSend",
       "version": "latest",
@@ -28044,93 +25406,6 @@
       "description": "Valheim dedicated gameserver in Docker with full modding support. Source: https://github.com/lloesche/valheim-server-docker",
       "website": "",
       "icon": "https://avatars.githubusercontent.com/u/82116562",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "valkey",
-      "name": "Valkey",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Valkey - the BSD-licensed, Redis-compatible in-memory data store, forked and stewarded by the Linux Foundation after Red",
-      "description": "Valkey - the BSD-licensed, Redis-compatible in-memory data store, forked and stewarded by the Linux Foundation after Redis changed its license. Drop-in for Redis clients: caching, queues, pub/sub, streams, and data structures.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/valkey.png",
-      "default_port": 6379,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "valkey-cluster",
-      "name": "Valkey Cluster",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Horizontally-scaled Valkey where the keyspace is partitioned across multiple master shards, each with a replica - the sa",
-      "description": "Horizontally-scaled Valkey where the keyspace is partitioned across multiple master shards, each with a replica - the same design as Redis Cluster, BSD-licensed and Redis-protocol compatible.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/valkey.png",
-      "default_port": 8080,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        }
-      ]
-    },
-    {
-      "id": "valkey-sentinel",
-      "name": "Valkey Sentinel",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "High availability for Valkey with automatic failover, using Valkey's built-in Sentinel (the same design as Redis Sentine",
-      "description": "High availability for Valkey with automatic failover, using Valkey's built-in Sentinel (the same design as Redis Sentinel). One master, two replicas, and three sentinels that watch the master and promote a replica if it fails.",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/valkey.png",
       "default_port": 8080,
       "extra_ports": [],
       "recommended": false,
@@ -29249,59 +26524,6 @@
       ]
     },
     {
-      "id": "wowza",
-      "name": "Wowza",
-      "version": "latest",
-      "category": "Multimédia",
-      "tagline": "Streaming media server",
-      "description": "Streaming media server",
-      "website": "",
-      "icon": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/wowza.png",
-      "default_port": 1935,
-      "extra_ports": [
-        8086,
-        8087,
-        8088
-      ],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data/var_lib_wowza",
-          "container": "/var/lib/wowza",
-          "description": "Dossier /var/lib/wowza"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
-        },
-        {
-          "name": "PUID",
-          "label": "User ID",
-          "default": "1000"
-        },
-        {
-          "name": "PGID",
-          "label": "Group ID",
-          "default": "100"
-        },
-        {
-          "name": "WOWZA_ACCEPT_LICENSE",
-          "label": "Agree to Wowza EULA",
-          "default": "yes"
-        },
-        {
-          "name": "WOWZA_KEY",
-          "label": "License key",
-          "default": ""
-        }
-      ]
-    },
-    {
       "id": "wps-office",
       "name": "Wps-office",
       "version": "latest",
@@ -29735,35 +26957,6 @@
           "name": "PGID",
           "label": "Group ID",
           "default": "100"
-        }
-      ]
-    },
-    {
-      "id": "zitadel",
-      "name": "Zitadel",
-      "version": "latest",
-      "category": "Outils & Utilitaires",
-      "tagline": "Zitadel - modern identity infrastructure: OIDC, SAML, passkeys-first login, multi-tenant organizations, and JS actions f",
-      "description": "Zitadel - modern identity infrastructure: OIDC, SAML, passkeys-first login, multi-tenant organizations, and JS actions for custom logic. One stateless Go binary on Postgres - the lightest full IdP in the catalogue (~512 MB).",
-      "website": "",
-      "icon": "https://cdn.jsdelivr.net/gh/selfhst/icons/png/zitadel.png",
-      "default_port": 5000,
-      "extra_ports": [],
-      "recommended": false,
-      "type": "compose",
-      "compose_file": "compose.yaml",
-      "volumes": [
-        {
-          "host": "./data",
-          "container": "/data",
-          "description": "Données de la stack"
-        }
-      ],
-      "env": [
-        {
-          "name": "TZ",
-          "label": "Fuseau horaire",
-          "default": "Europe/Paris"
         }
       ]
     },

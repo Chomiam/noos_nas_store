@@ -1,4 +1,4 @@
-name: Synchronisation & Normalisation des Templates Portainer
+name: Synchronisation, Audit & Publication du Store STEvE_OS
 
 on:
   schedule:
@@ -10,8 +10,8 @@ permissions:
   contents: write
 
 jobs:
-  sync:
-    name: Importer, Valider & Publier les Applications
+  sync-and-audit:
+    name: Importer, Valider, Filtrer & Publier les Applications
     runs-on: ubuntu-latest
 
     steps:
@@ -29,40 +29,27 @@ jobs:
           pip install --upgrade pip
           pip install pyyaml requests
 
-      - name: ⚡ Exécution de l'ingesteur de templates
+      - name: ⚡ Étape 1 : Ingestion et normalisation des templates Portainer
         run: |
           python3 scripts/import_portainer.py
 
-      - name: 🧪 Tests de validation & intégrité des fichiers Compose
+      - name: 🛡️ Étape 2 : Audit qualité, vérification Compose Spec & élimination des images obsolètes
+        run: |
+          python3 scripts/validate_and_filter.py
+
+      - name: 🧪 Étape 3 : Contrôle d'intégrité final
         run: |
           echo "🔍 Vérification de store.json..."
-          python3 -c "import json; d = json.load(open('store.json')); assert d['total_apps'] > 100; print(f'✓ {d[\"total_apps\"]} applications validées dans store.json')"
+          python3 -c "import json; d = json.load(open('store.json')); assert d['total_apps'] > 100; print(f'✓ {d[\"total_apps\"]} applications certifiées prêtes dans store.json')"
 
-          echo "🔍 Validation syntaxique de chaque compose.yaml..."
-          python3 - << 'PYEOF'
-          import yaml
-          from pathlib import Path
-
-          apps_dir = Path("apps")
-          checked = 0
-          for c_file in apps_dir.glob("*/compose.yaml"):
-              with open(c_file, "r", encoding="utf-8") as f:
-                  data = yaml.safe_load(f)
-              assert isinstance(data, dict), f"YAML invalide dans {c_file}"
-              assert "services" in data, f"Pas de section 'services' dans {c_file}"
-              checked += 1
-
-          print(f"✓ {checked} fichiers compose.yaml testés et validés avec succès !")
-          PYEOF
-
-      - name: 🚀 Commit et Publication sur GitHub
+      - name: 🚀 Étape 4 : Commit et Publication sur GitHub
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git add store.json apps/
           if git diff --staged --quiet; then
-            echo "ℹ️ Aucune modification détectée. Catalogue déjà à jour."
+            echo "ℹ️ Aucune modification détectée. Catalogue déjà à jour et conforme."
           else
-            git commit -m "chore(store): synchronisation et normalisation automatique des templates Portainer ($(date +'%Y-%m-%d'))"
+            git commit -m "chore(store): synchronisation, filtrage qualité et publication automatique ($(date +'%Y-%m-%d'))"
             git push origin main
           fi
