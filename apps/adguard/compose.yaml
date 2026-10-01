@@ -23,10 +23,6 @@ services:
       - "80:80/tcp"
       # DNS over TLS (DoT chiffré)
       - "853:853/tcp"
-      # Serveur DHCP (Optionnel)
-      - "67:67/udp"
-      - "68:68/tcp"
-      - "68:68/udp"
     volumes:
       - ./data/work:/opt/adguardhome/work
       - ./data/conf:/opt/adguardhome/conf
