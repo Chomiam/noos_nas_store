@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     volumes:
     - ./data/timezone:/etc/timezone
-    - ./data/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
     environment:
     - PUID=1000
     - PGID=100

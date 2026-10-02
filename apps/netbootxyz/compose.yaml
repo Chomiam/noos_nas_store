@@ -9,7 +9,7 @@ services:
     volumes:
     - ./data/apps/netbootxyz:/config
     - ./data/netbootxyz:/assets
-    - ./data/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
     environment:
     - PUID=15000
     - PGID=15000

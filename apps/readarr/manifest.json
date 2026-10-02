@@ -34,7 +34,7 @@
       "description": "Dossier /blackhole"
     },
     {
-      "host": "./data/localtime",
+      "host": "/etc/localtime",
       "container": "/etc/localtime",
       "description": "Dossier /etc/localtime"
     }

@@ -1,22 +1,33 @@
 {
   "id": "immich",
-  "name": "Immich {shmolf}",
+  "name": "Immich",
   "version": "latest",
   "category": "Multimédia",
-  "tagline": "Self-hosted backup solution for photos and videos on mobile device",
-  "description": "Self-hosted backup solution for photos and videos on mobile device.",
-  "website": "",
-  "icon": "https://raw.githubusercontent.com/shmolf/portainer-templates/main/assets/logos/immich-logo.svg",
-  "default_port": 8080,
+  "tagline": "Solution d'auto-hébergement haute performance pour la sauvegarde de photos et vidéos",
+  "description": "Immich est une solution autonome de sauvegarde et de gestion de photos et vidéos pour smartphones et ordinateurs, avec reconnaissance faciale par apprentissage automatique (ML) et transcodage matériel GPU.",
+  "website": "https://immich.app",
+  "icon": "https://raw.githubusercontent.com/immich-app/immich/main/assets/immich-logo.svg",
+  "default_port": 2283,
   "extra_ports": [],
   "recommended": true,
+  "gpu_support": true,
   "type": "compose",
   "compose_file": "compose.yaml",
   "volumes": [
     {
-      "host": "./data",
-      "container": "/data",
-      "description": "Données de la stack"
+      "host": "./data/library",
+      "container": "/usr/src/app/upload",
+      "description": "Bibliothèque de photos et vidéos"
+    },
+    {
+      "host": "./data/postgres",
+      "container": "/var/lib/postgresql/data",
+      "description": "Base de données vectorielle PostgreSQL (pgvecto-rs)"
+    },
+    {
+      "host": "./data/model-cache",
+      "container": "/cache",
+      "description": "Modèles IA et cache Machine Learning"
     }
   ],
   "env": [
@@ -24,6 +35,11 @@
       "name": "TZ",
       "label": "Fuseau horaire",
       "default": "Europe/Paris"
+    },
+    {
+      "name": "DB_PASSWORD",
+      "label": "Mot de passe base de données",
+      "default": "postgres"
     }
   ]
 }

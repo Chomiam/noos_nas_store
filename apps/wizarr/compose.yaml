@@ -7,7 +7,7 @@ services:
     - 5690/tcp
     volumes:
     - ./data/apps/wizarr:/data/database
-    - ./data/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
     environment:
     - PUID=1000
     - PGID=100

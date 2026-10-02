@@ -21,6 +21,6 @@ services:
     - DISABLE_CLAMAV=TRUE
     - DISABLE_RSPAMD=TRUE
     volumes:
-    - ./data/localtime:/etc/localtime:ro
+    - /etc/localtime:/etc/localtime:ro
     - ./data/poste/data/nginx/html/.well-known:/opt/www/.well-known
     - ./data/poste/data/mailserver:/dataroot

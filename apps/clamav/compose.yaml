@@ -7,7 +7,7 @@ services:
     - 3310:3310/tcp
     volumes:
     - ./data/timezone:/etc/timezone
-    - ./data/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
     - ./data/clamav/config:/etc/clamav
     - ./data/clamav/virus_definitions:/var/lib/clamav
     environment:

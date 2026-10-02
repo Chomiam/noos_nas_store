@@ -24,7 +24,7 @@
       "description": "Dossier /data"
     },
     {
-      "host": "./data/localtime",
+      "host": "/etc/localtime",
       "container": "/etc/localtime",
       "description": "Dossier /etc/localtime"
     }

@@ -6,7 +6,7 @@ services:
     ports:
     - 8112:8112/tcp
     volumes:
-    - ./data/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
     - ./data/Downloads:/downloads
     - ./data/DelugeOpenVPN/config:/config
     environment:

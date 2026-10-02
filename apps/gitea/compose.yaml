@@ -9,7 +9,7 @@ services:
     volumes:
     - ./data/Gitea:/data
     - ./data/ /etc/timezone:/etc/timezone:ro
-    - ./data/localtime:/etc/localtime:ro
+    - /etc/localtime:/etc/localtime:ro
     environment:
     - PUID=1000
     - PGID=100

@@ -10,7 +10,7 @@ services:
     - ./data/ebooks:/downloads
     - ./data/ebooks:/books
     - ./data/ebooks:/blackhole
-    - ./data/localtime:/etc/localtime
+    - /etc/localtime:/etc/localtime:ro
     environment:
     - PUID=15000
     - PGID=15000
