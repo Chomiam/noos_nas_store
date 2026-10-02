@@ -6,7 +6,7 @@
   "tagline": "Solution d'auto-hébergement haute performance pour la sauvegarde de photos et vidéos",
   "description": "Immich est une solution autonome de sauvegarde et de gestion de photos et vidéos pour smartphones et ordinateurs, avec reconnaissance faciale par apprentissage automatique (ML) et transcodage matériel GPU.",
   "website": "https://immich.app",
-  "icon": "https://raw.githubusercontent.com/immich-app/immich/main/assets/immich-logo.svg",
+  "icon": "https://raw.githubusercontent.com/immich-app/immich/main/design/immich-logo.svg",
   "default_port": 2283,
   "extra_ports": [],
   "recommended": true,
