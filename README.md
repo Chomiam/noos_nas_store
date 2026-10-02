@@ -1,6 +1,6 @@
-# 🛍️ STEvE_OS NAS Store
+# 🛍️ Noos NAS Store
 
-Boutique officielle et catalogue déclaratif d'applications Docker pour **STEvE_OS NAS Edition**.
+Boutique officielle et catalogue déclaratif d'applications Docker pour **Noos NAS Edition**.
 
 ## 📖 Fonctionnement
 

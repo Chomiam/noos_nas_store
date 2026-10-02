@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-STEvE_OS NAS Store — Portainer Templates Adapter & Ingestion Pipeline
+Noos NAS Store — Portainer Templates Adapter & Ingestion Pipeline
 Ce script télécharge les templates Portainer amont (ex: Lissy93/portainer-templates),
 filtre les templates obsolètes ou défectueux, normalise les volumes et variables,
-résout les Stacks Compose externes, et génère un catalogue Docker Compose 100% propre pour STEvE_OS.
+résout les Stacks Compose externes, et génère un catalogue Docker Compose 100% propre pour Noos.
 """
 
 import os
@@ -169,7 +169,7 @@ def resolve_external_stackfile(repo_url, stackfile_path):
     for branch in branches:
         test_url = f"{raw_base}/{branch}/{clean_path}"
         try:
-            req = urllib.request.Request(test_url, headers={"User-Agent": "STEvE_OS-Store-Importer/1.0"})
+            req = urllib.request.Request(test_url, headers={"User-Agent": "Noos-Store-Importer/1.0"})
             with urllib.request.urlopen(req, timeout=8) as res:
                 if res.status == 200:
                     content = res.read().decode('utf-8', errors='ignore')
@@ -183,7 +183,7 @@ def resolve_external_stackfile(repo_url, stackfile_path):
     return None
 
 def normalize_compose_dict(compose_data, app_id):
-    """Normalise un dictionnaire compose pour l'environnement STEvE_OS"""
+    """Normalise un dictionnaire compose pour l'environnement Noos"""
     services = compose_data.get("services", {})
     if not services:
         return False
@@ -417,12 +417,12 @@ def process_single_template(t):
 
 def main():
     print("=================================================================")
-    print("🚀 STEvE_OS NAS Store — Démarrage du pipeline d'ingestion Portainer")
+    print("🚀 Noos NAS Store — Démarrage du pipeline d'ingestion Portainer")
     print("=================================================================")
 
     print(f"📥 Téléchargement de la source amont : {SOURCE_URL}")
     try:
-        req = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "STEvE_OS-Store-Importer/1.0"})
+        req = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "Noos-Store-Importer/1.0"})
         with urllib.request.urlopen(req, timeout=15) as res:
             raw_data = json.loads(res.read().decode('utf-8'))
     except Exception as e:
@@ -478,7 +478,7 @@ def main():
     store_catalog = {
         "version": "2.0.0",
         "updated_at": "2026-10-01T02:00:00Z",
-        "repository": "https://github.com/Chomiam/steveos_nas_store",
+        "repository": "https://github.com/Chomiam/noos_nas_store",
         "total_apps": len(final_store_apps),
         "categories": categories,
         "apps": final_store_apps

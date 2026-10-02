@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-STEvE_OS NAS Store — Filtre et Validateur de Qualité Avancé
+Noos NAS Store — Filtre et Validateur de Qualité Avancé
 Ce script audite rigoureusement toutes les applications du catalogue :
 1. Test de conformité Docker Compose specification via `docker compose config`.
 2. Détection et exclusion des applications dépréciées (keywords: deprecated, eol, etc.).
@@ -50,7 +50,7 @@ def get_dockerhub_info(repo):
         clean_repo = f"library/{clean_repo}"
 
     url = f"https://hub.docker.com/v2/repositories/{clean_repo}/"
-    req = urllib.request.Request(url, headers={"User-Agent": "STEvE_OS-Store-Auditor/1.0"})
+    req = urllib.request.Request(url, headers={"User-Agent": "Noos-Store-Auditor/1.0"})
 
     try:
         with urllib.request.urlopen(req, timeout=6) as res:
@@ -162,7 +162,7 @@ def re_word_match(keyword, text):
 
 def main():
     print("=================================================================")
-    print("🛡️ STEvE_OS NAS Store — Audit & Filtrage Qualité Automatique")
+    print("🛡️ Noos NAS Store — Audit & Filtrage Qualité Automatique")
     print("=================================================================")
 
     if not APPS_DIR.exists():
@@ -212,7 +212,7 @@ def main():
     store_catalog = {
         "version": "2.0.0",
         "updated_at": "2026-10-01T02:00:00Z",
-        "repository": "https://github.com/Chomiam/steveos_nas_store",
+        "repository": "https://github.com/Chomiam/noos_nas_store",
         "total_apps": len(valid_manifests),
         "categories": categories,
         "apps": valid_manifests
