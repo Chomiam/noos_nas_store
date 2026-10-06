@@ -6,8 +6,6 @@
 # Mode         : Production
 # =========================================================================
 
-version: "3.8"
-
 services:
   immich-server:
     container_name: immich_server
@@ -15,6 +13,8 @@ services:
     volumes:
       - ${UPLOAD_LOCATION:-./data/library}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich_postgres
@@ -35,6 +35,8 @@ services:
     image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
     volumes:
       - ./data/model-cache:/cache
+    env_file:
+      - .env
     environment:
       - NODE_ENV=production
       - TZ=${TZ:-Europe/Paris}
@@ -50,6 +52,8 @@ services:
   database:
     container_name: immich_postgres
     image: docker.io/tensorchord/pgvecto-rs:pg14-v0.2.1@sha256:9072418b7cc40e94703862a24b7738593e355d5cf516233cae6778f56f620822
+    env_file:
+      - .env
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
       POSTGRES_USER: ${DB_USERNAME:-postgres}
