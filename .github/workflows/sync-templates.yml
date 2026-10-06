@@ -1,4 +1,4 @@
-name: Synchronisation, Audit & Publication du Store STEvE_OS
+name: Synchronisation, Audit & Publication du Store Noos NAS
 
 on:
   schedule:

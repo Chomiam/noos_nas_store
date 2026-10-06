@@ -1,5 +1,5 @@
 # =========================================================================
-# 🐳 STEvE_OS NAS Edition — Configuration Docker Compose
+# 🐳 Noos NAS Edition — Configuration Docker Compose
 # Application  : AdGuard Home (adguard)
 # Port WebUI   : 3000 (Initialisation) / 80 (Administration)
 # Port DNS     : 53 (TCP/UDP)
