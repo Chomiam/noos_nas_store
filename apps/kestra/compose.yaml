@@ -1,42 +1,56 @@
 services:
-  kestra-postgres:
-    image: postgres
+  postgres:
+    image: postgres:16-alpine
+    container_name: kestra-postgres
     volumes:
-    - ./data/kestra/postgres-data:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
     environment:
-      POSTGRES_DB: kestra
-      POSTGRES_USER: kestra
-      POSTGRES_PASSWORD: k3str4
+      POSTGRES_DB: ${POSTGRES_DB:-kestra}
+      POSTGRES_USER: ${POSTGRES_USER:-kestra}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-k3str4_secret}
     healthcheck:
-      test:
-      - CMD-SHELL
-      - pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
-      interval: 30s
-      timeout: 10s
-      retries: 10
+      test: ["CMD-SHELL", "pg_isready -d ${POSTGRES_DB:-kestra} -U ${POSTGRES_USER:-kestra}"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
     restart: unless-stopped
+
   kestra:
     image: kestra/kestra:latest
-    pull_policy: always
+    container_name: kestra
     user: root
     command: server standalone
     volumes:
-    - ./data/kestra/kestra-data:/app/storage
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./data/kestra/kestra-wd:/tmp/kestra-wd
+      - ./data/storage:/app/storage
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./data/tmp:/tmp/kestra-wd
     environment:
-      KESTRA_CONFIGURATION: "datasources:\n  kestra-postgres:\n    url: jdbc:postgresql://postgres:5432/kestra\n\
-        \    driverClassName: org.postgresql.Driver\n    username: kestra\n    password:\
-        \ k3str4\nkestra:\n  server:\n    basicAuth:\n      enabled: false\n     \
-        \ username: \"admin@localhost.dev\" # it must be a valid email address\n \
-        \     password: kestra\n  repository:\n    type: postgres\n  storage:\n  \
-        \  type: local\n    local:\n      basePath: \"/app/storage\"\n  queue:\n \
-        \   type: postgres\n  tasks:\n    tmpDir:\n      path: /portainer/Files/AppData/Config/kestra/kestra-wd\n\
-        \  url: http://localhost:8080/\n"
+      KESTRA_CONFIGURATION: |
+        datasources:
+          postgres:
+            url: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-kestra}
+            driverClassName: org.postgresql.Driver
+            username: ${POSTGRES_USER:-kestra}
+            password: ${POSTGRES_PASSWORD:-k3str4_secret}
+        kestra:
+          server:
+            basicAuth:
+              enabled: false
+          repository:
+            type: postgres
+          storage:
+            type: local
+            local:
+              basePath: "/app/storage"
+          queue:
+            type: postgres
+          tasks:
+            tmpDir:
+              path: /tmp/kestra-wd
     ports:
-    - 8080:8080
-    - 8081:8081
+      - "${PORT:-8080}:8080"
+      - "${MANAGEMENT_PORT:-8081}:8081"
     depends_on:
-      kestra-postgres:
-        condition: service_started
+      postgres:
+        condition: service_healthy
     restart: unless-stopped
