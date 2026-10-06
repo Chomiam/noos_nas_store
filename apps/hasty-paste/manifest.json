@@ -24,6 +24,23 @@
       "name": "TZ",
       "label": "Fuseau horaire",
       "default": "Europe/Paris"
+    },
+    {
+      "name": "PUBLIC_URL",
+      "label": "URL publique",
+      "default": "http://localhost:9800"
+    },
+    {
+      "name": "AUTH_TOKEN_SECRET",
+      "label": "Secret token auth",
+      "default": "hasty_auth_token_secret_32chars",
+      "type": "secret"
+    },
+    {
+      "name": "SESSION_SECRET",
+      "label": "Secret de session",
+      "default": "hasty_session_secret_key_32chars",
+      "type": "secret"
     }
   ]
 }

@@ -3,32 +3,20 @@ services:
     container_name: ihatemoney
     image: ihatemoney/ihatemoney:latest
     environment:
-    - DEBUG=False
-    - ACTIVATE_ADMIN_DASHBOARD=False
-    - ACTIVATE_DEMO_PROJECT=True
-    - ADMIN_PASSWORD=
-    - ALLOW_PUBLIC_PROJECT_CREATION=True
-    - BABEL_DEFAULT_TIMEZONE=${TZ:-Europe/Paris}
-    - GREENLET_TEST_CPP=no
-    - MAIL_DEFAULT_SENDER="Budget manager <admin@example.com>"
-    - MAIL_PASSWORD=
-    - MAIL_PORT=25
-    - MAIL_SERVER=localhost
-    - MAIL_USE_SSL=False
-    - MAIL_USE_TLS=False
-    - MAIL_USERNAME=
-    - SECRET_KEY=tralala
-    - SESSION_COOKIE_SECURE=True
-    - SHOW_ADMIN_EMAIL=True
-    - SQLALCHEMY_DATABASE_URI=sqlite:////database/ihatemoney.db
-    - SQLALCHEMY_TRACK_MODIFICATIONS=False
-    - ENABLE_CAPTCHA=False
-    - LEGAL_LINK=
-    - PORT=8000
-    - PUID=1000
-    - PGID=100
+      - DEBUG=False
+      - ACTIVATE_ADMIN_DASHBOARD=False
+      - ACTIVATE_DEMO_PROJECT=True
+      - ALLOW_PUBLIC_PROJECT_CREATION=True
+      - BABEL_DEFAULT_TIMEZONE=${TZ:-Europe/Paris}
+      - MAIL_DEFAULT_SENDER=admin@example.com
+      - SECRET_KEY=${SECRET_KEY:-ihatemoney_secret_key_change_me}
+      - SESSION_COOKIE_SECURE=False
+      - SHOW_ADMIN_EMAIL=True
+      - SQLALCHEMY_DATABASE_URI=sqlite:////database/ihatemoney.db
+      - SQLALCHEMY_TRACK_MODIFICATIONS=False
+      - ENABLE_CAPTCHA=False
     volumes:
-    - ./data:/database
+      - ./data:/database
     ports:
-    - "${PORT:-8230}:8000"
+      - "${PORT:-8230}:8000"
     restart: unless-stopped

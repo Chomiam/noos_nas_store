@@ -4,6 +4,15 @@ services:
     image: ghcr.io/enchant97/hasty-paste:latest
     restart: unless-stopped
     volumes:
-    - ./data:/app/data
+      - ./data:/app/data
+    environment:
+      - BIND__HOST=0.0.0.0
+      - BIND__PORT=8000
+      - PUBLIC_URL=${PUBLIC_URL:-http://localhost:9800}
+      - DB_URI=${DB_URI:-sqlite:///app/data/hasty.db}
+      - ATTACHMENTS_PATH=${ATTACHMENTS_PATH:-/app/data/attachments}
+      - AUTH_TOKEN_SECRET=${AUTH_TOKEN_SECRET:-MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTIzNDU2Nzg5MDE=}
+      - SESSION_SECRET=${SESSION_SECRET:-YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXoxMjM0NTY=}
+      - TZ=${TZ:-Europe/Paris}
     ports:
-    - "${PORT:-9800}:8000"
+      - "${PORT:-9800}:8000"

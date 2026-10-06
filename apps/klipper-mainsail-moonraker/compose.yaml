@@ -1,5 +1,20 @@
-version: '3'
 services:
+  init:
+    image: busybox:latest
+    restart: "no"
+    volumes:
+      - ./data/config:/opt/printer_data/config
+    command:
+      - sh
+      - -c
+      - |
+        if [ ! -f /opt/printer_data/config/moonraker.conf ]; then
+          printf "[server]\nhost: 0.0.0.0\nport: 7125\nklippy_uds_address: /opt/printer_data/run/klipper.sock\n[machine]\nprovider: none\nvalidate_service: False\n[authorization]\ntrusted_clients:\n  0.0.0.0/0\ncors_domains:\n  *\n[octoprint_compat]\n[history]\n" > /opt/printer_data/config/moonraker.conf
+        fi
+        if [ ! -f /opt/printer_data/config/printer.cfg ]; then
+          printf "[mcu]\nserial: /dev/null\n[printer]\nkinematics: none\nmax_velocity: 300\nmax_accel: 3000\n" > /opt/printer_data/config/printer.cfg
+        fi
+
   klipper:
     hostname: klipper
     image: mkuf/klipper:latest
@@ -11,8 +26,12 @@ services:
       - ./data/run:/opt/printer_data/run
       - ./data/gcode:/opt/printer_data/gcodes
     restart: unless-stopped
+    depends_on:
+      init:
+        condition: service_completed_successfully
     networks:
       - klipper
+
   moonraker:
     hostname: moonraker
     image: mkuf/moonraker:latest
@@ -25,8 +44,12 @@ services:
       - ./data/gcode:/opt/printer_data/gcodes
       - ./data/database:/opt/printer_data/database
     restart: unless-stopped
+    depends_on:
+      init:
+        condition: service_completed_successfully
     networks:
       - klipper
+
   mainsail:
     hostname: mainsail
     image: ghcr.io/mainsail-crew/mainsail:edge
@@ -37,5 +60,6 @@ services:
     restart: unless-stopped
     networks:
       - klipper
+
 networks:
   klipper:
