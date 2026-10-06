@@ -1,46 +1,40 @@
 version: '3.8'
+
 services:
-  priceghost-postgres:
+  postgres:
     image: postgres:16-alpine
     container_name: priceghost-db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: priceghost
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-priceghost}
     volumes:
-    - ./data/priceghost-postgres_data:/var/lib/postgresql/data
-    - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
-    ports:
-    - 5432:5432
+      - ./data/postgres:/var/lib/postgresql/data
     healthcheck:
-      test:
-      - CMD-SHELL
-      - pg_isready -U postgres
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
     restart: unless-stopped
-  priceghost-backend:
+
+  backend:
     image: ghcr.io/clucraft/priceghost-backend:latest
     container_name: priceghost-backend
     environment:
-      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/priceghost
-      JWT_SECRET: ${JWT_SECRET:-change-this-in-production-use-strong-secret}
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-priceghost}
+      JWT_SECRET: ${JWT_SECRET:-priceghost_secret_key_change_me}
       PORT: 3001
       NODE_ENV: production
-    ports:
-    - 3001:3001
     depends_on:
       postgres:
         condition: service_healthy
     restart: unless-stopped
-  priceghost-frontend:
+
+  frontend:
     image: ghcr.io/clucraft/priceghost-frontend:latest
     container_name: priceghost-frontend
     ports:
-    - 80:80
+      - "${PORT:-8245}:80"
     depends_on:
-    - backend
+      - backend
     restart: unless-stopped
-volumes:
-  priceghost-postgres_data: null

@@ -4,8 +4,6 @@ services:
     image: ghcr.io/enchant97/hasty-paste:latest
     restart: unless-stopped
     volumes:
-    - ./data/portainer/Files/AppData/Config/hasty-paste:/app/data
+    - ./data:/app/data
     ports:
-    - 98000:8000
-volumes:
-  data: null
+    - "${PORT:-9800}:8000"

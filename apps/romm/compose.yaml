@@ -4,45 +4,47 @@ services:
     container_name: romm
     restart: unless-stopped
     environment:
-    - DB_HOST=romm-db
-    - DB_NAME=romm
-    - DB_USER=romm-user
-    - DB_PASSWD=
-    - ROMM_AUTH_SECRET_KEY=
-    - IGDB_CLIENT_ID=
-    - IGDB_CLIENT_SECRET=
-    - MOBYGAMES_API_KEY=
-    - STEAMGRIDDB_API_KEY=
+      - DB_HOST=romm-db
+      - DB_NAME=${DB_NAME:-romm}
+      - DB_USER=${DB_USER:-romm-user}
+      - DB_PASSWD=${DB_PASSWD:-romm_password}
+      - ROMM_AUTH_SECRET_KEY=${ROMM_AUTH_SECRET_KEY:-romm_auth_secret_key_32chars}
+      - IGDB_CLIENT_ID=${IGDB_CLIENT_ID:-}
+      - IGDB_CLIENT_SECRET=${IGDB_CLIENT_SECRET:-}
+      - MOBYGAMES_API_KEY=${MOBYGAMES_API_KEY:-}
+      - STEAMGRIDDB_API_KEY=${STEAMGRIDDB_API_KEY:-}
     volumes:
-    - ./data/romm/resources:/romm/resources
-    - ./data/romm/redis_data:/redis-data
-    - ./data/library:/romm/library
-    - ./data/assets:/romm/assets
-    - ./data/romm/config:/romm/config
+      - ./data/resources:/romm/resources
+      - ./data/redis_data:/redis-data
+      - ./data/library:/romm/library
+      - ./data/assets:/romm/assets
+      - ./data/config:/romm/config
     ports:
-    - 480:8080
+      - "${PORT:-480}:8080"
     depends_on:
       romm-db:
         condition: service_healthy
         restart: true
+
   romm-db:
     image: mariadb:latest
     container_name: romm-db
     restart: unless-stopped
-    env_file:
-    - romm.env
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD:-romm_root_secret}
+      MARIADB_DATABASE: ${DB_NAME:-romm}
+      MARIADB_USER: ${DB_USER:-romm-user}
+      MARIADB_PASSWORD: ${DB_PASSWD:-romm_password}
     volumes:
-    - ./data/romm/maria-db:/var/lib/mysql
+      - ./data/maria-db:/var/lib/mysql
     healthcheck:
       test:
-      - CMD
-      - healthcheck.sh
-      - --connect
-      - --innodb_initialized
+        - CMD
+        - healthcheck.sh
+        - --connect
+        - --innodb_initialized
       start_period: 30s
       start_interval: 10s
       interval: 10s
       timeout: 5s
       retries: 5
-    ports:
-    - $DB_PORT:3306

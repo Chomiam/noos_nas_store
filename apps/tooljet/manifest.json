@@ -24,6 +24,18 @@
       "name": "TZ",
       "label": "Fuseau horaire",
       "default": "Europe/Paris"
+    },
+    {
+      "name": "PG_PASS",
+      "label": "Mot de passe PostgreSQL",
+      "default": "tooljet_postgres_secret",
+      "type": "password"
+    },
+    {
+      "name": "SECRET_KEY_BASE",
+      "label": "Clé secrète de chiffrement",
+      "default": "tooljet_secret_key_change_me_32c",
+      "type": "secret"
     }
   ]
 }

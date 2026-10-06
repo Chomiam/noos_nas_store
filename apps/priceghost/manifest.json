@@ -4,10 +4,10 @@
   "version": "latest",
   "category": "Outils & Utilitaires",
   "tagline": "A self-hosted price tracking application that monitors product prices from any website",
-  "description": "A self-hosted price tracking application that monitors product prices from any website.Get notified when prices drop, hit your target price, or items come back in stock.",
+  "description": "A self-hosted price tracking application that monitors product prices from any website. Get notified when prices drop, hit your target price, or items come back in stock.",
   "website": "",
   "icon": "https://github.com/clucraft/PriceGhost/raw/main/assets/header.svg",
-  "default_port": 5432,
+  "default_port": 8245,
   "extra_ports": [],
   "recommended": false,
   "type": "compose",
@@ -24,6 +24,18 @@
       "name": "TZ",
       "label": "Fuseau horaire",
       "default": "Europe/Paris"
+    },
+    {
+      "name": "POSTGRES_PASSWORD",
+      "label": "Mot de passe base de données",
+      "default": "priceghost_postgres_secret",
+      "type": "password"
+    },
+    {
+      "name": "JWT_SECRET",
+      "label": "Clé secrète JWT",
+      "default": "priceghost_jwt_secret",
+      "type": "secret"
     }
   ]
 }

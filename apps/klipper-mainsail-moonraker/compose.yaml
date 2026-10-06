@@ -4,37 +4,38 @@ services:
     hostname: klipper
     image: mkuf/klipper:latest
     devices:
-    - ${3D_PRINTER_DEVICE}:${3D_PRINTER_DEVICE}
+      - ${PRINTER_DEVICE:-/dev/null}:${PRINTER_DEVICE:-/dev/null}
     volumes:
-    - ./data/klipper/klipper/printer.cfg:/opt/printer_data/config/printer.cfg
-    - ./data/klipper/klipper/logs:/opt/printer_data/logs
-    - ./data/klipper/run:/opt/printer_data/run
-    - ./data/klipper/gcode:/opt/printer_data/gcodes
+      - ./data/config:/opt/printer_data/config
+      - ./data/logs:/opt/printer_data/logs
+      - ./data/run:/opt/printer_data/run
+      - ./data/gcode:/opt/printer_data/gcodes
     restart: unless-stopped
     networks:
-    - klipper
+      - klipper
   moonraker:
     hostname: moonraker
     image: mkuf/moonraker:latest
     ports:
-    - 7125:7125
+      - "${PORT:-7125}:7125"
     volumes:
-    - ./data/klipper/moonraker/moonraker.conf:/opt/printer_data/config/moonraker.conf
-    - ./data/klipper/moonraker/logs:/opt/printer_data/logs
-    - ./data/klipper/run:/opt/printer_data/run
-    - ./data/klipper/gcode:/opt/printer_data/gcodes
+      - ./data/config:/opt/printer_data/config
+      - ./data/logs:/opt/printer_data/logs
+      - ./data/run:/opt/printer_data/run
+      - ./data/gcode:/opt/printer_data/gcodes
+      - ./data/database:/opt/printer_data/database
     restart: unless-stopped
     networks:
-    - klipper
+      - klipper
   mainsail:
     hostname: mainsail
     image: ghcr.io/mainsail-crew/mainsail:edge
     ports:
-    - 4070:80
+      - "${MAINSAIL_PORT:-4070}:80"
     volumes:
-    - ./data/klipper/mainsail/config.json:/usr/share/nginx/html/config.json
+      - ./data/mainsail:/usr/share/nginx/html/config
     restart: unless-stopped
     networks:
-    - klipper
+      - klipper
 networks:
-  klipper: null
+  klipper:

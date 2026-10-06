@@ -24,6 +24,18 @@
       "name": "TZ",
       "label": "Fuseau horaire",
       "default": "Europe/Paris"
+    },
+    {
+      "name": "DB_PASSWD",
+      "label": "Mot de passe MariaDB",
+      "default": "romm_db_secret_pass",
+      "type": "password"
+    },
+    {
+      "name": "ROMM_AUTH_SECRET_KEY",
+      "label": "Clé secrète RomM Auth",
+      "default": "romm_secret_key_change_me",
+      "type": "secret"
     }
   ]
 }
