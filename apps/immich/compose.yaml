@@ -44,14 +44,14 @@ services:
 
   redis:
     container_name: immich_redis
-    image: docker.io/redis:6.2-alpine@sha256:eaba718fecd1196d8853322149184fa3672ab3d8a11e61c246ab60fe9db50a82
+    image: docker.io/redis:6.2-alpine
     healthcheck:
       test: [ "CMD-SHELL", "redis-cli ping || exit 1" ]
     restart: always
 
   database:
     container_name: immich_postgres
-    image: docker.io/tensorchord/pgvecto-rs:pg14-v0.2.1@sha256:9072418b7cc40e94703862a24b7738593e355d5cf516233cae6778f56f620822
+    image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
     env_file:
       - .env
     environment:
