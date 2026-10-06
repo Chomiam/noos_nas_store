@@ -13,8 +13,6 @@ services:
     volumes:
       - ${UPLOAD_LOCATION:-./data/library}:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
-    env_file:
-      - .env
     environment:
       - NODE_ENV=production
       - DB_HOSTNAME=immich_postgres
@@ -35,8 +33,6 @@ services:
     image: ghcr.io/immich-app/immich-machine-learning:${IMMICH_VERSION:-release}
     volumes:
       - ./data/model-cache:/cache
-    env_file:
-      - .env
     environment:
       - NODE_ENV=production
       - TZ=${TZ:-Europe/Paris}
@@ -52,8 +48,6 @@ services:
   database:
     container_name: immich_postgres
     image: ghcr.io/immich-app/postgres:14-vectorchord0.4.3-pgvectors0.2.0@sha256:bcf63357191b76a916ae5eb93464d65c07511da41e3bf7a8416db519b40b1c23
-    env_file:
-      - .env
     environment:
       POSTGRES_PASSWORD: ${DB_PASSWORD:-postgres}
       POSTGRES_USER: ${DB_USERNAME:-postgres}
