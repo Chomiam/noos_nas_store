@@ -10,6 +10,7 @@
   [![Storage](https://img.shields.io/badge/Stockage-Donn%C3%A9es%20Unifi%C3%A9es%20~%2Fdocker-purple?style=for-the-badge)](#)
   [![Zero Conflict](https://img.shields.io/badge/R%C3%A9seau-Z%C3%A9ro%20Conflit%20de%20Port-orange?style=for-the-badge)](#)
   [![Security](https://img.shields.io/badge/S%C3%A9curit%C3%A9-Audit%C3%A9%20%26%20Isol%C3%A9-teal?style=for-the-badge)](#)
+  [![License](https://img.shields.io/badge/Licence-GNU%20GPLv3-blue?style=for-the-badge)](LICENSE)
 
   <p align="center">
     <strong>Déployez les meilleurs services open-source du monde en un seul clic. Vos applications, vos données, votre cloud personnel sans intermédiaire.</strong>
@@ -116,6 +117,13 @@ Vous souhaitez ajouter une nouvelle application au Store officiel Noos NAS ? Les
 2. Créez un dossier `apps/<nom_application>/` contenant votre `compose.yaml` et votre `manifest.json`.
 3. Assurez-vous que les volumes montent des chemins relatifs ou sous `/home/${USER}/docker/<nom_application>/`.
 4. Ouvrez une Pull Request sur la branche `main`. Notre pipeline d'intégration continue vérifiera automatiquement la conformité du manifest et l'intégrité de la configuration.
+
+---
+
+## 📄 Licence
+
+Ce projet est distribué sous licence libre et copyleft **GNU General Public License v3.0 (GPLv3)**.  
+Consultez le fichier [LICENSE](LICENSE) pour plus d'informations.
 
 ---
 
