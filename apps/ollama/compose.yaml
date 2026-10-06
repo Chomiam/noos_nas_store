@@ -11,3 +11,18 @@ services:
     - ./data/models:/root/.ollama
 volumes:
   models: null
+
+# =========================================================================
+# 🎮 Accélération Matérielle GPU (Optionnelle) :
+# - Pour Intel QuickSync / AMD (ROCm) :
+#   devices:
+#     - /dev/dri:/dev/dri
+# - Pour NVIDIA (CUDA) :
+#   deploy:
+#     resources:
+#       reservations:
+#         devices:
+#           - driver: nvidia
+#             count: all
+#             capabilities: [gpu]
+# =========================================================================

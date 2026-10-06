@@ -16,3 +16,18 @@ services:
     - PGID=1000
     - TZ=Etc/UTC
     - UMASK=002
+
+# =========================================================================
+# 🎮 Accélération Matérielle GPU (Optionnelle) :
+# - Pour Intel QuickSync / AMD (VAAPI) :
+#   devices:
+#     - /dev/dri:/dev/dri
+# - Pour NVIDIA (NVENC) :
+#   deploy:
+#     resources:
+#       reservations:
+#         devices:
+#           - driver: nvidia
+#             count: all
+#             capabilities: [gpu]
+# =========================================================================
